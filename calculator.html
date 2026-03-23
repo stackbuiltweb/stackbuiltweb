@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Website Audit | StackBuilt Web</title>
+<meta name="description" content="Enter your URL and get an instant website audit. We analyze performance, accessibility, SEO, and best practices using Google's PageSpeed Insights API.">
+
+<!-- Fonts -->
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================
+   CSS Custom Properties — Design Tokens
+   ======================================== */
+:root {
+  --bg-cream: #FDFBF7;
+  --bg-warm: #FAF7F2;
+  --bg-warm-alt: #F7F4EE;
+  --bg-card: #FFFFFF;
+  --bg-card-outer: rgba(12, 78, 84, 0.04);
+  --accent: #0C4E54;
+  --accent-light: #0E6B73;
+  --accent-muted: rgba(12, 78, 84, 0.08);
+  --accent-badge: rgba(12, 78, 84, 0.06);
+  --terracotta: #D4652E;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #A8A29E;
+  --text-on-accent: #FFFFFF;
+  --border-subtle: rgba(28, 25, 23, 0.06);
+  --border-card: rgba(28, 25, 23, 0.08);
+  --shadow-tinted: rgba(12, 78, 84, 0.06);
+  --shadow-soft: rgba(28, 25, 23, 0.04);
+
+  --font-body: 'Satoshi', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --section-py: clamp(5rem, 8vw, 8rem);
+  --container-px: clamp(1.25rem, 4vw, 3rem);
+  --container-max: 1320px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.32, 0.72, 0, 1);
+  --duration-base: 700ms;
+  --duration-fast: 400ms;
+  --duration-slow: 1000ms;
+
+  --green: #22C55E;
+  --light-green: #84CC16;
+  --yellow: #EAB308;
+  --orange: #F97316;
+  --red: #EF4444;
+}
+
+/* ========================================
+   Reset & Base
+   ======================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-cream);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Noise overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+
+.font-mono { font-family: var(--font-mono); }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--accent-badge);
+  color: var(--accent);
+  border: 1px solid rgba(12, 78, 84, 0.1);
+}
+
+/* Double-Bezel Card */
+.card-outer {
+  background: var(--bg-card-outer);
+  border: 1px solid var(--border-card);
+  border-radius: 1.5rem;
+  padding: 0.375rem;
+}
+
+.card-inner {
+  background: var(--bg-card);
+  border-radius: calc(1.5rem - 0.375rem);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.6),
+    0 20px 40px -15px var(--shadow-tinted),
+    0 4px 12px -4px var(--shadow-soft);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-outer.lg {
+  border-radius: 2rem;
+  padding: 0.5rem;
+}
+.card-outer.lg .card-inner {
+  border-radius: calc(2rem - 0.5rem);
+  padding: 2.5rem;
+}
+
+/* Pill Buttons */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  will-change: transform;
+}
+.btn-pill:active {
+  transform: scale(0.97) translateY(1px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+.btn-primary:hover {
+  background: var(--terracotta);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(212, 101, 46, 0.3);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-card);
+  box-shadow: 0 1px 3px var(--shadow-soft);
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px var(--shadow-tinted);
+  border-color: rgba(12, 78, 84, 0.15);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.2);
+  transition: transform var(--duration-fast) var(--ease-spring);
+  flex-shrink: 0;
+}
+.btn-pill:hover .btn-icon {
+  transform: translateX(2px) translateY(-1px) scale(1.05);
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  filter: blur(6px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo),
+              filter var(--duration-slow) var(--ease-out-expo);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.stagger-1 { transition-delay: 0ms; }
+.stagger-2 { transition-delay: 80ms; }
+.stagger-3 { transition-delay: 160ms; }
+.stagger-4 { transition-delay: 240ms; }
+.stagger-5 { transition-delay: 320ms; }
+.stagger-6 { transition-delay: 400ms; }
+
+.section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-subtle), var(--border-card), var(--border-subtle), transparent);
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+h2.section-heading {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.section-subhead {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--text-secondary);
+  max-width: 55ch;
+  line-height: 1.7;
+}
+
+/* ========================================
+   Navigation
+   ======================================== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: background var(--duration-fast) var(--ease-smooth),
+              box-shadow var(--duration-fast) var(--ease-smooth),
+              backdrop-filter var(--duration-fast) var(--ease-smooth);
+}
+.nav.scrolled {
+  background: rgba(253, 251, 247, 0.85);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  box-shadow: 0 1px 0 var(--border-subtle);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-px);
+}
+
+.nav-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.nav-logo span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.nav-links a:hover {
+  color: var(--accent);
+}
+.nav-links a.active {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+.nav-cta {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  transform-origin: center;
+}
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(253, 251, 247, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-out-expo);
+}
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.mobile-menu a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  transform: translateY(1.5rem);
+  opacity: 0;
+  transition: all var(--duration-base) var(--ease-out-expo);
+}
+.mobile-menu.open a {
+  transform: translateY(0);
+  opacity: 1;
+}
+.mobile-menu.open a:nth-child(1) { transition-delay: 80ms; }
+.mobile-menu.open a:nth-child(2) { transition-delay: 160ms; }
+.mobile-menu.open a:nth-child(3) { transition-delay: 240ms; }
+.mobile-menu.open a:nth-child(4) { transition-delay: 320ms; }
+.mobile-menu.open a:nth-child(5) { transition-delay: 400ms; }
+.mobile-menu a.active {
+  color: var(--accent);
+}
+
+/* ========================================
+   Hero Section
+   ======================================== */
+.hero {
+  min-height: 50dvh;
+  display: flex;
+  align-items: center;
+  padding-top: 8rem;
+  padding-bottom: clamp(3rem, 5vw, 5rem);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: var(--text-primary);
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 58ch;
+}
+
+/* ========================================
+   Grader Form
+   ======================================== */
+.grader-section {
+  padding-bottom: var(--section-py);
+}
+
+.grader-card {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.grader-card .card-inner {
+  padding: clamp(2rem, 4vw, 3rem);
+}
+
+/* Form */
+.grader-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.url-input-wrapper {
+  position: relative;
+}
+
+.url-input {
+  width: 100%;
+  padding: 1.125rem 1.5rem;
+  border: 2px solid var(--border-card);
+  border-radius: 1rem;
+  font-family: var(--font-mono);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--bg-warm);
+  transition: border-color var(--duration-fast) var(--ease-out-expo),
+              box-shadow var(--duration-fast) var(--ease-out-expo);
+  outline: none;
+}
+.url-input::placeholder {
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+.url-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-muted);
+}
+.url-input.invalid {
+  border-color: var(--red);
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+.url-error {
+  display: none;
+  font-size: 0.8125rem;
+  color: var(--red);
+  margin-top: 0.375rem;
+  padding-left: 0.25rem;
+}
+.url-error.show {
+  display: block;
+}
+
+.optional-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.optional-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-card);
+  border-radius: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color var(--duration-fast) var(--ease-out-expo);
+  outline: none;
+}
+.optional-input::placeholder {
+  color: var(--text-tertiary);
+}
+.optional-input:focus {
+  border-color: var(--accent);
+}
+.optional-input.full-width {
+  grid-column: 1 / -1;
+}
+
+.optional-label {
+  grid-column: 1 / -1;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  text-align: center;
+}
+
+.submit-btn {
+  padding: 1.125rem 2.5rem;
+  font-size: 1.0625rem;
+  align-self: center;
+}
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ========================================
+   Loading State
+   ======================================== */
+.loading-state {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  gap: 2rem;
+  min-height: 280px;
+}
+.loading-state.active {
+  display: flex;
+}
+
+.spinner {
+  width: 64px;
+  height: 64px;
+  border: 4px solid var(--accent-muted);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-message {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: opacity 0.3s ease;
+  text-align: center;
+  min-height: 1.6em;
+}
+
+/* ========================================
+   Error State
+   ======================================== */
+.error-state {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  gap: 1.5rem;
+  text-align: center;
+}
+.error-state.active {
+  display: flex;
+}
+
+.error-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+}
+
+.error-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.error-text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  max-width: 45ch;
+  line-height: 1.6;
+}
+
+/* ========================================
+   Results Display
+   ======================================== */
+.results-section {
+  display: none;
+  padding-bottom: var(--section-py);
+}
+.results-section.active {
+  display: block;
+}
+
+.results-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Overall Score Card */
+.overall-score-card {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.overall-score-card .card-inner {
+  padding: clamp(2.5rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.score-gauge-large {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.score-gauge-large svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.score-gauge-large .gauge-bg {
+  fill: none;
+  stroke: var(--bg-warm-alt);
+  stroke-width: 8;
+}
+
+.score-gauge-large .gauge-fill {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 502.65;
+  stroke-dashoffset: 502.65;
+  transition: stroke-dashoffset 1.5s var(--ease-out-expo);
+}
+
+.score-number-large {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-value-large {
+  font-family: var(--font-mono);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.score-label-large {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  margin-top: 0.25rem;
+}
+
+.grade-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+}
+
+.grade-description {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.analyzed-url {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  word-break: break-all;
+}
+
+/* Category Gauges */
+.category-gauges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.category-card .card-inner {
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.score-gauge-small {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.score-gauge-small svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.score-gauge-small .gauge-bg {
+  fill: none;
+  stroke: var(--bg-warm-alt);
+  stroke-width: 6;
+}
+
+.score-gauge-small .gauge-fill {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 263.89;
+  stroke-dashoffset: 263.89;
+  transition: stroke-dashoffset 1.5s var(--ease-out-expo);
+}
+
+.score-number-small {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.category-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Recommendations */
+.recommendations {
+  margin-bottom: 3rem;
+}
+
+.recommendations h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.rec-card {
+  margin-bottom: 1rem;
+}
+
+.rec-card .card-inner {
+  padding: 1.5rem 2rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.rec-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.rec-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.rec-icon.warning {
+  background: rgba(249, 115, 22, 0.1);
+  color: var(--orange);
+}
+.rec-icon.danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--red);
+}
+.rec-icon.success {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--green);
+}
+
+.rec-content {
+  flex: 1;
+}
+
+.rec-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.375rem;
+}
+
+.rec-text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Package Recommendation */
+.package-rec {
+  margin-bottom: 2rem;
+}
+
+.package-rec .card-inner {
+  padding: 2rem 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  background: var(--bg-warm);
+}
+
+.package-rec-text {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 55ch;
+}
+
+.package-rec-text strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Run Another Audit */
+.run-another-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ========================================
+   How It Works Section
+   ======================================== */
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.how-card .card-inner {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  min-height: 200px;
+}
+
+.how-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.how-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.how-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ========================================
+   CTA Section
+   ======================================== */
+.cta-section {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+
+.cta-block {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cta-block h2 {
+  color: var(--text-on-accent);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.cta-block .btn-pill {
+  background: var(--text-on-accent);
+  color: var(--accent);
+}
+.cta-block .btn-pill:hover {
+  background: var(--terracotta);
+  color: var(--text-on-accent);
+}
+.cta-block .btn-pill .btn-icon {
+  background: var(--accent-muted);
+}
+.cta-block .btn-pill:hover .btn-icon {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+.site-footer {
+  background: var(--accent);
+  color: rgba(255,255,255,0.7);
+  padding: 3rem 0 1.5rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.footer-brand {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-on-accent);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.375rem;
+}
+.footer-brand span {
+  color: var(--terracotta);
+}
+.footer-tagline {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.footer-links-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--terracotta);
+  margin-bottom: 0.125rem;
+}
+.footer-links a {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.footer-links a:hover {
+  color: var(--text-on-accent);
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+.footer-contact-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--terracotta);
+  margin-bottom: 0.125rem;
+}
+.footer-contact a {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.footer-contact a:hover {
+  color: var(--text-on-accent);
+}
+
+.footer-bottom {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+.footer-attribution a {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.footer-attribution a:hover {
+  color: var(--text-on-accent);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-cta.desktop { display: none; }
+  .hamburger { display: flex; }
+
+  .hero {
+    min-height: auto;
+    padding-top: 7rem;
+  }
+
+  .category-gauges {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .how-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .optional-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .rec-card .card-inner {
+    padding: 1.25rem 1.5rem;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .category-gauges {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .how-grid {
+    grid-template-columns: 1fr;
+  }
+  .score-gauge-large {
+    width: 150px;
+    height: 150px;
+  }
+  .score-value-large {
+    font-size: 2.75rem;
+  }
+  .package-rec .card-inner {
+    padding: 1.5rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ========================================
+     Navigation
+     ======================================== -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Stack<span>Built</span> Web</a>
+    <ul class="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/calculator.html" class="active">Free Audit</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="/calculator.html" class="btn-pill btn-primary nav-cta desktop">
+      Get Your Free Audit
+      <span class="btn-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index.html">Home</a>
+  <a href="/calculator.html" class="active">Free Audit</a>
+  <a href="/pricing.html">Pricing</a>
+  <a href="/services.html">Services</a>
+  <a href="/calculator.html" class="btn-pill btn-primary" style="margin-top: 1rem;">Get Your Free Audit</a>
+</div>
+
+<!-- ========================================
+     Hero Section
+     ======================================== -->
+<section class="hero section">
+  <div class="container">
+    <div class="hero-content">
+      <div class="reveal">
+        <span class="eyebrow">Free Website Audit</span>
+      </div>
+      <h1 class="reveal stagger-2">Find out what your website is really costing you.</h1>
+      <p class="hero-sub reveal stagger-3">Enter your URL below and we'll automatically analyze your site's performance, accessibility, SEO, and best practices. Get your score in under 60 seconds.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     Grader Form
+     ======================================== -->
+<section class="grader-section">
+  <div class="container">
+    <div class="grader-card card-outer lg reveal stagger-4">
+      <div class="card-inner">
+        <!-- Form State -->
+        <form class="grader-form" id="graderForm">
+          <div class="url-input-wrapper">
+            <input type="text" class="url-input" id="urlInput" placeholder="Enter your website URL (e.g., example.com)" autocomplete="off" spellcheck="false">
+            <div class="url-error" id="urlError">Please enter a valid website URL</div>
+          </div>
+
+          <div class="optional-fields">
+            <input type="text" class="optional-input" id="nameInput" placeholder="Your name">
+            <input type="email" class="optional-input" id="emailInput" placeholder="Email address">
+            <input type="tel" class="optional-input full-width" id="phoneInput" placeholder="Phone number">
+            <div class="optional-label">Optional — we'll send you the full report</div>
+          </div>
+
+          <button type="submit" class="btn-pill btn-primary submit-btn" id="submitBtn">
+            Analyze My Website
+            <span class="btn-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </button>
+        </form>
+
+        <!-- Loading State -->
+        <div class="loading-state" id="loadingState">
+          <div class="spinner"></div>
+          <div class="loading-message" id="loadingMessage">Checking mobile responsiveness...</div>
+        </div>
+
+        <!-- Error State -->
+        <div class="error-state" id="errorState">
+          <div class="error-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          </div>
+          <div class="error-title">Couldn't analyze that URL</div>
+          <div class="error-text" id="errorText">We couldn't analyze that URL. Please check that it's a valid, publicly accessible website and try again.</div>
+          <button class="btn-pill btn-primary" id="retryBtn" onclick="resetForm()">
+            Try Again
+            <span class="btn-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     Results Section
+     ======================================== -->
+<section class="results-section" id="resultsSection">
+  <div class="container">
+    <div class="results-container">
+
+      <!-- Overall Score Card -->
+      <div class="overall-score-card card-outer lg reveal">
+        <div class="card-inner">
+          <div class="score-gauge-large" id="overallGauge">
+            <svg viewBox="0 0 180 180">
+              <circle class="gauge-bg" cx="90" cy="90" r="80"/>
+              <circle class="gauge-fill" id="overallGaugeFill" cx="90" cy="90" r="80"/>
+            </svg>
+            <div class="score-number-large">
+              <span class="score-value-large font-mono" id="overallScore">0</span>
+              <span class="score-label-large">Overall</span>
+            </div>
+          </div>
+          <div class="grade-badge" id="gradeBadge">—</div>
+          <div class="grade-description" id="gradeDescription"></div>
+          <div class="analyzed-url" id="analyzedUrl"></div>
+        </div>
+      </div>
+
+      <!-- Category Gauges -->
+      <div class="category-gauges">
+        <div class="card-outer category-card reveal stagger-1" data-category="performance">
+          <div class="card-inner">
+            <div class="score-gauge-small">
+              <svg viewBox="0 0 100 100">
+                <circle class="gauge-bg" cx="50" cy="50" r="42"/>
+                <circle class="gauge-fill" cx="50" cy="50" r="42"/>
+              </svg>
+              <div class="score-number-small font-mono">0</div>
+            </div>
+            <div class="category-label">Performance</div>
+          </div>
+        </div>
+
+        <div class="card-outer category-card reveal stagger-2" data-category="accessibility">
+          <div class="card-inner">
+            <div class="score-gauge-small">
+              <svg viewBox="0 0 100 100">
+                <circle class="gauge-bg" cx="50" cy="50" r="42"/>
+                <circle class="gauge-fill" cx="50" cy="50" r="42"/>
+              </svg>
+              <div class="score-number-small font-mono">0</div>
+            </div>
+            <div class="category-label">Accessibility</div>
+          </div>
+        </div>
+
+        <div class="card-outer category-card reveal stagger-3" data-category="seo">
+          <div class="card-inner">
+            <div class="score-gauge-small">
+              <svg viewBox="0 0 100 100">
+                <circle class="gauge-bg" cx="50" cy="50" r="42"/>
+                <circle class="gauge-fill" cx="50" cy="50" r="42"/>
+              </svg>
+              <div class="score-number-small font-mono">0</div>
+            </div>
+            <div class="category-label">SEO</div>
+          </div>
+        </div>
+
+        <div class="card-outer category-card reveal stagger-4" data-category="bestPractices">
+          <div class="card-inner">
+            <div class="score-gauge-small">
+              <svg viewBox="0 0 100 100">
+                <circle class="gauge-bg" cx="50" cy="50" r="42"/>
+                <circle class="gauge-fill" cx="50" cy="50" r="42"/>
+              </svg>
+              <div class="score-number-small font-mono">0</div>
+            </div>
+            <div class="category-label">Best Practices</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommendations -->
+      <div class="recommendations reveal" id="recommendations">
+        <h3>What we found</h3>
+        <div id="recCards"></div>
+      </div>
+
+      <!-- Package Recommendation -->
+      <div class="package-rec card-outer lg reveal" id="packageRec">
+        <div class="card-inner">
+          <div class="package-rec-text" id="packageRecText"></div>
+          <a href="/contact.html" class="btn-pill btn-primary">
+            Get a Custom Proposal
+            <span class="btn-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Run Another Audit -->
+      <div class="run-another-wrapper reveal">
+        <button class="btn-pill btn-secondary" onclick="resetForm()">
+          Run Another Audit
+          <span class="btn-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          </span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ========================================
+     How It Works Section
+     ======================================== -->
+<section class="section" id="howItWorks">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow" style="margin-bottom: 1.25rem;">Methodology</span>
+    </div>
+    <h2 class="section-heading reveal stagger-2" style="max-width: 20ch; margin-top: 1rem;">How our audit works</h2>
+
+    <div class="how-grid">
+      <div class="card-outer how-card reveal stagger-2">
+        <div class="card-inner">
+          <span class="how-number">01</span>
+          <div class="how-title">Real Data</div>
+          <p class="how-desc">We use Google's own PageSpeed Insights API to analyze your site. The same tool Google uses to evaluate websites for search rankings.</p>
+        </div>
+      </div>
+
+      <div class="card-outer how-card reveal stagger-3">
+        <div class="card-inner">
+          <span class="how-number">02</span>
+          <div class="how-title">4 Key Areas</div>
+          <p class="how-desc">Performance (speed), Accessibility (usability), SEO (search visibility), and Best Practices (security and quality).</p>
+        </div>
+      </div>
+
+      <div class="card-outer how-card reveal stagger-4">
+        <div class="card-inner">
+          <span class="how-number">03</span>
+          <div class="how-title">Instant Results</div>
+          <p class="how-desc">Your complete audit takes under 60 seconds. No waiting for a sales call or downloading a PDF.</p>
+        </div>
+      </div>
+
+      <div class="card-outer how-card reveal stagger-5">
+        <div class="card-inner">
+          <span class="how-number">04</span>
+          <div class="how-title">Actionable Insights</div>
+          <p class="how-desc">We don't just show numbers. We explain what each score means and exactly what to fix.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ========================================
+     CTA Section
+     ======================================== -->
+<section class="cta-section section">
+  <div class="container">
+    <div class="cta-block">
+      <h2 class="reveal">Let StackBuilt Web build you a high-performing site</h2>
+      <a href="/contact.html" class="btn-pill reveal stagger-2" style="padding: 1rem 2rem; font-size: 1rem;">
+        Contact Us
+        <span class="btn-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     Footer
+     ======================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Stack<span>Built</span> Web</div>
+        <p class="footer-tagline">Serving Brevard County and beyond</p>
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.6);line-height:1.55;max-width:300px;">Modern websites for local service businesses. Fast builds, transparent pricing, real results.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-title">Quick Links</div>
+        <a href="/index.html">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/calculator.html">Free Audit</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-contact-title">Get in Touch</div>
+        <a href="mailto:geoff@stackbuiltweb.com">geoff@stackbuiltweb.com</a>
+        <span style="font-size:0.85rem;color:rgba(255,255,255,0.75);">Melbourne, FL</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 StackBuilt Web. All rights reserved.</span>
+      <span class="footer-attribution">
+        <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ========================================
+     JavaScript
+     ======================================== -->
+<script>
+(function() {
+  'use strict';
+
+  // ── Element References ──
+  var form = document.getElementById('graderForm');
+  var urlInput = document.getElementById('urlInput');
+  var urlError = document.getElementById('urlError');
+  var nameInput = document.getElementById('nameInput');
+  var emailInput = document.getElementById('emailInput');
+  var phoneInput = document.getElementById('phoneInput');
+  var submitBtn = document.getElementById('submitBtn');
+  var loadingState = document.getElementById('loadingState');
+  var loadingMessage = document.getElementById('loadingMessage');
+  var errorState = document.getElementById('errorState');
+  var errorText = document.getElementById('errorText');
+  var resultsSection = document.getElementById('resultsSection');
+
+  // ── Loading Messages ──
+  var loadingMessages = [
+    'Checking mobile responsiveness...',
+    'Analyzing page speed...',
+    'Evaluating SEO optimization...',
+    'Reviewing accessibility...',
+    'Measuring best practices...',
+    'Calculating your score...'
+  ];
+
+  var messageInterval = null;
+
+  // ── Scroll Reveal ──
+  function initReveal() {
+    var revealElements = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    revealElements.forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+  initReveal();
+
+  // ── Navbar Scroll ──
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 40) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  // ── Mobile Menu ──
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  var mobileLinks = mobileMenu.querySelectorAll('a');
+  mobileLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ── URL Validation ──
+  function normalizeUrl(input) {
+    var url = input.trim();
+    if (!url) return '';
+    // Auto-prepend https:// if not present
+    if (!/^https?:\/\//i.test(url)) {
+      url = 'https://' + url;
+    }
+    return url;
+  }
+
+  function isValidUrl(str) {
+    try {
+      var url = new URL(str);
+      // Must have a valid-looking hostname
+      return url.hostname.includes('.') && url.hostname.length > 3;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // Auto-prepend on blur
+  urlInput.addEventListener('blur', function() {
+    var val = urlInput.value.trim();
+    if (val && !/^https?:\/\//i.test(val)) {
+      urlInput.value = 'https://' + val;
+    }
+  });
+
+  urlInput.addEventListener('input', function() {
+    urlInput.classList.remove('invalid');
+    urlError.classList.remove('show');
+  });
+
+  // ── Form Submit ──
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var url = normalizeUrl(urlInput.value);
+    if (!url || !isValidUrl(url)) {
+      urlInput.classList.add('invalid');
+      urlError.classList.add('show');
+      urlInput.focus();
+      return;
+    }
+
+    urlInput.value = url;
+    startAnalysis(url);
+  });
+
+  function startAnalysis(url) {
+    // Show loading state
+    form.style.display = 'none';
+    errorState.classList.remove('active');
+    loadingState.classList.add('active');
+    resultsSection.classList.remove('active');
+    resultsSection.style.display = 'none';
+
+    // Rotate messages
+    var msgIndex = 0;
+    loadingMessage.textContent = loadingMessages[0];
+    messageInterval = setInterval(function() {
+      msgIndex = (msgIndex + 1) % loadingMessages.length;
+      loadingMessage.style.opacity = '0';
+      setTimeout(function() {
+        loadingMessage.textContent = loadingMessages[msgIndex];
+        loadingMessage.style.opacity = '1';
+      }, 200);
+    }, 2000);
+
+    // API Call
+    var apiUrl = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=' +
+      encodeURIComponent(url) +
+      '&strategy=mobile&category=performance&category=accessibility&category=seo&category=best-practices';
+
+    fetch(apiUrl)
+      .then(function(res) {
+        if (!res.ok) throw new Error('API returned ' + res.status);
+        return res.json();
+      })
+      .then(function(data) {
+        clearInterval(messageInterval);
+
+        if (!data.lighthouseResult || !data.lighthouseResult.categories) {
+          throw new Error('Invalid API response');
+        }
+
+        var categories = data.lighthouseResult.categories;
+        var scores = {
+          performance: Math.round((categories.performance ? categories.performance.score : 0) * 100),
+          accessibility: Math.round((categories.accessibility ? categories.accessibility.score : 0) * 100),
+          seo: Math.round((categories.seo ? categories.seo.score : 0) * 100),
+          bestPractices: Math.round((categories['best-practices'] ? categories['best-practices'].score : 0) * 100)
+        };
+        var overall = Math.round((scores.performance + scores.accessibility + scores.seo + scores.bestPractices) / 4);
+
+        displayResults(url, scores, overall);
+      })
+      .catch(function(err) {
+        clearInterval(messageInterval);
+        console.error('PageSpeed API error:', err);
+        showError(err.message);
+      });
+  }
+
+  function showError(message) {
+    loadingState.classList.remove('active');
+    form.style.display = 'none';
+    errorState.classList.add('active');
+
+    if (message && message.includes('429')) {
+      errorText.textContent = 'We\'ve hit the API rate limit. Please wait a moment and try again.';
+    } else {
+      errorText.textContent = 'We couldn\'t analyze that URL. Please check that it\'s a valid, publicly accessible website and try again.';
+    }
+  }
+
+  // ── Score Color ──
+  function getScoreColor(score) {
+    if (score >= 90) return 'var(--green)';
+    if (score >= 80) return 'var(--light-green)';
+    if (score >= 70) return 'var(--yellow)';
+    if (score >= 60) return 'var(--orange)';
+    return 'var(--red)';
+  }
+
+  function getScoreColorHex(score) {
+    if (score >= 90) return '#22C55E';
+    if (score >= 80) return '#84CC16';
+    if (score >= 70) return '#EAB308';
+    if (score >= 60) return '#F97316';
+    return '#EF4444';
+  }
+
+  // ── Letter Grade ──
+  function getLetterGrade(score) {
+    if (score >= 90) return { letter: 'A', desc: 'Excellent' };
+    if (score >= 80) return { letter: 'B', desc: 'Good' };
+    if (score >= 70) return { letter: 'C', desc: 'Average' };
+    if (score >= 60) return { letter: 'D', desc: 'Below Average' };
+    return { letter: 'F', desc: 'Needs Improvement' };
+  }
+
+  // ── Display Results ──
+  function displayResults(url, scores, overall) {
+    loadingState.classList.remove('active');
+    form.style.display = 'none';
+
+    // Show results section
+    resultsSection.style.display = 'block';
+    resultsSection.classList.add('active');
+
+    // Re-init reveal for results elements
+    setTimeout(function() {
+      initReveal();
+    }, 50);
+
+    var grade = getLetterGrade(overall);
+
+    // Overall score
+    document.getElementById('overallScore').textContent = overall;
+    document.getElementById('analyzedUrl').textContent = url;
+    document.getElementById('gradeDescription').textContent = grade.desc;
+
+    var gradeBadge = document.getElementById('gradeBadge');
+    gradeBadge.textContent = grade.letter;
+    gradeBadge.style.background = getScoreColorHex(overall);
+
+    // Animate overall gauge
+    var overallFill = document.getElementById('overallGaugeFill');
+    overallFill.style.stroke = getScoreColor(overall);
+    var overallCircumference = 2 * Math.PI * 80; // 502.65
+    var overallOffset = overallCircumference - (overall / 100) * overallCircumference;
+    setTimeout(function() {
+      overallFill.style.strokeDashoffset = overallOffset;
+    }, 100);
+
+    // Category gauges
+    var categoryMap = {
+      performance: scores.performance,
+      accessibility: scores.accessibility,
+      seo: scores.seo,
+      bestPractices: scores.bestPractices
+    };
+
+    var categoryCards = document.querySelectorAll('.category-card');
+    categoryCards.forEach(function(card) {
+      var cat = card.getAttribute('data-category');
+      var score = categoryMap[cat];
+      var fill = card.querySelector('.gauge-fill');
+      var num = card.querySelector('.score-number-small');
+
+      num.textContent = score;
+      fill.style.stroke = getScoreColor(score);
+
+      var circumference = 2 * Math.PI * 42; // 263.89
+      var offset = circumference - (score / 100) * circumference;
+      setTimeout(function() {
+        fill.style.strokeDashoffset = offset;
+      }, 300);
+    });
+
+    // Recommendations
+    var recCards = document.getElementById('recCards');
+    recCards.innerHTML = '';
+
+    var hasIssues = false;
+
+    if (scores.performance < 80) {
+      hasIssues = true;
+      var perfDetail = scores.performance < 50
+        ? 'Your site is critically slow and likely losing more than half its visitors.'
+        : 'There\'s room for significant speed improvement.';
+
+      recCards.innerHTML += buildRecCard(
+        'danger',
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+        'Your site is slow.',
+        'Your performance score is ' + scores.performance + '/100. Sites loading in 1 second convert 5x more than sites loading in 10 seconds. ' + perfDetail
+      );
+    }
+
+    if (scores.accessibility < 80) {
+      hasIssues = true;
+      recCards.innerHTML += buildRecCard(
+        'warning',
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
+        'Accessibility issues detected.',
+        'Your score is ' + scores.accessibility + '/100. Some visitors may have difficulty using your site, and Google factors accessibility into rankings.'
+      );
+    }
+
+    if (scores.seo < 80) {
+      hasIssues = true;
+      recCards.innerHTML += buildRecCard(
+        'warning',
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+        'SEO needs attention.',
+        'Your score is ' + scores.seo + '/100. Your site isn\'t fully optimized for search. This means potential customers searching for your services may not find you.'
+      );
+    }
+
+    if (scores.bestPractices < 80) {
+      hasIssues = true;
+      recCards.innerHTML += buildRecCard(
+        'warning',
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+        'Quality issues found.',
+        'Your score is ' + scores.bestPractices + '/100. Your site has technical issues that affect trust and user experience.'
+      );
+    }
+
+    if (!hasIssues) {
+      recCards.innerHTML += buildRecCard(
+        'success',
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+        'Great job!',
+        'Your site is performing well overall. There may still be opportunities to improve specific areas.'
+      );
+    }
+
+    // Package recommendation
+    var packageText = '';
+    if (overall < 40) {
+      packageText = 'Your website needs a complete rebuild. We recommend our <strong>Professional</strong> or <strong>Premium</strong> package.';
+    } else if (overall < 60) {
+      packageText = 'Significant improvements needed. Our <strong>Professional</strong> package would address all major issues.';
+    } else if (overall < 80) {
+      packageText = 'A solid foundation with important gaps. Our <strong>Starter</strong> or <strong>Professional</strong> package can help.';
+    } else {
+      packageText = 'Strong performance. Minor optimizations with our <strong>Starter</strong> package could push you further.';
+    }
+    document.getElementById('packageRecText').innerHTML = packageText;
+
+    // Scroll to results
+    setTimeout(function() {
+      resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 200);
+
+    // Send lead data
+    sendLeadData(url, scores, overall, grade.letter);
+  }
+
+  function buildRecCard(type, iconSvg, title, text) {
+    return '<div class="rec-card card-outer">' +
+      '<div class="card-inner">' +
+        '<div class="rec-icon ' + type + '">' + iconSvg + '</div>' +
+        '<div class="rec-content">' +
+          '<div class="rec-title">' + title + '</div>' +
+          '<div class="rec-text">' + text + '</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  // ── Lead Data ──
+  function sendLeadData(url, scores, overall, letterGrade) {
+    var data = {
+      url: url,
+      name: nameInput.value || '',
+      email: emailInput.value || '',
+      phone: phoneInput.value || '',
+      scores: {
+        performance: scores.performance,
+        accessibility: scores.accessibility,
+        seo: scores.seo,
+        bestPractices: scores.bestPractices,
+        overall: overall
+      },
+      grade: letterGrade,
+      timestamp: new Date().toISOString()
+    };
+
+    console.log('Calculator Lead Data:', data);
+
+    fetch('https://hooks.stackbuiltweb.com/calculator-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(function() {
+      // Silent fail
+    });
+  }
+
+  // ── Reset Form ──
+  window.resetForm = function() {
+    form.style.display = '';
+    loadingState.classList.remove('active');
+    errorState.classList.remove('active');
+    resultsSection.classList.remove('active');
+    resultsSection.style.display = 'none';
+    urlInput.value = '';
+    urlInput.classList.remove('invalid');
+    urlError.classList.remove('show');
+
+    // Reset gauges
+    document.getElementById('overallGaugeFill').style.strokeDashoffset = '502.65';
+    document.querySelectorAll('.category-card .gauge-fill').forEach(function(fill) {
+      fill.style.strokeDashoffset = '263.89';
+    });
+    document.querySelectorAll('.category-card .score-number-small').forEach(function(num) {
+      num.textContent = '0';
+    });
+    document.getElementById('overallScore').textContent = '0';
+
+    // Scroll to form
+    document.querySelector('.grader-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(function() {
+      urlInput.focus();
+    }, 500);
+  };
+
+})();
+</script>
+
+<script data-pplx-inline-edit>
+(function(){
+  if(window===window.top)return;
+  function inlineAll(orig,clone){
+    if(orig.nodeType!==1)return;
+    try{
+      var cs=getComputedStyle(orig);
+      var t='';
+      for(var i=0;i<cs.length;i++){t+=cs[i]+':'+cs.getPropertyValue(cs[i])+';';}
+      clone.style.cssText=t;
+    }catch(e){}
+    var oc=orig.children,cc=clone.children;
+    for(var j=0;j<oc.length&&j<cc.length;j++){inlineAll(oc[j],cc[j]);}
+  }
+  function stripExternal(clone){
+    var imgs=clone.querySelectorAll('img');
+    for(var i=0;i<imgs.length;i++){
+      var s=imgs[i].getAttribute('src');
+      if(s&&!s.startsWith('data:'))imgs[i].removeAttribute('src');
+    }
+    var all=clone.querySelectorAll('*');
+    for(var i=0;i<all.length;i++){
+      var st=all[i].style.cssText;
+      if(st&&st.indexOf('url(')>=0){
+        all[i].style.cssText=st.replace(/url\(["']?(?!data:)[^)"']*["']?\)/gi,'none');
+      }
+    }
+  }
+  window.addEventListener('message',function(e){
+    if(!e.data||e.data.type!=='INLINE_EDIT_CAPTURE_REQUEST')return;
+    var scrollX=window.scrollX||window.pageXOffset||0;
+    var scrollY=window.scrollY||window.pageYOffset||0;
+    var w=window.innerWidth,h=window.innerHeight;
+    try{
+      var clone=document.documentElement.cloneNode(true);
+      var rm=clone.querySelectorAll('script,link[rel="stylesheet"],style');
+      for(var i=0;i<rm.length;i++){rm[i].remove();}
+      inlineAll(document.documentElement,clone);
+      stripExternal(clone);
+      var html=new XMLSerializer().serializeToString(clone);
+      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'">'
+        +'<foreignObject width="100%" height="100%">'
+        +'<div xmlns="http://www.w3.org/1999/xhtml" style="width:'+w+'px;height:'+h+'px;overflow:hidden">'
+        +'<div style="transform:translate(-'+scrollX+'px,-'+scrollY+'px);transform-origin:top left">'
+        +html+'</div></div></foreignObject></svg>';
+      var svgUrl='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+      var img=new Image();
+      img.onload=function(){
+        var c=document.createElement('canvas');c.width=w;c.height=h;
+        c.getContext('2d').drawImage(img,0,0);
+        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:c.toDataURL('image/png'),scrollX:scrollX,scrollY:scrollY},'*');
+      };
+      img.onerror=function(){
+        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
+      };
+      img.src=svgUrl;
+    }catch(err){
+      window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
+    }
+  });
+})();
+</script></body>
+</html>

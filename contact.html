@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — StackBuilt Web | Get in Touch</title>
+<meta name="description" content="Tell us about your business and we'll put together a plan. No pressure, no sales pitch — just an honest conversation about what your website needs.">
+
+<!-- Fonts -->
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Phosphor Icons -->
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+<style>
+/* ========================================
+   CSS Custom Properties — Design Tokens
+   ======================================== */
+:root {
+  --bg-cream: #FDFBF7;
+  --bg-warm: #FAF7F2;
+  --bg-warm-alt: #F7F4EE;
+  --bg-card: #FFFFFF;
+  --bg-card-outer: rgba(12, 78, 84, 0.04);
+  --accent: #0C4E54;
+  --accent-light: #0E6B73;
+  --accent-muted: rgba(12, 78, 84, 0.08);
+  --accent-badge: rgba(12, 78, 84, 0.06);
+  --terracotta: #D4652E;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #A8A29E;
+  --text-on-accent: #FFFFFF;
+  --border-subtle: rgba(28, 25, 23, 0.06);
+  --border-card: rgba(28, 25, 23, 0.08);
+  --shadow-tinted: rgba(12, 78, 84, 0.06);
+  --shadow-soft: rgba(28, 25, 23, 0.04);
+
+  --font-body: 'Satoshi', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --section-py: clamp(5rem, 8vw, 8rem);
+  --container-px: clamp(1.25rem, 4vw, 3rem);
+  --container-max: 1320px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.32, 0.72, 0, 1);
+  --duration-base: 700ms;
+  --duration-fast: 400ms;
+  --duration-slow: 1000ms;
+}
+
+/* ========================================
+   Reset & Base
+   ======================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-cream);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+
+.font-mono { font-family: var(--font-mono); }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--accent-badge);
+  color: var(--accent);
+  border: 1px solid rgba(12, 78, 84, 0.1);
+}
+
+/* Double-Bezel Card */
+.card-outer {
+  background: var(--bg-card-outer);
+  border: 1px solid var(--border-card);
+  border-radius: 1.5rem;
+  padding: 0.375rem;
+}
+
+.card-inner {
+  background: var(--bg-card);
+  border-radius: calc(1.5rem - 0.375rem);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.6),
+    0 20px 40px -15px var(--shadow-tinted),
+    0 4px 12px -4px var(--shadow-soft);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-outer.lg {
+  border-radius: 2rem;
+  padding: 0.5rem;
+}
+.card-outer.lg .card-inner {
+  border-radius: calc(2rem - 0.5rem);
+  padding: 2.5rem;
+}
+
+/* Pill Buttons */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  will-change: transform;
+}
+.btn-pill:active {
+  transform: scale(0.97) translateY(1px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+.btn-primary:hover {
+  background: var(--terracotta);
+  color: var(--text-on-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(212, 101, 46, 0.3);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-card);
+  box-shadow: 0 1px 3px var(--shadow-soft);
+}
+.btn-secondary:hover {
+  background: var(--terracotta);
+  color: var(--text-on-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(212, 101, 46, 0.3);
+  border-color: var(--terracotta);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.2);
+  transition: transform var(--duration-fast) var(--ease-spring);
+  flex-shrink: 0;
+}
+.btn-pill:hover .btn-icon {
+  transform: translateX(2px) translateY(-1px) scale(1.05);
+}
+.btn-secondary .btn-icon {
+  background: var(--accent-muted);
+}
+.btn-secondary:hover .btn-icon {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  filter: blur(6px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo),
+              filter var(--duration-slow) var(--ease-out-expo);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.stagger-1 { transition-delay: 0ms; }
+.stagger-2 { transition-delay: 80ms; }
+.stagger-3 { transition-delay: 160ms; }
+.stagger-4 { transition-delay: 240ms; }
+.stagger-5 { transition-delay: 320ms; }
+.stagger-6 { transition-delay: 400ms; }
+
+.section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+/* ========================================
+   Navigation
+   ======================================== */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: background var(--duration-fast) var(--ease-out-expo),
+              box-shadow var(--duration-fast) var(--ease-out-expo);
+}
+.site-nav.scrolled {
+  background: rgba(253, 251, 247, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--border-subtle);
+}
+
+.nav-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.nav-logo span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+  position: relative;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.nav-cta {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.8125rem;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 0.5rem;
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(253, 251, 247, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-out-expo);
+}
+.mobile-nav-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-nav-overlay a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.mobile-nav-overlay a:hover {
+  color: var(--accent);
+}
+.mobile-nav-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 0.5rem;
+}
+
+/* ========================================
+   Hero / Header
+   ======================================== */
+.hero-section {
+  padding-top: calc(5rem + 80px);
+  padding-bottom: var(--section-py);
+  text-align: center;
+}
+.hero-eyebrow {
+  margin-bottom: 1.5rem;
+}
+.hero-h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+.hero-sub {
+  font-size: clamp(1rem, 1.5vw, 1.1875rem);
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* ========================================
+   Section Headings
+   ======================================== */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.section-heading {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-top: 1rem;
+}
+
+/* ========================================
+   Contact Form Section
+   ======================================== */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating geometric shapes */
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -20px) rotate(5deg); }
+  66% { transform: translate(-20px, 15px) rotate(-3deg); }
+}
+
+@keyframes float-slow-2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-25px, 20px) rotate(-4deg); }
+  66% { transform: translate(15px, -25px) rotate(6deg); }
+}
+
+@keyframes float-slow-3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(20px, 25px) rotate(3deg); }
+  66% { transform: translate(-30px, -10px) rotate(-5deg); }
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(12, 78, 84, 0.035);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-shape-1 {
+  width: 300px;
+  height: 300px;
+  top: 5%;
+  left: -5%;
+  animation: float-slow 20s ease-in-out infinite;
+}
+.floating-shape-2 {
+  width: 200px;
+  height: 200px;
+  top: 60%;
+  right: -3%;
+  animation: float-slow-2 25s ease-in-out infinite;
+}
+.floating-shape-3 {
+  width: 150px;
+  height: 150px;
+  bottom: 10%;
+  left: 15%;
+  animation: float-slow-3 18s ease-in-out infinite;
+}
+.floating-shape-4 {
+  width: 100px;
+  height: 100px;
+  top: 25%;
+  right: 20%;
+  animation: float-slow 22s ease-in-out infinite;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+/* Contact Form */
+.contact-form-card .card-inner {
+  padding: 2.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.form-label .required {
+  color: var(--terracotta);
+  margin-left: 0.125rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-card);
+  border-radius: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  background: var(--bg-cream);
+  transition: border-color var(--duration-fast) var(--ease-out-expo),
+              box-shadow var(--duration-fast) var(--ease-out-expo);
+  outline: none;
+}
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-tertiary);
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(12, 78, 84, 0.08);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%2357534E' d='M4.427 5.427a.5.5 0 0 1 .708 0L8 8.293l2.865-2.866a.5.5 0 0 1 .708.708l-3.22 3.22a.5.5 0 0 1-.707 0l-3.22-3.22a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 1rem 2rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+/* Success State */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+.form-success.show {
+  display: block;
+}
+
+.success-checkmark {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(12, 78, 84, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--accent);
+  animation: scale-in 0.5s var(--ease-spring) forwards;
+}
+
+@keyframes scale-in {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes draw-check {
+  0% { stroke-dashoffset: 24; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.success-checkmark svg {
+  width: 32px;
+  height: 32px;
+}
+
+.success-checkmark .check-path {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: draw-check 0.4s 0.3s ease-out forwards;
+}
+
+.form-success h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.form-success p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Contact Info Cards */
+.contact-info-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-info-card .card-inner {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform var(--duration-fast) var(--ease-out-expo);
+}
+
+.contact-info-card:hover .card-inner {
+  transform: translateY(-4px);
+}
+
+.contact-info-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  background: var(--accent-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.contact-info-content {
+  flex: 1;
+}
+
+.contact-info-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 0.125rem;
+}
+
+.contact-info-value {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.contact-info-value a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.contact-info-value a:hover {
+  color: var(--accent);
+}
+
+/* ========================================
+   FAQ Accordion
+   ======================================== */
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faq-item {
+  background: var(--bg-card-outer);
+  border: 1px solid var(--border-card);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: border-color var(--duration-fast) var(--ease-out-expo);
+}
+.faq-item:hover {
+  border-color: rgba(12, 78, 84, 0.12);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+  line-height: 1.4;
+}
+.faq-question:hover {
+  color: var(--terracotta);
+}
+
+.faq-chevron {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent-muted);
+  color: var(--accent);
+  transition: transform var(--duration-fast) var(--ease-spring),
+              background var(--duration-fast) var(--ease-out-expo),
+              color var(--duration-fast) var(--ease-out-expo);
+}
+.faq-question:hover .faq-chevron {
+  background: rgba(212, 101, 46, 0.12);
+  color: var(--terracotta);
+}
+.faq-item.open .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--duration-base) var(--ease-out-expo),
+              padding var(--duration-base) var(--ease-out-expo);
+}
+.faq-answer-inner {
+  padding: 0 1.75rem 1.5rem;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ========================================
+   CTA Section
+   ======================================== */
+.cta-section {
+  background: var(--accent);
+  border-radius: 2rem;
+  padding: clamp(3rem, 6vw, 5rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 0%, rgba(255,255,255,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.cta-h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--text-on-accent);
+  margin-bottom: 1rem;
+  position: relative;
+}
+.cta-sub {
+  font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
+  color: rgba(255,255,255,0.75);
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  line-height: 1.65;
+  position: relative;
+}
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  background: var(--bg-cream);
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  position: relative;
+}
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -8px rgba(0,0,0,0.25);
+}
+.cta-btn:active {
+  transform: scale(0.97) translateY(1px);
+}
+.cta-btn .btn-icon {
+  background: var(--accent-muted);
+}
+
+/* ========================================
+   Footer — Teal
+   ======================================== */
+.site-footer {
+  background: var(--accent);
+  padding: 3rem 0 1.5rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.footer-brand {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-on-accent);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.375rem;
+}
+.footer-brand span {
+  opacity: 0.85;
+}
+.footer-tagline {
+  font-size: 0.8125rem;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-bottom: 0.625rem;
+}
+.footer-desc {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.55;
+  max-width: 300px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.footer-links-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--terracotta);
+  margin-bottom: 0.125rem;
+}
+.footer-links a {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.footer-links a:hover {
+  color: var(--text-on-accent);
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+.footer-contact-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--terracotta);
+  margin-bottom: 0.125rem;
+}
+.footer-contact a,
+.footer-contact span {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.footer-contact a:hover {
+  color: var(--text-on-accent);
+}
+
+.footer-bottom {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+.footer-attribution a {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.footer-attribution a:hover {
+  color: rgba(255,255,255,0.8);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-cta.desktop-only { display: none; }
+  .mobile-menu-btn { display: block; }
+
+  .hero-section {
+    padding-top: calc(4rem + 60px);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-card .card-inner {
+    padding: 1.5rem;
+  }
+
+  .cta-section {
+    border-radius: 1.25rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="site-nav" id="siteNav">
+  <div class="nav-container">
+    <a href="/index.html" class="nav-logo">Stack<span>Built</span> Web</a>
+    <ul class="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/calculator.html">Free Audit</a></li>
+      <li><a href="/contact.html" class="active">Contact</a></li>
+    </ul>
+    <a href="/calculator.html" class="btn-pill btn-primary nav-cta desktop-only" style="padding:0.625rem 1.25rem; font-size:0.8125rem;">
+      Get Your Free Audit
+      <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.875rem;"></i></span>
+    </a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+      <i class="ph ph-list" style="font-size:1.5rem;"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+    <i class="ph ph-x" style="font-size:1.75rem;"></i>
+  </button>
+  <a href="/index.html">Home</a>
+  <a href="/services.html">Services</a>
+  <a href="/pricing.html">Pricing</a>
+  <a href="/calculator.html">Free Audit</a>
+  <a href="/contact.html" style="color:var(--accent);">Contact</a>
+  <a href="/calculator.html" class="btn-pill btn-primary" style="margin-top:1rem;">Get Your Free Audit</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero-section">
+  <div class="container">
+    <div class="reveal stagger-1">
+      <span class="eyebrow hero-eyebrow">Get in Touch</span>
+    </div>
+    <h1 class="hero-h1 reveal stagger-2">Let&rsquo;s build something that<br>works for your business.</h1>
+    <p class="hero-sub reveal stagger-3">Tell us about your business and we&rsquo;ll put together a plan. No pressure, no sales pitch &mdash; just an honest conversation about what your website needs.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT FORM + INFO ============ -->
+<section class="section contact-section" style="padding-top:0;">
+  <div class="container">
+
+    <!-- Floating decorative shapes -->
+    <div class="floating-shape floating-shape-1"></div>
+    <div class="floating-shape floating-shape-2"></div>
+    <div class="floating-shape floating-shape-3"></div>
+    <div class="floating-shape floating-shape-4"></div>
+
+    <div class="contact-grid">
+
+      <!-- Left: Contact Form (60%) -->
+      <div class="card-outer lg contact-form-card reveal stagger-1">
+        <div class="card-inner">
+
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="name">Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" class="form-input" required placeholder="Your full name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" class="form-input" required placeholder="you@example.com">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="(321) 555-1234">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="business">Business Name</label>
+                <input type="text" id="business" name="business" class="form-input" placeholder="Your business name">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="website">Current Website URL</label>
+              <input type="url" id="website" name="website" class="form-input" placeholder="Leave blank if you don't have one">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="service">Service Interest</label>
+              <select id="service" name="service" class="form-select">
+                <option value="" disabled selected>Select a package&hellip;</option>
+                <option value="side-hustle">Side Hustle Package</option>
+                <option value="starter">Starter Package</option>
+                <option value="professional">Professional Package</option>
+                <option value="premium">Premium Package</option>
+                <option value="not-sure">Not Sure Yet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Message</label>
+              <textarea id="message" name="message" class="form-textarea" placeholder="Tell us a bit about your business and what you're looking for..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-pill btn-primary form-submit-btn">
+              Send Message
+              <span class="btn-icon"><i class="ph ph-paper-plane-tilt" style="font-size:1rem;"></i></span>
+            </button>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <div class="success-checkmark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline class="check-path" points="6 12 10 16 18 8"></polyline>
+              </svg>
+            </div>
+            <h3>Thanks!</h3>
+            <p>We&rsquo;ll be in touch within 24 hours.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right: Contact Info Cards (40%) -->
+      <div class="contact-info-stack">
+
+        <div class="card-outer contact-info-card reveal stagger-2">
+          <div class="card-inner">
+            <div class="contact-info-icon">
+              <i class="ph ph-envelope-simple" style="font-size:1.25rem;"></i>
+            </div>
+            <div class="contact-info-content">
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value"><a href="mailto:geoff@stackbuiltweb.com">geoff@stackbuiltweb.com</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-outer contact-info-card reveal stagger-3">
+          <div class="card-inner">
+            <div class="contact-info-icon">
+              <i class="ph ph-map-pin" style="font-size:1.25rem;"></i>
+            </div>
+            <div class="contact-info-content">
+              <div class="contact-info-label">Location</div>
+              <div class="contact-info-value">Melbourne, FL</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-outer contact-info-card reveal stagger-4">
+          <div class="card-inner">
+            <div class="contact-info-icon">
+              <i class="ph ph-clock" style="font-size:1.25rem;"></i>
+            </div>
+            <div class="contact-info-content">
+              <div class="contact-info-label">Response Time</div>
+              <div class="contact-info-value">Typical response: under 24 hours</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /contact-grid -->
+
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" style="background:var(--bg-warm);">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="eyebrow reveal stagger-1">FAQ</span>
+      <h2 class="section-heading reveal stagger-2">Common questions</h2>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item reveal stagger-1">
+        <button class="faq-question" aria-expanded="false">
+          How quickly can you build my website?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Most sites are completed in 3-7 business days. Side Hustle sites can be ready in as little as 2-3 days.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-2">
+        <button class="faq-question" aria-expanded="false">
+          What info do you need to get started?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Fill out our onboarding form &mdash; about 15 minutes. We&rsquo;ll ask for your business details, services, photos if you have them, and any reviews you want featured.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-3">
+        <button class="faq-question" aria-expanded="false">
+          Do you offer payment plans?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">50% to start, 50% on launch. For larger projects we can discuss installments.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-4">
+        <button class="faq-question" aria-expanded="false">
+          What happens after my site goes live?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We submit to Google, set up analytics, and begin your maintenance plan. You&rsquo;ll start getting indexed and showing up in search results within weeks.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-5">
+        <button class="faq-question" aria-expanded="false">
+          Can I make changes after it&rsquo;s built?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">All updates are included in your monthly plan. Email or text us, and changes are typically handled within 24 hours.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-6">
+        <button class="faq-question" aria-expanded="false">
+          Do you work with businesses outside Florida?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. We started in Brevard County but work with service businesses anywhere. Everything is done remotely &mdash; location doesn&rsquo;t matter.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-1">
+        <button class="faq-question" aria-expanded="false">
+          What makes you different from other web designers?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Speed and specialization. We build specifically for local service businesses &mdash; roofers, painters, plumbers, HVAC, landscapers. We know what works because it&rsquo;s all we do. Most agencies take 4-8 weeks and charge $5,000-$10,000. We deliver in days, at a fraction of the cost.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-2">
+        <button class="faq-question" aria-expanded="false">
+          I already have a Facebook page. Do I really need a website?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Facebook is great for social proof, but it doesn&rsquo;t show up when someone Googles &ldquo;plumber near me.&rdquo; 76% of people who search locally visit a business within 24 hours &mdash; and they&rsquo;re searching Google, not Facebook. A website makes you findable where customers are actually looking.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-3">
+        <button class="faq-question" aria-expanded="false">
+          What if I already have a website I don&rsquo;t like?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We typically do a complete rebuild rather than trying to patch an old site. It&rsquo;s faster and produces better results. We&rsquo;ll audit your current site for free and show you exactly what needs to change.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-4">
+        <button class="faq-question" aria-expanded="false">
+          Do you work with businesses outside of Melbourne?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We started in Brevard County because it&rsquo;s home, but we work with service businesses anywhere. The process is the same whether you&rsquo;re in Melbourne, Orlando, or Miami.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-5">
+        <button class="faq-question" aria-expanded="false">
+          What if my site goes down?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We monitor uptime 24/7 as part of every maintenance plan. If your site goes down, we get an alert and fix it &mdash; usually before you even notice. Our hosting has 99.9% uptime.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-6">
+        <button class="faq-question" aria-expanded="false">
+          Can you help with Google Ads or social media?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Our focus is your website. For Google Ads, we build dedicated landing pages optimized for ad traffic ($500 add-on). For social media management, we can refer you to a trusted partner.</div>
+        </div>
+      </div>
+
+    </div><!-- /faq-list -->
+
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section">
+  <div class="container">
+    <div class="cta-section reveal stagger-1">
+      <h2 class="cta-h2">Ready to get started?</h2>
+      <p class="cta-sub">Get a free website audit and see exactly how we can improve your online presence.</p>
+      <a href="/calculator.html" class="cta-btn">
+        Get Your Free Website Audit
+        <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:1rem;"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Stack<span>Built</span> Web</div>
+        <p class="footer-tagline">Serving Brevard County and beyond</p>
+        <p class="footer-desc">Modern websites for local service businesses. Fast builds, transparent pricing, real results.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-title">Quick Links</div>
+        <a href="/index.html">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/calculator.html">Free Audit</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-contact-title">Get in Touch</div>
+        <a href="mailto:geoff@stackbuiltweb.com">geoff@stackbuiltweb.com</a>
+        <span>Melbourne, FL</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 StackBuilt Web. All rights reserved.</span>
+      <span class="footer-attribution">
+        <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+// Scroll Reveal via IntersectionObserver
+(function() {
+  var reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  reveals.forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+
+// Nav scroll effect
+(function() {
+  var nav = document.getElementById('siteNav');
+  var ticking = false;
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        if (window.scrollY > 40) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+// Mobile nav
+(function() {
+  var btn = document.getElementById('mobileMenuBtn');
+  var overlay = document.getElementById('mobileNav');
+  var closeBtn = document.getElementById('mobileNavClose');
+
+  if (!btn || !overlay) return;
+
+  btn.addEventListener('click', function() {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+
+  function closeNav() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeNav);
+
+  overlay.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', closeNav);
+  });
+})();
+
+// FAQ Accordion
+(function() {
+  var items = document.querySelectorAll('.faq-item');
+
+  items.forEach(function(item) {
+    var question = item.querySelector('.faq-question');
+    var answer = item.querySelector('.faq-answer');
+
+    question.addEventListener('click', function() {
+      var isOpen = item.classList.contains('open');
+
+      // Close all others
+      items.forEach(function(other) {
+        if (other !== item && other.classList.contains('open')) {
+          other.classList.remove('open');
+          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          other.querySelector('.faq-answer').style.maxHeight = '0';
+        }
+      });
+
+      if (isOpen) {
+        item.classList.remove('open');
+        question.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = '0';
+      } else {
+        item.classList.add('open');
+        question.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+
+// Contact Form Submission
+(function() {
+  var form = document.getElementById('contactForm');
+  var success = document.getElementById('formSuccess');
+
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var formData = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      business: form.business.value,
+      website: form.website.value,
+      service: form.service.value,
+      message: form.message.value
+    };
+
+    // Log to console
+    console.log('Contact form submission:', formData);
+
+    // POST to webhook (placeholder)
+    fetch('https://hooks.stackbuiltweb.com/contact-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    }).catch(function(err) {
+      console.log('Webhook POST (placeholder):', err.message);
+    });
+
+    // Smooth fade to success message
+    form.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    form.style.opacity = '0';
+    form.style.transform = 'translateY(-10px)';
+
+    setTimeout(function() {
+      form.style.display = 'none';
+      success.classList.add('show');
+      success.style.opacity = '0';
+      success.style.transform = 'translateY(10px)';
+      success.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+      requestAnimationFrame(function() {
+        success.style.opacity = '1';
+        success.style.transform = 'translateY(0)';
+      });
+    }, 400);
+  });
+})();
+</script>
+
+<script data-pplx-inline-edit>
+(function(){
+  if(window===window.top)return;
+  function inlineAll(orig,clone){
+    if(orig.nodeType!==1)return;
+    try{
+      var cs=getComputedStyle(orig);
+      var t='';
+      for(var i=0;i<cs.length;i++){t+=cs[i]+':'+cs.getPropertyValue(cs[i])+';';}
+      clone.style.cssText=t;
+    }catch(e){}
+    var oc=orig.children,cc=clone.children;
+    for(var j=0;j<oc.length&&j<cc.length;j++){inlineAll(oc[j],cc[j]);}
+  }
+  function stripExternal(clone){
+    var imgs=clone.querySelectorAll('img');
+    for(var i=0;i<imgs.length;i++){
+      var s=imgs[i].getAttribute('src');
+      if(s&&!s.startsWith('data:'))imgs[i].removeAttribute('src');
+    }
+    var all=clone.querySelectorAll('*');
+    for(var i=0;i<all.length;i++){
+      var st=all[i].style.cssText;
+      if(st&&st.indexOf('url(')>=0){
+        all[i].style.cssText=st.replace(/url\(["']?(?!data:)[^)"']*["']?\)/gi,'none');
+      }
+    }
+  }
+  window.addEventListener('message',function(e){
+    if(!e.data||e.data.type!=='INLINE_EDIT_CAPTURE_REQUEST')return;
+    var scrollX=window.scrollX||window.pageXOffset||0;
+    var scrollY=window.scrollY||window.pageYOffset||0;
+    var w=window.innerWidth,h=window.innerHeight;
+    try{
+      var clone=document.documentElement.cloneNode(true);
+      var rm=clone.querySelectorAll('script,link[rel="stylesheet"],style');
+      for(var i=0;i<rm.length;i++){rm[i].remove();}
+      inlineAll(document.documentElement,clone);
+      stripExternal(clone);
+      var html=new XMLSerializer().serializeToString(clone);
+      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'">'
+        +'<foreignObject width="100%" height="100%">'
+        +'<div xmlns="http://www.w3.org/1999/xhtml" style="width:'+w+'px;height:'+h+'px;overflow:hidden">'
+        +'<div style="transform:translate(-'+scrollX+'px,-'+scrollY+'px);transform-origin:top left">'
+        +html+'</div></div></foreignObject></svg>';
+      var svgUrl='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+      var img=new Image();
+      img.onload=function(){
+        var c=document.createElement('canvas');c.width=w;c.height=h;
+        c.getContext('2d').drawImage(img,0,0);
+        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:c.toDataURL('image/png'),scrollX:scrollX,scrollY:scrollY},'*');
+      };
+      img.onerror=function(){
+        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
+      };
+      img.src=svgUrl;
+    }catch(err){
+      window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
+    }
+  });
+})();
+</script></body>
+</html>
