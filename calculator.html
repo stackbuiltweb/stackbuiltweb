@@ -1,25 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--
-   ______                            __
-  / ____/___  ____ ___  ____  __  __/ /____  _____
- / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
-/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
-\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
-                    /_/
-        Created with Perplexity Computer
-        https://www.perplexity.ai/computer
--->
-
-<!-- Perplexity Computer Attribution — SEO Meta Tags -->
-<meta name="generator" content="Perplexity Computer">
-<meta name="author" content="Perplexity Computer">
-<meta property="og:see_also" content="https://www.perplexity.ai/computer">
-<link rel="author" href="https://www.perplexity.ai/computer">
-
 <meta charset="UTF-8">
-<meta name="google-site-verification" content="7JYTcep1yRHUElYy1YqZmcEHSLZYyoOOcKHQwiAqbHk" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Website Audit | StackBuilt Web</title>
 <meta name="description" content="Enter your URL and get an instant website audit. We analyze performance, accessibility, SEO, and best practices using Google's PageSpeed Insights API.">
@@ -1254,7 +1236,7 @@ h2.section-heading {
           </div>
           <div class="error-title">Couldn't analyze that URL</div>
           <div class="error-text" id="errorText">We couldn't analyze that URL. Please check that it's a valid, publicly accessible website and try again.</div>
-          <button class="btn-pill btn-primary" id="retryBtn" onclick="resetForm()">
+          <button class="btn-pill" id="retryBtn" onclick="resetForm()" style="background:var(--terracotta);color:#fff;">
             Try Again
             <span class="btn-icon">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
@@ -1474,9 +1456,7 @@ h2.section-heading {
     </div>
     <div class="footer-bottom">
       <span class="footer-copy">&copy; 2026 StackBuilt Web. All rights reserved.</span>
-      <span class="footer-attribution">
-        <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
-      </span>
+
     </div>
   </div>
 </footer>
@@ -1561,7 +1541,7 @@ h2.section-heading {
     });
   });
 
-  // ── URL Validation ──
+  // ── URL Validation & Normalization ──
   function normalizeUrl(input) {
     var url = input.trim();
     if (!url) return '';
@@ -1569,13 +1549,19 @@ h2.section-heading {
     if (!/^https?:\/\//i.test(url)) {
       url = 'https://' + url;
     }
-    return url;
+    // Validate it looks like a URL
+    try {
+      var parsed = new URL(url);
+      if (!parsed.hostname.includes('.') || parsed.hostname.length <= 3) return null;
+      return url;
+    } catch (e) {
+      return null;
+    }
   }
 
   function isValidUrl(str) {
     try {
       var url = new URL(str);
-      // Must have a valid-looking hostname
       return url.hostname.includes('.') && url.hostname.length > 3;
     } catch (e) {
       return false;
@@ -1600,7 +1586,7 @@ h2.section-heading {
     e.preventDefault();
 
     var url = normalizeUrl(urlInput.value);
-    if (!url || !isValidUrl(url)) {
+    if (!url) {
       urlInput.classList.add('invalid');
       urlError.classList.add('show');
       urlInput.focus();
@@ -1610,6 +1596,46 @@ h2.section-heading {
     urlInput.value = url;
     startAnalysis(url);
   });
+
+  // TO ADD AN API KEY:
+  // 1. Go to https://console.developers.google.com/
+  // 2. Create a project (or select existing)
+  // 3. Enable "PageSpeed Insights API"
+  // 4. Create credentials → API Key
+  // 5. Paste the key in the API_KEY variable below
+  // Free tier: 25,000 requests/day, 100 requests/100 seconds
+  var API_KEY = 'AIzaSyALgiTMGVFqBTT7UpCGm9vJQgCiY2QkAow';
+
+  function updateLoadingMessage(msg) {
+    loadingMessage.style.opacity = '0';
+    setTimeout(function() {
+      loadingMessage.textContent = msg;
+      loadingMessage.style.opacity = '1';
+    }, 200);
+  }
+
+  // ── Fetch with Retry (exponential backoff for 429s) ──
+  function fetchWithRetry(url, maxRetries) {
+    if (maxRetries === undefined) maxRetries = 3;
+    var attempt = 0;
+
+    function tryFetch() {
+      return fetch(url).then(function(response) {
+        if (response.status === 429 && attempt < maxRetries) {
+          var waitTime = Math.pow(2, attempt) * 2000; // 2s, 4s, 8s
+          attempt++;
+          updateLoadingMessage('Rate limited. Retrying in ' + (waitTime / 1000) + ' seconds...');
+          return new Promise(function(resolve) {
+            setTimeout(resolve, waitTime);
+          }).then(tryFetch);
+        }
+        if (!response.ok) throw new Error('API returned ' + response.status);
+        return response.json();
+      });
+    }
+
+    return tryFetch();
+  }
 
   function startAnalysis(url) {
     // Show loading state
@@ -1631,16 +1657,13 @@ h2.section-heading {
       }, 200);
     }, 2000);
 
-    // API Call
+    // API Call with key support
     var apiUrl = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=' +
       encodeURIComponent(url) +
       '&strategy=mobile&category=performance&category=accessibility&category=seo&category=best-practices';
+    if (API_KEY) apiUrl += '&key=' + API_KEY;
 
-    fetch(apiUrl)
-      .then(function(res) {
-        if (!res.ok) throw new Error('API returned ' + res.status);
-        return res.json();
-      })
+    fetchWithRetry(apiUrl, 3)
       .then(function(data) {
         clearInterval(messageInterval);
 
@@ -1672,7 +1695,10 @@ h2.section-heading {
     errorState.classList.add('active');
 
     if (message && message.includes('429')) {
-      errorText.textContent = 'We\'ve hit the API rate limit. Please wait a moment and try again.';
+      errorText.innerHTML = 'Google\'s analysis service is temporarily busy. This usually resolves in a few minutes. You can:<br><br>' +
+        '&bull; Wait 30 seconds and try again<br>' +
+        '&bull; Try a different URL<br>' +
+        '&bull; Contact us directly at <a href="mailto:geoff@stackbuiltweb.com" style="color:var(--terracotta);text-decoration:underline;">geoff@stackbuiltweb.com</a> for a manual audit';
     } else {
       errorText.textContent = 'We couldn\'t analyze that URL. Please check that it\'s a valid, publicly accessible website and try again.';
     }
@@ -1916,66 +1942,5 @@ h2.section-heading {
 })();
 </script>
 
-<script data-pplx-inline-edit>
-(function(){
-  if(window===window.top)return;
-  function inlineAll(orig,clone){
-    if(orig.nodeType!==1)return;
-    try{
-      var cs=getComputedStyle(orig);
-      var t='';
-      for(var i=0;i<cs.length;i++){t+=cs[i]+':'+cs.getPropertyValue(cs[i])+';';}
-      clone.style.cssText=t;
-    }catch(e){}
-    var oc=orig.children,cc=clone.children;
-    for(var j=0;j<oc.length&&j<cc.length;j++){inlineAll(oc[j],cc[j]);}
-  }
-  function stripExternal(clone){
-    var imgs=clone.querySelectorAll('img');
-    for(var i=0;i<imgs.length;i++){
-      var s=imgs[i].getAttribute('src');
-      if(s&&!s.startsWith('data:'))imgs[i].removeAttribute('src');
-    }
-    var all=clone.querySelectorAll('*');
-    for(var i=0;i<all.length;i++){
-      var st=all[i].style.cssText;
-      if(st&&st.indexOf('url(')>=0){
-        all[i].style.cssText=st.replace(/url\(["']?(?!data:)[^)"']*["']?\)/gi,'none');
-      }
-    }
-  }
-  window.addEventListener('message',function(e){
-    if(!e.data||e.data.type!=='INLINE_EDIT_CAPTURE_REQUEST')return;
-    var scrollX=window.scrollX||window.pageXOffset||0;
-    var scrollY=window.scrollY||window.pageYOffset||0;
-    var w=window.innerWidth,h=window.innerHeight;
-    try{
-      var clone=document.documentElement.cloneNode(true);
-      var rm=clone.querySelectorAll('script,link[rel="stylesheet"],style');
-      for(var i=0;i<rm.length;i++){rm[i].remove();}
-      inlineAll(document.documentElement,clone);
-      stripExternal(clone);
-      var html=new XMLSerializer().serializeToString(clone);
-      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'">'
-        +'<foreignObject width="100%" height="100%">'
-        +'<div xmlns="http://www.w3.org/1999/xhtml" style="width:'+w+'px;height:'+h+'px;overflow:hidden">'
-        +'<div style="transform:translate(-'+scrollX+'px,-'+scrollY+'px);transform-origin:top left">'
-        +html+'</div></div></foreignObject></svg>';
-      var svgUrl='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
-      var img=new Image();
-      img.onload=function(){
-        var c=document.createElement('canvas');c.width=w;c.height=h;
-        c.getContext('2d').drawImage(img,0,0);
-        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:c.toDataURL('image/png'),scrollX:scrollX,scrollY:scrollY},'*');
-      };
-      img.onerror=function(){
-        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
-      };
-      img.src=svgUrl;
-    }catch(err){
-      window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
-    }
-  });
-})();
-</script></body>
+</body>
 </html>

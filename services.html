@@ -1,25 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--
-   ______                            __
-  / ____/___  ____ ___  ____  __  __/ /____  _____
- / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
-/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
-\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
-                    /_/
-        Created with Perplexity Computer
-        https://www.perplexity.ai/computer
--->
-
-<!-- Perplexity Computer Attribution — SEO Meta Tags -->
-<meta name="generator" content="Perplexity Computer">
-<meta name="author" content="Perplexity Computer">
-<meta property="og:see_also" content="https://www.perplexity.ai/computer">
-<link rel="author" href="https://www.perplexity.ai/computer">
-
 <meta charset="UTF-8">
-<meta name="google-site-verification" content="7JYTcep1yRHUElYy1YqZmcEHSLZYyoOOcKHQwiAqbHk" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Services | StackBuilt Web — Modern Websites for Local Service Businesses</title>
 <meta name="description" content="From single-page sites for solo operators to full lead-generation machines for established businesses. Every StackBuilt site is fast, mobile-first, and designed to convert.">
@@ -443,12 +425,19 @@ h2.section-heading {
 }
 
 .hero h1 {
-  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-size: clamp(2.625rem, 5.75vw, 4.375rem);
   font-weight: 900;
   letter-spacing: -0.035em;
   line-height: 1.05;
   color: var(--text-primary);
   margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: hero-text-in 0.8s var(--ease-out-expo) 0.3s forwards;
+}
+
+@keyframes hero-text-in {
+  from { opacity: 0; transform: translateY(1.5rem); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
 .hero-sub {
@@ -457,6 +446,8 @@ h2.section-heading {
   line-height: 1.7;
   max-width: 60ch;
   margin: 0 auto;
+  opacity: 0;
+  animation: hero-text-in 0.8s var(--ease-out-expo) 0.5s forwards;
 }
 
 /* ========================================
@@ -591,26 +582,26 @@ h2.section-heading {
 .browser-body {
   background: var(--bg-card);
   border-radius: 0 0 calc(1.25rem - 0.375rem) calc(1.25rem - 0.375rem);
-  padding: 1.5rem;
-  min-height: 380px;
+  padding: 0;
+  min-height: 450px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Before mockup: ugly/basic site */
 .before-preview {
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
-  background: rgba(239, 68, 68, 0.04);
-  border-radius: 0.375rem;
-  padding: 0.5rem;
+  flex: 1;
+  min-height: 100%;
 }
 .before-preview .bp-nav {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding-bottom: 0.625rem;
+  padding: 0.5rem 0.625rem;
   border-bottom: 3px solid;
 }
 .before-preview .bp-logo {
@@ -629,140 +620,212 @@ h2.section-heading {
   border-radius: 2px;
   opacity: 0.7;
 }
-.before-preview .bp-hero {
-  padding: 0.75rem 0;
+.before-preview .bp-content {
+  flex: 1;
+  padding: 0.5rem 0.625rem;
+  display: flex;
+  flex-direction: column;
 }
 .before-preview .bp-headline {
   font-size: 0.75rem;
   font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.375rem;
 }
 .before-preview .bp-text {
-  font-size: 0.625rem;
+  font-size: 0.5625rem;
   line-height: 1.5;
   opacity: 0.7;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.375rem;
 }
 .before-preview .bp-text-block {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.25rem;
 }
 .before-preview .bp-line {
-  height: 0.3rem;
+  height: 0.25rem;
   border-radius: 1px;
   opacity: 0.6;
 }
 .before-preview .bp-img {
   width: 100%;
-  height: 3.5rem;
-  border-radius: 0.25rem;
-  margin-top: 0.375rem;
+  height: 3rem;
+  border-radius: 0.125rem;
+}
+.before-preview .bp-footer {
+  margin-top: auto;
+  padding: 0.375rem 0.625rem;
+  font-size: 0.5rem;
+  opacity: 0.5;
+  border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 /* After mockup: clean StackBuilt-style */
 .after-preview {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 0.375rem;
-  padding: 0.5rem;
+  flex: 1;
+  min-height: 100%;
+  background: #fff;
 }
 .after-preview .ap-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 0.625rem;
+  padding: 0.5rem 0.625rem;
   border-bottom: 1px solid var(--border-subtle);
 }
 .after-preview .ap-logo {
   font-weight: 700;
-  font-size: 0.875rem;
-  color: var(--accent);
+  font-size: 0.8125rem;
 }
 .after-preview .ap-links {
   display: flex;
   gap: 0.5rem;
 }
 .after-preview .ap-link {
-  width: 2.5rem;
-  height: 0.375rem;
+  width: 2.25rem;
+  height: 0.3rem;
   border-radius: 9999px;
   background: var(--bg-warm-alt);
+}
+.after-preview .ap-section {
+  padding: 0.5rem 0.625rem;
 }
 .after-preview .ap-hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  padding: 0.75rem 0;
+  gap: 0.75rem;
+  padding: 0.625rem;
 }
 .after-preview .ap-text-col {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.375rem;
   justify-content: center;
 }
 .after-preview .ap-line {
-  height: 0.5rem;
+  height: 0.4rem;
   border-radius: 9999px;
   background: var(--bg-warm-alt);
 }
 .after-preview .ap-line.thick {
-  height: 0.625rem;
+  height: 0.5rem;
   background: var(--text-primary);
   opacity: 0.12;
 }
 .after-preview .ap-line.short { width: 55%; }
 .after-preview .ap-line.med { width: 80%; }
 .after-preview .ap-cta {
-  width: 50%;
-  height: 1.75rem;
+  width: 45%;
+  height: 1.5rem;
   border-radius: 9999px;
-  background: var(--accent);
-  margin-top: 0.375rem;
-  box-shadow: 0 2px 8px rgba(12, 78, 84, 0.25);
+  margin-top: 0.25rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 .after-preview .ap-img {
-  background: linear-gradient(135deg, var(--accent-muted), rgba(12, 78, 84, 0.12));
-  border-radius: 0.5rem;
-  min-height: 6rem;
+  border-radius: 0.375rem;
+  min-height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .after-preview .ap-img svg {
-  width: 1.75rem;
-  height: 1.75rem;
-  color: var(--accent);
-  opacity: 0.3;
+  width: 1.5rem;
+  height: 1.5rem;
+  opacity: 0.25;
 }
 .after-preview .ap-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  gap: 0.375rem;
+  padding: 0 0.625rem;
 }
 .after-preview .ap-card {
   background: var(--bg-warm);
-  border-radius: 0.5rem;
-  padding: 0.625rem;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.25rem;
 }
 .after-preview .ap-card-icon {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.125rem;
+  height: 1.125rem;
   border-radius: 0.25rem;
-  background: var(--accent-muted);
 }
 .after-preview .ap-card-line {
-  height: 0.3rem;
+  height: 0.25rem;
   border-radius: 9999px;
   background: var(--bg-warm-alt);
 }
 .after-preview .ap-card-line.s { width: 55%; }
+.after-preview .ap-footer-bar {
+  margin-top: auto;
+  padding: 0.375rem 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.after-preview .ap-footer-line {
+  height: 0.25rem;
+  border-radius: 9999px;
+  background: var(--bg-warm-alt);
+}
+/* Trust badges row */
+.after-preview .ap-badges {
+  display: flex;
+  gap: 0.375rem;
+  padding: 0.375rem 0.625rem;
+  justify-content: center;
+}
+.after-preview .ap-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.4375rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+/* Horizontal scroll row */
+.after-preview .ap-scroll-row {
+  display: flex;
+  gap: 0.375rem;
+  padding: 0 0.625rem;
+  overflow: hidden;
+}
+.after-preview .ap-scroll-item {
+  min-width: 5.5rem;
+  border-radius: 0.375rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.after-preview .ap-scroll-img {
+  height: 2.5rem;
+}
+.after-preview .ap-scroll-text {
+  padding: 0.3rem;
+}
+/* Asymmetric grid */
+.after-preview .ap-asym-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.375rem;
+  padding: 0 0.625rem;
+}
+.after-preview .ap-asym-grid > *:first-child {
+  grid-row: 1 / 3;
+}
+.after-preview .ap-asym-card {
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 
 /* Showcase dots */
 .showcase-dots {
@@ -1285,26 +1348,49 @@ h2.section-heading {
                 <div class="browser-dot"></div>
                 <div class="browser-url">joesplumbing.com</div>
               </div>
-              <div class="browser-body" style="background: #f0f0f0;">
-                <div class="before-preview">
-                  <div class="bp-nav" style="border-color: #0000FF;">
-                    <div class="bp-logo" style="color: #0000FF;">JOE'S PLUMBING!!!</div>
+              <div class="browser-body" style="background: url('data:image/svg+xml,%3Csvg width=\'8\' height=\'8\' viewBox=\'0 0 8 8\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'8\' height=\'8\' fill=\'%23d0d8e8\'/%3E%3Crect width=\'4\' height=\'4\' fill=\'%23c0cce0\'/%3E%3Crect x=\'4\' y=\'4\' width=\'4\' height=\'4\' fill=\'%23c0cce0\'/%3E%3C/svg%3E') repeat;">
+                <div class="before-preview" style="background: transparent;">
+                  <!-- Blue header bar -->
+                  <div class="bp-nav" style="border-color: #0000CC; background: #0000CC; padding: 0.625rem;">
+                    <div class="bp-logo" style="color: #FFFFFF; font-family: Impact, sans-serif; font-size: 0.9375rem; letter-spacing: 0.05em;">JOE'S PLUMBING</div>
                     <div class="bp-links">
                       <div class="bp-link" style="background: #FF0000;"></div>
-                      <div class="bp-link" style="background: #0000FF;"></div>
-                      <div class="bp-link" style="background: #FF0000;"></div>
+                      <div class="bp-link" style="background: #00FF00;"></div>
+                      <div class="bp-link" style="background: #FFFF00;"></div>
                     </div>
                   </div>
-                  <div class="bp-hero">
-                    <div class="bp-headline" style="color: #FF0000; font-size: 0.7rem;">WELCOME TO JOE'S PLUMBING - WE FIX EVERYTHING!!!</div>
-                    <div class="bp-text" style="color: #333;">Call us today for all your plumbing needs we have been in business since 1999 and we serve all of central florida including orlando kissimmee sanford...</div>
-                    <div class="bp-text-block">
-                      <div class="bp-line" style="background: #0000FF; width: 100%;"></div>
-                      <div class="bp-line" style="background: #0000FF; width: 85%;"></div>
-                      <div class="bp-line" style="background: #FF0000; width: 65%;"></div>
-                      <div class="bp-line" style="background: #0000FF; width: 90%;"></div>
+                  <div class="bp-content" style="padding: 0.5rem;">
+                    <div class="bp-headline" style="color: #FF0000; font-size: 0.6875rem; text-align: center; margin-bottom: 0.25rem;">&#x2605; WELCOME TO JOE'S PLUMBING!!! &#x2605;</div>
+                    <div style="display: flex; gap: 0.375rem; margin-bottom: 0.375rem;">
+                      <div style="width: 35%; flex-shrink: 0; background: repeating-linear-gradient(45deg, #ccc, #ccc 3px, #ddd 3px, #ddd 6px); border: 2px solid #0000CC; min-height: 4rem; border-radius: 0;"></div>
+                      <div style="flex: 1;">
+                        <div class="bp-text" style="color: #000080; font-size: 0.5rem; line-height: 1.4; margin-bottom: 0.25rem; opacity: 1;">Call us today for ALL your plumbing needs!!! We have been serving Central Florida since 1999. No job too big or small. Residential & commercial. Licensed and insured. 24/7 emergency service available!!</div>
+                        <div class="bp-text" style="color: #333; font-size: 0.4375rem; line-height: 1.4; opacity: 0.8;">We fix everything - toilets sinks water heaters garbage disposals leak detection slab leaks pipe bursting drain cleaning sewer line repair and MORE...</div>
+                      </div>
                     </div>
-                    <div class="bp-img" style="background: repeating-linear-gradient(45deg, #e0e0e0, #e0e0e0 4px, #ccc 4px, #ccc 8px); margin-top: 0.5rem;"></div>
+                    <div style="display: flex; gap: 0.25rem; margin-bottom: 0.375rem;">
+                      <div style="padding: 0.25rem 0.5rem; background: #FF0000; color: #FFF; font-size: 0.4375rem; font-weight: 800; border-radius: 2px;">CALL NOW!!!</div>
+                      <div style="padding: 0.25rem 0.5rem; background: #00AA00; color: #FFF; font-size: 0.4375rem; font-weight: 800; border-radius: 2px;">FREE QUOTE</div>
+                      <div style="padding: 0.25rem 0.5rem; background: #0000CC; color: #FFF; font-size: 0.4375rem; font-weight: 800; border-radius: 2px;">EMAIL US</div>
+                    </div>
+                    <div class="bp-text-block" style="margin-bottom: 0.25rem;">
+                      <div class="bp-line" style="background: #0000CC; width: 100%;"></div>
+                      <div class="bp-line" style="background: #000080; width: 90%;"></div>
+                      <div class="bp-line" style="background: #0000CC; width: 95%;"></div>
+                      <div class="bp-line" style="background: #000080; width: 80%;"></div>
+                      <div class="bp-line" style="background: #0000CC; width: 85%;"></div>
+                    </div>
+                    <div class="bp-text" style="color: #333; font-size: 0.4375rem; opacity: 0.6; text-align: center;">&#x2605; Proudly serving Orlando, Kissimmee, Sanford, Winter Park, Apopka, and ALL of Central FL &#x2605;</div>
+                    <div style="display: flex; gap: 0.25rem; margin-top: 0.25rem;">
+                      <div style="flex: 1; height: 2.5rem; background: repeating-linear-gradient(135deg, #e8e0d0, #e8e0d0 3px, #d8d0c0 3px, #d8d0c0 6px); border: 1px solid #999;"></div>
+                      <div style="flex: 1; height: 2.5rem; background: repeating-linear-gradient(135deg, #d0d8e0, #d0d8e0 3px, #c0c8d0 3px, #c0c8d0 6px); border: 1px solid #999;"></div>
+                    </div>
+                    <div class="bp-text-block" style="margin-top: 0.375rem;">
+                      <div class="bp-line" style="background: #0000CC; width: 100%;"></div>
+                      <div class="bp-line" style="background: #0000CC; width: 70%;"></div>
+                      <div class="bp-line" style="background: #FF0000; width: 60%;"></div>
+                    </div>
+                    <div class="bp-footer" style="text-align: center; color: #000080; margin-top: auto;">Site designed by Joe's nephew &bull; Best viewed in Internet Explorer</div>
                   </div>
                 </div>
               </div>
@@ -1320,13 +1406,15 @@ h2.section-heading {
                 <div class="browser-url">joesplumbing.com</div>
               </div>
               <div class="browser-body">
+                <!-- Joe's After: Split hero (text left, image right), teal accent, 3 service cards, footer bar -->
                 <div class="after-preview">
                   <div class="ap-nav">
-                    <div class="ap-logo">Joe's Plumbing</div>
+                    <div class="ap-logo" style="color: #0C4E54;">Joe's Plumbing</div>
                     <div class="ap-links">
                       <div class="ap-link"></div>
                       <div class="ap-link"></div>
                       <div class="ap-link"></div>
+                      <div style="width: 3rem; height: 1.25rem; border-radius: 9999px; background: #0C4E54;"></div>
                     </div>
                   </div>
                   <div class="ap-hero">
@@ -1335,16 +1423,21 @@ h2.section-heading {
                       <div class="ap-line thick short"></div>
                       <div class="ap-line med"></div>
                       <div class="ap-line short"></div>
-                      <div class="ap-cta"></div>
+                      <div class="ap-cta" style="background: #0C4E54;"></div>
                     </div>
-                    <div class="ap-img">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                    <div class="ap-img" style="background: linear-gradient(135deg, rgba(12,78,84,0.08), rgba(12,78,84,0.15));">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="#0C4E54" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
                     </div>
                   </div>
                   <div class="ap-cards">
-                    <div class="ap-card"><div class="ap-card-icon"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
-                    <div class="ap-card"><div class="ap-card-icon"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
-                    <div class="ap-card"><div class="ap-card-icon"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
+                    <div class="ap-card"><div class="ap-card-icon" style="background: rgba(12,78,84,0.1);"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
+                    <div class="ap-card"><div class="ap-card-icon" style="background: rgba(12,78,84,0.1);"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
+                    <div class="ap-card"><div class="ap-card-icon" style="background: rgba(12,78,84,0.1);"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
+                  </div>
+                  <div class="ap-footer-bar" style="background: #0C4E54; margin-top: auto;">
+                    <div class="ap-footer-line" style="width: 4rem; background: rgba(255,255,255,0.3);"></div>
+                    <div class="ap-footer-line" style="width: 5rem; background: rgba(255,255,255,0.2);"></div>
+                    <div class="ap-footer-line" style="width: 3rem; background: rgba(255,255,255,0.2);"></div>
                   </div>
                 </div>
               </div>
@@ -1366,23 +1459,49 @@ h2.section-heading {
                 <div class="browser-dot"></div>
                 <div class="browser-url">coastalroofing.net</div>
               </div>
-              <div class="browser-body" style="background: #fff;">
+              <div class="browser-body" style="background: #f8f8f8;">
                 <div class="before-preview">
-                  <div class="bp-nav" style="border-color: #999;">
-                    <div class="bp-logo" style="color: #666; font-weight: 400; font-size: 0.65rem;">Coastal Roofing LLC</div>
+                  <!-- Generic grey header with tiny nav -->
+                  <div class="bp-nav" style="border-color: #bbb; background: #e8e8e8; padding: 0.375rem 0.625rem;">
+                    <div class="bp-logo" style="color: #777; font-weight: 400; font-size: 0.5625rem;">Coastal Roofing LLC</div>
                     <div class="bp-links">
-                      <div class="bp-link" style="background: #999;"></div>
-                      <div class="bp-link" style="background: #999;"></div>
+                      <div class="bp-link" style="background: #aaa; width: 1.5rem; height: 0.3rem;"></div>
+                      <div class="bp-link" style="background: #aaa; width: 1.5rem; height: 0.3rem;"></div>
+                      <div class="bp-link" style="background: #aaa; width: 1.5rem; height: 0.3rem;"></div>
+                      <div class="bp-link" style="background: #aaa; width: 1.5rem; height: 0.3rem;"></div>
                     </div>
                   </div>
-                  <div class="bp-hero">
-                    <div class="bp-img" style="background: linear-gradient(135deg, #bbb 0%, #999 100%); height: 3.5rem; margin-bottom: 0.375rem;"></div>
-                    <div class="bp-headline" style="color: #555; font-weight: 500; font-size: 0.5625rem;">Your Trusted Roofing Professionals</div>
-                    <div class="bp-text" style="color: #888;">Generic template website with stock photography and lorem ipsum dolor sit amet consectetur...</div>
-                    <div class="bp-text-block">
+                  <div class="bp-content">
+                    <!-- Big stock photo placeholder -->
+                    <div style="width: 100%; height: 5rem; background: linear-gradient(135deg, #c0c0c0 0%, #a0a0a0 100%); margin-bottom: 0.375rem; display: flex; align-items: center; justify-content: center;">
+                      <span style="font-size: 0.5rem; color: #fff; opacity: 0.6; font-weight: 700;">STOCK PHOTO</span>
+                    </div>
+                    <div class="bp-headline" style="color: #555; font-size: 0.625rem; font-weight: 500; text-align: center; font-style: italic; margin-bottom: 0.375rem;">Welcome to our website!</div>
+                    <!-- Three generic template boxes -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.25rem; margin-bottom: 0.375rem;">
+                      <div style="background: #eee; padding: 0.375rem; border-radius: 0; border: 1px solid #ddd;">
+                        <div style="width: 1.5rem; height: 1.5rem; background: #ccc; border-radius: 50%; margin: 0 auto 0.25rem;"></div>
+                        <div class="bp-line" style="background: #ccc; width: 100%; height: 0.2rem;"></div>
+                        <div class="bp-line" style="background: #ccc; width: 70%; height: 0.2rem; margin-top: 0.15rem;"></div>
+                      </div>
+                      <div style="background: #eee; padding: 0.375rem; border-radius: 0; border: 1px solid #ddd;">
+                        <div style="width: 1.5rem; height: 1.5rem; background: #ccc; border-radius: 50%; margin: 0 auto 0.25rem;"></div>
+                        <div class="bp-line" style="background: #ccc; width: 100%; height: 0.2rem;"></div>
+                        <div class="bp-line" style="background: #ccc; width: 65%; height: 0.2rem; margin-top: 0.15rem;"></div>
+                      </div>
+                      <div style="background: #eee; padding: 0.375rem; border-radius: 0; border: 1px solid #ddd;">
+                        <div style="width: 1.5rem; height: 1.5rem; background: #ccc; border-radius: 50%; margin: 0 auto 0.25rem;"></div>
+                        <div class="bp-line" style="background: #ccc; width: 100%; height: 0.2rem;"></div>
+                        <div class="bp-line" style="background: #ccc; width: 75%; height: 0.2rem; margin-top: 0.15rem;"></div>
+                      </div>
+                    </div>
+                    <div class="bp-text" style="color: #999; font-size: 0.4375rem; text-align: center;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</div>
+                    <div class="bp-text-block" style="margin-top: 0.375rem;">
                       <div class="bp-line" style="background: #ddd; width: 100%;"></div>
+                      <div class="bp-line" style="background: #ddd; width: 85%;"></div>
                       <div class="bp-line" style="background: #ddd; width: 70%;"></div>
                     </div>
+                    <div class="bp-footer" style="text-align: center; color: #aaa;">Powered by TemplateMonster &bull; &copy; 2019</div>
                   </div>
                 </div>
               </div>
@@ -1398,31 +1517,54 @@ h2.section-heading {
                 <div class="browser-url">coastalroofing.net</div>
               </div>
               <div class="browser-body">
+                <!-- Coastal After: Full-width dark hero, trust badges, asymmetric feature cards -->
                 <div class="after-preview">
-                  <div class="ap-nav">
-                    <div class="ap-logo">Coastal Roofing</div>
+                  <div class="ap-nav" style="background: #1a1a2e;">
+                    <div class="ap-logo" style="color: #F59E0B;">Coastal Roofing</div>
                     <div class="ap-links">
-                      <div class="ap-link"></div>
-                      <div class="ap-link"></div>
-                      <div class="ap-link"></div>
+                      <div class="ap-link" style="background: rgba(255,255,255,0.2);"></div>
+                      <div class="ap-link" style="background: rgba(255,255,255,0.2);"></div>
+                      <div class="ap-link" style="background: rgba(255,255,255,0.2);"></div>
                     </div>
                   </div>
-                  <div class="ap-hero">
-                    <div class="ap-text-col">
-                      <div class="ap-line thick" style="width: 95%;"></div>
-                      <div class="ap-line thick" style="width: 60%;"></div>
-                      <div class="ap-line med"></div>
-                      <div class="ap-line short"></div>
-                      <div class="ap-cta"></div>
-                    </div>
-                    <div class="ap-img">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                  <!-- Full-width dark hero with overlay -->
+                  <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 1.25rem 0.625rem; position: relative;">
+                    <div class="ap-line thick" style="width: 75%; background: #fff; opacity: 0.9; height: 0.5rem;"></div>
+                    <div class="ap-line thick" style="width: 50%; background: #fff; opacity: 0.5; margin-top: 0.375rem;"></div>
+                    <div style="display: flex; gap: 0.375rem; margin-top: 0.5rem;">
+                      <div class="ap-cta" style="background: #F59E0B; width: 35%;"></div>
+                      <div class="ap-cta" style="background: transparent; border: 1px solid rgba(255,255,255,0.3); width: 30%;"></div>
                     </div>
                   </div>
-                  <div class="ap-cards">
-                    <div class="ap-card"><div class="ap-card-icon"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
-                    <div class="ap-card"><div class="ap-card-icon"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
-                    <div class="ap-card"><div class="ap-card-icon"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
+                  <!-- Trust badges row -->
+                  <div class="ap-badges">
+                    <div class="ap-badge" style="background: rgba(245,158,11,0.1); color: #F59E0B;">&#9733; 5-STAR</div>
+                    <div class="ap-badge" style="background: rgba(34,197,94,0.1); color: #22C55E;">LICENSED</div>
+                    <div class="ap-badge" style="background: rgba(59,130,246,0.1); color: #3B82F6;">INSURED</div>
+                    <div class="ap-badge" style="background: rgba(168,85,247,0.1); color: #A855F7;">25+ YEARS</div>
+                  </div>
+                  <!-- Asymmetric feature cards -->
+                  <div class="ap-asym-grid" style="flex: 1;">
+                    <div class="ap-asym-card" style="background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(245,158,11,0.15));">
+                      <div style="width: 1.5rem; height: 1.5rem; border-radius: 0.375rem; background: rgba(245,158,11,0.2);"></div>
+                      <div class="ap-line thick" style="width: 70%;"></div>
+                      <div class="ap-line" style="width: 90%;"></div>
+                      <div class="ap-line" style="width: 60%;"></div>
+                    </div>
+                    <div class="ap-asym-card" style="background: var(--bg-warm);">
+                      <div style="width: 1.125rem; height: 1.125rem; border-radius: 0.25rem; background: rgba(245,158,11,0.15);"></div>
+                      <div class="ap-line" style="width: 80%;"></div>
+                      <div class="ap-line" style="width: 55%;"></div>
+                    </div>
+                    <div class="ap-asym-card" style="background: var(--bg-warm);">
+                      <div style="width: 1.125rem; height: 1.125rem; border-radius: 0.25rem; background: rgba(245,158,11,0.15);"></div>
+                      <div class="ap-line" style="width: 75%;"></div>
+                      <div class="ap-line" style="width: 60%;"></div>
+                    </div>
+                  </div>
+                  <div class="ap-footer-bar" style="background: #1a1a2e;">
+                    <div class="ap-footer-line" style="width: 4rem; background: rgba(255,255,255,0.2);"></div>
+                    <div class="ap-footer-line" style="width: 3rem; background: rgba(255,255,255,0.15);"></div>
                   </div>
                 </div>
               </div>
@@ -1444,22 +1586,38 @@ h2.section-heading {
                 <div class="browser-dot"></div>
                 <div class="browser-url">freshcutlandscaping.com</div>
               </div>
-              <div class="browser-body" style="background: repeating-conic-gradient(#e8e8e8 0% 25%, #f5f5f5 0% 50%) 0 0 / 10px 10px;">
-                <div class="before-preview">
-                  <div class="bp-nav" style="border-color: #228B22;">
-                    <div class="bp-logo" style="color: #228B22; font-size: 0.625rem;">~ Fresh Cut Landscaping ~</div>
+              <div class="browser-body" style="background: #1a3a1a;">
+                <div class="before-preview" style="background: transparent; color: #90EE90;">
+                  <!-- Dark green 2005 header -->
+                  <div class="bp-nav" style="border-color: #228B22; background: #0d2a0d; padding: 0.375rem 0.625rem;">
+                    <div class="bp-logo" style="color: #90EE90; font-size: 0.6875rem; font-family: serif;">~ Fresh Cut Landscaping ~</div>
                   </div>
-                  <div class="bp-hero">
-                    <div class="bp-headline" style="color: #228B22; text-align: center; font-size: 0.6875rem;">★ QUALITY LAWN CARE ★</div>
-                    <div style="display:flex; gap: 0.25rem; margin: 0.375rem 0;">
-                      <div class="bp-img" style="background: #90EE90; height: 2rem; flex:1;"></div>
-                      <div class="bp-img" style="background: #98FB98; height: 2rem; flex:1;"></div>
+                  <div class="bp-content" style="color: #c0e0c0;">
+                    <!-- Horizontal banner image -->
+                    <div style="width: 100%; height: 3rem; background: linear-gradient(90deg, #2d5a2d, #4a8a4a, #2d5a2d); margin-bottom: 0.375rem; display: flex; align-items: center; justify-content: center;">
+                      <span style="font-size: 0.5rem; color: #90EE90; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">&#x2605; QUALITY LAWN CARE SINCE 2005 &#x2605;</span>
                     </div>
-                    <div class="bp-text" style="color: #333; text-align: center; font-style: italic;">Serving the community since 2005! Click here to email us for a quote!</div>
-                    <div class="bp-text-block" style="margin-top: 0.375rem;">
-                      <div class="bp-line" style="background: #228B22; width: 100%;"></div>
-                      <div class="bp-line" style="background: #228B22; width: 80%;"></div>
+                    <!-- Two columns of tiny text with bullets -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.375rem; margin-bottom: 0.375rem;">
+                      <div>
+                        <div style="font-size: 0.5rem; font-weight: 700; color: #90EE90; margin-bottom: 0.25rem;">Our Services:</div>
+                        <div style="font-size: 0.375rem; color: #a0c0a0; line-height: 1.6;">&#x2022; Lawn Mowing<br/>&#x2022; Hedge Trimming<br/>&#x2022; Leaf Removal<br/>&#x2022; Sod Installation<br/>&#x2022; Mulching<br/>&#x2022; Weed Control</div>
+                      </div>
+                      <div>
+                        <div style="font-size: 0.5rem; font-weight: 700; color: #90EE90; margin-bottom: 0.25rem;">Why Choose Us:</div>
+                        <div style="font-size: 0.375rem; color: #a0c0a0; line-height: 1.6;">&#x2022; Licensed & Insured<br/>&#x2022; Free Estimates<br/>&#x2022; Weekly Service<br/>&#x2022; Senior Discount<br/>&#x2022; Family Owned<br/>&#x2022; 10+ Years Exp.</div>
+                      </div>
                     </div>
+                    <!-- Visitor counter -->
+                    <div style="text-align: center; padding: 0.25rem; background: #0d2a0d; border: 1px solid #228B22; margin-bottom: 0.375rem;">
+                      <span style="font-size: 0.4375rem; color: #FFD700;">You are visitor #12,847</span>
+                    </div>
+                    <div style="display: flex; gap: 0.25rem; margin-bottom: 0.375rem;">
+                      <div style="flex: 1; height: 2rem; background: #2d5a2d; border: 1px dashed #4a8a4a;"></div>
+                      <div style="flex: 1; height: 2rem; background: #3a6a3a; border: 1px dashed #4a8a4a;"></div>
+                    </div>
+                    <div class="bp-text" style="color: #6a9a6a; font-size: 0.375rem; text-align: center;">Click here to email us for a free quote! Or call (555) 123-4567</div>
+                    <div class="bp-footer" style="text-align: center; color: #4a7a4a; border-color: #2d5a2d;">&copy; 2014 Fresh Cut Landscaping. All Rights Reserved. Site by GoDaddy Website Builder.</div>
                   </div>
                 </div>
               </div>
@@ -1475,31 +1633,67 @@ h2.section-heading {
                 <div class="browser-url">freshcutlandscaping.com</div>
               </div>
               <div class="browser-body">
+                <!-- Fresh Cut After: Green accent, image-first hero, horizontal service scroll -->
                 <div class="after-preview">
                   <div class="ap-nav">
-                    <div class="ap-logo">Fresh Cut</div>
+                    <div class="ap-logo" style="color: #16A34A;">Fresh Cut</div>
                     <div class="ap-links">
                       <div class="ap-link"></div>
                       <div class="ap-link"></div>
-                      <div class="ap-link"></div>
+                      <div style="width: 3rem; height: 1.25rem; border-radius: 9999px; background: #16A34A;"></div>
                     </div>
                   </div>
-                  <div class="ap-hero">
-                    <div class="ap-text-col">
-                      <div class="ap-line thick" style="width: 85%;"></div>
-                      <div class="ap-line thick" style="width: 55%;"></div>
-                      <div class="ap-line med"></div>
-                      <div class="ap-line short"></div>
-                      <div class="ap-cta"></div>
-                    </div>
-                    <div class="ap-img">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                  <!-- Image-first hero with text overlay at bottom -->
+                  <div style="position: relative; min-height: 7rem; background: linear-gradient(180deg, rgba(22,163,74,0.08) 0%, rgba(22,163,74,0.2) 100%); margin: 0;">
+                    <svg style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.12;" width="2rem" height="2rem" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.6)); padding: 0.625rem;">
+                      <div class="ap-line thick" style="width: 65%; background: #fff; opacity: 0.95;"></div>
+                      <div class="ap-line" style="width: 45%; background: #fff; opacity: 0.5; margin-top: 0.25rem;"></div>
                     </div>
                   </div>
-                  <div class="ap-cards">
-                    <div class="ap-card"><div class="ap-card-icon"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
-                    <div class="ap-card"><div class="ap-card-icon"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
-                    <div class="ap-card"><div class="ap-card-icon"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
+                  <!-- Horizontal service scroll row -->
+                  <div class="ap-scroll-row" style="margin-top: 0.5rem;">
+                    <div class="ap-scroll-item" style="background: var(--bg-warm); border: 1px solid var(--border-subtle);">
+                      <div class="ap-scroll-img" style="background: linear-gradient(135deg, rgba(22,163,74,0.1), rgba(22,163,74,0.2));"></div>
+                      <div class="ap-scroll-text">
+                        <div class="ap-card-line" style="width: 80%;"></div>
+                        <div class="ap-card-line s" style="width: 55%; margin-top: 0.15rem;"></div>
+                      </div>
+                    </div>
+                    <div class="ap-scroll-item" style="background: var(--bg-warm); border: 1px solid var(--border-subtle);">
+                      <div class="ap-scroll-img" style="background: linear-gradient(135deg, rgba(22,163,74,0.15), rgba(22,163,74,0.25));"></div>
+                      <div class="ap-scroll-text">
+                        <div class="ap-card-line" style="width: 75%;"></div>
+                        <div class="ap-card-line s" style="width: 50%; margin-top: 0.15rem;"></div>
+                      </div>
+                    </div>
+                    <div class="ap-scroll-item" style="background: var(--bg-warm); border: 1px solid var(--border-subtle);">
+                      <div class="ap-scroll-img" style="background: linear-gradient(135deg, rgba(22,163,74,0.12), rgba(22,163,74,0.18));"></div>
+                      <div class="ap-scroll-text">
+                        <div class="ap-card-line" style="width: 85%;"></div>
+                        <div class="ap-card-line s" style="width: 60%; margin-top: 0.15rem;"></div>
+                      </div>
+                    </div>
+                    <div class="ap-scroll-item" style="background: var(--bg-warm); border: 1px solid var(--border-subtle);">
+                      <div class="ap-scroll-img" style="background: linear-gradient(135deg, rgba(22,163,74,0.1), rgba(22,163,74,0.22));"></div>
+                      <div class="ap-scroll-text">
+                        <div class="ap-card-line" style="width: 70%;"></div>
+                        <div class="ap-card-line s" style="width: 45%; margin-top: 0.15rem;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- CTA bar -->
+                  <div style="margin: 0.5rem 0.625rem; padding: 0.5rem; background: rgba(22,163,74,0.06); border-radius: 0.375rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <div style="flex: 1;">
+                      <div class="ap-line thick" style="width: 70%;"></div>
+                      <div class="ap-line" style="width: 50%; margin-top: 0.25rem;"></div>
+                    </div>
+                    <div style="width: 4rem; height: 1.5rem; border-radius: 9999px; background: #16A34A;"></div>
+                  </div>
+                  <div class="ap-footer-bar" style="background: #14532d;">
+                    <div class="ap-footer-line" style="width: 3.5rem; background: rgba(255,255,255,0.25);"></div>
+                    <div class="ap-footer-line" style="width: 4rem; background: rgba(255,255,255,0.15);"></div>
+                    <div class="ap-footer-line" style="width: 2.5rem; background: rgba(255,255,255,0.15);"></div>
                   </div>
                 </div>
               </div>
@@ -1521,26 +1715,26 @@ h2.section-heading {
                 <div class="browser-dot"></div>
                 <div class="browser-url">brightelectric.com</div>
               </div>
-              <div class="browser-body" style="background: #fafafa;">
-                <div class="before-preview">
-                  <div class="bp-nav" style="border-color: #ddd;">
-                    <div class="bp-logo" style="color: #444; font-size: 0.625rem;">Bright Electric Co.</div>
-                    <div class="bp-links">
-                      <div class="bp-link" style="background: #ccc;"></div>
-                      <div class="bp-link" style="background: #ccc;"></div>
-                      <div class="bp-link" style="background: #ccc;"></div>
-                    </div>
+              <div class="browser-body" style="background: #ffffff;">
+                <div class="before-preview" style="border: 1px solid #ddd;">
+                  <!-- Plain text header -->
+                  <div class="bp-nav" style="border-color: #e0e0e0; background: #fff; padding: 0.375rem 0.625rem;">
+                    <div class="bp-logo" style="color: #444; font-weight: 400; font-size: 0.625rem; font-family: 'Times New Roman', serif;">Bright Electric Co.</div>
                   </div>
-                  <div class="bp-hero">
-                    <div class="bp-headline" style="color: #333; font-size: 0.5625rem; font-weight: 600;">Licensed Electrical Services for Home and Business</div>
-                    <div class="bp-text" style="color: #666;">We provide comprehensive electrical services including residential wiring, panel upgrades, lighting installation, generator installation, EV charger installation, commercial electrical work, emergency services available 24/7...</div>
-                    <div class="bp-text" style="color: #666;">Our team of certified electricians has over 30 years of combined experience serving the greater metropolitan area and surrounding communities...</div>
+                  <div class="bp-content" style="padding: 0.625rem;">
+                    <div class="bp-headline" style="color: #333; font-size: 0.5625rem; font-weight: 400; font-family: 'Times New Roman', serif; margin-bottom: 0.5rem;">Licensed Electrical Services for Home and Business</div>
+                    <div class="bp-text" style="color: #555; font-size: 0.4375rem; line-height: 1.6; opacity: 1; margin-bottom: 0.375rem;">We provide comprehensive electrical services including residential wiring, commercial installations, panel upgrades, lighting installation, generator installation, EV charger installation, and emergency services. Our team of certified electricians has over 30 years of combined experience serving the greater metropolitan area and surrounding communities.</div>
+                    <div class="bp-text" style="color: #555; font-size: 0.4375rem; line-height: 1.6; opacity: 1; margin-bottom: 0.375rem;">Whether you need a simple outlet repair or a complete rewiring of your home, Bright Electric has you covered. We pride ourselves on our honest pricing, clean workmanship, and commitment to safety. All of our electricians are background checked and drug tested for your peace of mind.</div>
+                    <div class="bp-text" style="color: #555; font-size: 0.4375rem; line-height: 1.6; opacity: 1; margin-bottom: 0.375rem;">We serve residential and commercial customers throughout the region. No job is too small. From replacing a light switch to wiring a new construction project, our team has the skills and experience to get the job done right the first time.</div>
                     <div class="bp-text-block" style="margin-top: 0.25rem;">
-                      <div class="bp-line" style="background: #e0e0e0; width: 100%;"></div>
-                      <div class="bp-line" style="background: #e0e0e0; width: 95%;"></div>
-                      <div class="bp-line" style="background: #e0e0e0; width: 88%;"></div>
-                      <div class="bp-line" style="background: #e0e0e0; width: 75%;"></div>
+                      <div class="bp-line" style="background: #e8e8e8; width: 100%;"></div>
+                      <div class="bp-line" style="background: #e8e8e8; width: 97%;"></div>
+                      <div class="bp-line" style="background: #e8e8e8; width: 90%;"></div>
+                      <div class="bp-line" style="background: #e8e8e8; width: 94%;"></div>
+                      <div class="bp-line" style="background: #e8e8e8; width: 85%;"></div>
+                      <div class="bp-line" style="background: #e8e8e8; width: 92%;"></div>
                     </div>
+                    <div class="bp-footer" style="text-align: left; color: #999; border: none; padding: 0.25rem 0; margin-top: auto;">Call us: (555) 987-6543</div>
                   </div>
                 </div>
               </div>
@@ -1556,31 +1750,47 @@ h2.section-heading {
                 <div class="browser-url">brightelectric.com</div>
               </div>
               <div class="browser-body">
+                <!-- Bright After: Yellow/amber accent, bold centered headline, asymmetric service grid, prominent phone -->
                 <div class="after-preview">
-                  <div class="ap-nav">
-                    <div class="ap-logo">Bright Electric</div>
+                  <div class="ap-nav" style="background: #1C1917;">
+                    <div class="ap-logo" style="color: #F59E0B;">&#x26A1; Bright Electric</div>
                     <div class="ap-links">
-                      <div class="ap-link"></div>
-                      <div class="ap-link"></div>
-                      <div class="ap-link"></div>
+                      <div class="ap-link" style="background: rgba(255,255,255,0.15);"></div>
+                      <div class="ap-link" style="background: rgba(255,255,255,0.15);"></div>
+                      <div style="padding: 0.1875rem 0.375rem; background: #F59E0B; border-radius: 0.25rem; font-size: 0.375rem; font-weight: 700; color: #1C1917;">CALL NOW</div>
                     </div>
                   </div>
-                  <div class="ap-hero">
-                    <div class="ap-text-col">
-                      <div class="ap-line thick" style="width: 88%;"></div>
-                      <div class="ap-line thick" style="width: 50%;"></div>
-                      <div class="ap-line med"></div>
-                      <div class="ap-line short"></div>
-                      <div class="ap-cta"></div>
+                  <!-- Bold centered headline -->
+                  <div style="text-align: center; padding: 1rem 0.625rem 0.625rem;">
+                    <div class="ap-line thick" style="width: 60%; margin: 0 auto; height: 0.5rem;"></div>
+                    <div class="ap-line thick" style="width: 40%; margin: 0.3rem auto 0; height: 0.5rem;"></div>
+                    <div class="ap-line" style="width: 55%; margin: 0.375rem auto 0;"></div>
+                    <div class="ap-cta" style="background: #F59E0B; margin: 0.5rem auto 0; width: 40%;"></div>
+                  </div>
+                  <!-- Asymmetric service grid -->
+                  <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 0.375rem; padding: 0 0.625rem;">
+                    <div style="background: var(--bg-warm); border-radius: 0.375rem; padding: 0.5rem; grid-row: 1 / 3;">
+                      <div style="width: 1.5rem; height: 1.5rem; border-radius: 0.375rem; background: rgba(245,158,11,0.15); margin-bottom: 0.25rem;"></div>
+                      <div class="ap-line thick" style="width: 70%;"></div>
+                      <div class="ap-line" style="width: 90%; margin-top: 0.2rem;"></div>
+                      <div class="ap-line" style="width: 75%; margin-top: 0.15rem;"></div>
+                      <div class="ap-line" style="width: 60%; margin-top: 0.15rem;"></div>
                     </div>
-                    <div class="ap-img">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                    <div style="background: var(--bg-warm); border-radius: 0.375rem; padding: 0.5rem;">
+                      <div style="width: 1rem; height: 1rem; border-radius: 0.25rem; background: rgba(245,158,11,0.12); margin-bottom: 0.2rem;"></div>
+                      <div class="ap-line" style="width: 80%;"></div>
+                      <div class="ap-line" style="width: 55%; margin-top: 0.15rem;"></div>
+                    </div>
+                    <div style="background: var(--bg-warm); border-radius: 0.375rem; padding: 0.5rem;">
+                      <div style="width: 1rem; height: 1rem; border-radius: 0.25rem; background: rgba(245,158,11,0.12); margin-bottom: 0.2rem;"></div>
+                      <div class="ap-line" style="width: 75%;"></div>
+                      <div class="ap-line" style="width: 60%; margin-top: 0.15rem;"></div>
                     </div>
                   </div>
-                  <div class="ap-cards">
-                    <div class="ap-card"><div class="ap-card-icon"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
-                    <div class="ap-card"><div class="ap-card-icon"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
-                    <div class="ap-card"><div class="ap-card-icon"></div><div class="ap-card-line"></div><div class="ap-card-line s"></div></div>
+                  <div class="ap-footer-bar" style="background: #1C1917;">
+                    <div class="ap-footer-line" style="width: 3.5rem; background: rgba(255,255,255,0.2);"></div>
+                    <div style="padding: 0.125rem 0.375rem; background: #F59E0B; border-radius: 0.125rem; font-size: 0.3125rem; font-weight: 700; color: #1C1917;">(555) 987-6543</div>
+                    <div class="ap-footer-line" style="width: 3rem; background: rgba(255,255,255,0.15);"></div>
                   </div>
                 </div>
               </div>
@@ -1918,15 +2128,12 @@ h2.section-heading {
       <div class="footer-contact">
         <div class="footer-contact-title">Contact</div>
         <a href="mailto:geoff@stackbuiltweb.com">geoff@stackbuiltweb.com</a>
-                    <a href="tel:+13213285561" style="color: rgba(255,255,255,0.7); text-decoration: none;">(321) 328-5561</a>
-        <a href="tel:+13215551234">(321) 555-1234</a>
+        <span>Melbourne, FL</span>
       </div>
     </div>
     <div class="footer-bottom">
       <span class="footer-copy">&copy; 2026 StackBuilt Web. Melbourne, FL.</span>
-      <span class="footer-attribution">
-        <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
-      </span>
+
     </div>
   </div>
 </footer>
@@ -2033,66 +2240,5 @@ h2.section-heading {
 })();
 </script>
 
-<script data-pplx-inline-edit>
-(function(){
-  if(window===window.top)return;
-  function inlineAll(orig,clone){
-    if(orig.nodeType!==1)return;
-    try{
-      var cs=getComputedStyle(orig);
-      var t='';
-      for(var i=0;i<cs.length;i++){t+=cs[i]+':'+cs.getPropertyValue(cs[i])+';';}
-      clone.style.cssText=t;
-    }catch(e){}
-    var oc=orig.children,cc=clone.children;
-    for(var j=0;j<oc.length&&j<cc.length;j++){inlineAll(oc[j],cc[j]);}
-  }
-  function stripExternal(clone){
-    var imgs=clone.querySelectorAll('img');
-    for(var i=0;i<imgs.length;i++){
-      var s=imgs[i].getAttribute('src');
-      if(s&&!s.startsWith('data:'))imgs[i].removeAttribute('src');
-    }
-    var all=clone.querySelectorAll('*');
-    for(var i=0;i<all.length;i++){
-      var st=all[i].style.cssText;
-      if(st&&st.indexOf('url(')>=0){
-        all[i].style.cssText=st.replace(/url\(["']?(?!data:)[^)"']*["']?\)/gi,'none');
-      }
-    }
-  }
-  window.addEventListener('message',function(e){
-    if(!e.data||e.data.type!=='INLINE_EDIT_CAPTURE_REQUEST')return;
-    var scrollX=window.scrollX||window.pageXOffset||0;
-    var scrollY=window.scrollY||window.pageYOffset||0;
-    var w=window.innerWidth,h=window.innerHeight;
-    try{
-      var clone=document.documentElement.cloneNode(true);
-      var rm=clone.querySelectorAll('script,link[rel="stylesheet"],style');
-      for(var i=0;i<rm.length;i++){rm[i].remove();}
-      inlineAll(document.documentElement,clone);
-      stripExternal(clone);
-      var html=new XMLSerializer().serializeToString(clone);
-      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'">'
-        +'<foreignObject width="100%" height="100%">'
-        +'<div xmlns="http://www.w3.org/1999/xhtml" style="width:'+w+'px;height:'+h+'px;overflow:hidden">'
-        +'<div style="transform:translate(-'+scrollX+'px,-'+scrollY+'px);transform-origin:top left">'
-        +html+'</div></div></foreignObject></svg>';
-      var svgUrl='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
-      var img=new Image();
-      img.onload=function(){
-        var c=document.createElement('canvas');c.width=w;c.height=h;
-        c.getContext('2d').drawImage(img,0,0);
-        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:c.toDataURL('image/png'),scrollX:scrollX,scrollY:scrollY},'*');
-      };
-      img.onerror=function(){
-        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
-      };
-      img.src=svgUrl;
-    }catch(err){
-      window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
-    }
-  });
-})();
-</script></body>
+</body>
 </html>

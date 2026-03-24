@@ -1,25 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--
-   ______                            __
-  / ____/___  ____ ___  ____  __  __/ /____  _____
- / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
-/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
-\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
-                    /_/
-        Created with Perplexity Computer
-        https://www.perplexity.ai/computer
--->
-
-<!-- Perplexity Computer Attribution — SEO Meta Tags -->
-<meta name="generator" content="Perplexity Computer">
-<meta name="author" content="Perplexity Computer">
-<meta property="og:see_also" content="https://www.perplexity.ai/computer">
-<link rel="author" href="https://www.perplexity.ai/computer">
-
 <meta charset="UTF-8">
-<meta name="google-site-verification" content="7JYTcep1yRHUElYy1YqZmcEHSLZYyoOOcKHQwiAqbHk" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — StackBuilt Web | Get in Touch</title>
 <meta name="description" content="Tell us about your business and we'll put together a plan. No pressure, no sales pitch — just an honest conversation about what your website needs.">
@@ -976,6 +958,97 @@ body::before {
     align-items: flex-start;
   }
 }
+
+/* ========================================
+   Add-Ons Checkboxes
+   ======================================== */
+.addons-group {
+  margin-top: 0.25rem;
+}
+
+.addons-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.addon-checkboxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .addon-checkboxes {
+    grid-template-columns: 1fr;
+  }
+}
+
+.addon-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.625rem;
+  border: 1px solid var(--border-card);
+  background: var(--bg-warm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  user-select: none;
+}
+
+.addon-checkbox:hover {
+  border-color: rgba(12, 78, 84, 0.2);
+  background: var(--bg-warm-alt);
+}
+
+.addon-checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 2px solid var(--border-card);
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.addon-checkbox input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.addon-checkbox input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.addon-checkbox.checked {
+  border-color: rgba(12, 78, 84, 0.25);
+  background: rgba(12, 78, 84, 0.04);
+}
+
+.addon-checkbox-text {
+  font-size: 0.8125rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.addon-checkbox-text .addon-price {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
 </style>
 </head>
 <body>
@@ -1078,6 +1151,48 @@ body::before {
                 <option value="professional">Professional Package</option>
                 <option value="premium">Premium Package</option>
                 <option value="not-sure">Not Sure Yet</option>
+              </select>
+            </div>
+
+            <div class="form-group addons-group">
+              <span class="form-label">Interested in any add-ons? <span style="font-weight:400;color:var(--text-secondary);">(select all that apply)</span></span>
+              <div class="addon-checkboxes">
+                <label class="addon-checkbox">
+                  <input type="checkbox" name="addons" value="ai-voice-chat-agent">
+                  <span class="addon-checkbox-text">AI Voice/Chat Agent <span class="addon-price">($500)</span></span>
+                </label>
+                <label class="addon-checkbox">
+                  <input type="checkbox" name="addons" value="email-automation">
+                  <span class="addon-checkbox-text">Email Automation Setup <span class="addon-price">($750)</span></span>
+                </label>
+                <label class="addon-checkbox">
+                  <input type="checkbox" name="addons" value="google-ads-landing">
+                  <span class="addon-checkbox-text">Google Ads Landing Page <span class="addon-price">($500)</span></span>
+                </label>
+                <label class="addon-checkbox">
+                  <input type="checkbox" name="addons" value="additional-pages">
+                  <span class="addon-checkbox-text">Additional Pages <span class="addon-price">($200/page)</span></span>
+                </label>
+                <label class="addon-checkbox">
+                  <input type="checkbox" name="addons" value="logo-design">
+                  <span class="addon-checkbox-text">Logo Design <span class="addon-price">($300)</span></span>
+                </label>
+                <label class="addon-checkbox">
+                  <input type="checkbox" name="addons" value="photography">
+                  <span class="addon-checkbox-text">On-Site Photography <span class="addon-price">($250)</span></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="maintenance">Monthly maintenance plan</label>
+              <select id="maintenance" name="maintenance" class="form-select">
+                <option value="" disabled selected>Select a plan</option>
+                <option value="hustle-basic">Hustle Basic &mdash; $50/month</option>
+                <option value="basic">Basic Maintenance &mdash; $99/month</option>
+                <option value="growth">Growth &mdash; $199/month</option>
+                <option value="full-service">Full Service &mdash; $349/month</option>
+                <option value="not-sure">Not sure yet</option>
               </select>
             </div>
 
@@ -1326,9 +1441,7 @@ body::before {
     </div>
     <div class="footer-bottom">
       <span class="footer-copy">&copy; 2026 StackBuilt Web. All rights reserved.</span>
-      <span class="footer-attribution">
-        <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
-      </span>
+
     </div>
   </div>
 </footer>
@@ -1437,6 +1550,21 @@ body::before {
   });
 })();
 
+// Add-on checkbox visual toggle
+(function() {
+  var addonLabels = document.querySelectorAll('.addon-checkbox');
+  addonLabels.forEach(function(label) {
+    var cb = label.querySelector('input[type="checkbox"]');
+    cb.addEventListener('change', function() {
+      if (cb.checked) {
+        label.classList.add('checked');
+      } else {
+        label.classList.remove('checked');
+      }
+    });
+  });
+})();
+
 // Contact Form Submission
 (function() {
   var form = document.getElementById('contactForm');
@@ -1447,6 +1575,13 @@ body::before {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
+    // Collect selected add-ons
+    var selectedAddons = [];
+    var addonCheckboxes = form.querySelectorAll('input[name="addons"]:checked');
+    addonCheckboxes.forEach(function(cb) {
+      selectedAddons.push(cb.value);
+    });
+
     var formData = {
       name: form.name.value,
       email: form.email.value,
@@ -1454,6 +1589,8 @@ body::before {
       business: form.business.value,
       website: form.website.value,
       service: form.service.value,
+      addons: selectedAddons,
+      maintenance: form.maintenance.value,
       message: form.message.value
     };
 
@@ -1490,66 +1627,5 @@ body::before {
 })();
 </script>
 
-<script data-pplx-inline-edit>
-(function(){
-  if(window===window.top)return;
-  function inlineAll(orig,clone){
-    if(orig.nodeType!==1)return;
-    try{
-      var cs=getComputedStyle(orig);
-      var t='';
-      for(var i=0;i<cs.length;i++){t+=cs[i]+':'+cs.getPropertyValue(cs[i])+';';}
-      clone.style.cssText=t;
-    }catch(e){}
-    var oc=orig.children,cc=clone.children;
-    for(var j=0;j<oc.length&&j<cc.length;j++){inlineAll(oc[j],cc[j]);}
-  }
-  function stripExternal(clone){
-    var imgs=clone.querySelectorAll('img');
-    for(var i=0;i<imgs.length;i++){
-      var s=imgs[i].getAttribute('src');
-      if(s&&!s.startsWith('data:'))imgs[i].removeAttribute('src');
-    }
-    var all=clone.querySelectorAll('*');
-    for(var i=0;i<all.length;i++){
-      var st=all[i].style.cssText;
-      if(st&&st.indexOf('url(')>=0){
-        all[i].style.cssText=st.replace(/url\(["']?(?!data:)[^)"']*["']?\)/gi,'none');
-      }
-    }
-  }
-  window.addEventListener('message',function(e){
-    if(!e.data||e.data.type!=='INLINE_EDIT_CAPTURE_REQUEST')return;
-    var scrollX=window.scrollX||window.pageXOffset||0;
-    var scrollY=window.scrollY||window.pageYOffset||0;
-    var w=window.innerWidth,h=window.innerHeight;
-    try{
-      var clone=document.documentElement.cloneNode(true);
-      var rm=clone.querySelectorAll('script,link[rel="stylesheet"],style');
-      for(var i=0;i<rm.length;i++){rm[i].remove();}
-      inlineAll(document.documentElement,clone);
-      stripExternal(clone);
-      var html=new XMLSerializer().serializeToString(clone);
-      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'">'
-        +'<foreignObject width="100%" height="100%">'
-        +'<div xmlns="http://www.w3.org/1999/xhtml" style="width:'+w+'px;height:'+h+'px;overflow:hidden">'
-        +'<div style="transform:translate(-'+scrollX+'px,-'+scrollY+'px);transform-origin:top left">'
-        +html+'</div></div></foreignObject></svg>';
-      var svgUrl='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
-      var img=new Image();
-      img.onload=function(){
-        var c=document.createElement('canvas');c.width=w;c.height=h;
-        c.getContext('2d').drawImage(img,0,0);
-        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:c.toDataURL('image/png'),scrollX:scrollX,scrollY:scrollY},'*');
-      };
-      img.onerror=function(){
-        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
-      };
-      img.src=svgUrl;
-    }catch(err){
-      window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
-    }
-  });
-})();
-</script></body>
+</body>
 </html>
