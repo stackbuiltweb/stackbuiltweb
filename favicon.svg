@@ -1,7 +1,6 @@
-<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <!-- StackBuilt Web — Favicon -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="6" fill="#1C1917"/>
-  <path d="M6 26 L16 20 L26 26" stroke="#D4652E" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M6 18 L16 12 L26 18" stroke="#0C4E54" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M6 10 L16 4 L26 10" stroke="#0E6B73" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8 24 L16 18 L24 24" stroke="#D4652E" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8 17 L16 11 L24 17" stroke="#0C4E54" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8 10 L16 4 L24 10" stroke="#0E6B73" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

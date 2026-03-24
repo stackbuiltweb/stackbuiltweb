@@ -300,14 +300,14 @@ h2.section-heading {
 }
 
 .nav-logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
   text-decoration: none;
-  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
 }
-.nav-logo span {
-  color: var(--accent);
+.nav-logo-svg {
+  display: block;
+  height: 32px;
+  width: auto;
 }
 
 .nav-links {
@@ -1205,12 +1205,12 @@ h2.section-heading {
 </style>
 
 <!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C0W59NZS22"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-C0W59NZS22');
+  gtag('config', 'G-XXXXXXXXXX');
 </script>
 
 <!-- Structured Data -->
@@ -1267,7 +1267,16 @@ h2.section-heading {
      ======================================== -->
 <nav class="nav" id="navbar">
   <div class="nav-inner">
-    <a href="/index.html" class="nav-logo">Stack<span>Built</span> Web</a>
+    <a href="/index.html" class="nav-logo" aria-label="StackBuilt Web Home">
+      <svg class="nav-logo-svg" width="180" height="32" viewBox="0 0 180 32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 26 L11 20 L18 26" stroke="#D4652E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 18 L11 12 L18 18" stroke="#0C4E54" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 10 L11 4 L18 10" stroke="#0E6B73" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="26" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="900" fill="#1C1917" letter-spacing="-0.3">Stack</text>
+        <text x="78" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="900" fill="#0C4E54" letter-spacing="-0.3">Built</text>
+        <text x="126" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="500" fill="#A8A29E" letter-spacing="-0.3">Web</text>
+      </svg>
+    </a>
     <ul class="nav-links">
       <li><a href="/index.html" class="active">Home</a></li>
       <li><a href="/services.html">Services</a></li>
@@ -1753,7 +1762,16 @@ h2.section-heading {
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">Stack<span>Built</span> Web</div>
+        <div class="footer-brand">
+          <svg width="160" height="28" viewBox="0 0 160 28" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 23 L10 17 L17 23" stroke="#D4652E" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 16 L10 10 L17 16" stroke="rgba(255,255,255,0.7)" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 9 L10 3 L17 9" stroke="rgba(255,255,255,0.45)" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="24" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="-0.3">Stack</text>
+            <text x="70" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="-0.3">Built</text>
+            <text x="112" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="500" fill="rgba(255,255,255,0.5)" letter-spacing="-0.3">Web</text>
+          </svg>
+        </div>
         <p class="footer-tagline">Modern websites for local businesses.</p>
       </div>
       <div class="footer-links">
