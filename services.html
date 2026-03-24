@@ -422,6 +422,9 @@ h2.section-heading {
 
 .hero-eyebrow {
   margin-bottom: 1.5rem;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: hero-text-in 0.6s var(--ease-out-expo) 0.1s forwards;
 }
 
 .hero h1 {
@@ -432,7 +435,8 @@ h2.section-heading {
   color: var(--text-primary);
   margin-bottom: 1.5rem;
   opacity: 0;
-  animation: hero-text-in 0.8s var(--ease-out-expo) 0.3s forwards;
+  will-change: transform, opacity;
+  animation: hero-text-in 0.6s var(--ease-out-expo) 0.3s forwards;
 }
 
 @keyframes hero-text-in {
@@ -447,7 +451,8 @@ h2.section-heading {
   max-width: 60ch;
   margin: 0 auto;
   opacity: 0;
-  animation: hero-text-in 0.8s var(--ease-out-expo) 0.5s forwards;
+  will-change: transform, opacity;
+  animation: hero-text-in 0.6s var(--ease-out-expo) 0.5s forwards;
 }
 
 /* ========================================
@@ -1265,6 +1270,84 @@ h2.section-heading {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ========================================
+   Demo Preview Section
+   ======================================== */
+.demo-preview-section {
+  background: var(--bg-cream);
+}
+.demo-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.demo-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.demo-card-tier {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.demo-card-price {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+.demo-card-niche {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  margin-top: 0.25rem;
+}
+.demo-card-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.demo-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.75rem;
+  padding: 0.625rem 1.25rem;
+  border: 1.5px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.demo-card-btn:hover {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+@media (max-width: 1100px) {
+  .demo-preview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .demo-preview-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -1312,11 +1395,11 @@ h2.section-heading {
 <section class="hero section">
   <div class="container">
     <div class="hero-content">
-      <div class="hero-eyebrow reveal stagger-1">
+      <div class="hero-eyebrow">
         <span class="eyebrow">OUR SERVICES</span>
       </div>
-      <h1 class="reveal stagger-2">Websites that work as hard as you do.</h1>
-      <p class="hero-sub reveal stagger-3">From single-page sites for solo operators to full lead-generation machines for established businesses. Every site is built with modern technology, optimized for speed, and designed to convert visitors into customers.</p>
+      <h1>Websites that work as hard as you do.</h1>
+      <p class="hero-sub">From single-page sites for solo operators to full lead-generation machines for established businesses. Every site is built with modern technology, optimized for speed, and designed to convert visitors into customers.</p>
     </div>
   </div>
 </section>
@@ -1975,6 +2058,56 @@ h2.section-heading {
           <p class="process-desc">Ongoing hosting, security, updates, and support. You focus on your business.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ========================================
+     Demo Preview Section
+     ======================================== -->
+<section class="demo-preview-section section">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow" style="margin-bottom: 1.25rem;">Examples</span>
+    </div>
+    <h2 class="section-heading reveal stagger-2" style="max-width: 24ch; margin-top: 1rem;">See examples of our work.</h2>
+
+    <div class="demo-preview-grid">
+
+      <div class="demo-card reveal stagger-1">
+        <span class="demo-card-tier">Side Hustle</span>
+        <span class="demo-card-price">$500 &ndash; $1,000</span>
+        <div class="demo-card-niche">Pressure Washing</div>
+        <p class="demo-card-desc">Single-page site for solo operators</p>
+        <a href="/demos/side-hustle/" target="_blank" class="demo-card-btn">Explore Demo &rarr;</a>
+      </div>
+
+      <div class="demo-card reveal stagger-2">
+        <span class="demo-card-tier">Starter</span>
+        <span class="demo-card-price">$1,500</span>
+        <div class="demo-card-niche">Small Business</div>
+        <p class="demo-card-desc">3-page site for small businesses</p>
+        <a href="/demos/starter/" target="_blank" class="demo-card-btn">Explore Demo &rarr;</a>
+      </div>
+
+      <div class="demo-card reveal stagger-3">
+        <span class="demo-card-tier">Professional</span>
+        <span class="demo-card-price">$3,500</span>
+        <div class="demo-card-niche">HVAC &amp; Contractors</div>
+        <p class="demo-card-desc">5-page dark-mode site for established businesses</p>
+        <a href="/demos/professional/" target="_blank" class="demo-card-btn">Explore Demo &rarr;</a>
+      </div>
+
+      <div class="demo-card reveal stagger-4">
+        <span class="demo-card-tier">Premium</span>
+        <span class="demo-card-price">$5,500</span>
+        <div class="demo-card-niche">Editorial &amp; AI</div>
+        <p class="demo-card-desc">Premium editorial site with AI chatbot</p>
+        <a href="/demos/premium/" target="_blank" class="demo-card-btn">Explore Demo &rarr;</a>
+      </div>
+
     </div>
   </div>
 </section>

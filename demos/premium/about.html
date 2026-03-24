@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Sofia — Golden Coast Studios</title>
+<meta name="description" content="Meet Sofia Reyes — the photographer behind Golden Coast Studios. Ten years of editorial and portrait photography on Florida's Space Coast.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #FAF8F5;
+  --card: #FFFFFF;
+  --accent: #1A1A1A;
+  --gold: #C9A96E;
+  --text: #1A1A1A;
+  --muted: #8A8680;
+  --border: rgba(26, 26, 26, 0.08);
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.skip-link {
+  position: absolute; top: -100%; left: 16px;
+  background: var(--accent); color: var(--bg);
+  padding: 8px 16px; z-index: 1000; font-size: 14px; text-decoration: none;
+}
+.skip-link:focus { top: 16px; }
+
+/* Nav */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 24px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250, 248, 245, 0.85);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  transition: padding 0.4s var(--ease-out);
+}
+.nav--scrolled { padding: 16px 48px; }
+.nav__logo {
+  font-family: var(--font-serif); font-style: italic; font-size: 22px;
+  color: var(--text); text-decoration: none; letter-spacing: -0.02em;
+}
+.nav__links { display: flex; align-items: center; gap: 40px; list-style: none; }
+.nav__links a {
+  font-size: 13px; font-weight: 400; color: var(--text); text-decoration: none;
+  letter-spacing: 0.08em; text-transform: uppercase; transition: color 180ms var(--ease-out);
+}
+.nav__links a:hover, .nav__links a.active { color: var(--gold); }
+.nav__book {
+  font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  border: 1px solid var(--gold); padding: 10px 24px; border-radius: 100px;
+  transition: background 180ms var(--ease-out), color 180ms var(--ease-out);
+}
+.nav__book:hover { background: var(--gold); color: var(--accent); }
+.nav__toggle {
+  display: none; background: none; border: none; cursor: pointer;
+  width: 32px; height: 32px; flex-direction: column; justify-content: center; align-items: center; gap: 6px;
+}
+.nav__toggle span { display: block; width: 24px; height: 1.5px; background: var(--text); transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out); }
+.nav__toggle.active span:nth-child(1) { transform: translateY(3.75px) rotate(45deg); }
+.nav__toggle.active span:nth-child(2) { opacity: 0; }
+.nav__toggle.active span:nth-child(3) { transform: translateY(-3.75px) rotate(-45deg); }
+.nav__mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--bg); z-index: 99;
+  flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+  opacity: 0; transition: opacity 0.4s var(--ease-out);
+}
+.nav__mobile-menu.active { display: flex; opacity: 1; }
+.nav__mobile-menu a {
+  font-family: var(--font-serif); font-style: italic; font-size: 36px;
+  color: var(--text); text-decoration: none; transition: color 180ms var(--ease-out);
+}
+.nav__mobile-menu a:hover { color: var(--gold); }
+
+/* Hero Section */
+.about-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+  gap: 0;
+}
+.about-hero__image {
+  overflow: hidden;
+  padding-top: 80px;
+}
+.about-hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about-hero__content {
+  padding: 160px 64px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-hero__title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 32px;
+}
+.about-hero__text {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 480px;
+}
+.about-hero__text p { margin-bottom: 20px; }
+
+/* Story Section */
+.about-story {
+  padding: 100px 48px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.about-story__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+.about-story__text {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.about-story__text p { margin-bottom: 24px; }
+
+/* Timeline */
+.timeline {
+  padding: 80px 48px 100px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.timeline__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 400;
+  margin-bottom: 56px;
+}
+.timeline__item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.timeline__item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.timeline__year {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--gold);
+}
+.timeline__title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.timeline__desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Featured In */
+.featured {
+  padding: 80px 48px 120px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.featured__label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+.featured__list {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.featured__item {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: var(--muted);
+  opacity: 0.5;
+}
+
+/* Pull Quote */
+.pull-quote {
+  padding: 80px 48px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.pull-quote__text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(24px, 3.5vw, 40px);
+  color: var(--muted);
+  line-height: 1.3;
+  opacity: 0.6;
+}
+
+/* CTA */
+.cta-section {
+  padding: 80px 48px 120px;
+  text-align: center;
+}
+.cta-section__heading {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.cta-section__text {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+.cta-section__link {
+  display: inline-block;
+  font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  border: 1px solid var(--gold); padding: 14px 32px; border-radius: 100px;
+  transition: background 180ms var(--ease-out), color 180ms var(--ease-out);
+}
+.cta-section__link:hover { background: var(--gold); color: var(--accent); }
+
+/* Footer */
+.footer { padding: 80px 48px 40px; text-align: center; }
+.footer__name { font-family: var(--font-serif); font-style: italic; font-size: 16px; margin-bottom: 16px; }
+.footer__location { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+.footer__social a { color: var(--muted); transition: color 180ms var(--ease-out); }
+.footer__social a:hover { color: var(--gold); }
+.footer__copy { font-size: 12px; color: var(--muted); margin-top: 32px; }
+.footer__attribution { margin-top: 16px; }
+.footer__attribution a { font-size: 11px; color: var(--muted); text-decoration: none; transition: color 180ms var(--ease-out); }
+.footer__attribution a:hover { color: var(--gold); }
+
+.tier-badge {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--accent); color: var(--bg);
+  text-align: center; padding: 10px 16px; font-size: 13px; z-index: 300;
+}
+.tier-badge a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .nav { padding: 16px 24px; }
+  .nav__links, .nav__book { display: none; }
+  .nav__toggle { display: flex; }
+  .about-hero { grid-template-columns: 1fr; min-height: auto; }
+  .about-hero__image { aspect-ratio: 3/4; max-height: 60vh; padding-top: 64px; }
+  .about-hero__content { padding: 48px 24px; }
+  .about-story { padding: 64px 24px; }
+  .timeline { padding: 48px 24px 64px; }
+  .timeline__item { grid-template-columns: 60px 1fr; gap: 20px; }
+  .featured { padding: 48px 24px 80px; }
+  .featured__list { gap: 24px; }
+  .pull-quote { padding: 48px 24px; }
+  .cta-section { padding: 48px 24px 80px; }
+  .footer { padding: 60px 24px 100px; }
+  .tier-badge { font-size: 11px; padding: 8px 12px; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<nav class="nav" aria-label="Main navigation">
+  <a href="index.html" class="nav__logo">Golden Coast</a>
+  <ul class="nav__links">
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav__book">Book a Session</a>
+  <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav__mobile-menu" aria-hidden="true">
+  <a href="portfolio.html">Portfolio</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main id="main">
+<!-- Hero -->
+<section class="about-hero" aria-label="About Sofia Reyes">
+  <div class="about-hero__image">
+    <img src="https://picsum.photos/seed/sofia-about-hero/900/1200" alt="Sofia Reyes with camera at golden hour" fetchpriority="high" decoding="async" width="900" height="1200">
+  </div>
+  <div class="about-hero__content reveal">
+    <h1 class="about-hero__title">Sofia Reyes.</h1>
+    <div class="about-hero__text">
+      <p>I picked up my first camera at nineteen and never looked back. What started as an obsession with light — the way it curves around a face, catches the edge of a wave — became a career I can't imagine living without.</p>
+      <p>For the past ten years, I've been photographing families, couples, entrepreneurs, and spaces along Florida's Space Coast. I work out of Cocoa Beach, but I'll travel anywhere the light is good.</p>
+      <p>My style is simple: natural, warm, and honest. I don't pose people into shapes they don't fit. I find the moment — and I wait for it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Story -->
+<section class="about-story reveal" aria-label="My story">
+  <h2 class="about-story__heading">The long version.</h2>
+  <div class="about-story__text">
+    <p>I grew up in Miami, the daughter of a commercial fisherman and a high school art teacher. My mother painted. My father told stories. I ended up somewhere between the two — making images that try to tell stories about light.</p>
+    <p>I studied visual arts at UCF, but the real education happened after graduation — assisting wedding photographers, shooting real estate on weekends, learning to read a room and anticipate a moment before it happens.</p>
+    <p>In 2018, I moved to Cocoa Beach. Something about the quality of light here — the way the Atlantic catches the morning sun, the golden hours that seem to last forever in the fall — it changed my work completely. The color palette shifted. The pace slowed down. Everything became warmer.</p>
+    <p>Today, I split my time between portrait sessions on the beach, editorial work for regional publications, and the occasional wedding that makes me cry behind the camera. I love what I do. And I think that shows up in the work.</p>
+  </div>
+</section>
+
+<!-- Pull Quote -->
+<div class="pull-quote reveal">
+  <p class="pull-quote__text">"The best photographs happen when people forget there's a camera in the room."</p>
+</div>
+
+<!-- Timeline -->
+<section class="timeline reveal" aria-label="Milestones">
+  <h2 class="timeline__heading">Milestones.</h2>
+
+  <div class="timeline__item">
+    <div class="timeline__year">2016</div>
+    <div>
+      <div class="timeline__title">Started Golden Coast Studios</div>
+      <div class="timeline__desc">Launched as a solo portrait photographer in Orlando. First year: 42 sessions, zero regrets.</div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__year">2018</div>
+    <div>
+      <div class="timeline__title">Moved to Cocoa Beach</div>
+      <div class="timeline__desc">Relocated to the Space Coast. Found the light I'd been looking for. Expanded into wedding and event coverage.</div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__year">2020</div>
+    <div>
+      <div class="timeline__title">Published in Florida Travel + Life</div>
+      <div class="timeline__desc">First major editorial feature — a 12-page spread on Cocoa Beach's emerging creative scene.</div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__year">2022</div>
+    <div>
+      <div class="timeline__title">Coastal Living Feature</div>
+      <div class="timeline__desc">Photographed a cover story on Space Coast architecture and design. Still one of my proudest projects.</div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__year">2024</div>
+    <div>
+      <div class="timeline__title">2,000th Session</div>
+      <div class="timeline__desc">A milestone I never expected to reach. Celebrated with the Torres family — my very first clients, now on their fourth annual shoot.</div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__year">2026</div>
+    <div>
+      <div class="timeline__title">Today</div>
+      <div class="timeline__desc">2,500+ sessions and counting. Still chasing the golden hour. Still learning. Still in love with this coast.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured In -->
+<section class="featured reveal" aria-label="Featured in">
+  <p class="featured__label">Featured In</p>
+  <div class="featured__list">
+    <span class="featured__item">Florida Travel + Life</span>
+    <span class="featured__item">Coastal Living</span>
+    <span class="featured__item">Space Coast Daily</span>
+    <span class="featured__item">Orlando Magazine</span>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal" aria-label="Work with me">
+  <h2 class="cta-section__heading">Let's work together.</h2>
+  <p class="cta-section__text">I'd love to hear what you're imagining. Coffee meetings welcome.</p>
+  <a href="contact.html" class="cta-section__link">Get in Touch</a>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer__name">Golden Coast Studios</div>
+  <div class="footer__location">Cocoa Beach, FL</div>
+  <div class="footer__social">
+    <a href="#" aria-label="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+  <div class="footer__copy">© 2026 Golden Coast Studios</div>
+  <div class="footer__attribution">
+    
+  </div>
+</footer>
+
+<div class="tier-badge">
+  This is a StackBuilt Web demo — <a href="/pricing.html">Premium Package ($5,500)</a> &nbsp;|&nbsp; <a href="/pricing.html">See All Packages</a> &nbsp;|&nbsp; <a href="/index.html">Visit StackBuilt Web →</a>
+</div>
+
+<script>
+const nav = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('nav--scrolled', window.scrollY > 80);
+}, { passive: true });
+
+const toggle = document.querySelector('.nav__toggle');
+const mobileMenu = document.querySelector('.nav__mobile-menu');
+toggle.addEventListener('click', () => {
+  const isOpen = toggle.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  mobileMenu.setAttribute('aria-hidden', !isOpen);
+  toggle.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>

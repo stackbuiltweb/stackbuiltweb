@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — True Coat Painting | Palm Bay, FL</title>
+<meta name="description" content="Get a free painting estimate. Contact True Coat Painting in Palm Bay, FL. Call (321) 555-0238 or fill out our form.">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "True Coat Painting",
+  "telephone": "(321) 555-0238",
+  "email": "info@truecoatpainting.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Palm Bay",
+    "addressRegion": "FL"
+  },
+  "openingHours": "Mo-Sa 07:00-18:00",
+  "creator": {
+    "@type": "SoftwareApplication",
+    "name": "Perplexity Computer",
+    "url": "https://www.perplexity.ai/computer"
+  }
+}
+</script>
+
+<style>
+/* ========================================
+   TRUE COAT PAINTING — DESIGN SYSTEM
+   ======================================== */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #FDFCF9;
+  --card: #FFFFFF;
+  --primary: #5B7553;
+  --primary-dark: #2D4A27;
+  --warm: #D4A574;
+  --warm-light: #F0E6D8;
+  --text: #1F2117;
+  --muted: #6B705C;
+  --border: rgba(91, 117, 83, 0.12);
+
+  --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  --shadow-sm: 0 1px 3px rgba(31, 33, 23, 0.06);
+  --shadow-md: 0 4px 16px rgba(31, 33, 23, 0.08);
+  --shadow-lg: 0 8px 32px rgba(31, 33, 23, 0.1);
+  --shadow-warm: 0 8px 32px rgba(212, 165, 116, 0.15);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* Demo Banner */
+.demo-banner {
+  background: #0A8A7B;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 100;
+}
+.demo-banner a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-left: 8px;
+  font-weight: 700;
+  transition: opacity var(--transition-interactive);
+}
+.demo-banner a:hover { opacity: 0.8; }
+
+/* Navigation */
+.nav {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: var(--primary-dark);
+}
+.nav-logo svg { width: 28px; height: 28px; flex-shrink: 0; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  list-style: none;
+}
+.nav-links a {
+  font-weight: 500;
+  font-size: 0.9375rem;
+  color: var(--muted);
+  transition: color var(--transition-interactive);
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-phone {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color var(--transition-interactive);
+}
+.nav-phone:hover { color: var(--primary); }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-interactive), transform var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+.nav-cta:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.nav-cta:active { transform: translateY(0); }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
+}
+.mobile-menu {
+  display: none;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-lg) var(--space-xl);
+}
+.mobile-menu.open { display: block; }
+.mobile-menu a {
+  display: block;
+  padding: var(--space-sm) 0;
+  font-weight: 500;
+  font-size: 1.0625rem;
+  color: var(--text);
+}
+.mobile-menu .nav-cta {
+  margin-top: var(--space-md);
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .nav-links, .nav-phone, .nav-cta-desktop { display: none; }
+  .nav-toggle { display: block; }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-interactive), color var(--transition-interactive), transform var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+.btn:active { transform: translateY(0); }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+/* Sections */
+.section { padding: var(--space-4xl) var(--space-xl); }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+}
+h1 { font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+h2 { font-weight: 800; letter-spacing: -0.025em; line-height: 1.15; font-size: 2.25rem; color: var(--text); }
+h3 { font-weight: 700; font-size: 1.25rem; letter-spacing: -0.015em; line-height: 1.3; }
+
+/* ========================================
+   PAGE HERO
+   ======================================== */
+.page-hero {
+  padding: var(--space-4xl) var(--space-xl) var(--space-2xl);
+  text-align: center;
+}
+.page-hero-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.page-hero h1 {
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  margin-bottom: var(--space-lg);
+}
+.page-hero p {
+  font-size: 1.125rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ========================================
+   CONTACT LAYOUT
+   ======================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+/* Form */
+.contact-form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+}
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+.form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text);
+  margin-bottom: var(--space-xs);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--text);
+  background: var(--bg);
+  transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(91, 117, 83, 0.1);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236B705C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+.form-submit {
+  width: 100%;
+  padding: 16px;
+  margin-top: var(--space-sm);
+}
+
+/* Contact Info Sidebar */
+.contact-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+.contact-info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+}
+.contact-info-card h3 {
+  margin-bottom: var(--space-lg);
+  font-size: 1.125rem;
+}
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+.info-item:last-child { margin-bottom: 0; }
+.info-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(91, 117, 83, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--primary);
+}
+.info-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.info-value {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text);
+}
+.info-value a {
+  color: var(--primary);
+  transition: color var(--transition-interactive);
+}
+.info-value a:hover { color: var(--primary-dark); }
+
+/* Map placeholder */
+.map-placeholder {
+  background: var(--warm-light);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.map-placeholder-inner {
+  text-align: center;
+  color: var(--muted);
+}
+.map-placeholder-inner svg {
+  width: 48px;
+  height: 48px;
+  color: var(--primary);
+  opacity: 0.4;
+  margin-bottom: var(--space-sm);
+}
+.map-placeholder-inner p {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.map-placeholder-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image:
+    linear-gradient(var(--primary) 1px, transparent 1px),
+    linear-gradient(90deg, var(--primary) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* GBP Note */
+.gbp-note {
+  background: rgba(91, 117, 83, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: var(--space-lg);
+  margin-top: var(--space-2xl);
+  text-align: center;
+}
+.gbp-note p {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.gbp-note strong {
+  color: var(--primary);
+}
+
+/* Footer */
+.footer {
+  background: var(--primary-dark);
+  color: rgba(255,255,255,0.85);
+  padding: var(--space-3xl) var(--space-xl) var(--space-xl);
+}
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: var(--space-md);
+}
+.footer-brand svg { width: 24px; height: 24px; }
+.footer-desc { font-size: 0.875rem; line-height: 1.7; color: rgba(255,255,255,0.65); max-width: 320px; }
+.footer-heading {
+  font-weight: 700;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: var(--space-md);
+}
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: var(--space-xs); }
+.footer-links a { font-size: 0.9375rem; color: rgba(255,255,255,0.8); transition: color var(--transition-interactive); }
+.footer-links a:hover { color: #fff; }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-xl);
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.45);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+.footer-social { display: flex; gap: var(--space-md); }
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  transition: background var(--transition-interactive), color var(--transition-interactive);
+}
+.footer-social a:hover { background: rgba(255,255,255,0.2); color: #fff; }
+.footer-attribution {
+  text-align: center;
+  padding-top: var(--space-lg);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+}
+.footer-attribution a { color: rgba(255,255,255,0.5); text-decoration: underline; text-underline-offset: 2px; }
+.footer-attribution a:hover { color: rgba(255,255,255,0.8); }
+
+@media (max-width: 768px) {
+  .footer-top { grid-template-columns: 1fr; gap: var(--space-xl); }
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- Demo Banner -->
+<div class="demo-banner">
+  This is a StackBuilt Web demo — Starter Package ($1,500)
+  <a href="/pricing.html">See all packages →</a> &nbsp;|&nbsp; <a href="/index.html" style="color:rgba(255,255,255,0.9);text-decoration:none;font-size:0.75rem;">Visit StackBuilt Web →</a>
+</div>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="14" width="4" height="12" rx="1.5" fill="#5B7553"/>
+        <rect x="8" y="8" width="4" height="18" rx="1.5" fill="#5B7553" opacity="0.7"/>
+        <path d="M16 4C16 4 17 2 19 2C21 2 22 4 22 4L24 10C24 10 25 12 23 13C21 14 19 12 19 12L16 4Z" fill="#D4A574"/>
+        <path d="M18 12L17 26" stroke="#5B7553" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      True Coat Painting
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <a href="tel:3215550238" class="nav-phone">(321) 555-0238</a>
+    <a href="contact.html" class="nav-cta nav-cta-desktop">Get a Free Quote</a>
+    <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="tel:3215550238">📞 (321) 555-0238</a>
+    <a href="contact.html" class="nav-cta">Get a Free Quote</a>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-inner reveal">
+    <p class="section-label">Get in Touch</p>
+    <h1>Let's talk about your project.</h1>
+    <p>Tell us about your space and we'll provide a free, no-obligation estimate within 24 hours.</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-inner">
+    <div class="contact-grid">
+
+      <!-- Form -->
+      <div class="contact-form reveal">
+        <form onsubmit="event.preventDefault(); alert('This is a demo — form submissions are disabled.'); return false;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="James Rivera" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(321) 555-0000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="service">What do you need?</label>
+            <select id="service" name="service">
+              <option value="">Select a service...</option>
+              <option value="interior">Interior Painting</option>
+              <option value="exterior">Exterior Painting</option>
+              <option value="cabinets">Cabinet Refinishing</option>
+              <option value="deck">Deck & Fence Staining</option>
+              <option value="wallpaper">Wallpaper Removal</option>
+              <option value="color">Color Consultation</option>
+              <option value="unsure">Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell us about your project</label>
+            <textarea id="message" name="message" placeholder="How many rooms? Interior or exterior? Any specific colors in mind? Let us know the details..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Request Your Free Quote</button>
+        </form>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="contact-sidebar">
+        <div class="contact-info-card reveal">
+          <h3>Contact Info</h3>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+            </div>
+            <div>
+              <p class="info-label">Phone</p>
+              <p class="info-value"><a href="tel:3215550238">(321) 555-0238</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div>
+              <p class="info-label">Email</p>
+              <p class="info-value"><a href="mailto:info@truecoatpainting.com">info@truecoatpainting.com</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div>
+              <p class="info-label">Location</p>
+              <p class="info-value">Palm Bay, FL</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div>
+              <p class="info-label">Hours</p>
+              <p class="info-value">Mon – Sat: 7am – 6pm</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Placeholder -->
+        <div class="map-placeholder reveal">
+          <div class="map-placeholder-grid"></div>
+          <div class="map-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <p>Palm Bay, FL<br>Serving all of Brevard County</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GBP Guidance Note -->
+    <div class="gbp-note reveal">
+      <p><strong>Pro tip:</strong> We recommend claiming and optimizing your Google Business Profile to appear in local "near me" searches. Ask us about GBP setup when you call.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="14" width="4" height="12" rx="1.5" fill="#5B7553"/>
+            <rect x="8" y="8" width="4" height="18" rx="1.5" fill="#5B7553" opacity="0.7"/>
+            <path d="M16 4C16 4 17 2 19 2C21 2 22 4 22 4L24 10C24 10 25 12 23 13C21 14 19 12 19 12L16 4Z" fill="#D4A574"/>
+            <path d="M18 12L17 26" stroke="#5B7553" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          True Coat Painting
+        </div>
+        <p class="footer-desc">Interior and exterior painting for homes across Brevard County. Family-owned by James &amp; Maria Rivera. Serving Palm Bay and surrounding areas for over 10 years.</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">Pages</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:3215550238">(321) 555-0238</a></li>
+          <li><a href="mailto:info@truecoatpainting.com">info@truecoatpainting.com</a></li>
+          <li>Palm Bay, FL</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 True Coat Painting. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="#" aria-label="Google Business">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-attribution">
+      
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll Reveal -->
+<script>
+(function() {
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+})();
+</script>
+
+</body>
+</html>

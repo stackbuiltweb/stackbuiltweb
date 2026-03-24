@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Golden Coast Studios</title>
+<meta name="description" content="Browse the complete photography portfolio of Golden Coast Studios — portraits, weddings, corporate, real estate, and commercial work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #FAF8F5;
+  --card: #FFFFFF;
+  --accent: #1A1A1A;
+  --gold: #C9A96E;
+  --text: #1A1A1A;
+  --muted: #8A8680;
+  --border: rgba(26, 26, 26, 0.08);
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.skip-link {
+  position: absolute; top: -100%; left: 16px;
+  background: var(--accent); color: var(--bg);
+  padding: 8px 16px; z-index: 1000; font-size: 14px; text-decoration: none;
+}
+.skip-link:focus { top: 16px; }
+
+/* Nav */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 24px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250, 248, 245, 0.85);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  transition: padding 0.4s var(--ease-out);
+}
+.nav--scrolled { padding: 16px 48px; }
+.nav__logo {
+  font-family: var(--font-serif); font-style: italic; font-size: 22px;
+  color: var(--text); text-decoration: none; letter-spacing: -0.02em;
+}
+.nav__links {
+  display: flex; align-items: center; gap: 40px; list-style: none;
+}
+.nav__links a {
+  font-size: 13px; font-weight: 400; color: var(--text); text-decoration: none;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 180ms var(--ease-out);
+}
+.nav__links a:hover { color: var(--gold); }
+.nav__links a.active { color: var(--gold); }
+.nav__book {
+  font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  border: 1px solid var(--gold); padding: 10px 24px; border-radius: 100px;
+  transition: background 180ms var(--ease-out), color 180ms var(--ease-out);
+}
+.nav__book:hover { background: var(--gold); color: var(--accent); }
+
+.nav__toggle {
+  display: none; background: none; border: none; cursor: pointer;
+  width: 32px; height: 32px; flex-direction: column; justify-content: center; align-items: center; gap: 6px;
+}
+.nav__toggle span { display: block; width: 24px; height: 1.5px; background: var(--text); transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out); }
+.nav__toggle.active span:nth-child(1) { transform: translateY(3.75px) rotate(45deg); }
+.nav__toggle.active span:nth-child(2) { opacity: 0; }
+.nav__toggle.active span:nth-child(3) { transform: translateY(-3.75px) rotate(-45deg); }
+
+.nav__mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--bg); z-index: 99;
+  flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+  opacity: 0; transition: opacity 0.4s var(--ease-out);
+}
+.nav__mobile-menu.active { display: flex; opacity: 1; }
+.nav__mobile-menu a {
+  font-family: var(--font-serif); font-style: italic; font-size: 36px;
+  color: var(--text); text-decoration: none; transition: color 180ms var(--ease-out);
+}
+.nav__mobile-menu a:hover { color: var(--gold); }
+
+/* Page Header */
+.page-header {
+  padding: 160px 48px 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.page-header__title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+.page-header__sub {
+  font-size: 15px;
+  color: var(--muted);
+  margin-top: 16px;
+  max-width: 500px;
+}
+
+/* Filter Pills */
+.filters {
+  padding: 0 48px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.filter-pill {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 180ms var(--ease-out), color 180ms var(--ease-out), background 180ms var(--ease-out);
+}
+.filter-pill:hover { border-color: var(--gold); color: var(--text); }
+.filter-pill.active {
+  border-color: var(--accent);
+  color: var(--text);
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Masonry Grid */
+.portfolio-grid {
+  padding: 0 48px 120px;
+  max-width: 1200px;
+  margin: 0 auto;
+  columns: 3;
+  column-gap: 20px;
+}
+.portfolio-item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+.portfolio-item.hiding {
+  opacity: 0;
+  transform: scale(0.95);
+}
+.portfolio-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+}
+.portfolio-item:hover img { transform: scale(1.03); }
+.portfolio-item__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 26, 26, 0.5) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+.portfolio-item:hover .portfolio-item__overlay { opacity: 1; }
+.portfolio-item__caption {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 400;
+}
+.portfolio-item__cat {
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+/* Footer */
+.footer {
+  padding: 80px 48px 40px;
+  text-align: center;
+}
+.footer__name {
+  font-family: var(--font-serif); font-style: italic; font-size: 16px; margin-bottom: 16px;
+}
+.footer__location { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+.footer__social a { color: var(--muted); transition: color 180ms var(--ease-out); }
+.footer__social a:hover { color: var(--gold); }
+.footer__copy { font-size: 12px; color: var(--muted); margin-top: 32px; }
+.footer__attribution { margin-top: 16px; }
+.footer__attribution a { font-size: 11px; color: var(--muted); text-decoration: none; transition: color 180ms var(--ease-out); }
+.footer__attribution a:hover { color: var(--gold); }
+
+/* Tier Badge */
+.tier-badge {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--accent); color: var(--bg);
+  text-align: center; padding: 10px 16px; font-size: 13px; z-index: 300;
+}
+.tier-badge a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Reveal */
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .nav { padding: 16px 24px; }
+  .nav__links, .nav__book { display: none; }
+  .nav__toggle { display: flex; }
+  .page-header { padding: 120px 24px 40px; }
+  .filters { padding: 0 24px 32px; }
+  .portfolio-grid { padding: 0 24px 80px; columns: 2; column-gap: 12px; }
+  .portfolio-item { margin-bottom: 12px; }
+  .footer { padding: 60px 24px 100px; }
+  .tier-badge { font-size: 11px; padding: 8px 12px; }
+}
+
+@media (max-width: 500px) {
+  .portfolio-grid { columns: 1; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<nav class="nav" aria-label="Main navigation">
+  <a href="index.html" class="nav__logo">Golden Coast</a>
+  <ul class="nav__links">
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav__book">Book a Session</a>
+  <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav__mobile-menu" aria-hidden="true">
+  <a href="portfolio.html">Portfolio</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main id="main">
+<header class="page-header reveal">
+  <h1 class="page-header__title">Portfolio</h1>
+  <p class="page-header__sub">A collection of moments from Florida's coast and beyond. Every session is different — here are some of my favorites.</p>
+</header>
+
+<div class="filters reveal" role="group" aria-label="Filter portfolio by category">
+  <button class="filter-pill active" data-filter="all">All</button>
+  <button class="filter-pill" data-filter="portraits">Portraits</button>
+  <button class="filter-pill" data-filter="weddings">Weddings</button>
+  <button class="filter-pill" data-filter="corporate">Corporate</button>
+  <button class="filter-pill" data-filter="realestate">Real Estate</button>
+  <button class="filter-pill" data-filter="product">Product</button>
+</div>
+
+<div class="portfolio-grid" id="portfolioGrid">
+  <!-- Portraits -->
+  <div class="portfolio-item reveal" data-category="portraits">
+    <img src="https://picsum.photos/seed/pf-portrait1/600/800" alt="Family portrait at sunset" loading="lazy" decoding="async" width="600" height="800">
+    <div class="portfolio-item__overlay"><div><div class="portfolio-item__caption">Torres Family</div><div class="portfolio-item__cat">Portraits</div></div></div>
+  </div>
+  <div class="portfolio-item reveal" data-category="portraits">
+    <img src="https://picsum.photos/seed/pf-portrait2/600/600" alt="Newborn portrait session" loading="lazy" decoding="async" width="600" height="600">
+    <div class="portfolio-item__overlay"><div><div class="portfolio-item__caption">Baby Lucia — Newborn</div><div class="portfolio-item__cat">Portraits</div></div></div>
+  </div>
+  <div class="portfolio-item reveal" data-category="portraits">
+    <img src="https://picsum.photos/seed/pf-portrait3/600/750" alt="Senior portraits on the beach" loading="lazy" decoding="async" width="600" height="750">
+    <div class="portfolio-item__overlay"><div><div class="portfolio-item__caption">Maya — Senior Portraits</div><div class="portfolio-item__cat">Portraits</div></div></div>
+  </div>
+
+  <!-- Weddings -->
+  <div class="portfolio-item reveal" data-category="weddings">
+    <img src="https://picsum.photos/seed/pf-wedding1/600/900" alt="Beach wedding ceremony" loading="lazy" decoding="async" width="600" height="900">
+    <div class="portfolio-item__overlay"><div><div class="portfolio-item__caption">Rivera Wedding</div><div class="portfolio-item__cat">Weddings</div></div></div>
+  </div>
+  <div class="portfolio-item reveal" data-category="weddings">
+    <img src="https://picsum.photos/seed/pf-wedding2/600/600" alt="Wedding reception details" loading="lazy" decoding="async" width="600" height="600">
+    <div class="portfolio-item__overlay"><div><div class="portfolio-item__caption">Santos & Kim</div><div class="portfolio-item__cat">Weddings</div></div></div>
+  </div>
+  <div class="portfolio-item reveal" data-category="weddings">
+    <img src="https://picsum.photos/seed/pf-wedding3/600/800" alt="First look at the lighthouse" loading="lazy" decoding="async" width="600" height="800">
+    <div class="portfolio-item__overlay"><div><div class="portfolio-item__caption">Nguyen Wedding — First Look</div><div class="portfolio-item__cat">Weddings</div></div></div>
+  </div>
+
+  <!-- Corporate -->
+  <div class="portfolio-item reveal" data-category="corporate">
+    <img src="https://picsum.photos/seed/pf-corp1/600/600" alt="Executive headshot" loading="lazy" decoding="async" width="600" height="600">
+    <div class="portfolio-item__overlay"><div><div class="portfolio-item__caption">Chen Corporate</div><div class="portfolio-item__cat">Corporate</div></div></div>
+  </div>
+  <div class="portfolio-item reveal" data-category="corporate">
+    <img src="https://picsum.photos/seed/pf-corp2/600/750" alt="Team photo at office" loading="lazy" decoding="async" width="600" height="750">
+    <div class="portfolio-item__overlay"><div><div class="portfolio-item__caption">Brevard Tech — Team</div><div class="portfolio-item__cat">Corporate</div></div></div>
+  </div>
+
+  <!-- Real Estate -->
+  <div class="portfolio-item reveal" data-category="realestate">
+    <img src="https://picsum.photos/seed/pf-re1/600/400" alt="Luxury home interior" loading="lazy" decoding="async" width="600" height="400">
+    <div class="portfolio-item__overlay"><div><div class="portfolio-item__caption">Oceanview Residence</div><div class="portfolio-item__cat">Real Estate</div></div></div>
+  </div>
+  <div class="portfolio-item reveal" data-category="realestate">
+    <img src="https://picsum.photos/seed/pf-re2/600/400" alt="Beachfront property exterior" loading="lazy" decoding="async" width="600" height="400">
+    <div class="portfolio-item__overlay"><div><div class="portfolio-item__caption">Cape Canaveral Listing</div><div class="portfolio-item__cat">Real Estate</div></div></div>
+  </div>
+  <div class="portfolio-item reveal" data-category="realestate">
+    <img src="https://picsum.photos/seed/pf-re3/600/450" alt="Kitchen interior photography" loading="lazy" decoding="async" width="600" height="450">
+    <div class="portfolio-item__overlay"><div><div class="portfolio-item__caption">Satellite Beach — Kitchen</div><div class="portfolio-item__cat">Real Estate</div></div></div>
+  </div>
+
+  <!-- Product -->
+  <div class="portfolio-item reveal" data-category="product">
+    <img src="https://picsum.photos/seed/pf-prod1/600/600" alt="Candle product photography" loading="lazy" decoding="async" width="600" height="600">
+    <div class="portfolio-item__overlay"><div><div class="portfolio-item__caption">Coastal Candle Co.</div><div class="portfolio-item__cat">Product</div></div></div>
+  </div>
+  <div class="portfolio-item reveal" data-category="product">
+    <img src="https://picsum.photos/seed/pf-prod2/600/800" alt="Jewelry product shoot" loading="lazy" decoding="async" width="600" height="800">
+    <div class="portfolio-item__overlay"><div><div class="portfolio-item__caption">Salt & Sand Jewelry</div><div class="portfolio-item__cat">Product</div></div></div>
+  </div>
+</div>
+</main>
+
+<footer class="footer">
+  <div class="footer__name">Golden Coast Studios</div>
+  <div class="footer__location">Cocoa Beach, FL</div>
+  <div class="footer__social">
+    <a href="#" aria-label="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+  <div class="footer__copy">© 2026 Golden Coast Studios</div>
+  <div class="footer__attribution">
+    
+  </div>
+</footer>
+
+<div class="tier-badge">
+  This is a StackBuilt Web demo — <a href="/pricing.html">Premium Package ($5,500)</a> &nbsp;|&nbsp; <a href="/pricing.html">See All Packages</a> &nbsp;|&nbsp; <a href="/index.html">Visit StackBuilt Web →</a>
+</div>
+
+<script>
+// Nav scroll
+const nav = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('nav--scrolled', window.scrollY > 80);
+}, { passive: true });
+
+// Mobile menu
+const toggle = document.querySelector('.nav__toggle');
+const mobileMenu = document.querySelector('.nav__mobile-menu');
+toggle.addEventListener('click', () => {
+  const isOpen = toggle.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  mobileMenu.setAttribute('aria-hidden', !isOpen);
+  toggle.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+// Portfolio filter
+const pills = document.querySelectorAll('.filter-pill');
+const items = document.querySelectorAll('.portfolio-item');
+
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    pills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    const filter = pill.dataset.filter;
+
+    items.forEach(item => {
+      if (filter === 'all' || item.dataset.category === filter) {
+        item.classList.remove('hiding');
+        item.style.display = '';
+      } else {
+        item.classList.add('hiding');
+        setTimeout(() => { item.style.display = 'none'; }, 500);
+      }
+    });
+  });
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>

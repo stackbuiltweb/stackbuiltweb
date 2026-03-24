@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roofing Services — Ironclad Roofing | Melbourne, FL</title>
+<meta name="description" content="Full roof replacement, emergency storm repair, inspections, gutter installation, metal roofing, and commercial flat roofing in Brevard County, FL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #111113;
+  --surface: #1A1A1E;
+  --elevated: #222226;
+  --accent: #C8553D;
+  --accent-hover: #D4634C;
+  --secondary: #E8A87C;
+  --text: #E8E6E3;
+  --text-muted: #7A7875;
+  --body-text: #B0AEA9;
+  --border: #2A2A2E;
+  --card-shadow: rgba(200, 85, 61, 0.1);
+  --footer-bg: #0A0A0C;
+  --font-heading: 'Satoshi', sans-serif;
+  --font-body: 'Satoshi', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--body-text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* TIER BADGE */
+.tier-badge { background: var(--accent); color: #111113; text-align: center; padding: 8px 16px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; position: relative; z-index: 100; }
+.tier-badge a { color: #111113; text-decoration: underline; text-underline-offset: 2px; }
+
+/* NAV */
+.nav { background: rgba(17,17,19,0.92); border-bottom: 1px solid var(--border); padding: 0 clamp(20px,4vw,60px); height: 72px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 90; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.nav-logo { font-family: var(--font-heading); font-weight: 900; font-size: 20px; letter-spacing: 0.15em; color: var(--text); text-transform: uppercase; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color var(--transition-interactive); position: relative; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--accent); border-radius: 1px; }
+.nav-phone { font-family: var(--font-mono); font-weight: 700; font-size: 14px; color: var(--accent) !important; }
+.nav-phone::after { display: none !important; }
+.nav-cta { background: var(--accent); color: #111113 !important; padding: 10px 20px; border-radius: 100px; font-size: 13px; font-weight: 700; transition: background var(--transition-interactive), transform var(--transition-interactive); }
+.nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.nav-cta::after { display: none !important; }
+.nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
+
+/* PAGE HERO */
+.page-hero {
+  padding: clamp(80px,10vw,140px) clamp(20px,4vw,60px) clamp(60px,6vw,80px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.page-hero-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.page-hero h1 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(36px,5vw,64px);
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.page-hero p {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-top: 16px;
+  max-width: 600px;
+}
+
+/* SERVICE BLOCKS */
+.services-list {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px,4vw,60px) clamp(60px,8vw,120px);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.service-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 360px;
+}
+.service-block:nth-child(even) { direction: rtl; }
+.service-block:nth-child(even) > * { direction: ltr; }
+
+.service-block-image {
+  position: relative;
+  overflow: hidden;
+}
+.service-block-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+.service-block:hover .service-block-image img {
+  transform: scale(1.03);
+}
+
+.service-block-content {
+  padding: clamp(32px,4vw,56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-block-number {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.service-block-content h2 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(22px,2.5vw,32px);
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.service-block-content p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.service-block-content ul {
+  list-style: none;
+  margin-bottom: 28px;
+}
+.service-block-content ul li {
+  font-size: 14px;
+  color: var(--body-text);
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+}
+.service-block-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.btn-quote {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #111113;
+  padding: 12px 28px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  width: fit-content;
+  transition: background var(--transition-interactive), transform var(--transition-interactive);
+}
+.btn-quote:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* CTA SECTION */
+.cta-section { background: var(--accent); padding: clamp(60px,8vw,100px) clamp(20px,4vw,60px); text-align: center; }
+.cta-section h2 { font-family: var(--font-heading); font-weight: 900; font-size: clamp(28px,3.5vw,48px); color: #111113; margin-bottom: 24px; letter-spacing: -0.02em; }
+.btn-dark { background: #111113; color: var(--text); padding: 16px 36px; border-radius: 100px; font-size: 15px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; transition: background var(--transition-interactive), transform var(--transition-interactive); }
+.btn-dark:hover { background: #1A1A1E; transform: translateY(-2px); }
+
+/* FOOTER */
+.footer { background: var(--footer-bg); border-top: 1px solid var(--border); padding: 60px clamp(20px,4vw,60px) 32px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1400px; margin: 0 auto 48px; }
+.footer-brand-name { font-family: var(--font-heading); font-weight: 900; font-size: 18px; letter-spacing: 0.15em; color: var(--text); text-transform: uppercase; margin-bottom: 16px; }
+.footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 8px; }
+.footer-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 14px; color: var(--text-muted); margin-bottom: 10px; transition: color var(--transition-interactive); }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; flex-wrap: wrap; gap: 16px; }
+.footer-bottom p { font-size: 12px; color: var(--text-muted); }
+.footer-social { display: flex; gap: 16px; }
+.footer-social a { width: 36px; height: 36px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 14px; transition: background var(--transition-interactive), color var(--transition-interactive), border-color var(--transition-interactive); }
+.footer-social a:hover { background: var(--accent); color: #111113; border-color: var(--accent); }
+.footer-attribution { text-align: center; padding-top: 16px; margin-top: 8px; }
+.footer-attribution a { font-size: 11px; color: var(--text-muted); opacity: 0.6; transition: opacity var(--transition-interactive); }
+.footer-attribution a:hover { opacity: 1; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 20px; gap: 16px; }
+  .service-block { grid-template-columns: 1fr; }
+  .service-block:nth-child(even) { direction: ltr; }
+  .service-block-image { height: 240px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- TIER BADGE -->
+<div class="tier-badge">
+  This is a StackBuilt Web demo — Professional Package ($3,500) → <a href="/pricing.html">See Pricing</a> &nbsp;|&nbsp; <a href="/index.html">Visit StackBuilt Web →</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">IRONCLAD</a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="tel:3215550147" class="nav-phone">(321) 555-0147</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero reveal">
+  <p class="page-hero-eyebrow">What We Do</p>
+  <h1>Our roofing services.</h1>
+  <p>From full replacements to emergency storm repair — we handle every aspect of your roofing needs with precision and integrity.</p>
+</section>
+
+<!-- SERVICES LIST -->
+<div class="services-list">
+
+  <!-- 1. Full Roof Replacement -->
+  <div class="service-block reveal">
+    <div class="service-block-image">
+      <img src="https://picsum.photos/seed/roof-replace-pro/700/500" alt="Full roof replacement project" loading="lazy">
+    </div>
+    <div class="service-block-content">
+      <div class="service-block-number">01</div>
+      <h2>Full Roof Replacement</h2>
+      <p>When repairs aren't enough, we deliver complete roof replacements that protect your home for decades. Every project includes a full tear-off, deck inspection, and premium material installation.</p>
+      <ul>
+        <li>Complete tear-off and disposal</li>
+        <li>Deck inspection and repair</li>
+        <li>Premium shingle or tile options</li>
+        <li>25-year workmanship warranty</li>
+      </ul>
+      <a href="contact.html" class="btn-quote">Request Quote →</a>
+    </div>
+  </div>
+
+  <!-- 2. Emergency Storm Repair -->
+  <div class="service-block reveal">
+    <div class="service-block-image">
+      <img src="https://picsum.photos/seed/storm-repair-pro/700/500" alt="Emergency storm damage repair" loading="lazy">
+    </div>
+    <div class="service-block-content">
+      <div class="service-block-number">02</div>
+      <h2>Emergency Storm Repair</h2>
+      <p>Florida storms don't wait — neither do we. Our emergency team responds within 48 hours to secure your property and start the repair process. We handle the insurance paperwork so you don't have to.</p>
+      <ul>
+        <li>Same-week emergency response</li>
+        <li>Temporary tarping and securing</li>
+        <li>Direct insurance company coordination</li>
+        <li>Complete storm damage restoration</li>
+      </ul>
+      <a href="contact.html" class="btn-quote">Request Quote →</a>
+    </div>
+  </div>
+
+  <!-- 3. Roof Inspections -->
+  <div class="service-block reveal">
+    <div class="service-block-image">
+      <img src="https://picsum.photos/seed/roof-inspect-pro/700/500" alt="Professional roof inspection" loading="lazy">
+    </div>
+    <div class="service-block-content">
+      <div class="service-block-number">03</div>
+      <h2>Roof Inspections</h2>
+      <p>Our thorough 21-point inspection catches problems before they become expensive emergencies. We provide a detailed report with photos, recommendations, and honest timelines — no pressure, no upselling.</p>
+      <ul>
+        <li>21-point comprehensive inspection</li>
+        <li>Detailed photo documentation</li>
+        <li>Written report with recommendations</li>
+        <li>Free for storm damage claims</li>
+      </ul>
+      <a href="contact.html" class="btn-quote">Schedule Inspection →</a>
+    </div>
+  </div>
+
+  <!-- 4. Gutter Installation -->
+  <div class="service-block reveal">
+    <div class="service-block-image">
+      <img src="https://picsum.photos/seed/gutter-install-pro/700/500" alt="Seamless gutter installation" loading="lazy">
+    </div>
+    <div class="service-block-content">
+      <div class="service-block-number">04</div>
+      <h2>Gutter Installation</h2>
+      <p>Protect your foundation and landscaping with custom-fit seamless aluminum gutters. We fabricate on-site for a perfect fit — no seams means no leaks. Optional gutter guards keep debris out permanently.</p>
+      <ul>
+        <li>Seamless aluminum fabrication</li>
+        <li>Custom color matching</li>
+        <li>Optional leaf guard systems</li>
+        <li>Proper grading and drainage</li>
+      </ul>
+      <a href="contact.html" class="btn-quote">Request Quote →</a>
+    </div>
+  </div>
+
+  <!-- 5. Metal Roofing -->
+  <div class="service-block reveal">
+    <div class="service-block-image">
+      <img src="https://picsum.photos/seed/metal-roof-pro/700/500" alt="Standing seam metal roof installation" loading="lazy">
+    </div>
+    <div class="service-block-content">
+      <div class="service-block-number">05</div>
+      <h2>Metal Roofing</h2>
+      <p>The ultimate in durability and energy efficiency. Standing seam and corrugated metal roofing systems built to withstand Florida's toughest weather — with a 50+ year lifespan and hurricane-rated wind resistance.</p>
+      <ul>
+        <li>Standing seam and corrugated options</li>
+        <li>50+ year lifespan</li>
+        <li>Hurricane-rated wind resistance</li>
+        <li>Energy-efficient reflective coatings</li>
+      </ul>
+      <a href="contact.html" class="btn-quote">Request Quote →</a>
+    </div>
+  </div>
+
+  <!-- 6. Commercial Flat Roofing -->
+  <div class="service-block reveal">
+    <div class="service-block-image">
+      <img src="https://picsum.photos/seed/flat-roof-pro/700/500" alt="Commercial flat roofing system" loading="lazy">
+    </div>
+    <div class="service-block-content">
+      <div class="service-block-number">06</div>
+      <h2>Commercial Flat Roofing</h2>
+      <p>Specialized flat roofing solutions for commercial properties. We install TPO, EPDM, and modified bitumen systems engineered for Florida's climate — with proper drainage, insulation, and long-term performance.</p>
+      <ul>
+        <li>TPO, EPDM, and modified bitumen</li>
+        <li>Commercial-grade insulation</li>
+        <li>Proper drainage engineering</li>
+        <li>Maintenance programs available</li>
+      </ul>
+      <a href="contact.html" class="btn-quote">Request Quote →</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <h2>Ready to get started?</h2>
+  <a href="contact.html" class="btn-dark">Schedule Your Free Inspection →</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">IRONCLAD ROOFING</div>
+      <p>(321) 555-0147</p>
+      <p>info@ironcladroofing.com</p>
+      <p>Melbourne, FL</p>
+      <p style="margin-top: 12px; font-size: 12px;">FL License #CCC1234567</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="services.html">Roof Replacement</a>
+      <a href="services.html">Storm Repair</a>
+      <a href="services.html">Inspections</a>
+      <a href="services.html">Gutters</a>
+      <a href="services.html">Metal Roofing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Google Business"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Ironclad Roofing. All rights reserved.</p>
+    <p>Built to last. Guaranteed.</p>
+  </div>
+  <div class="footer-attribution">
+    
+  </div>
+</footer>
+
+<script>
+const revealElements = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

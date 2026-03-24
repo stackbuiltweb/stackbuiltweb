@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>True Coat Painting — Color Done Right | Palm Bay, FL</title>
+<meta name="description" content="Interior and exterior painting for homes across Brevard County. Family-owned, 10 years of transformations. Free color consultation with every project.">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "True Coat Painting",
+  "description": "Interior and exterior painting for homes across Brevard County.",
+  "telephone": "(321) 555-0238",
+  "email": "info@truecoatpainting.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Palm Bay",
+    "addressRegion": "FL"
+  },
+  "areaServed": "Brevard County, FL",
+  "priceRange": "$$",
+  "creator": {
+    "@type": "SoftwareApplication",
+    "name": "Perplexity Computer",
+    "url": "https://www.perplexity.ai/computer"
+  }
+}
+</script>
+
+<style>
+/* ========================================
+   TRUE COAT PAINTING — DESIGN SYSTEM
+   Warm, inviting, residential comfort
+   ======================================== */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Colors */
+  --bg: #FDFCF9;
+  --card: #FFFFFF;
+  --primary: #5B7553;
+  --primary-dark: #2D4A27;
+  --warm: #D4A574;
+  --warm-light: #F0E6D8;
+  --text: #1F2117;
+  --muted: #6B705C;
+  --border: rgba(91, 117, 83, 0.12);
+
+  /* Typography */
+  --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(31, 33, 23, 0.06);
+  --shadow-md: 0 4px 16px rgba(31, 33, 23, 0.08);
+  --shadow-lg: 0 8px 32px rgba(31, 33, 23, 0.1);
+  --shadow-warm: 0 8px 32px rgba(212, 165, 116, 0.15);
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ========================================
+   DEMO BANNER
+   ======================================== */
+.demo-banner {
+  background: #0A8A7B;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 100;
+}
+.demo-banner a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-left: 8px;
+  font-weight: 700;
+  transition: opacity var(--transition-interactive);
+}
+.demo-banner a:hover { opacity: 0.8; }
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+.nav {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: var(--primary-dark);
+}
+.nav-logo svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  list-style: none;
+}
+.nav-links a {
+  font-weight: 500;
+  font-size: 0.9375rem;
+  color: var(--muted);
+  transition: color var(--transition-interactive);
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+}
+.nav-phone {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color var(--transition-interactive);
+}
+.nav-phone:hover { color: var(--primary); }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-interactive), transform var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+.nav-cta:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.nav-cta:active { transform: translateY(0); }
+
+/* Mobile nav */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
+}
+.mobile-menu {
+  display: none;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-lg) var(--space-xl);
+}
+.mobile-menu.open { display: block; }
+.mobile-menu a {
+  display: block;
+  padding: var(--space-sm) 0;
+  font-weight: 500;
+  font-size: 1.0625rem;
+  color: var(--text);
+}
+.mobile-menu .nav-cta {
+  margin-top: var(--space-md);
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .nav-links,
+  .nav-phone,
+  .nav-cta-desktop { display: none; }
+  .nav-toggle { display: block; }
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-interactive), color var(--transition-interactive), transform var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+.btn:active { transform: translateY(0); }
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.btn-white {
+  background: #fff;
+  color: var(--primary);
+}
+.btn-white:hover {
+  background: var(--bg);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+.section {
+  padding: var(--space-4xl) var(--space-xl);
+}
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+}
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+h2 {
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  font-size: 2.25rem;
+  color: var(--text);
+}
+h3 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+.hero {
+  padding: var(--space-4xl) var(--space-xl) var(--space-3xl);
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: var(--space-lg);
+}
+.hero-sub {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: var(--space-2xl);
+  max-width: 520px;
+}
+.hero-btns {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+.hero-img-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-warm);
+  background: var(--warm-light);
+}
+.hero-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 7/5;
+}
+
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  .hero-img-wrapper { max-width: 560px; }
+}
+
+/* ========================================
+   TRUST BAR
+   ======================================== */
+.trust-bar {
+  background: var(--warm-light);
+  padding: var(--space-2xl) var(--space-xl);
+}
+.trust-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+  text-align: center;
+}
+.trust-item-number {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--primary);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+.trust-item-label {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .trust-bar-inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+/* ========================================
+   WHY SECTION — 3 CARDS
+   ======================================== */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+.why-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 12px;
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+}
+.why-card h3 { margin-bottom: var(--space-md); }
+.why-card p { color: var(--muted); font-size: 0.9375rem; }
+
+@media (max-width: 768px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   TESTIMONIALS
+   ======================================== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+.testimonial-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+.testimonial-quote {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+  opacity: 0.3;
+}
+.testimonial-text {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: var(--space-lg);
+  font-style: italic;
+}
+.testimonial-name {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.testimonial-stars {
+  color: var(--warm);
+  font-size: 0.875rem;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+.cta-section {
+  background: var(--primary);
+  padding: var(--space-4xl) var(--space-xl);
+  text-align: center;
+}
+.cta-section h2 {
+  color: #fff;
+  margin-bottom: var(--space-lg);
+}
+.cta-section p {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: var(--space-2xl);
+  font-size: 1.0625rem;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  background: var(--primary-dark);
+  color: rgba(255,255,255,0.85);
+  padding: var(--space-3xl) var(--space-xl) var(--space-xl);
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: var(--space-md);
+}
+.footer-brand svg { width: 24px; height: 24px; }
+.footer-desc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  max-width: 320px;
+}
+.footer-heading {
+  font-weight: 700;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: var(--space-md);
+}
+.footer-links {
+  list-style: none;
+}
+.footer-links li { margin-bottom: var(--space-xs); }
+.footer-links a {
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.8);
+  transition: color var(--transition-interactive);
+}
+.footer-links a:hover { color: #fff; }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-xl);
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.45);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+.footer-social {
+  display: flex;
+  gap: var(--space-md);
+}
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  transition: background var(--transition-interactive), color var(--transition-interactive);
+}
+.footer-social a:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+.footer-attribution {
+  text-align: center;
+  padding-top: var(--space-lg);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+}
+.footer-attribution a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer-attribution a:hover { color: rgba(255,255,255,0.8); }
+
+@media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+/* ========================================
+   SCROLL REVEAL
+   ======================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+.text-center { text-align: center; }
+.mb-0 { margin-bottom: 0; }
+</style>
+</head>
+<body>
+
+<!-- Demo Banner -->
+<div class="demo-banner">
+  This is a StackBuilt Web demo — Starter Package ($1,500)
+  <a href="/pricing.html">See all packages →</a> &nbsp;|&nbsp; <a href="/index.html" style="color:rgba(255,255,255,0.9);text-decoration:none;font-size:0.75rem;">Visit StackBuilt Web →</a>
+</div>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="14" width="4" height="12" rx="1.5" fill="#5B7553"/>
+        <rect x="8" y="8" width="4" height="18" rx="1.5" fill="#5B7553" opacity="0.7"/>
+        <path d="M16 4C16 4 17 2 19 2C21 2 22 4 22 4L24 10C24 10 25 12 23 13C21 14 19 12 19 12L16 4Z" fill="#D4A574"/>
+        <path d="M18 12L17 26" stroke="#5B7553" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      True Coat Painting
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <a href="tel:3215550238" class="nav-phone">(321) 555-0238</a>
+    <a href="contact.html" class="nav-cta nav-cta-desktop">Get a Free Quote</a>
+
+    <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="tel:3215550238">📞 (321) 555-0238</a>
+    <a href="contact.html" class="nav-cta">Get a Free Quote</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="reveal">
+      <p class="section-label">Palm Bay, FL — Brevard County</p>
+      <h1>Color done right.<br>Every time.</h1>
+      <p class="hero-sub">Interior and exterior painting for homes across Brevard County. Family-owned. 10 years of transformations. Free color consultation with every project.</p>
+      <div class="hero-btns">
+        <a href="contact.html" class="btn btn-primary">Get Your Free Quote</a>
+        <a href="services.html" class="btn btn-outline">View Our Work</a>
+      </div>
+    </div>
+    <div class="hero-img-wrapper reveal">
+      <img src="https://picsum.photos/seed/paint-home-hero/700/500" alt="Beautiful home interior with fresh paint" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<section class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="reveal">
+      <div class="trust-item-number">10</div>
+      <div class="trust-item-label">Years in Business</div>
+    </div>
+    <div class="reveal">
+      <div class="trust-item-number">500+</div>
+      <div class="trust-item-label">Homes Painted</div>
+    </div>
+    <div class="reveal">
+      <div class="trust-item-number">5yr</div>
+      <div class="trust-item-label">Warranty</div>
+    </div>
+    <div class="reveal">
+      <div class="trust-item-number">4.8★</div>
+      <div class="trust-item-label">Google Rating</div>
+    </div>
+  </div>
+</section>
+
+<!-- Why True Coat -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label reveal">Why True Coat</p>
+    <h2 class="reveal">Why homeowners trust True Coat.</h2>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <h3>Meticulous Prep Work</h3>
+        <p>90% of a great paint job is preparation. We never skip it. Every surface is cleaned, sanded, primed, and protected before a single coat goes on.</p>
+      </div>
+      <div class="why-card reveal">
+        <h3>Free Color Consultation</h3>
+        <p>Our color expert helps you find the perfect palette for your home. We bring samples to your space so you see exactly how colors look in your lighting.</p>
+      </div>
+      <div class="why-card reveal">
+        <h3>5-Year Warranty</h3>
+        <p>We stand behind every brushstroke. If it peels, we fix it. Free. That is our promise to every homeowner we work with.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section" style="background: var(--bg);">
+  <div class="section-inner">
+    <p class="section-label reveal">Testimonials</p>
+    <h2 class="reveal">What homeowners say.</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">&ldquo;</div>
+        <p class="testimonial-text">They spent more time prepping than painting. That is how you know they do it right. Our house looks brand new.</p>
+        <p class="testimonial-name">Javier R., Viera</p>
+        <div class="testimonial-stars">★★★★★</div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">&ldquo;</div>
+        <p class="testimonial-text">Our cabinets look incredible. Saved us thousands versus replacing them. Highly recommend True Coat.</p>
+        <p class="testimonial-name">Catherine M., Melbourne</p>
+        <div class="testimonial-stars">★★★★★</div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">&ldquo;</div>
+        <p class="testimonial-text">Third painter we have hired over the years. First one we would actually recommend to friends.</p>
+        <p class="testimonial-name">Tom &amp; Lisa B., Satellite Beach</p>
+        <div class="testimonial-stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-inner reveal">
+    <h2>Ready to transform your space?</h2>
+    <p>Get a free estimate and color consultation for your next project.</p>
+    <a href="contact.html" class="btn btn-white">Get Your Free Quote</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="14" width="4" height="12" rx="1.5" fill="#5B7553"/>
+            <rect x="8" y="8" width="4" height="18" rx="1.5" fill="#5B7553" opacity="0.7"/>
+            <path d="M16 4C16 4 17 2 19 2C21 2 22 4 22 4L24 10C24 10 25 12 23 13C21 14 19 12 19 12L16 4Z" fill="#D4A574"/>
+            <path d="M18 12L17 26" stroke="#5B7553" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          True Coat Painting
+        </div>
+        <p class="footer-desc">Interior and exterior painting for homes across Brevard County. Family-owned by James &amp; Maria Rivera. Serving Palm Bay and surrounding areas for over 10 years.</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">Pages</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:3215550238">(321) 555-0238</a></li>
+          <li><a href="mailto:info@truecoatpainting.com">info@truecoatpainting.com</a></li>
+          <li>Palm Bay, FL</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 True Coat Painting. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="#" aria-label="Google Business">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-attribution">
+      
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll Reveal -->
+<script>
+(function() {
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+})();
+</script>
+
+</body>
+</html>

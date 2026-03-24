@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Ironclad Roofing | Melbourne, FL</title>
+<meta name="description" content="18 years of trusted roofing in Brevard County. Learn about Ironclad Roofing's history, values, team, and commitment to quality craftsmanship.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #111113;
+  --surface: #1A1A1E;
+  --elevated: #222226;
+  --accent: #C8553D;
+  --accent-hover: #D4634C;
+  --secondary: #E8A87C;
+  --text: #E8E6E3;
+  --text-muted: #7A7875;
+  --body-text: #B0AEA9;
+  --border: #2A2A2E;
+  --card-shadow: rgba(200, 85, 61, 0.1);
+  --footer-bg: #0A0A0C;
+  --font-heading: 'Satoshi', sans-serif;
+  --font-body: 'Satoshi', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); font-weight: 400; color: var(--body-text); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* TIER BADGE */
+.tier-badge { background: var(--accent); color: #111113; text-align: center; padding: 8px 16px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; position: relative; z-index: 100; }
+.tier-badge a { color: #111113; text-decoration: underline; text-underline-offset: 2px; }
+
+/* NAV */
+.nav { background: rgba(17,17,19,0.92); border-bottom: 1px solid var(--border); padding: 0 clamp(20px,4vw,60px); height: 72px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 90; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.nav-logo { font-family: var(--font-heading); font-weight: 900; font-size: 20px; letter-spacing: 0.15em; color: var(--text); text-transform: uppercase; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color var(--transition-interactive); position: relative; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--accent); border-radius: 1px; }
+.nav-phone { font-family: var(--font-mono); font-weight: 700; font-size: 14px; color: var(--accent) !important; }
+.nav-phone::after { display: none !important; }
+.nav-cta { background: var(--accent); color: #111113 !important; padding: 10px 20px; border-radius: 100px; font-size: 13px; font-weight: 700; transition: background var(--transition-interactive), transform var(--transition-interactive); }
+.nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.nav-cta::after { display: none !important; }
+.nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
+
+/* PAGE HERO */
+.page-hero {
+  padding: clamp(80px,10vw,140px) clamp(20px,4vw,60px) clamp(40px,4vw,60px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.page-hero-eyebrow {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+}
+.page-hero h1 {
+  font-family: var(--font-heading); font-weight: 900;
+  font-size: clamp(36px,5vw,64px); color: var(--text);
+  letter-spacing: -0.03em; line-height: 1.1;
+}
+.page-hero p {
+  font-size: 18px; color: var(--text-muted); margin-top: 16px; max-width: 600px;
+}
+
+/* STORY SECTION */
+.story-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px,4vw,60px) clamp(60px,8vw,100px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px,5vw,80px);
+  align-items: start;
+}
+
+.story-text h2 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(24px,2.5vw,36px);
+  color: var(--text);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.story-text p {
+  font-size: 16px;
+  color: var(--body-text);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.story-text p strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.story-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.story-image img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.story-image-badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: var(--accent);
+  color: #111113;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* VALUES */
+.values-section {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: clamp(60px,8vw,100px) clamp(20px,4vw,60px);
+}
+
+.values-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.values-inner h2 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(28px,3vw,42px);
+  color: var(--text);
+  margin-bottom: 48px;
+  letter-spacing: -0.02em;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.value-card {
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 28px;
+}
+
+.value-card-number {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.value-card h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.value-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* TEAM */
+.team-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(60px,8vw,100px) clamp(20px,4vw,60px);
+}
+
+.team-section h2 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(28px,3vw,42px);
+  color: var(--text);
+  margin-bottom: 48px;
+  letter-spacing: -0.02em;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.team-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.team-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.team-card-info {
+  padding: 20px;
+}
+
+.team-card-info h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.team-card-info p {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* CERTIFICATIONS */
+.certs-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px,4vw,60px) clamp(60px,8vw,100px);
+}
+
+.certs-section h2 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(24px,2.5vw,36px);
+  color: var(--text);
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+
+.certs-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cert-badge {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 240px;
+}
+
+.cert-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.cert-badge h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.cert-badge p {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* STATS BAR */
+.stats-bar {
+  background: var(--elevated);
+  padding: 48px clamp(20px,4vw,60px);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stats-grid {
+  display: flex; justify-content: center; align-items: center;
+  gap: 0; max-width: 1000px; margin: 0 auto; flex-wrap: wrap;
+}
+.stat-item { text-align: center; padding: 0 clamp(20px,3vw,48px); border-right: 1px solid var(--accent); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-family: var(--font-mono); font-weight: 700; font-size: clamp(28px,3vw,40px); color: var(--text); line-height: 1.2; }
+.stat-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; font-weight: 500; }
+
+/* CTA SECTION */
+.cta-section { background: var(--accent); padding: clamp(60px,8vw,100px) clamp(20px,4vw,60px); text-align: center; }
+.cta-section h2 { font-family: var(--font-heading); font-weight: 900; font-size: clamp(28px,3.5vw,48px); color: #111113; margin-bottom: 24px; letter-spacing: -0.02em; }
+.btn-dark { background: #111113; color: var(--text); padding: 16px 36px; border-radius: 100px; font-size: 15px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; transition: background var(--transition-interactive), transform var(--transition-interactive); }
+.btn-dark:hover { background: #1A1A1E; transform: translateY(-2px); }
+
+/* FOOTER */
+.footer { background: var(--footer-bg); border-top: 1px solid var(--border); padding: 60px clamp(20px,4vw,60px) 32px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1400px; margin: 0 auto 48px; }
+.footer-brand-name { font-family: var(--font-heading); font-weight: 900; font-size: 18px; letter-spacing: 0.15em; color: var(--text); text-transform: uppercase; margin-bottom: 16px; }
+.footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 8px; }
+.footer-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 14px; color: var(--text-muted); margin-bottom: 10px; transition: color var(--transition-interactive); }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; flex-wrap: wrap; gap: 16px; }
+.footer-bottom p { font-size: 12px; color: var(--text-muted); }
+.footer-social { display: flex; gap: 16px; }
+.footer-social a { width: 36px; height: 36px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 14px; transition: background var(--transition-interactive), color var(--transition-interactive), border-color var(--transition-interactive); }
+.footer-social a:hover { background: var(--accent); color: #111113; border-color: var(--accent); }
+.footer-attribution { text-align: center; padding-top: 16px; margin-top: 8px; }
+.footer-attribution a { font-size: 11px; color: var(--text-muted); opacity: 0.6; transition: opacity var(--transition-interactive); }
+.footer-attribution a:hover { opacity: 1; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 20px; gap: 16px; }
+  .story-section { grid-template-columns: 1fr; }
+  .story-image img { height: 320px; }
+  .values-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .stat-item { border-right: none; padding: 16px 0; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .certs-grid { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- TIER BADGE -->
+<div class="tier-badge">
+  This is a StackBuilt Web demo — Professional Package ($3,500) → <a href="/pricing.html">See Pricing</a> &nbsp;|&nbsp; <a href="/index.html">Visit StackBuilt Web →</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">IRONCLAD</a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="tel:3215550147" class="nav-phone">(321) 555-0147</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero reveal">
+  <p class="page-hero-eyebrow">Our Story</p>
+  <h1>Built on 18 years of trust.</h1>
+  <p>From a two-man crew to Brevard County's most trusted roofing contractor. This is how we got here.</p>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="story-text reveal">
+    <h2>From the ground up.</h2>
+    <p>In 2008, <strong>Jake Caldwell</strong> left a comfortable position at a national roofing franchise with one conviction: homeowners deserved better. Better materials. Better communication. Better results. He started Ironclad Roofing with a single truck, a small crew, and a handshake promise — every roof would be built as if it were his own.</p>
+    <p>Eighteen years later, that promise hasn't changed. What has changed is the scale. Ironclad now employs 35 skilled professionals, operates a fleet of 12 service vehicles, and has completed over 800 residential and commercial roofing projects across Brevard County. We've weathered the same storms our customers have — literally — and come out stronger every time.</p>
+    <p>We're not the cheapest option, and we don't try to be. <strong>We're the option you won't regret choosing.</strong> Every material is hand-selected. Every installation follows manufacturer specifications to the letter. Every project is backed by a 25-year workmanship warranty because we know the quality of what we build.</p>
+  </div>
+  <div class="story-image reveal">
+    <img src="https://picsum.photos/seed/ironclad-team/700/600" alt="Ironclad Roofing team at a job site" loading="lazy">
+    <div class="story-image-badge">Est. 2008</div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="values-inner">
+    <h2 class="reveal">What drives us.</h2>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-card-number">01</div>
+        <h3>Craftsmanship Over Speed</h3>
+        <p>We don't rush jobs. Every shingle, every flashing, every seal point is installed with precision. Speed comes from experience — not from cutting corners.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-card-number">02</div>
+        <h3>Radical Transparency</h3>
+        <p>You'll know exactly what we're doing, why we're doing it, and what it costs before we start. No hidden fees. No surprise upcharges. Ever.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-card-number">03</div>
+        <h3>Community First</h3>
+        <p>We live and work in Brevard County. Our reputation is our livelihood. Every project is a reflection of who we are — and we take that personally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <h2 class="reveal">The people behind the promise.</h2>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <img src="https://picsum.photos/seed/team-jake/400/340" alt="Jake Caldwell, Founder & CEO" loading="lazy">
+      <div class="team-card-info">
+        <h3>Jake Caldwell</h3>
+        <p>Founder &amp; CEO</p>
+      </div>
+    </div>
+    <div class="team-card reveal">
+      <img src="https://picsum.photos/seed/team-maria/400/340" alt="Maria Santos, Operations Director" loading="lazy">
+      <div class="team-card-info">
+        <h3>Maria Santos</h3>
+        <p>Operations Director</p>
+      </div>
+    </div>
+    <div class="team-card reveal">
+      <img src="https://picsum.photos/seed/team-derek/400/340" alt="Derek Williams, Lead Foreman" loading="lazy">
+      <div class="team-card-info">
+        <h3>Derek Williams</h3>
+        <p>Lead Foreman</p>
+      </div>
+    </div>
+    <div class="team-card reveal">
+      <img src="https://picsum.photos/seed/team-sarah/400/340" alt="Sarah Mitchell, Customer Relations" loading="lazy">
+      <div class="team-card-info">
+        <h3>Sarah Mitchell</h3>
+        <p>Customer Relations</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs-section reveal">
+  <h2>Certifications &amp; credentials.</h2>
+  <div class="certs-grid">
+    <div class="cert-badge">
+      <div class="cert-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <h3>FL State Licensed</h3>
+        <p>License #CCC1234567</p>
+      </div>
+    </div>
+    <div class="cert-badge">
+      <div class="cert-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+      </div>
+      <div>
+        <h3>GAF Master Elite</h3>
+        <p>Top 2% of U.S. contractors</p>
+      </div>
+    </div>
+    <div class="cert-badge">
+      <div class="cert-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div>
+        <h3>Fully Insured</h3>
+        <p>Liability + workers comp</p>
+      </div>
+    </div>
+    <div class="cert-badge">
+      <div class="cert-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      </div>
+      <div>
+        <h3>BBB A+ Rated</h3>
+        <p>Better Business Bureau</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-number">800+</div>
+      <div class="stat-label">Roofs Completed</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">18</div>
+      <div class="stat-label">Years in Business</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">35</div>
+      <div class="stat-label">Team Members</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">4.9★</div>
+      <div class="stat-label">Google Rating</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <h2>Ready to work with the best?</h2>
+  <a href="contact.html" class="btn-dark">Schedule Your Free Inspection →</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">IRONCLAD ROOFING</div>
+      <p>(321) 555-0147</p>
+      <p>info@ironcladroofing.com</p>
+      <p>Melbourne, FL</p>
+      <p style="margin-top: 12px; font-size: 12px;">FL License #CCC1234567</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="services.html">Roof Replacement</a>
+      <a href="services.html">Storm Repair</a>
+      <a href="services.html">Inspections</a>
+      <a href="services.html">Gutters</a>
+      <a href="services.html">Metal Roofing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Google Business"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Ironclad Roofing. All rights reserved.</p>
+    <p>Built to last. Guaranteed.</p>
+  </div>
+  <div class="footer-attribution">
+    
+  </div>
+</footer>
+
+<script>
+const revealElements = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

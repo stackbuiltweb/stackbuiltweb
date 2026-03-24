@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Ironclad Roofing | Free Roof Inspection Melbourne, FL</title>
+<meta name="description" content="Schedule your free roof inspection today. Contact Ironclad Roofing in Melbourne, FL — call (321) 555-0147 or fill out our online form.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #111113;
+  --surface: #1A1A1E;
+  --elevated: #222226;
+  --accent: #C8553D;
+  --accent-hover: #D4634C;
+  --secondary: #E8A87C;
+  --text: #E8E6E3;
+  --text-muted: #7A7875;
+  --body-text: #B0AEA9;
+  --border: #2A2A2E;
+  --card-shadow: rgba(200, 85, 61, 0.1);
+  --footer-bg: #0A0A0C;
+  --font-heading: 'Satoshi', sans-serif;
+  --font-body: 'Satoshi', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); font-weight: 400; color: var(--body-text); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* TIER BADGE */
+.tier-badge { background: var(--accent); color: #111113; text-align: center; padding: 8px 16px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; position: relative; z-index: 100; }
+.tier-badge a { color: #111113; text-decoration: underline; text-underline-offset: 2px; }
+
+/* NAV */
+.nav { background: rgba(17,17,19,0.92); border-bottom: 1px solid var(--border); padding: 0 clamp(20px,4vw,60px); height: 72px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 90; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.nav-logo { font-family: var(--font-heading); font-weight: 900; font-size: 20px; letter-spacing: 0.15em; color: var(--text); text-transform: uppercase; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color var(--transition-interactive); position: relative; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--accent); border-radius: 1px; }
+.nav-phone { font-family: var(--font-mono); font-weight: 700; font-size: 14px; color: var(--accent) !important; }
+.nav-phone::after { display: none !important; }
+.nav-cta { background: var(--accent); color: #111113 !important; padding: 10px 20px; border-radius: 100px; font-size: 13px; font-weight: 700; transition: background var(--transition-interactive), transform var(--transition-interactive); }
+.nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.nav-cta::after { display: none !important; }
+.nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
+
+/* PAGE HERO */
+.page-hero {
+  padding: clamp(80px,10vw,140px) clamp(20px,4vw,60px) clamp(40px,4vw,60px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.page-hero-eyebrow {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+}
+.page-hero h1 {
+  font-family: var(--font-heading); font-weight: 900;
+  font-size: clamp(36px,5vw,64px); color: var(--text);
+  letter-spacing: -0.03em; line-height: 1.1;
+}
+.page-hero p {
+  font-size: 18px; color: var(--text-muted); margin-top: 16px; max-width: 600px;
+}
+
+/* CONTACT LAYOUT */
+.contact-layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px,4vw,60px) clamp(60px,8vw,100px);
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 48px;
+  align-items: start;
+}
+
+/* FORM */
+.contact-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(28px,3vw,48px);
+}
+
+.contact-form h2 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 24px;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.contact-form > p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(200, 85, 61, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%237A7875' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.form-group select option {
+  background: var(--elevated);
+  color: var(--text);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.btn-submit {
+  background: var(--accent);
+  color: #111113;
+  width: 100%;
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+  transition: background var(--transition-interactive), transform var(--transition-interactive);
+  margin-top: 8px;
+}
+.btn-submit:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* BOOKING WIDGET */
+.booking-widget {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  margin-bottom: 24px;
+}
+
+.booking-widget-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.booking-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(200, 85, 61, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.booking-widget-header h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text);
+}
+
+.booking-widget-header p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.booking-slots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.booking-slot {
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--transition-interactive), background var(--transition-interactive);
+}
+.booking-slot:hover,
+.booking-slot.selected {
+  border-color: var(--accent);
+  background: rgba(200, 85, 61, 0.1);
+}
+
+.booking-slot-day {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.booking-slot-date {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.booking-slot-time {
+  font-size: 12px;
+  color: var(--secondary);
+  margin-top: 2px;
+}
+
+.booking-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* SIDEBAR INFO */
+.sidebar-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.sidebar-card h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.info-row:last-child { border-bottom: none; }
+
+.info-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.info-row-text strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.info-row-text span {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.info-row-text a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.emergency-note {
+  background: rgba(200, 85, 61, 0.1);
+  border: 1px solid rgba(200, 85, 61, 0.25);
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.emergency-note p {
+  font-size: 13px;
+  color: var(--secondary);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.emergency-note span {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--accent);
+}
+
+/* MAP PLACEHOLDER */
+.map-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px,4vw,60px) clamp(60px,8vw,100px);
+}
+
+.map-placeholder {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-muted);
+}
+
+.map-placeholder svg {
+  width: 48px;
+  height: 48px;
+  color: var(--accent);
+  opacity: 0.5;
+}
+
+.map-placeholder p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.map-placeholder span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* FOOTER */
+.footer { background: var(--footer-bg); border-top: 1px solid var(--border); padding: 60px clamp(20px,4vw,60px) 32px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1400px; margin: 0 auto 48px; }
+.footer-brand-name { font-family: var(--font-heading); font-weight: 900; font-size: 18px; letter-spacing: 0.15em; color: var(--text); text-transform: uppercase; margin-bottom: 16px; }
+.footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 8px; }
+.footer-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 14px; color: var(--text-muted); margin-bottom: 10px; transition: color var(--transition-interactive); }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; flex-wrap: wrap; gap: 16px; }
+.footer-bottom p { font-size: 12px; color: var(--text-muted); }
+.footer-social { display: flex; gap: 16px; }
+.footer-social a { width: 36px; height: 36px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 14px; transition: background var(--transition-interactive), color var(--transition-interactive), border-color var(--transition-interactive); }
+.footer-social a:hover { background: var(--accent); color: #111113; border-color: var(--accent); }
+.footer-attribution { text-align: center; padding-top: 16px; margin-top: 8px; }
+.footer-attribution a { font-size: 11px; color: var(--text-muted); opacity: 0.6; transition: opacity var(--transition-interactive); }
+.footer-attribution a:hover { opacity: 1; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .contact-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 20px; gap: 16px; }
+  .form-row { grid-template-columns: 1fr; }
+  .booking-slots { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- TIER BADGE -->
+<div class="tier-badge">
+  This is a StackBuilt Web demo — Professional Package ($3,500) → <a href="/pricing.html">See Pricing</a> &nbsp;|&nbsp; <a href="/index.html">Visit StackBuilt Web →</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">IRONCLAD</a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="tel:3215550147" class="nav-phone">(321) 555-0147</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero reveal">
+  <p class="page-hero-eyebrow">Get Started</p>
+  <h1>Get your free roof inspection.</h1>
+  <p>Fill out the form or call us directly. We'll have a licensed inspector at your property within the week.</p>
+</section>
+
+<!-- CONTACT LAYOUT -->
+<section class="contact-layout">
+
+  <!-- FORM -->
+  <div class="contact-form reveal">
+    <h2>Schedule your inspection</h2>
+    <p>Fill out the details below and we'll reach out to confirm your appointment.</p>
+
+    <form onsubmit="event.preventDefault(); document.querySelector('.btn-submit').textContent = '✓ Request Sent!'; document.querySelector('.btn-submit').style.background = '#2E7D32';">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" placeholder="John Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" placeholder="(321) 555-0000" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Property Address</label>
+          <input type="text" id="address" placeholder="123 Main St, Melbourne, FL">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="service">What do you need? *</label>
+        <select id="service" required>
+          <option value="" disabled selected>Select a service...</option>
+          <option value="inspection">Free Roof Inspection</option>
+          <option value="replacement">Full Roof Replacement</option>
+          <option value="storm">Emergency Storm Repair</option>
+          <option value="metal">Metal Roofing</option>
+          <option value="gutters">Gutter Installation</option>
+          <option value="commercial">Commercial Flat Roofing</option>
+          <option value="other">Other / Not Sure</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="date">Preferred Date</label>
+          <input type="date" id="date">
+        </div>
+        <div class="form-group">
+          <label for="time-pref">Preferred Time</label>
+          <select id="time-pref">
+            <option value="" disabled selected>Select time...</option>
+            <option value="morning">Morning (8am – 12pm)</option>
+            <option value="afternoon">Afternoon (12pm – 4pm)</option>
+            <option value="flexible">Flexible</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Additional Details</label>
+        <textarea id="message" placeholder="Tell us about your roof — age, known issues, insurance claim, etc."></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Schedule Inspection →</button>
+    </form>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div>
+    <!-- BOOKING WIDGET -->
+    <div class="booking-widget reveal">
+      <div class="booking-widget-header">
+        <div class="booking-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+        </div>
+        <div>
+          <h3>Quick Schedule</h3>
+          <p>Next available slots</p>
+        </div>
+      </div>
+      <div class="booking-slots">
+        <div class="booking-slot selected" onclick="selectSlot(this)">
+          <div class="booking-slot-day">Tue</div>
+          <div class="booking-slot-date">Mar 25</div>
+          <div class="booking-slot-time">9:00 AM</div>
+        </div>
+        <div class="booking-slot" onclick="selectSlot(this)">
+          <div class="booking-slot-day">Wed</div>
+          <div class="booking-slot-date">Mar 26</div>
+          <div class="booking-slot-time">10:30 AM</div>
+        </div>
+        <div class="booking-slot" onclick="selectSlot(this)">
+          <div class="booking-slot-day">Thu</div>
+          <div class="booking-slot-date">Mar 27</div>
+          <div class="booking-slot-time">8:00 AM</div>
+        </div>
+        <div class="booking-slot" onclick="selectSlot(this)">
+          <div class="booking-slot-day">Fri</div>
+          <div class="booking-slot-date">Mar 28</div>
+          <div class="booking-slot-time">2:00 PM</div>
+        </div>
+      </div>
+      <p class="booking-note">Select a slot or choose a date in the form. We'll confirm within 2 hours.</p>
+    </div>
+
+    <!-- CONTACT INFO -->
+    <div class="sidebar-card reveal">
+      <h3>Contact info</h3>
+      <div class="info-row">
+        <div class="info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="info-row-text">
+          <strong>Phone</strong>
+          <span><a href="tel:3215550147">(321) 555-0147</a></span>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="info-row-text">
+          <strong>Email</strong>
+          <span><a href="mailto:info@ironcladroofing.com">info@ironcladroofing.com</a></span>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg>
+        </div>
+        <div class="info-row-text">
+          <strong>Location</strong>
+          <span>Melbourne, FL — Serving all of Brevard County</span>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="info-row-text">
+          <strong>Business Hours</strong>
+          <span>Mon–Fri: 7:00 AM – 6:00 PM<br>Sat: 8:00 AM – 2:00 PM</span>
+        </div>
+      </div>
+
+      <div class="emergency-note">
+        <p>Emergency? Call anytime.</p>
+        <span>(321) 555-0147</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- MAP -->
+<section class="map-section reveal">
+  <div class="map-placeholder">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg>
+    <p>Melbourne, FL — Brevard County</p>
+    <span>Google Maps integration included with live site</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">IRONCLAD ROOFING</div>
+      <p>(321) 555-0147</p>
+      <p>info@ironcladroofing.com</p>
+      <p>Melbourne, FL</p>
+      <p style="margin-top: 12px; font-size: 12px;">FL License #CCC1234567</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="services.html">Roof Replacement</a>
+      <a href="services.html">Storm Repair</a>
+      <a href="services.html">Inspections</a>
+      <a href="services.html">Gutters</a>
+      <a href="services.html">Metal Roofing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Google Business"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Ironclad Roofing. All rights reserved.</p>
+    <p>Built to last. Guaranteed.</p>
+  </div>
+  <div class="footer-attribution">
+    
+  </div>
+</footer>
+
+<script>
+// Booking slot selection
+function selectSlot(el) {
+  document.querySelectorAll('.booking-slot').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+// Scroll reveal
+const revealElements = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

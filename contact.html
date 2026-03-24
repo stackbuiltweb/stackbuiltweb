@@ -1627,5 +1627,32 @@ body::before {
 })();
 </script>
 
+<script>
+// Auto-populate tier from URL parameter
+(function() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var tier = urlParams.get('tier');
+  if (tier) {
+    var selects = document.querySelectorAll('select');
+    selects.forEach(function(sel) {
+      var options = sel.querySelectorAll('option');
+      options.forEach(function(opt) {
+        var val = opt.value.toLowerCase().replace(/\s+/g, '-');
+        var text = opt.textContent.toLowerCase().replace(/\s+/g, '-');
+        if (val.includes(tier) || text.includes(tier)) {
+          opt.selected = true;
+        }
+      });
+    });
+
+    // Also scroll to the form smoothly
+    setTimeout(function() {
+      var form = document.querySelector('form') || document.querySelector('.contact-form');
+      if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 500);
+  }
+})();
+</script>
+
 </body>
 </html>

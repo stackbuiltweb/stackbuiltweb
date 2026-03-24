@@ -1166,6 +1166,20 @@ h2.section-heading {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* View Example Links */
+.view-example-link {
+  display: block;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: 0.75rem;
+  transition: text-decoration 0.2s;
+}
+.view-example-link:hover {
+  text-decoration: underline;
+}
 </style>
 </head>
 <body>
@@ -1535,40 +1549,52 @@ h2.section-heading {
 
     <div class="pricing-grid">
       <!-- Side Hustle -->
-      <div class="pricing-card card-outer reveal stagger-2">
-        <div class="card-inner">
-          <div class="pricing-tier-name">Side Hustle</div>
-          <div class="pricing-price"><span class="from">From </span>$500</div>
+      <div class="reveal stagger-2" style="display:flex;flex-direction:column;">
+        <div class="pricing-card card-outer">
+          <div class="card-inner">
+            <div class="pricing-tier-name">Side Hustle</div>
+            <div class="pricing-price"><span class="from">From </span>$500</div>
+          </div>
         </div>
+        <a href="/demos/side-hustle/" target="_blank" class="view-example-link">See example &rarr;</a>
       </div>
 
       <!-- Starter -->
-      <div class="pricing-card card-outer reveal stagger-3">
-        <div class="card-inner">
-          <div class="pricing-tier-name">Starter</div>
-          <div class="pricing-price">$1,500</div>
+      <div class="reveal stagger-3" style="display:flex;flex-direction:column;">
+        <div class="pricing-card card-outer">
+          <div class="card-inner">
+            <div class="pricing-tier-name">Starter</div>
+            <div class="pricing-price">$1,500</div>
+          </div>
         </div>
+        <a href="/demos/starter/" target="_blank" class="view-example-link">See example &rarr;</a>
       </div>
 
       <!-- Professional (Featured) -->
-      <div class="pricing-card featured reveal stagger-4">
-        <div class="card-outer">
-          <div class="card-inner">
-            <div class="pricing-tier-name">
-              Professional
-              <span class="pricing-popular">Most Popular</span>
+      <div class="reveal stagger-4" style="display:flex;flex-direction:column;">
+        <div class="pricing-card featured">
+          <div class="card-outer">
+            <div class="card-inner">
+              <div class="pricing-tier-name">
+                Professional
+                <span class="pricing-popular">Most Popular</span>
+              </div>
+              <div class="pricing-price">$3,500</div>
             </div>
-            <div class="pricing-price">$3,500</div>
           </div>
         </div>
+        <a href="/demos/professional/" target="_blank" class="view-example-link">See example &rarr;</a>
       </div>
 
       <!-- Premium -->
-      <div class="pricing-card card-outer reveal stagger-5">
-        <div class="card-inner">
-          <div class="pricing-tier-name">Premium</div>
-          <div class="pricing-price">$5,500</div>
+      <div class="reveal stagger-5" style="display:flex;flex-direction:column;">
+        <div class="pricing-card card-outer">
+          <div class="card-inner">
+            <div class="pricing-tier-name">Premium</div>
+            <div class="pricing-price">$5,500</div>
+          </div>
         </div>
+        <a href="/demos/premium/" target="_blank" class="view-example-link">See example &rarr;</a>
       </div>
     </div>
 

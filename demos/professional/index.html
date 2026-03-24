@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ironclad Roofing — Built to Last. Guaranteed. | Melbourne, FL</title>
+<meta name="description" content="Ironclad Roofing — 18 years, 800+ roofs, zero shortcuts. Full roof replacement, storm repair, inspections & more in Brevard County, FL. Free inspections.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   IRONCLAD ROOFING — PROFESSIONAL DEMO
+   Dark, powerful, industrial authority
+   ============================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #111113;
+  --surface: #1A1A1E;
+  --elevated: #222226;
+  --accent: #C8553D;
+  --accent-hover: #D4634C;
+  --secondary: #E8A87C;
+  --text: #E8E6E3;
+  --text-muted: #7A7875;
+  --body-text: #B0AEA9;
+  --border: #2A2A2E;
+  --card-shadow: rgba(200, 85, 61, 0.1);
+  --footer-bg: #0A0A0C;
+
+  --font-heading: 'Satoshi', sans-serif;
+  --font-body: 'Satoshi', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--body-text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* ---- TIER BADGE ---- */
+.tier-badge {
+  background: var(--accent);
+  color: #111113;
+  text-align: center;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 100;
+}
+.tier-badge a {
+  color: #111113;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---- NAVIGATION ---- */
+.nav {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0 clamp(20px, 4vw, 60px);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(17, 17, 19, 0.92);
+}
+
+.nav-logo {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 0.15em;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--transition-interactive);
+  position: relative;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+}
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.nav-phone {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent) !important;
+}
+.nav-phone::after { display: none !important; }
+
+.nav-cta {
+  background: var(--accent);
+  color: #111113 !important;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background var(--transition-interactive), transform var(--transition-interactive);
+}
+.nav-cta:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+.nav-cta::after { display: none !important; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ---- HERO ---- */
+.hero {
+  min-height: calc(100vh - 72px - 37px);
+  display: flex;
+  align-items: center;
+  padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 60px);
+  gap: clamp(40px, 4vw, 80px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  flex: 0 0 55%;
+}
+
+.hero-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(42px, 5.5vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  font-weight: 500;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #111113;
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background var(--transition-interactive), transform var(--transition-interactive);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 700;
+  border: 2px solid rgba(232, 230, 227, 0.25);
+  transition: border-color var(--transition-interactive), transform var(--transition-interactive);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-outline:hover {
+  border-color: var(--text);
+  transform: translateY(-2px);
+}
+
+.hero-image {
+  flex: 0 0 45%;
+  position: relative;
+}
+.hero-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.hero-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  border-radius: 0 0 16px 16px;
+  background: linear-gradient(to top, rgba(17, 17, 19, 0.6), transparent);
+  pointer-events: none;
+}
+
+/* ---- STATS BAR ---- */
+.stats-bar {
+  background: var(--elevated);
+  padding: 48px clamp(20px, 4vw, 60px);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 0 clamp(20px, 3vw, 48px);
+  border-right: 1px solid var(--accent);
+}
+.stat-item:last-child { border-right: none; }
+
+.stat-number {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* ---- SECTION UTILITIES ---- */
+.section {
+  padding: clamp(60px, 8vw, 120px) clamp(20px, 4vw, 60px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(28px, 3vw, 42px);
+  color: var(--text);
+  margin-bottom: 48px;
+  letter-spacing: -0.02em;
+}
+
+/* ---- SERVICES PREVIEW ---- */
+.services-scroll-wrapper {
+  position: relative;
+}
+
+.services-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.services-scroll::-webkit-scrollbar { height: 4px; }
+.services-scroll::-webkit-scrollbar-track { background: transparent; }
+.services-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.service-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 28px;
+  transition: transform var(--transition-interactive), box-shadow var(--transition-interactive), border-color var(--transition-interactive);
+  cursor: pointer;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px var(--card-shadow);
+  border-color: rgba(200, 85, 61, 0.3);
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 20px;
+  color: var(--accent);
+}
+.service-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.service-card h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ---- WHY IRONCLAD ---- */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.why-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  padding: 32px 28px;
+}
+
+.why-card h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.why-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ---- TESTIMONIALS ---- */
+.testimonials {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.testimonial-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 260px;
+}
+
+.testimonial-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-in-out);
+  pointer-events: none;
+}
+.testimonial-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+}
+
+.testimonial-quote-mark {
+  font-size: 72px;
+  line-height: 1;
+  color: var(--accent);
+  font-family: Georgia, serif;
+  margin-bottom: 16px;
+}
+
+.testimonial-text {
+  font-size: clamp(18px, 2vw, 22px);
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.testimonial-author {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.testimonial-stars {
+  color: var(--secondary);
+  font-size: 16px;
+  margin-top: 8px;
+  letter-spacing: 2px;
+}
+
+.testimonial-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.testimonial-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background var(--transition-interactive), border-color var(--transition-interactive);
+}
+.testimonial-arrow:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #111113;
+}
+
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.testimonial-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background var(--transition-interactive);
+  cursor: pointer;
+  border: none;
+}
+.testimonial-dot.active {
+  background: var(--accent);
+}
+
+/* ---- CTA SECTION ---- */
+.cta-section {
+  background: var(--accent);
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 4vw, 60px);
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(28px, 3.5vw, 48px);
+  color: #111113;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.btn-dark {
+  background: #111113;
+  color: var(--text);
+  padding: 16px 36px;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background var(--transition-interactive), transform var(--transition-interactive);
+}
+.btn-dark:hover {
+  background: #1A1A1E;
+  transform: translateY(-2px);
+}
+
+/* ---- FOOTER ---- */
+.footer {
+  background: var(--footer-bg);
+  border-top: 1px solid var(--border);
+  padding: 60px clamp(20px, 4vw, 60px) 32px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  max-width: 1400px;
+  margin: 0 auto 48px;
+}
+
+.footer-brand-name {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.15em;
+  color: var(--text);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  transition: color var(--transition-interactive);
+}
+.footer-col a:hover { color: var(--accent); }
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.footer-social {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  transition: background var(--transition-interactive), color var(--transition-interactive), border-color var(--transition-interactive);
+}
+.footer-social a:hover {
+  background: var(--accent);
+  color: #111113;
+  border-color: var(--accent);
+}
+
+.footer-attribution {
+  text-align: center;
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
+.footer-attribution a {
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.6;
+  transition: opacity var(--transition-interactive);
+}
+.footer-attribution a:hover { opacity: 1; }
+
+/* ---- SCROLL REVEAL ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- SCHEMA BADGES ---- */
+.schema-badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: clamp(20px, 3vw, 40px) clamp(20px, 4vw, 60px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.schema-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.schema-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.badge-green { color: #4ADE80; }
+.badge-blue { color: #60A5FA; }
+.badge-yellow { color: var(--secondary); }
+
+/* ---- MOBILE ---- */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    min-height: auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .hero-content { flex: 1; }
+  .hero-image {
+    flex: 1;
+    width: 100%;
+  }
+  .hero-image img { height: 350px; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .hero h1 { font-size: clamp(32px, 8vw, 48px); }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .stat-item { border-right: none; padding: 16px 0; }
+
+  .why-grid { grid-template-columns: 1fr; }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .hero-ctas { flex-direction: column; }
+  .btn-primary, .btn-outline { text-align: center; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RoofingContractor",
+  "name": "Ironclad Roofing",
+  "url": "https://ironcladroofing.com",
+  "telephone": "(321) 555-0147",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Melbourne",
+    "addressRegion": "FL"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "127"
+  },
+  "foundingDate": "2008",
+  "areaServed": "Brevard County, FL",
+  "creator": {
+    "@type": "SoftwareApplication",
+    "name": "Perplexity Computer",
+    "url": "https://www.perplexity.ai/computer"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- TIER BADGE -->
+<div class="tier-badge">
+  This is a StackBuilt Web demo — Professional Package ($3,500) → <a href="/pricing.html">See Pricing</a> &nbsp;|&nbsp; <a href="/index.html">Visit StackBuilt Web →</a>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">IRONCLAD</a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="tel:3215550147" class="nav-phone">(321) 555-0147</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content reveal">
+    <p class="hero-eyebrow">Licensed &amp; Insured • Brevard County</p>
+    <h1>Your roof.<br>Our reputation.</h1>
+    <p class="hero-sub">18 years. 800+ roofs. Zero shortcuts.</p>
+    <div class="hero-ctas">
+      <a href="contact.html" class="btn-primary">Get Your Free Inspection →</a>
+      <a href="tel:3215550147" class="btn-outline">Call (321) 555-0147</a>
+    </div>
+  </div>
+  <div class="hero-image reveal">
+    <img src="https://picsum.photos/seed/roof-professional/800/600" alt="Professional roof installation by Ironclad Roofing in Melbourne, FL" width="800" height="600" loading="eager">
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-number">800+</div>
+      <div class="stat-label">Roofs Completed</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">18</div>
+      <div class="stat-label">Years in Business</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">25yr</div>
+      <div class="stat-label">Workmanship Warranty</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">4.9★</div>
+      <div class="stat-label">Google Rating</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES PREVIEW -->
+<section class="section">
+  <h2 class="section-title reveal">What we do.</h2>
+  <div class="services-scroll-wrapper reveal">
+    <div class="services-scroll">
+      <!-- Card 1 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28L24 8l20 20"/><path d="M10 24v16h28V24"/><rect x="18" y="30" width="12" height="10"/></svg>
+        </div>
+        <h3>Full Roof Replacement</h3>
+        <p>Complete tear-off and installation with premium materials and a 25-year warranty.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4L6 18v22h36V18L24 4z"/><path d="M18 26l6 6 6-6"/><path d="M24 32V18"/></svg>
+        </div>
+        <h3>Emergency Storm Repair</h3>
+        <p>Same-week response for storm damage. We work directly with your insurance.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M24 14v10l6 6"/></svg>
+        </div>
+        <h3>Roof Inspections</h3>
+        <p>Thorough 21-point inspections with detailed reports. Free for storm damage claims.</p>
+      </div>
+      <!-- Card 4 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M40 12v28H8V12"/><path d="M40 12l-4-4H12L8 12"/><path d="M40 24H8"/><path d="M40 36H8"/></svg>
+        </div>
+        <h3>Gutter Installation</h3>
+        <p>Seamless aluminum gutters custom-fit to your home. Prevents water damage.</p>
+      </div>
+      <!-- Card 5 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 36L24 16l20 20"/><path d="M4 40h40"/><path d="M12 32l12-12 12 12"/></svg>
+        </div>
+        <h3>Metal Roofing</h3>
+        <p>Standing seam and corrugated metal systems. 50+ year lifespan, hurricane rated.</p>
+      </div>
+      <!-- Card 6 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="12" width="36" height="24" rx="2"/><path d="M6 20h36"/><path d="M6 28h36"/></svg>
+        </div>
+        <h3>Commercial Flat Roofing</h3>
+        <p>TPO, EPDM, and modified bitumen systems for commercial properties.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IRONCLAD -->
+<section class="section" style="padding-top: 0;">
+  <h2 class="section-title reveal">Why homeowners trust Ironclad.</h2>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <h3>Licensed, Bonded &amp; Insured</h3>
+      <p>Full liability coverage and workers compensation on every project.</p>
+    </div>
+    <div class="why-card reveal">
+      <h3>25-Year Workmanship Warranty</h3>
+      <p>We stand behind every installation. Period.</p>
+    </div>
+    <div class="why-card reveal">
+      <h3>Free Storm Damage Inspections</h3>
+      <p>We work directly with your insurance company.</p>
+    </div>
+    <div class="why-card reveal">
+      <h3>Same-Week Emergency Service</h3>
+      <p>Leak? Storm damage? We're there within 48 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials section">
+  <div class="testimonial-container">
+    <div class="testimonial-slide active">
+      <div class="testimonial-quote-mark">&ldquo;</div>
+      <p class="testimonial-text">Had major storm damage and they were out the next day. Insurance process was painless. New roof looks incredible.</p>
+      <p class="testimonial-author">Marcus T., Melbourne</p>
+      <div class="testimonial-stars">★★★★★</div>
+    </div>
+    <div class="testimonial-slide">
+      <div class="testimonial-quote-mark">&ldquo;</div>
+      <p class="testimonial-text">Got three quotes. Ironclad was the most thorough and actually the most affordable. Done in two days.</p>
+      <p class="testimonial-author">Diana K., Palm Bay</p>
+      <div class="testimonial-stars">★★★★★</div>
+    </div>
+    <div class="testimonial-slide">
+      <div class="testimonial-quote-mark">&ldquo;</div>
+      <p class="testimonial-text">18-year-old roof replaced beautifully. The crew was professional and cleaned up everything.</p>
+      <p class="testimonial-author">Robert &amp; Susan M., Cocoa Beach</p>
+      <div class="testimonial-stars">★★★★★</div>
+    </div>
+    <div class="testimonial-arrows">
+      <button class="testimonial-arrow" onclick="changeSlide(-1)" aria-label="Previous testimonial">←</button>
+      <button class="testimonial-arrow" onclick="changeSlide(1)" aria-label="Next testimonial">→</button>
+    </div>
+    <div class="testimonial-dots">
+      <button class="testimonial-dot active" onclick="goToSlide(0)" aria-label="Testimonial 1"></button>
+      <button class="testimonial-dot" onclick="goToSlide(1)" aria-label="Testimonial 2"></button>
+      <button class="testimonial-dot" onclick="goToSlide(2)" aria-label="Testimonial 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEMA / SPEED BADGES -->
+<div class="schema-badges reveal">
+  <span class="schema-badge">
+    <svg viewBox="0 0 16 16" fill="currentColor" class="badge-green"><circle cx="8" cy="8" r="6"/></svg>
+    Schema Markup Active
+  </span>
+  <span class="schema-badge">
+    <svg viewBox="0 0 16 16" fill="currentColor" class="badge-green"><circle cx="8" cy="8" r="6"/></svg>
+    LocalBusiness + AggregateRating
+  </span>
+  <span class="schema-badge">
+    <svg viewBox="0 0 16 16" fill="currentColor" class="badge-blue"><circle cx="8" cy="8" r="6"/></svg>
+    Google Analytics Ready
+  </span>
+  <span class="schema-badge">
+    <svg viewBox="0 0 16 16" fill="currentColor" class="badge-blue"><circle cx="8" cy="8" r="6"/></svg>
+    Search Console Verified
+  </span>
+  <span class="schema-badge">
+    <svg viewBox="0 0 16 16" fill="currentColor" class="badge-yellow"><circle cx="8" cy="8" r="6"/></svg>
+    PageSpeed: 95+
+  </span>
+</div>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <h2>Protect your biggest investment.</h2>
+  <a href="contact.html" class="btn-dark">Schedule Your Free Inspection →</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">IRONCLAD ROOFING</div>
+      <p>(321) 555-0147</p>
+      <p>info@ironcladroofing.com</p>
+      <p>Melbourne, FL</p>
+      <p style="margin-top: 12px; font-size: 12px;">FL License #CCC1234567</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="services.html">Roof Replacement</a>
+      <a href="services.html">Storm Repair</a>
+      <a href="services.html">Inspections</a>
+      <a href="services.html">Gutters</a>
+      <a href="services.html">Metal Roofing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" aria-label="Google Business">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Ironclad Roofing. All rights reserved.</p>
+    <p>Built to last. Guaranteed.</p>
+  </div>
+  <div class="footer-attribution">
+    
+  </div>
+</footer>
+
+<script>
+// ---- TESTIMONIAL CAROUSEL ----
+let currentSlide = 0;
+const slides = document.querySelectorAll('.testimonial-slide');
+const dots = document.querySelectorAll('.testimonial-dot');
+let autoAdvance;
+
+function goToSlide(index) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = (index + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+  resetAutoAdvance();
+}
+
+function changeSlide(direction) {
+  goToSlide(currentSlide + direction);
+}
+
+function resetAutoAdvance() {
+  clearInterval(autoAdvance);
+  autoAdvance = setInterval(() => changeSlide(1), 6000);
+}
+
+resetAutoAdvance();
+
+// ---- SCROLL REVEAL ----
+const revealElements = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

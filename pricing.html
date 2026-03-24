@@ -573,6 +573,87 @@ body::before {
   padding: 0.75rem 1.25rem;
 }
 
+/* View Example Links */
+.view-example-link {
+  display: block;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: 0.75rem;
+  transition: text-decoration 0.2s;
+}
+.view-example-link:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   Demo Preview Section
+   ======================================== */
+.demo-preview-section {
+  background: var(--bg-warm);
+}
+.demo-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.demo-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.demo-card-tier {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.demo-card-price {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+.demo-card-niche {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  margin-top: 0.25rem;
+}
+.demo-card-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.demo-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.75rem;
+  padding: 0.625rem 1.25rem;
+  border: 1.5px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.demo-card-btn:hover {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+
 /* ========================================
    Maintenance Plans
    ======================================== */
@@ -962,6 +1043,9 @@ body::before {
   .pricing-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .demo-preview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -981,6 +1065,10 @@ body::before {
     min-height: auto;
   }
   .addons-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .demo-preview-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
@@ -1116,10 +1204,11 @@ body::before {
               </div>
             </div>
             <div class="pricing-cta-row">
-              <a href="/contact.html" class="btn-pill btn-secondary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.8125rem;"></i></span></a>
+              <a href="/contact.html?tier=side-hustle" class="btn-pill btn-secondary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.8125rem;"></i></span></a>
             </div>
           </div>
         </div>
+        <a href="/demos/side-hustle/" target="_blank" class="view-example-link">View example site &rarr;</a>
       </div>
 
       <!-- Starter -->
@@ -1166,10 +1255,11 @@ body::before {
               </div>
             </div>
             <div class="pricing-cta-row">
-              <a href="/contact.html" class="btn-pill btn-secondary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.8125rem;"></i></span></a>
+              <a href="/contact.html?tier=starter" class="btn-pill btn-secondary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.8125rem;"></i></span></a>
             </div>
           </div>
         </div>
+        <a href="/demos/starter/" target="_blank" class="view-example-link">View example site &rarr;</a>
       </div>
 
       <!-- Professional (FEATURED) -->
@@ -1218,10 +1308,11 @@ body::before {
               </div>
             </div>
             <div class="pricing-cta-row">
-              <a href="/contact.html" class="btn-pill btn-primary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.875rem;"></i></span></a>
+              <a href="/contact.html?tier=professional" class="btn-pill btn-primary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.875rem;"></i></span></a>
             </div>
           </div>
         </div>
+        <a href="/demos/professional/" target="_blank" class="view-example-link">View example site &rarr;</a>
       </div>
 
       <!-- Premium -->
@@ -1260,14 +1351,61 @@ body::before {
               </div>
             </div>
             <div class="pricing-cta-row">
-              <a href="/contact.html" class="btn-pill btn-secondary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.8125rem;"></i></span></a>
+              <a href="/contact.html?tier=premium" class="btn-pill btn-secondary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.8125rem;"></i></span></a>
             </div>
           </div>
         </div>
+        <a href="/demos/premium/" target="_blank" class="view-example-link">View example site &rarr;</a>
       </div>
 
     </div><!-- /pricing-grid -->
 
+  </div>
+</section>
+
+<!-- ============ DEMO PREVIEW SECTION ============ -->
+<section class="demo-preview-section section">
+  <div class="container">
+    <div class="section-header">
+      <h3 class="section-heading reveal stagger-1" style="max-width: 22ch;">See what each package looks like.</h3>
+      <p class="section-sub reveal stagger-2">Click any demo below to explore a fully built example site for each tier.</p>
+    </div>
+
+    <div class="demo-preview-grid">
+
+      <div class="demo-card reveal stagger-1">
+        <span class="demo-card-tier">Side Hustle</span>
+        <span class="demo-card-price">$500 &ndash; $1,000</span>
+        <div class="demo-card-niche">Pressure Washing</div>
+        <p class="demo-card-desc">Single-page site for solo operators</p>
+        <a href="/demos/side-hustle/" target="_blank" class="demo-card-btn">Explore Demo &rarr;</a>
+      </div>
+
+      <div class="demo-card reveal stagger-2">
+        <span class="demo-card-tier">Starter</span>
+        <span class="demo-card-price">$1,500</span>
+        <div class="demo-card-niche">Small Business</div>
+        <p class="demo-card-desc">3-page site for small businesses</p>
+        <a href="/demos/starter/" target="_blank" class="demo-card-btn">Explore Demo &rarr;</a>
+      </div>
+
+      <div class="demo-card reveal stagger-3">
+        <span class="demo-card-tier">Professional</span>
+        <span class="demo-card-price">$3,500</span>
+        <div class="demo-card-niche">HVAC &amp; Contractors</div>
+        <p class="demo-card-desc">5-page dark-mode site for established businesses</p>
+        <a href="/demos/professional/" target="_blank" class="demo-card-btn">Explore Demo &rarr;</a>
+      </div>
+
+      <div class="demo-card reveal stagger-4">
+        <span class="demo-card-tier">Premium</span>
+        <span class="demo-card-price">$5,500</span>
+        <div class="demo-card-niche">Editorial &amp; AI</div>
+        <p class="demo-card-desc">Premium editorial site with AI chatbot</p>
+        <a href="/demos/premium/" target="_blank" class="demo-card-btn">Explore Demo &rarr;</a>
+      </div>
+
+    </div>
   </div>
 </section>
 

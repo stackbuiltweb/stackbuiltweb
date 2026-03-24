@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Golden Coast Studios</title>
+<meta name="description" content="Book a session or get in touch with Golden Coast Studios. Photography inquiries for Cocoa Beach and all of Central Florida.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #FAF8F5;
+  --card: #FFFFFF;
+  --accent: #1A1A1A;
+  --gold: #C9A96E;
+  --text: #1A1A1A;
+  --muted: #8A8680;
+  --border: rgba(26, 26, 26, 0.08);
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.skip-link {
+  position: absolute; top: -100%; left: 16px;
+  background: var(--accent); color: var(--bg);
+  padding: 8px 16px; z-index: 1000; font-size: 14px; text-decoration: none;
+}
+.skip-link:focus { top: 16px; }
+
+/* Nav */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 24px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250, 248, 245, 0.85);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  transition: padding 0.4s var(--ease-out);
+}
+.nav--scrolled { padding: 16px 48px; }
+.nav__logo {
+  font-family: var(--font-serif); font-style: italic; font-size: 22px;
+  color: var(--text); text-decoration: none; letter-spacing: -0.02em;
+}
+.nav__links { display: flex; align-items: center; gap: 40px; list-style: none; }
+.nav__links a {
+  font-size: 13px; font-weight: 400; color: var(--text); text-decoration: none;
+  letter-spacing: 0.08em; text-transform: uppercase; transition: color 180ms var(--ease-out);
+}
+.nav__links a:hover, .nav__links a.active { color: var(--gold); }
+.nav__book {
+  font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  border: 1px solid var(--gold); padding: 10px 24px; border-radius: 100px;
+  transition: background 180ms var(--ease-out), color 180ms var(--ease-out);
+}
+.nav__book:hover { background: var(--gold); color: var(--accent); }
+.nav__toggle {
+  display: none; background: none; border: none; cursor: pointer;
+  width: 32px; height: 32px; flex-direction: column; justify-content: center; align-items: center; gap: 6px;
+}
+.nav__toggle span { display: block; width: 24px; height: 1.5px; background: var(--text); transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out); }
+.nav__toggle.active span:nth-child(1) { transform: translateY(3.75px) rotate(45deg); }
+.nav__toggle.active span:nth-child(2) { opacity: 0; }
+.nav__toggle.active span:nth-child(3) { transform: translateY(-3.75px) rotate(-45deg); }
+.nav__mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--bg); z-index: 99;
+  flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+  opacity: 0; transition: opacity 0.4s var(--ease-out);
+}
+.nav__mobile-menu.active { display: flex; opacity: 1; }
+.nav__mobile-menu a {
+  font-family: var(--font-serif); font-style: italic; font-size: 36px;
+  color: var(--text); text-decoration: none; transition: color 180ms var(--ease-out);
+}
+.nav__mobile-menu a:hover { color: var(--gold); }
+
+/* Contact Layout */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+.contact__image {
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+.contact__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.contact__form-area {
+  padding: 160px 64px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 560px;
+}
+.contact__title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.contact__subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 32px;
+}
+.form-group label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+  outline: none;
+  transition: border-color 300ms var(--ease-out);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--gold);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(138, 134, 128, 0.5);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+.form-group select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A8680' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  padding-right: 24px;
+}
+.form-group select option {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.form-submit {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: 0.04em;
+  transition: color 180ms var(--ease-out);
+}
+.form-submit:hover { color: var(--gold); }
+
+.contact__note {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 40px;
+  font-style: italic;
+}
+
+/* Contact Info */
+.contact-info {
+  padding: 0 0 40px;
+  margin-top: 56px;
+  display: flex;
+  gap: 40px;
+}
+.contact-info__item {}
+.contact-info__label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.contact-info__value {
+  font-size: 15px;
+  color: var(--text);
+}
+.contact-info__value a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 180ms var(--ease-out);
+}
+.contact-info__value a:hover { color: var(--gold); }
+
+/* Footer */
+.footer { padding: 80px 48px 40px; text-align: center; }
+.footer__name { font-family: var(--font-serif); font-style: italic; font-size: 16px; margin-bottom: 16px; }
+.footer__location { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+.footer__social a { color: var(--muted); transition: color 180ms var(--ease-out); }
+.footer__social a:hover { color: var(--gold); }
+.footer__copy { font-size: 12px; color: var(--muted); margin-top: 32px; }
+.footer__attribution { margin-top: 16px; }
+.footer__attribution a { font-size: 11px; color: var(--muted); text-decoration: none; transition: color 180ms var(--ease-out); }
+.footer__attribution a:hover { color: var(--gold); }
+
+.tier-badge {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--accent); color: var(--bg);
+  text-align: center; padding: 10px 16px; font-size: 13px; z-index: 300;
+}
+.tier-badge a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .nav { padding: 16px 24px; }
+  .nav__links, .nav__book { display: none; }
+  .nav__toggle { display: flex; }
+  .contact { grid-template-columns: 1fr; }
+  .contact__image { aspect-ratio: 16/10; max-height: 40vh; padding-top: 64px; }
+  .contact__form-area { padding: 48px 24px 80px; max-width: 100%; }
+  .contact-info { flex-direction: column; gap: 24px; }
+  .footer { padding: 60px 24px 100px; }
+  .tier-badge { font-size: 11px; padding: 8px 12px; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<nav class="nav" aria-label="Main navigation">
+  <a href="index.html" class="nav__logo">Golden Coast</a>
+  <ul class="nav__links">
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav__book">Book a Session</a>
+  <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav__mobile-menu" aria-hidden="true">
+  <a href="portfolio.html">Portfolio</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main id="main">
+<section class="contact" aria-label="Contact">
+  <div class="contact__image">
+    <img src="https://picsum.photos/seed/golden-contact/900/1200" alt="Golden hour on Cocoa Beach" fetchpriority="high" decoding="async" width="900" height="1200">
+  </div>
+  <div class="contact__form-area reveal">
+    <h1 class="contact__title">Let's create something together.</h1>
+    <p class="contact__subtitle">Tell me what you're looking for. I'll get back to you within a few hours.</p>
+
+    <form action="#" method="post" novalidate>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="message">What are you looking for?</label>
+        <textarea id="message" name="message" placeholder="Tell me about your vision — the occasion, the vibe, the dream shot. I'd love to hear it all." rows="5"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="timeframe">Preferred timeframe</label>
+        <select id="timeframe" name="timeframe">
+          <option value="" disabled selected>Select a timeframe</option>
+          <option value="asap">As soon as possible</option>
+          <option value="1month">Within the next month</option>
+          <option value="3months">1–3 months out</option>
+          <option value="6months">3–6 months out</option>
+          <option value="flexible">I'm flexible</option>
+        </select>
+      </div>
+      <button type="submit" class="form-submit">Send →</button>
+    </form>
+
+    <p class="contact__note">I respond within a few hours. Coffee meetings welcome.</p>
+
+    <div class="contact-info">
+      <div class="contact-info__item">
+        <div class="contact-info__label">Phone</div>
+        <div class="contact-info__value"><a href="tel:+13215550512">(321) 555-0512</a></div>
+      </div>
+      <div class="contact-info__item">
+        <div class="contact-info__label">Location</div>
+        <div class="contact-info__value">Cocoa Beach, FL</div>
+      </div>
+      <div class="contact-info__item">
+        <div class="contact-info__label">Follow</div>
+        <div class="contact-info__value"><a href="#">@goldencoaststudios</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer__name">Golden Coast Studios</div>
+  <div class="footer__location">Cocoa Beach, FL</div>
+  <div class="footer__social">
+    <a href="#" aria-label="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+  <div class="footer__copy">© 2026 Golden Coast Studios</div>
+  <div class="footer__attribution">
+    
+  </div>
+</footer>
+
+<div class="tier-badge">
+  This is a StackBuilt Web demo — <a href="/pricing.html">Premium Package ($5,500)</a> &nbsp;|&nbsp; <a href="/pricing.html">See All Packages</a> &nbsp;|&nbsp; <a href="/index.html">Visit StackBuilt Web →</a>
+</div>
+
+<script>
+const nav = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('nav--scrolled', window.scrollY > 80);
+}, { passive: true });
+
+const toggle = document.querySelector('.nav__toggle');
+const mobileMenu = document.querySelector('.nav__mobile-menu');
+toggle.addEventListener('click', () => {
+  const isOpen = toggle.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  mobileMenu.setAttribute('aria-hidden', !isOpen);
+  toggle.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => revealObserver.observe(el));
+
+// Form submission demo
+document.querySelector('form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = 'Sent ✓';
+  btn.style.color = 'var(--gold)';
+  setTimeout(() => {
+    btn.textContent = 'Send →';
+    btn.style.color = '';
+  }, 2000);
+});
+</script>
+
+</body>
+</html>

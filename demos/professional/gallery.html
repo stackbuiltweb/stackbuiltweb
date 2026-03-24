@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Gallery — Ironclad Roofing | Melbourne, FL</title>
+<meta name="description" content="Browse our portfolio of completed roofing projects across Brevard County. See the quality of Ironclad Roofing's craftsmanship firsthand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #111113;
+  --surface: #1A1A1E;
+  --elevated: #222226;
+  --accent: #C8553D;
+  --accent-hover: #D4634C;
+  --secondary: #E8A87C;
+  --text: #E8E6E3;
+  --text-muted: #7A7875;
+  --body-text: #B0AEA9;
+  --border: #2A2A2E;
+  --card-shadow: rgba(200, 85, 61, 0.1);
+  --footer-bg: #0A0A0C;
+  --font-heading: 'Satoshi', sans-serif;
+  --font-body: 'Satoshi', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); font-weight: 400; color: var(--body-text); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* TIER BADGE */
+.tier-badge { background: var(--accent); color: #111113; text-align: center; padding: 8px 16px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; position: relative; z-index: 100; }
+.tier-badge a { color: #111113; text-decoration: underline; text-underline-offset: 2px; }
+
+/* NAV */
+.nav { background: rgba(17,17,19,0.92); border-bottom: 1px solid var(--border); padding: 0 clamp(20px,4vw,60px); height: 72px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 90; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.nav-logo { font-family: var(--font-heading); font-weight: 900; font-size: 20px; letter-spacing: 0.15em; color: var(--text); text-transform: uppercase; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color var(--transition-interactive); position: relative; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--accent); border-radius: 1px; }
+.nav-phone { font-family: var(--font-mono); font-weight: 700; font-size: 14px; color: var(--accent) !important; }
+.nav-phone::after { display: none !important; }
+.nav-cta { background: var(--accent); color: #111113 !important; padding: 10px 20px; border-radius: 100px; font-size: 13px; font-weight: 700; transition: background var(--transition-interactive), transform var(--transition-interactive); }
+.nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.nav-cta::after { display: none !important; }
+.nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
+
+/* PAGE HERO */
+.page-hero {
+  padding: clamp(80px,10vw,140px) clamp(20px,4vw,60px) clamp(40px,4vw,60px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.page-hero-eyebrow {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+}
+.page-hero h1 {
+  font-family: var(--font-heading); font-weight: 900;
+  font-size: clamp(36px,5vw,64px); color: var(--text);
+  letter-spacing: -0.03em; line-height: 1.1;
+}
+.page-hero p {
+  font-size: 18px; color: var(--text-muted); margin-top: 16px; max-width: 600px;
+}
+
+/* FILTER TABS */
+.gallery-filters {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px,4vw,60px) 32px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  transition: background var(--transition-interactive), color var(--transition-interactive), border-color var(--transition-interactive);
+}
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--accent);
+  color: #111113;
+  border-color: var(--accent);
+}
+
+/* GALLERY GRID */
+.gallery-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px,4vw,60px) clamp(60px,8vw,100px);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  grid-auto-rows: 300px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17,17,19,0.85) 0%, transparent 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.gallery-overlay p {
+  font-size: 13px;
+  color: var(--secondary);
+  font-weight: 500;
+}
+
+/* Large items */
+.gallery-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-item.tall {
+  grid-row: span 2;
+}
+
+/* BEFORE/AFTER SECTION */
+.before-after-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px,4vw,60px) clamp(60px,8vw,100px);
+}
+
+.before-after-section h2 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(28px,3vw,42px);
+  color: var(--text);
+  margin-bottom: 48px;
+  letter-spacing: -0.02em;
+}
+
+.ba-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.ba-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.ba-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+.ba-images img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.ba-label {
+  position: absolute;
+  bottom: 8px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ba-label-before {
+  left: 8px;
+  background: rgba(17,17,19,0.8);
+  color: var(--text-muted);
+}
+
+.ba-label-after {
+  right: 8px;
+  background: var(--accent);
+  color: #111113;
+}
+
+.ba-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: var(--accent);
+  transform: translateX(-50%);
+}
+
+.ba-divider::after {
+  content: '↔';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #111113;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ba-info {
+  padding: 20px 24px;
+}
+
+.ba-info h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.ba-info p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* CTA SECTION */
+.cta-section { background: var(--accent); padding: clamp(60px,8vw,100px) clamp(20px,4vw,60px); text-align: center; }
+.cta-section h2 { font-family: var(--font-heading); font-weight: 900; font-size: clamp(28px,3.5vw,48px); color: #111113; margin-bottom: 24px; letter-spacing: -0.02em; }
+.btn-dark { background: #111113; color: var(--text); padding: 16px 36px; border-radius: 100px; font-size: 15px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; transition: background var(--transition-interactive), transform var(--transition-interactive); }
+.btn-dark:hover { background: #1A1A1E; transform: translateY(-2px); }
+
+/* FOOTER */
+.footer { background: var(--footer-bg); border-top: 1px solid var(--border); padding: 60px clamp(20px,4vw,60px) 32px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1400px; margin: 0 auto 48px; }
+.footer-brand-name { font-family: var(--font-heading); font-weight: 900; font-size: 18px; letter-spacing: 0.15em; color: var(--text); text-transform: uppercase; margin-bottom: 16px; }
+.footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 8px; }
+.footer-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 14px; color: var(--text-muted); margin-bottom: 10px; transition: color var(--transition-interactive); }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; flex-wrap: wrap; gap: 16px; }
+.footer-bottom p { font-size: 12px; color: var(--text-muted); }
+.footer-social { display: flex; gap: 16px; }
+.footer-social a { width: 36px; height: 36px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 14px; transition: background var(--transition-interactive), color var(--transition-interactive), border-color var(--transition-interactive); }
+.footer-social a:hover { background: var(--accent); color: #111113; border-color: var(--accent); }
+.footer-attribution { text-align: center; padding-top: 16px; margin-top: 8px; }
+.footer-attribution a { font-size: 11px; color: var(--text-muted); opacity: 0.6; transition: opacity var(--transition-interactive); }
+.footer-attribution a:hover { opacity: 1; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 260px; }
+  .gallery-item.large { grid-column: span 2; grid-row: span 1; }
+  .gallery-item.tall { grid-row: span 1; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 20px; gap: 16px; }
+  .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 280px; }
+  .gallery-item.large { grid-column: span 1; }
+  .ba-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .ba-images img { height: 180px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TIER BADGE -->
+<div class="tier-badge">
+  This is a StackBuilt Web demo — Professional Package ($3,500) → <a href="/pricing.html">See Pricing</a> &nbsp;|&nbsp; <a href="/index.html">Visit StackBuilt Web →</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">IRONCLAD</a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="tel:3215550147" class="nav-phone">(321) 555-0147</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero reveal">
+  <p class="page-hero-eyebrow">Portfolio</p>
+  <h1>Our work speaks for itself.</h1>
+  <p>Browse completed projects across Brevard County. Every roof tells a story of quality craftsmanship.</p>
+</section>
+
+<!-- FILTER TABS -->
+<div class="gallery-filters reveal">
+  <button class="filter-btn active" onclick="filterGallery('all', this)">All Projects</button>
+  <button class="filter-btn" onclick="filterGallery('residential', this)">Residential</button>
+  <button class="filter-btn" onclick="filterGallery('commercial', this)">Commercial</button>
+  <button class="filter-btn" onclick="filterGallery('metal', this)">Metal Roofing</button>
+  <button class="filter-btn" onclick="filterGallery('storm', this)">Storm Repair</button>
+</div>
+
+<!-- GALLERY GRID -->
+<section class="gallery-section">
+  <div class="gallery-grid reveal">
+    <div class="gallery-item large" data-category="residential">
+      <img src="https://picsum.photos/seed/gallery-pro-1/800/600" alt="Full roof replacement in Melbourne, FL" loading="lazy">
+      <div class="gallery-overlay">
+        <h3>Full Roof Replacement</h3>
+        <p>Melbourne, FL — Residential</p>
+      </div>
+    </div>
+    <div class="gallery-item" data-category="metal">
+      <img src="https://picsum.photos/seed/gallery-pro-2/500/400" alt="Standing seam metal roof installation" loading="lazy">
+      <div class="gallery-overlay">
+        <h3>Standing Seam Metal Roof</h3>
+        <p>Indialantic, FL — Metal Roofing</p>
+      </div>
+    </div>
+    <div class="gallery-item" data-category="storm">
+      <img src="https://picsum.photos/seed/gallery-pro-3/500/400" alt="Storm damage repair" loading="lazy">
+      <div class="gallery-overlay">
+        <h3>Hurricane Repair</h3>
+        <p>Cocoa Beach, FL — Storm Repair</p>
+      </div>
+    </div>
+    <div class="gallery-item" data-category="residential">
+      <img src="https://picsum.photos/seed/gallery-pro-4/500/400" alt="Tile roof installation" loading="lazy">
+      <div class="gallery-overlay">
+        <h3>Tile Roof Installation</h3>
+        <p>Viera, FL — Residential</p>
+      </div>
+    </div>
+    <div class="gallery-item tall" data-category="commercial">
+      <img src="https://picsum.photos/seed/gallery-pro-5/500/800" alt="Commercial flat roof" loading="lazy">
+      <div class="gallery-overlay">
+        <h3>Commercial TPO System</h3>
+        <p>Melbourne, FL — Commercial</p>
+      </div>
+    </div>
+    <div class="gallery-item" data-category="residential">
+      <img src="https://picsum.photos/seed/gallery-pro-6/500/400" alt="Architectural shingle roof" loading="lazy">
+      <div class="gallery-overlay">
+        <h3>Architectural Shingles</h3>
+        <p>Palm Bay, FL — Residential</p>
+      </div>
+    </div>
+    <div class="gallery-item" data-category="metal">
+      <img src="https://picsum.photos/seed/gallery-pro-7/500/400" alt="Corrugated metal roof" loading="lazy">
+      <div class="gallery-overlay">
+        <h3>Corrugated Metal Roof</h3>
+        <p>Satellite Beach, FL — Metal Roofing</p>
+      </div>
+    </div>
+    <div class="gallery-item" data-category="storm">
+      <img src="https://picsum.photos/seed/gallery-pro-8/500/400" alt="Emergency tarp and repair" loading="lazy">
+      <div class="gallery-overlay">
+        <h3>Emergency Storm Repair</h3>
+        <p>Melbourne Beach, FL — Storm Repair</p>
+      </div>
+    </div>
+    <div class="gallery-item" data-category="commercial">
+      <img src="https://picsum.photos/seed/gallery-pro-9/500/400" alt="Commercial EPDM roofing" loading="lazy">
+      <div class="gallery-overlay">
+        <h3>EPDM Commercial Roof</h3>
+        <p>West Melbourne, FL — Commercial</p>
+      </div>
+    </div>
+    <div class="gallery-item" data-category="residential">
+      <img src="https://picsum.photos/seed/gallery-pro-10/500/400" alt="Complete residential re-roof" loading="lazy">
+      <div class="gallery-overlay">
+        <h3>Complete Re-Roof</h3>
+        <p>Suntree, FL — Residential</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<section class="before-after-section">
+  <h2 class="reveal">Before &amp; after.</h2>
+  <div class="ba-grid">
+    <div class="ba-card reveal">
+      <div class="ba-images">
+        <img src="https://picsum.photos/seed/ba-before-1/400/300" alt="Roof before replacement" loading="lazy">
+        <img src="https://picsum.photos/seed/ba-after-1/400/300" alt="Roof after replacement" loading="lazy">
+        <div class="ba-divider"></div>
+        <span class="ba-label ba-label-before">Before</span>
+        <span class="ba-label ba-label-after">After</span>
+      </div>
+      <div class="ba-info">
+        <h3>Full Shingle Replacement — Melbourne</h3>
+        <p>20-year-old roof with extensive storm damage → complete architectural shingle system</p>
+      </div>
+    </div>
+    <div class="ba-card reveal">
+      <div class="ba-images">
+        <img src="https://picsum.photos/seed/ba-before-2/400/300" alt="Damaged roof before repair" loading="lazy">
+        <img src="https://picsum.photos/seed/ba-after-2/400/300" alt="Repaired roof after work" loading="lazy">
+        <div class="ba-divider"></div>
+        <span class="ba-label ba-label-before">Before</span>
+        <span class="ba-label ba-label-after">After</span>
+      </div>
+      <div class="ba-info">
+        <h3>Storm Damage Restoration — Palm Bay</h3>
+        <p>Category 2 hurricane damage → full restoration with upgraded impact-rated materials</p>
+      </div>
+    </div>
+    <div class="ba-card reveal">
+      <div class="ba-images">
+        <img src="https://picsum.photos/seed/ba-before-3/400/300" alt="Old flat roof before" loading="lazy">
+        <img src="https://picsum.photos/seed/ba-after-3/400/300" alt="New TPO roof after" loading="lazy">
+        <div class="ba-divider"></div>
+        <span class="ba-label ba-label-before">Before</span>
+        <span class="ba-label ba-label-after">After</span>
+      </div>
+      <div class="ba-info">
+        <h3>Commercial Flat Roof — Melbourne</h3>
+        <p>Failing modified bitumen → new TPO system with improved drainage</p>
+      </div>
+    </div>
+    <div class="ba-card reveal">
+      <div class="ba-images">
+        <img src="https://picsum.photos/seed/ba-before-4/400/300" alt="Aging roof before metal upgrade" loading="lazy">
+        <img src="https://picsum.photos/seed/ba-after-4/400/300" alt="New standing seam metal roof" loading="lazy">
+        <div class="ba-divider"></div>
+        <span class="ba-label ba-label-before">Before</span>
+        <span class="ba-label ba-label-after">After</span>
+      </div>
+      <div class="ba-info">
+        <h3>Metal Roof Upgrade — Cocoa Beach</h3>
+        <p>Aging shingle roof → standing seam metal with 50-year warranty</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <h2>Want results like these?</h2>
+  <a href="contact.html" class="btn-dark">Schedule Your Free Inspection →</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">IRONCLAD ROOFING</div>
+      <p>(321) 555-0147</p>
+      <p>info@ironcladroofing.com</p>
+      <p>Melbourne, FL</p>
+      <p style="margin-top: 12px; font-size: 12px;">FL License #CCC1234567</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="services.html">Roof Replacement</a>
+      <a href="services.html">Storm Repair</a>
+      <a href="services.html">Inspections</a>
+      <a href="services.html">Gutters</a>
+      <a href="services.html">Metal Roofing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Google Business"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Ironclad Roofing. All rights reserved.</p>
+    <p>Built to last. Guaranteed.</p>
+  </div>
+  <div class="footer-attribution">
+    
+  </div>
+</footer>
+
+<script>
+// Gallery filter
+function filterGallery(category, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    if (category === 'all' || item.dataset.category === category) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// Scroll reveal
+const revealElements = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
