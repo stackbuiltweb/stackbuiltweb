@@ -3,8 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
 <title>Free Website Audit | StackBuilt Web</title>
-<meta name="description" content="Enter your URL and get an instant website audit. We analyze performance, accessibility, SEO, and best practices using Google's PageSpeed Insights API.">
+<meta name="description" content="Get a comprehensive website audit in 60 seconds. We analyze performance, SEO, mobile experience, social sharing, schema markup, and security using Google's own tools.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Website Audit | StackBuilt Web">
+<meta property="og:description" content="Get a comprehensive website audit in 60 seconds. We analyze performance, SEO, mobile experience, social sharing, schema markup, and security using Google's own tools.">
+<meta property="og:url" content="https://www.stackbuiltweb.com/calculator.html">
+<meta property="og:site_name" content="StackBuilt Web">
+<meta property="og:image" content="https://www.stackbuiltweb.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Website Audit | StackBuilt Web">
+<meta name="twitter:description" content="Get a comprehensive website audit in 60 seconds. We analyze performance, SEO, mobile experience, social sharing, schema markup, and security using Google's own tools.">
+<meta name="twitter:image" content="https://www.stackbuiltweb.com/og-image.png">
+
 
 <!-- Fonts -->
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
@@ -546,7 +568,7 @@ h2.section-heading {
 }
 
 /* ========================================
-   Loading State
+   Loading State — Step-by-step
    ======================================== */
 .loading-state {
   display: none;
@@ -555,32 +577,91 @@ h2.section-heading {
   justify-content: center;
   padding: 3rem 1rem;
   gap: 2rem;
-  min-height: 280px;
+  min-height: 380px;
 }
 .loading-state.active {
   display: flex;
 }
 
-.spinner {
-  width: 64px;
-  height: 64px;
-  border: 4px solid var(--accent-muted);
-  border-top-color: var(--accent);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+.loading-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 360px;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.loading-message {
-  font-size: 1rem;
+.loading-step {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
   font-weight: 500;
-  color: var(--text-secondary);
-  transition: opacity 0.3s ease;
-  text-align: center;
-  min-height: 1.6em;
+  color: var(--text-tertiary);
+  transition: color 0.4s ease;
+}
+.loading-step.active-step {
+  color: var(--accent);
+}
+.loading-step.completed-step {
+  color: var(--green);
+}
+
+.step-indicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid var(--border-card);
+  transition: all 0.4s ease;
+}
+.loading-step.active-step .step-indicator {
+  border-color: var(--accent);
+  background: var(--accent-muted);
+}
+.loading-step.active-step .step-indicator::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+
+.loading-step.completed-step .step-indicator {
+  border-color: var(--green);
+  background: var(--green);
+}
+.loading-step.completed-step .step-indicator::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat;
+  animation: none;
+}
+
+.loading-progress {
+  width: 100%;
+  max-width: 360px;
+  height: 4px;
+  background: var(--bg-warm-alt);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+.loading-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--terracotta));
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.8s var(--ease-out-expo);
 }
 
 /* ========================================
@@ -642,7 +723,7 @@ h2.section-heading {
 /* Overall Score Card */
 .overall-score-card {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .overall-score-card .card-inner {
@@ -737,7 +818,7 @@ h2.section-heading {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .category-card .card-inner {
@@ -794,75 +875,243 @@ h2.section-heading {
   text-align: center;
 }
 
-/* Recommendations */
-.recommendations {
-  margin-bottom: 3rem;
-}
-
-.recommendations h3 {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
+/* ========================================
+   Audit Report Sections
+   ======================================== */
+.audit-section {
   margin-bottom: 1.5rem;
 }
 
-.rec-card {
+.audit-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
-.rec-card .card-inner {
-  padding: 1.5rem 2rem;
+.audit-section-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 0.625rem;
   display: flex;
-  gap: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--accent-muted);
+  color: var(--accent);
+}
+.audit-section-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.audit-section-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.audit-card .card-inner {
+  padding: 0;
+  overflow: hidden;
+}
+
+.audit-card-top {
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.audit-card-top .score-gauge-small {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.audit-card-top .score-gauge-small .gauge-bg {
+  stroke-width: 5;
+}
+.audit-card-top .score-gauge-small .gauge-fill {
+  stroke-width: 5;
+  stroke-dasharray: 226.19;
+  stroke-dashoffset: 226.19;
+}
+
+.audit-card-summary {
+  flex: 1;
+}
+
+.audit-card-summary-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.audit-card-summary-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.audit-metric-grade {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.audit-metric-grade.fast { background: rgba(34, 197, 94, 0.1); color: var(--green); }
+.audit-metric-grade.moderate { background: rgba(234, 179, 8, 0.1); color: var(--yellow); }
+.audit-metric-grade.slow { background: rgba(239, 68, 68, 0.1); color: var(--red); }
+
+/* Audit Item Rows */
+.audit-items {
+  padding: 0;
+}
+
+.audit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.audit-item:last-child {
+  border-bottom: none;
+}
+
+.audit-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.audit-check.pass {
+  background: rgba(34, 197, 94, 0.12);
+  color: var(--green);
+}
+.audit-check.fail {
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--red);
+}
+.audit-check.warn {
+  background: rgba(234, 179, 8, 0.12);
+  color: var(--yellow);
+}
+.audit-check.na {
+  background: var(--bg-warm-alt);
+  color: var(--text-tertiary);
+}
+.audit-check svg {
+  width: 12px;
+  height: 12px;
+}
+
+.audit-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.audit-item-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.125rem;
+}
+
+.audit-item-value {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  word-break: break-word;
+}
+.audit-item-value.mono {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.audit-item-why {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+/* ========================================
+   Social Card Preview (no preview box)
+   ======================================== */
+.social-card .card-inner {
+  padding: 0;
+}
+
+/* ========================================
+   Issues Found Section
+   ======================================== */
+.issue-card {
+  margin-bottom: 0.75rem;
+}
+.issue-card .card-inner {
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  gap: 1rem;
   align-items: flex-start;
 }
 
-.rec-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 0.75rem;
+.issue-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 0.625rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.rec-icon svg {
-  width: 20px;
-  height: 20px;
-}
+.issue-icon svg { width: 18px; height: 18px; }
+.issue-icon.critical { background: rgba(239, 68, 68, 0.1); color: var(--red); }
+.issue-icon.warning { background: rgba(249, 115, 22, 0.1); color: var(--orange); }
+.issue-icon.pass { background: rgba(34, 197, 94, 0.1); color: var(--green); }
 
-.rec-icon.warning {
-  background: rgba(249, 115, 22, 0.1);
-  color: var(--orange);
-}
-.rec-icon.danger {
-  background: rgba(239, 68, 68, 0.1);
-  color: var(--red);
-}
-.rec-icon.success {
-  background: rgba(34, 197, 94, 0.1);
-  color: var(--green);
-}
-
-.rec-content {
-  flex: 1;
-}
-
-.rec-title {
-  font-size: 1rem;
+.issue-content { flex: 1; }
+.issue-title {
+  font-size: 0.9375rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.375rem;
+  margin-bottom: 0.25rem;
 }
-
-.rec-text {
-  font-size: 0.9375rem;
+.issue-text {
+  font-size: 0.875rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
 
-/* Package Recommendation */
+.issue-badge {
+  padding: 0.2rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+.issue-badge.critical-badge { background: rgba(239, 68, 68, 0.1); color: var(--red); }
+.issue-badge.warning-badge { background: rgba(249, 115, 22, 0.1); color: var(--orange); }
+.issue-badge.pass-badge { background: rgba(34, 197, 94, 0.1); color: var(--green); }
+
+/* ========================================
+   Package Recommendation
+   ======================================== */
 .package-rec {
   margin-bottom: 2rem;
 }
@@ -877,6 +1126,13 @@ h2.section-heading {
   background: var(--bg-warm);
 }
 
+.package-rec-title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
 .package-rec-text {
   font-size: 1.0625rem;
   color: var(--text-secondary);
@@ -889,10 +1145,24 @@ h2.section-heading {
   font-weight: 700;
 }
 
+/* Competitor Note */
+.competitor-note {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+.competitor-note-text {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  max-width: 50ch;
+  margin: 0 auto 1rem;
+  line-height: 1.6;
+}
+
 /* Run Another Audit */
 .run-another-wrapper {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 /* ========================================
@@ -1066,15 +1336,6 @@ h2.section-heading {
   font-size: 0.75rem;
   color: rgba(255,255,255,0.4);
 }
-.footer-attribution a {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.4);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-out-expo);
-}
-.footer-attribution a:hover {
-  color: var(--text-on-accent);
-}
 
 /* ========================================
    Responsive
@@ -1101,10 +1362,21 @@ h2.section-heading {
     grid-template-columns: 1fr;
   }
 
-  .rec-card .card-inner {
-    padding: 1.25rem 1.5rem;
+  .audit-card-top {
     flex-direction: column;
-    gap: 0.75rem;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .audit-item {
+    padding: 1rem 1.5rem;
+  }
+
+  .issue-card .card-inner {
+    padding: 1rem 1.25rem;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .footer-grid {
@@ -1114,6 +1386,10 @@ h2.section-heading {
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .package-rec .card-inner {
+    padding: 1.5rem;
   }
 }
 
@@ -1135,11 +1411,17 @@ h2.section-heading {
   .score-value-large {
     font-size: 2.75rem;
   }
-  .package-rec .card-inner {
-    padding: 1.5rem;
-  }
 }
 </style>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 </head>
 <body>
 
@@ -1189,7 +1471,7 @@ h2.section-heading {
         <span class="eyebrow">Free Website Audit</span>
       </div>
       <h1 class="reveal stagger-2">Find out what your website is really costing you.</h1>
-      <p class="hero-sub reveal stagger-3">Enter your URL below and we'll automatically analyze your site's performance, accessibility, SEO, and best practices. Get your score in under 60 seconds.</p>
+      <p class="hero-sub reveal stagger-3">We run a comprehensive audit covering performance, SEO, social sharing, mobile experience, and security. Get a detailed professional report in under 60 seconds.</p>
     </div>
   </div>
 </section>
@@ -1211,7 +1493,6 @@ h2.section-heading {
           <div class="optional-fields">
             <input type="text" class="optional-input" id="nameInput" placeholder="Your name">
             <input type="email" class="optional-input" id="emailInput" placeholder="Email address">
-            <input type="tel" class="optional-input full-width" id="phoneInput" placeholder="Phone number">
             <div class="optional-label">Optional — we'll send you the full report</div>
           </div>
 
@@ -1225,8 +1506,35 @@ h2.section-heading {
 
         <!-- Loading State -->
         <div class="loading-state" id="loadingState">
-          <div class="spinner"></div>
-          <div class="loading-message" id="loadingMessage">Checking mobile responsiveness...</div>
+          <div class="loading-steps" id="loadingSteps">
+            <div class="loading-step" data-step="0">
+              <div class="step-indicator"></div>
+              <span>Connecting to Google...</span>
+            </div>
+            <div class="loading-step" data-step="1">
+              <div class="step-indicator"></div>
+              <span>Analyzing performance...</span>
+            </div>
+            <div class="loading-step" data-step="2">
+              <div class="step-indicator"></div>
+              <span>Checking SEO...</span>
+            </div>
+            <div class="loading-step" data-step="3">
+              <div class="step-indicator"></div>
+              <span>Scanning social tags...</span>
+            </div>
+            <div class="loading-step" data-step="4">
+              <div class="step-indicator"></div>
+              <span>Reviewing mobile experience...</span>
+            </div>
+            <div class="loading-step" data-step="5">
+              <div class="step-indicator"></div>
+              <span>Generating report...</span>
+            </div>
+          </div>
+          <div class="loading-progress">
+            <div class="loading-progress-fill" id="loadingProgressFill"></div>
+          </div>
         </div>
 
         <!-- Error State -->
@@ -1255,7 +1563,7 @@ h2.section-heading {
   <div class="container">
     <div class="results-container">
 
-      <!-- Overall Score Card -->
+      <!-- Section 1: Overall Score Card -->
       <div class="overall-score-card card-outer lg reveal">
         <div class="card-inner">
           <div class="score-gauge-large" id="overallGauge">
@@ -1329,17 +1637,105 @@ h2.section-heading {
         </div>
       </div>
 
-      <!-- Recommendations -->
-      <div class="recommendations reveal" id="recommendations">
-        <h3>What we found</h3>
-        <div id="recCards"></div>
+      <!-- Section 2: Performance Deep-Dive -->
+      <div class="audit-section reveal" id="perfSection">
+        <div class="audit-section-header">
+          <div class="audit-section-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="audit-section-title">Performance Deep-Dive</div>
+        </div>
+        <div class="audit-card card-outer">
+          <div class="card-inner">
+            <div class="audit-card-top" id="perfTop"></div>
+            <div class="audit-items" id="perfItems"></div>
+          </div>
+        </div>
       </div>
 
-      <!-- Package Recommendation -->
+      <!-- Section 3: SEO Analysis -->
+      <div class="audit-section reveal" id="seoSection">
+        <div class="audit-section-header">
+          <div class="audit-section-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="audit-section-title">SEO Analysis</div>
+        </div>
+        <div class="audit-card card-outer">
+          <div class="card-inner">
+            <div class="audit-card-top" id="seoTop"></div>
+            <div class="audit-items" id="seoItems"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Social & Sharing -->
+      <div class="audit-section reveal" id="socialSection">
+        <div class="audit-section-header">
+          <div class="audit-section-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </div>
+          <div class="audit-section-title">Social &amp; Sharing</div>
+        </div>
+        <div class="audit-card card-outer social-card">
+          <div class="card-inner">
+            <div class="audit-items" id="socialItems"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Mobile & Accessibility -->
+      <div class="audit-section reveal" id="mobileSection">
+        <div class="audit-section-header">
+          <div class="audit-section-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <div class="audit-section-title">Mobile &amp; Accessibility</div>
+        </div>
+        <div class="audit-card card-outer">
+          <div class="card-inner">
+            <div class="audit-card-top" id="mobileTop"></div>
+            <div class="audit-items" id="mobileItems"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: Best Practices -->
+      <div class="audit-section reveal" id="bpSection">
+        <div class="audit-section-header">
+          <div class="audit-section-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="audit-section-title">Security &amp; Best Practices</div>
+        </div>
+        <div class="audit-card card-outer">
+          <div class="card-inner">
+            <div class="audit-card-top" id="bpTop"></div>
+            <div class="audit-items" id="bpItems"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 7: Issues Found -->
+      <div class="audit-section reveal" id="issuesSection">
+        <div class="audit-section-header">
+          <div class="audit-section-icon" style="background: rgba(239, 68, 68, 0.1); color: var(--red);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div class="audit-section-title">Issues Found</div>
+        </div>
+        <div id="issueCards"></div>
+      </div>
+
+      <!-- Section 8: StackBuilt Recommendation -->
       <div class="package-rec card-outer lg reveal" id="packageRec">
         <div class="card-inner">
+          <div class="audit-section-icon" style="background: var(--accent); color: #fff; width: 44px; height: 44px; border-radius: 0.75rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="package-rec-title">Our Recommendation</div>
           <div class="package-rec-text" id="packageRecText"></div>
-          <a href="/contact.html" class="btn-pill btn-primary">
+          <a href="/contact.html" class="btn-pill btn-primary" id="packageRecCta">
             Get a Custom Proposal
             <span class="btn-icon">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -1348,14 +1744,17 @@ h2.section-heading {
         </div>
       </div>
 
-      <!-- Run Another Audit -->
-      <div class="run-another-wrapper reveal">
-        <button class="btn-pill btn-secondary" onclick="resetForm()">
-          Run Another Audit
-          <span class="btn-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-          </span>
-        </button>
+      <!-- Section 9: Competitor Note -->
+      <div class="competitor-note reveal">
+        <p class="competitor-note-text">Want to see how you compare to your competitors? Enter their URL and run the same audit.</p>
+        <div class="run-another-wrapper">
+          <button class="btn-pill btn-secondary" onclick="resetForm()">
+            Reset &amp; Audit Another Site
+            <span class="btn-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            </span>
+          </button>
+        </div>
       </div>
 
     </div>
@@ -1379,31 +1778,31 @@ h2.section-heading {
         <div class="card-inner">
           <span class="how-number">01</span>
           <div class="how-title">Real Data</div>
-          <p class="how-desc">We use Google's own PageSpeed Insights API to analyze your site. The same tool Google uses to evaluate websites for search rankings.</p>
+          <p class="how-desc">We use Google's own PageSpeed Insights API — the same tool Google uses to evaluate websites for search rankings.</p>
         </div>
       </div>
 
       <div class="card-outer how-card reveal stagger-3">
         <div class="card-inner">
           <span class="how-number">02</span>
-          <div class="how-title">4 Key Areas</div>
-          <p class="how-desc">Performance (speed), Accessibility (usability), SEO (search visibility), and Best Practices (security and quality).</p>
+          <div class="how-title">Deep Analysis</div>
+          <p class="how-desc">Beyond scores, we check your meta tags, social sharing setup, schema markup, sitemap, robots.txt, and security configuration.</p>
         </div>
       </div>
 
       <div class="card-outer how-card reveal stagger-4">
         <div class="card-inner">
           <span class="how-number">03</span>
-          <div class="how-title">Instant Results</div>
-          <p class="how-desc">Your complete audit takes under 60 seconds. No waiting for a sales call or downloading a PDF.</p>
+          <div class="how-title">Plain English</div>
+          <p class="how-desc">Every finding is explained in plain English with why it matters and what to do about it. No jargon, no guessing.</p>
         </div>
       </div>
 
       <div class="card-outer how-card reveal stagger-5">
         <div class="card-inner">
           <span class="how-number">04</span>
-          <div class="how-title">Actionable Insights</div>
-          <p class="how-desc">We don't just show numbers. We explain what each score means and exactly what to fix.</p>
+          <div class="how-title">Actionable Next Steps</div>
+          <p class="how-desc">We recommend a specific package based on your results. Or use the report to fix things yourself — no strings attached.</p>
         </div>
       </div>
     </div>
@@ -1456,7 +1855,6 @@ h2.section-heading {
     </div>
     <div class="footer-bottom">
       <span class="footer-copy">&copy; 2026 StackBuilt Web. All rights reserved.</span>
-
     </div>
   </div>
 </footer>
@@ -1468,31 +1866,45 @@ h2.section-heading {
 (function() {
   'use strict';
 
+  // ── SVG Icons ──
+  var ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+  var ICON_X = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+  var ICON_WARN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
+  var ICON_DASH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>';
+
   // ── Element References ──
   var form = document.getElementById('graderForm');
   var urlInput = document.getElementById('urlInput');
   var urlError = document.getElementById('urlError');
   var nameInput = document.getElementById('nameInput');
   var emailInput = document.getElementById('emailInput');
-  var phoneInput = document.getElementById('phoneInput');
   var submitBtn = document.getElementById('submitBtn');
   var loadingState = document.getElementById('loadingState');
-  var loadingMessage = document.getElementById('loadingMessage');
   var errorState = document.getElementById('errorState');
   var errorText = document.getElementById('errorText');
   var resultsSection = document.getElementById('resultsSection');
+  var progressFill = document.getElementById('loadingProgressFill');
 
-  // ── Loading Messages ──
-  var loadingMessages = [
-    'Checking mobile responsiveness...',
-    'Analyzing page speed...',
-    'Evaluating SEO optimization...',
-    'Reviewing accessibility...',
-    'Measuring best practices...',
-    'Calculating your score...'
-  ];
+  // ── Loading Step Animation ──
+  var loadingStepEls = document.querySelectorAll('.loading-step');
 
-  var messageInterval = null;
+  function setLoadingStep(stepIndex) {
+    loadingStepEls.forEach(function(el, i) {
+      el.classList.remove('active-step', 'completed-step');
+      if (i < stepIndex) el.classList.add('completed-step');
+      else if (i === stepIndex) el.classList.add('active-step');
+    });
+    var pct = Math.min(((stepIndex + 1) / loadingStepEls.length) * 100, 100);
+    progressFill.style.width = pct + '%';
+  }
+
+  function completeAllSteps() {
+    loadingStepEls.forEach(function(el) {
+      el.classList.remove('active-step');
+      el.classList.add('completed-step');
+    });
+    progressFill.style.width = '100%';
+  }
 
   // ── Scroll Reveal ──
   function initReveal() {
@@ -1545,11 +1957,9 @@ h2.section-heading {
   function normalizeUrl(input) {
     var url = input.trim();
     if (!url) return '';
-    // Auto-prepend https:// if not present
     if (!/^https?:\/\//i.test(url)) {
       url = 'https://' + url;
     }
-    // Validate it looks like a URL
     try {
       var parsed = new URL(url);
       if (!parsed.hostname.includes('.') || parsed.hostname.length <= 3) return null;
@@ -1559,16 +1969,6 @@ h2.section-heading {
     }
   }
 
-  function isValidUrl(str) {
-    try {
-      var url = new URL(str);
-      return url.hostname.includes('.') && url.hostname.length > 3;
-    } catch (e) {
-      return false;
-    }
-  }
-
-  // Auto-prepend on blur
   urlInput.addEventListener('blur', function() {
     var val = urlInput.value.trim();
     if (val && !/^https?:\/\//i.test(val)) {
@@ -1597,24 +1997,10 @@ h2.section-heading {
     startAnalysis(url);
   });
 
-  // TO ADD AN API KEY:
-  // 1. Go to https://console.developers.google.com/
-  // 2. Create a project (or select existing)
-  // 3. Enable "PageSpeed Insights API"
-  // 4. Create credentials → API Key
-  // 5. Paste the key in the API_KEY variable below
-  // Free tier: 25,000 requests/day, 100 requests/100 seconds
   var API_KEY = 'AIzaSyALgiTMGVFqBTT7UpCGm9vJQgCiY2QkAow';
+  var CORS_PROXY = 'https://api.allorigins.win/raw?url=';
 
-  function updateLoadingMessage(msg) {
-    loadingMessage.style.opacity = '0';
-    setTimeout(function() {
-      loadingMessage.textContent = msg;
-      loadingMessage.style.opacity = '1';
-    }, 200);
-  }
-
-  // ── Fetch with Retry (exponential backoff for 429s) ──
+  // ── Fetch with Retry ──
   function fetchWithRetry(url, maxRetries) {
     if (maxRetries === undefined) maxRetries = 3;
     var attempt = 0;
@@ -1622,9 +2008,8 @@ h2.section-heading {
     function tryFetch() {
       return fetch(url).then(function(response) {
         if (response.status === 429 && attempt < maxRetries) {
-          var waitTime = Math.pow(2, attempt) * 2000; // 2s, 4s, 8s
+          var waitTime = Math.pow(2, attempt) * 2000;
           attempt++;
-          updateLoadingMessage('Rate limited. Retrying in ' + (waitTime / 1000) + ' seconds...');
           return new Promise(function(resolve) {
             setTimeout(resolve, waitTime);
           }).then(tryFetch);
@@ -1637,54 +2022,104 @@ h2.section-heading {
     return tryFetch();
   }
 
+  // ── Helper: Extract audit value ──
+  function getAudit(audits, key) {
+    if (!audits || !audits[key]) return null;
+    return audits[key];
+  }
+
+  function auditPassed(audits, key) {
+    var a = getAudit(audits, key);
+    if (!a) return null;
+    return a.score === 1 || a.score === true;
+  }
+
+  function auditValue(audits, key) {
+    var a = getAudit(audits, key);
+    if (!a) return null;
+    if (a.displayValue) return a.displayValue;
+    if (a.numericValue !== undefined) return a.numericValue;
+    return a.score;
+  }
+
+  // ── Main Analysis ──
   function startAnalysis(url) {
-    // Show loading state
     form.style.display = 'none';
     errorState.classList.remove('active');
     loadingState.classList.add('active');
     resultsSection.classList.remove('active');
     resultsSection.style.display = 'none';
+    progressFill.style.width = '0%';
 
-    // Rotate messages
-    var msgIndex = 0;
-    loadingMessage.textContent = loadingMessages[0];
-    messageInterval = setInterval(function() {
-      msgIndex = (msgIndex + 1) % loadingMessages.length;
-      loadingMessage.style.opacity = '0';
-      setTimeout(function() {
-        loadingMessage.textContent = loadingMessages[msgIndex];
-        loadingMessage.style.opacity = '1';
-      }, 200);
-    }, 2000);
+    // Reset loading steps
+    loadingStepEls.forEach(function(el) {
+      el.classList.remove('active-step', 'completed-step');
+    });
 
-    // API Call with key support
+    setLoadingStep(0);
+
     var apiUrl = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=' +
       encodeURIComponent(url) +
       '&strategy=mobile&category=performance&category=accessibility&category=seo&category=best-practices';
     if (API_KEY) apiUrl += '&key=' + API_KEY;
 
-    fetchWithRetry(apiUrl, 3)
-      .then(function(data) {
-        clearInterval(messageInterval);
+    // Step 1: Advance loading steps on a timer during PageSpeed call
+    var stepTimer = setInterval(function() {
+      // Advance to step 1 after 3s, step 2 after 6s
+    }, 3000);
+    setTimeout(function() { setLoadingStep(1); }, 2500);
+    setTimeout(function() { setLoadingStep(2); }, 5000);
+
+    // Run PageSpeed API + client-side checks in parallel
+    var pageSpeedPromise = fetchWithRetry(apiUrl, 3);
+
+    // Extract base URL for sitemap/robots
+    var parsedUrl;
+    try { parsedUrl = new URL(url); } catch(e) { parsedUrl = null; }
+    var baseUrl = parsedUrl ? parsedUrl.origin : url;
+
+    // Client-side fetch of the page HTML
+    var htmlPromise = fetch(CORS_PROXY + encodeURIComponent(url))
+      .then(function(r) { return r.ok ? r.text() : ''; })
+      .catch(function() { return ''; });
+
+    // Sitemap check
+    var sitemapPromise = fetch(CORS_PROXY + encodeURIComponent(baseUrl + '/sitemap.xml'))
+      .then(function(r) { return r.ok ? r.text() : ''; })
+      .catch(function() { return ''; });
+
+    // Robots.txt check
+    var robotsPromise = fetch(CORS_PROXY + encodeURIComponent(baseUrl + '/robots.txt'))
+      .then(function(r) { return r.ok ? r.text() : ''; })
+      .catch(function() { return ''; });
+
+    setTimeout(function() { setLoadingStep(3); }, 7000);
+    setTimeout(function() { setLoadingStep(4); }, 9500);
+
+    Promise.all([pageSpeedPromise, htmlPromise, sitemapPromise, robotsPromise])
+      .then(function(results) {
+        clearInterval(stepTimer);
+        setLoadingStep(5);
+
+        var data = results[0];
+        var html = results[1];
+        var sitemapText = results[2];
+        var robotsText = results[3];
 
         if (!data.lighthouseResult || !data.lighthouseResult.categories) {
           throw new Error('Invalid API response');
         }
 
-        var categories = data.lighthouseResult.categories;
-        var scores = {
-          performance: Math.round((categories.performance ? categories.performance.score : 0) * 100),
-          accessibility: Math.round((categories.accessibility ? categories.accessibility.score : 0) * 100),
-          seo: Math.round((categories.seo ? categories.seo.score : 0) * 100),
-          bestPractices: Math.round((categories['best-practices'] ? categories['best-practices'].score : 0) * 100)
-        };
-        var overall = Math.round((scores.performance + scores.accessibility + scores.seo + scores.bestPractices) / 4);
-
-        displayResults(url, scores, overall);
+        setTimeout(function() {
+          completeAllSteps();
+          setTimeout(function() {
+            processResults(url, data, html, sitemapText, robotsText);
+          }, 600);
+        }, 500);
       })
       .catch(function(err) {
-        clearInterval(messageInterval);
-        console.error('PageSpeed API error:', err);
+        clearInterval(stepTimer);
+        console.error('Analysis error:', err);
         showError(err.message);
       });
   }
@@ -1704,7 +2139,7 @@ h2.section-heading {
     }
   }
 
-  // ── Score Color ──
+  // ── Score Helpers ──
   function getScoreColor(score) {
     if (score >= 90) return 'var(--green)';
     if (score >= 80) return 'var(--light-green)';
@@ -1721,44 +2156,216 @@ h2.section-heading {
     return '#EF4444';
   }
 
-  // ── Letter Grade ──
   function getLetterGrade(score) {
-    if (score >= 90) return { letter: 'A', desc: 'Excellent' };
-    if (score >= 80) return { letter: 'B', desc: 'Good' };
-    if (score >= 70) return { letter: 'C', desc: 'Average' };
-    if (score >= 60) return { letter: 'D', desc: 'Below Average' };
-    return { letter: 'F', desc: 'Needs Improvement' };
+    if (score >= 90) return { letter: 'A', desc: 'Excellent — Your site is in great shape' };
+    if (score >= 80) return { letter: 'B', desc: 'Good — A few improvements would make it great' };
+    if (score >= 70) return { letter: 'C', desc: 'Average — Several areas need attention' };
+    if (score >= 60) return { letter: 'D', desc: 'Below Average — Significant issues found' };
+    return { letter: 'F', desc: 'Critical — Your site needs serious work' };
   }
 
-  // ── Display Results ──
-  function displayResults(url, scores, overall) {
+  // ── Parse HTML for meta tags ──
+  function parseHtmlMeta(html) {
+    var result = {
+      title: '', metaDescription: '', ogTitle: '', ogDescription: '', ogImage: '',
+      twitterCard: '', generator: '', author: '', hasJsonLd: false, jsonLdCount: 0
+    };
+
+    if (!html) return result;
+
+    // Parse using DOMParser
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(html, 'text/html');
+
+    result.title = doc.title || '';
+
+    // Meta tags
+    var metas = doc.querySelectorAll('meta');
+    metas.forEach(function(meta) {
+      var name = (meta.getAttribute('name') || '').toLowerCase();
+      var prop = (meta.getAttribute('property') || '').toLowerCase();
+      var content = meta.getAttribute('content') || '';
+
+      if (name === 'description') result.metaDescription = content;
+      if (prop === 'og:title') result.ogTitle = content;
+      if (prop === 'og:description') result.ogDescription = content;
+      if (prop === 'og:image') result.ogImage = content;
+      if (name === 'twitter:card') result.twitterCard = content;
+      if (name === 'generator') result.generator = content;
+      if (name === 'author') result.author = content;
+
+      // Also check name= versions for OG (some sites do this)
+      if (name === 'og:title' && !result.ogTitle) result.ogTitle = content;
+      if (name === 'og:description' && !result.ogDescription) result.ogDescription = content;
+      if (name === 'og:image' && !result.ogImage) result.ogImage = content;
+    });
+
+    // JSON-LD
+    var jsonLdScripts = doc.querySelectorAll('script[type="application/ld+json"]');
+    result.hasJsonLd = jsonLdScripts.length > 0;
+    result.jsonLdCount = jsonLdScripts.length;
+
+    return result;
+  }
+
+  // ── Detect platform from generator ──
+  function detectPlatform(generator) {
+    if (!generator) return null;
+    var g = generator.toLowerCase();
+    if (g.includes('wordpress')) return 'WordPress';
+    if (g.includes('wix')) return 'Wix';
+    if (g.includes('squarespace')) return 'Squarespace';
+    if (g.includes('shopify')) return 'Shopify';
+    if (g.includes('webflow')) return 'Webflow';
+    if (g.includes('drupal')) return 'Drupal';
+    if (g.includes('joomla')) return 'Joomla';
+    if (g.includes('ghost')) return 'Ghost';
+    if (g.includes('hugo')) return 'Hugo';
+    if (g.includes('gatsby')) return 'Gatsby';
+    if (g.includes('next')) return 'Next.js';
+    if (g.includes('nuxt')) return 'Nuxt';
+    if (g.includes('lovable')) return 'Lovable';
+    if (g.includes('framer')) return 'Framer';
+    if (g.includes('duda')) return 'Duda';
+    if (g.includes('weebly')) return 'Weebly';
+    if (g.includes('godaddy')) return 'GoDaddy';
+    return generator;
+  }
+
+  // ── Build audit item HTML ──
+  function buildAuditItem(status, label, value, why) {
+    var checkClass = status === 'pass' ? 'pass' : status === 'fail' ? 'fail' : status === 'warn' ? 'warn' : 'na';
+    var icon = status === 'pass' ? ICON_CHECK : status === 'fail' ? ICON_X : status === 'warn' ? ICON_WARN : ICON_DASH;
+
+    var html = '<div class="audit-item">';
+    html += '<div class="audit-check ' + checkClass + '">' + icon + '</div>';
+    html += '<div class="audit-item-content">';
+    html += '<div class="audit-item-label">' + label + '</div>';
+    if (value) html += '<div class="audit-item-value">' + escapeHtml(value) + '</div>';
+    if (why) html += '<div class="audit-item-why">' + why + '</div>';
+    html += '</div></div>';
+    return html;
+  }
+
+  function buildAuditItemRaw(status, label, valueHtml, why) {
+    var checkClass = status === 'pass' ? 'pass' : status === 'fail' ? 'fail' : status === 'warn' ? 'warn' : 'na';
+    var icon = status === 'pass' ? ICON_CHECK : status === 'fail' ? ICON_X : status === 'warn' ? ICON_WARN : ICON_DASH;
+
+    var html = '<div class="audit-item">';
+    html += '<div class="audit-check ' + checkClass + '">' + icon + '</div>';
+    html += '<div class="audit-item-content">';
+    html += '<div class="audit-item-label">' + label + '</div>';
+    if (valueHtml) html += '<div class="audit-item-value">' + valueHtml + '</div>';
+    if (why) html += '<div class="audit-item-why">' + why + '</div>';
+    html += '</div></div>';
+    return html;
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  // ── Build section top with gauge ──
+  function buildSectionTop(score, title, desc, gradeLabel) {
+    var color = getScoreColor(score);
+    var circumference = 2 * Math.PI * 36; // r=36 for 80px gauge
+    var offset = circumference - (score / 100) * circumference;
+
+    var html = '<div class="score-gauge-small" style="width:80px;height:80px;">';
+    html += '<svg viewBox="0 0 80 80"><circle class="gauge-bg" cx="40" cy="40" r="36" style="fill:none;stroke:var(--bg-warm-alt);stroke-width:5;"/>';
+    html += '<circle class="gauge-fill section-gauge" cx="40" cy="40" r="36" style="fill:none;stroke:' + color + ';stroke-width:5;stroke-linecap:round;stroke-dasharray:226.19;stroke-dashoffset:226.19;" data-target="' + offset + '"/>';
+    html += '</svg>';
+    html += '<div class="score-number-small font-mono" style="font-size:1.25rem;">' + score + '</div>';
+    html += '</div>';
+    html += '<div class="audit-card-summary">';
+    html += '<div class="audit-card-summary-title">' + title + '</div>';
+    html += '<div class="audit-card-summary-desc">' + desc + '</div>';
+    html += '</div>';
+    if (gradeLabel) {
+      var gradeClass = 'fast';
+      if (score < 50) gradeClass = 'slow';
+      else if (score < 80) gradeClass = 'moderate';
+      html += '<div class="audit-metric-grade ' + gradeClass + '">' + gradeLabel + '</div>';
+    }
+    return html;
+  }
+
+  // ── Build issue card ──
+  function buildIssueCard(type, title, text) {
+    var iconClass = type === 'critical' ? 'critical' : type === 'warning' ? 'warning' : 'pass';
+    var badgeClass = type === 'critical' ? 'critical-badge' : type === 'warning' ? 'warning-badge' : 'pass-badge';
+    var badgeText = type === 'critical' ? 'Critical' : type === 'warning' ? 'Warning' : 'Passing';
+    var iconSvg = type === 'critical' ? ICON_X : type === 'warning' ? ICON_WARN : ICON_CHECK;
+
+    return '<div class="issue-card card-outer">' +
+      '<div class="card-inner">' +
+        '<div class="issue-icon ' + iconClass + '">' + iconSvg + '</div>' +
+        '<div class="issue-content">' +
+          '<div class="issue-title">' + title + '</div>' +
+          '<div class="issue-text">' + text + '</div>' +
+        '</div>' +
+        '<div class="issue-badge ' + badgeClass + '">' + badgeText + '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  // ── Format bytes ──
+  function formatBytes(bytes) {
+    if (!bytes || bytes < 0) return 'Unknown';
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / 1048576).toFixed(2) + ' MB';
+  }
+
+  // ── Process Results ──
+  function processResults(url, data, html, sitemapText, robotsText) {
     loadingState.classList.remove('active');
     form.style.display = 'none';
 
-    // Show results section
     resultsSection.style.display = 'block';
     resultsSection.classList.add('active');
 
-    // Re-init reveal for results elements
-    setTimeout(function() {
-      initReveal();
-    }, 50);
+    setTimeout(function() { initReveal(); }, 50);
 
+    var lhr = data.lighthouseResult;
+    var categories = lhr.categories;
+    var audits = lhr.audits;
+
+    var scores = {
+      performance: Math.round((categories.performance ? categories.performance.score : 0) * 100),
+      accessibility: Math.round((categories.accessibility ? categories.accessibility.score : 0) * 100),
+      seo: Math.round((categories.seo ? categories.seo.score : 0) * 100),
+      bestPractices: Math.round((categories['best-practices'] ? categories['best-practices'].score : 0) * 100)
+    };
+    var overall = Math.round((scores.performance + scores.accessibility + scores.seo + scores.bestPractices) / 4);
+
+    // Parse HTML meta data
+    var meta = parseHtmlMeta(html);
+
+    // Check sitemap & robots existence
+    var hasSitemap = sitemapText && (sitemapText.includes('<urlset') || sitemapText.includes('<sitemapindex'));
+    var hasRobots = robotsText && (robotsText.includes('User-agent') || robotsText.includes('user-agent'));
+
+    // SSL check from final URL
+    var finalUrl = (lhr.finalUrl || lhr.requestedUrl || url);
+    var hasHttps = finalUrl.startsWith('https://');
+
+    // ─── Section 1: Overall Score ───
     var grade = getLetterGrade(overall);
-
-    // Overall score
     document.getElementById('overallScore').textContent = overall;
-    document.getElementById('analyzedUrl').textContent = url;
+    document.getElementById('analyzedUrl').textContent = finalUrl;
     document.getElementById('gradeDescription').textContent = grade.desc;
 
     var gradeBadge = document.getElementById('gradeBadge');
     gradeBadge.textContent = grade.letter;
     gradeBadge.style.background = getScoreColorHex(overall);
 
-    // Animate overall gauge
     var overallFill = document.getElementById('overallGaugeFill');
     overallFill.style.stroke = getScoreColor(overall);
-    var overallCircumference = 2 * Math.PI * 80; // 502.65
+    var overallCircumference = 2 * Math.PI * 80;
     var overallOffset = overallCircumference - (overall / 100) * overallCircumference;
     setTimeout(function() {
       overallFill.style.strokeDashoffset = overallOffset;
@@ -1782,82 +2389,349 @@ h2.section-heading {
       num.textContent = score;
       fill.style.stroke = getScoreColor(score);
 
-      var circumference = 2 * Math.PI * 42; // 263.89
+      var circumference = 2 * Math.PI * 42;
       var offset = circumference - (score / 100) * circumference;
       setTimeout(function() {
         fill.style.strokeDashoffset = offset;
       }, 300);
     });
 
-    // Recommendations
-    var recCards = document.getElementById('recCards');
-    recCards.innerHTML = '';
+    // ─── Section 2: Performance Deep-Dive ───
+    var perfGradeLabel = scores.performance >= 80 ? 'Fast' : scores.performance >= 50 ? 'Moderate' : 'Slow';
+    var perfDesc = scores.performance >= 80 ? 'Your site loads quickly on mobile devices.' :
+                   scores.performance >= 50 ? 'Your site could be faster. Users may be leaving before it loads.' :
+                   'Your site is critically slow. You\'re likely losing most visitors.';
 
-    var hasIssues = false;
+    document.getElementById('perfTop').innerHTML = buildSectionTop(scores.performance, 'Speed Score: ' + scores.performance + '/100', perfDesc, perfGradeLabel);
 
-    if (scores.performance < 80) {
-      hasIssues = true;
-      var perfDetail = scores.performance < 50
-        ? 'Your site is critically slow and likely losing more than half its visitors.'
-        : 'There\'s room for significant speed improvement.';
+    var perfItemsHtml = '';
 
-      recCards.innerHTML += buildRecCard(
-        'danger',
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
-        'Your site is slow.',
-        'Your performance score is ' + scores.performance + '/100. Sites loading in 1 second convert 5x more than sites loading in 10 seconds. ' + perfDetail
-      );
+    // TTFB
+    var ttfbAudit = getAudit(audits, 'server-response-time');
+    var ttfbVal = ttfbAudit ? (ttfbAudit.numericValue || 0) : 0;
+    var ttfbDisplay = ttfbAudit ? (ttfbAudit.displayValue || Math.round(ttfbVal) + ' ms') : 'Unknown';
+    var ttfbStatus = ttfbVal < 600 ? 'pass' : ttfbVal < 1500 ? 'warn' : 'fail';
+    perfItemsHtml += buildAuditItem(ttfbStatus, 'Server Response Time (TTFB)', ttfbDisplay,
+      'How long the server takes to respond. Under 600ms is ideal.');
+
+    // Page size
+    var sizeAudit = getAudit(audits, 'total-byte-weight');
+    var sizeVal = sizeAudit ? (sizeAudit.numericValue || 0) : 0;
+    var sizeDisplay = sizeAudit ? (sizeAudit.displayValue || formatBytes(sizeVal)) : 'Unknown';
+    var sizeStatus = sizeVal < 1600000 ? 'pass' : sizeVal < 3000000 ? 'warn' : 'fail';
+    perfItemsHtml += buildAuditItem(sizeStatus, 'Total Page Size', sizeDisplay,
+      'Smaller pages load faster, especially on mobile. Under 1.6 MB is recommended.');
+
+    // DOM size
+    var domAudit = getAudit(audits, 'dom-size');
+    var domStatus = domAudit ? (domAudit.score === 1 ? 'pass' : domAudit.score >= 0.5 ? 'warn' : 'fail') : 'na';
+    var domDisplay = domAudit ? (domAudit.displayValue || 'Unknown') : 'Not available';
+    perfItemsHtml += buildAuditItem(domStatus, 'DOM Complexity', domDisplay,
+      'Complex pages with too many elements slow down rendering and interaction.');
+
+    // Render-blocking resources
+    var rbAudit = getAudit(audits, 'render-blocking-resources');
+    var rbStatus = rbAudit ? (rbAudit.score === 1 ? 'pass' : rbAudit.score >= 0.5 ? 'warn' : 'fail') : 'na';
+    var rbDisplay = rbAudit && rbAudit.details && rbAudit.details.items ? rbAudit.details.items.length + ' resource(s) found' : (rbAudit && rbAudit.score === 1 ? 'None found' : 'Not available');
+    perfItemsHtml += buildAuditItem(rbStatus, 'Render-Blocking Resources', rbDisplay,
+      'Scripts and stylesheets that delay the page from appearing. Fewer is better.');
+
+    // Image optimization
+    var imgAudit = getAudit(audits, 'uses-responsive-images');
+    var imgStatus = imgAudit ? (imgAudit.score === 1 ? 'pass' : imgAudit.score >= 0.5 ? 'warn' : 'fail') : 'na';
+    var imgDisplay = imgAudit ? (imgAudit.displayValue || (imgAudit.score === 1 ? 'Images are properly sized' : 'Oversized images detected')) : 'Not available';
+    perfItemsHtml += buildAuditItem(imgStatus, 'Image Optimization', imgDisplay,
+      'Oversized images are the #1 cause of slow pages. Properly sized images save bandwidth.');
+
+    // Font display
+    var fontAudit = getAudit(audits, 'font-display');
+    var fontStatus = fontAudit ? (fontAudit.score === 1 ? 'pass' : 'warn') : 'na';
+    perfItemsHtml += buildAuditItem(fontStatus, 'Font Loading', fontAudit ? (fontAudit.score === 1 ? 'Fonts load without blocking text' : 'Text may be invisible while fonts load') : 'Not available',
+      'Using font-display: swap prevents invisible text while custom fonts load.');
+
+    // Redirect chain
+    var redirAudit = getAudit(audits, 'redirects');
+    var redirStatus = redirAudit ? (redirAudit.score === 1 ? 'pass' : 'warn') : 'na';
+    var redirDisplay = redirAudit ? (redirAudit.score === 1 ? 'No redirect chains found' : (redirAudit.displayValue || 'Redirects detected')) : 'Not available';
+    perfItemsHtml += buildAuditItem(redirStatus, 'Redirect Chains', redirDisplay,
+      'Each redirect adds delay. Direct paths load faster.');
+
+    document.getElementById('perfItems').innerHTML = perfItemsHtml;
+
+    // ─── Section 3: SEO Analysis ───
+    var seoDesc = scores.seo >= 80 ? 'Search engines can find and understand your site well.' :
+                  scores.seo >= 50 ? 'Search engines are having trouble understanding parts of your site.' :
+                  'Major SEO issues are preventing your site from ranking well.';
+
+    document.getElementById('seoTop').innerHTML = buildSectionTop(scores.seo, 'SEO Score: ' + scores.seo + '/100', seoDesc, null);
+
+    var seoItemsHtml = '';
+
+    // Page title
+    var titleAudit = getAudit(audits, 'document-title');
+    var titleStatus = titleAudit ? (titleAudit.score === 1 ? 'pass' : 'fail') : 'na';
+    var titleText = meta.title || (titleAudit && titleAudit.score === 1 ? 'Present' : 'Missing');
+    seoItemsHtml += buildAuditItem(titleStatus, 'Page Title', titleText.length > 80 ? titleText.substring(0, 80) + '...' : titleText,
+      'The title tag is what appears in search results. It should be 50-60 characters and describe your page.');
+
+    // Meta description
+    var descAudit = getAudit(audits, 'meta-description');
+    var descStatus = descAudit ? (descAudit.score === 1 ? 'pass' : 'fail') : 'na';
+    var descText = meta.metaDescription || (descAudit && descAudit.score === 1 ? 'Present' : 'Missing');
+    seoItemsHtml += buildAuditItem(descStatus, 'Meta Description', descText.length > 120 ? descText.substring(0, 120) + '...' : descText,
+      'The meta description appears under your title in search results. It should be 120-160 characters.');
+
+    // Canonical URL
+    var canonicalAudit = getAudit(audits, 'canonical');
+    var canonicalStatus = canonicalAudit ? (canonicalAudit.score === 1 ? 'pass' : 'warn') : 'na';
+    seoItemsHtml += buildAuditItem(canonicalStatus, 'Canonical URL',
+      canonicalAudit ? (canonicalAudit.score === 1 ? 'Properly configured' : 'Missing or invalid') : 'Not available',
+      'Canonical URLs prevent duplicate content issues that confuse search engines.');
+
+    // Is crawlable
+    var crawlAudit = getAudit(audits, 'is-crawlable');
+    var crawlStatus = crawlAudit ? (crawlAudit.score === 1 ? 'pass' : 'fail') : 'na';
+    seoItemsHtml += buildAuditItem(crawlStatus, 'Is Crawlable',
+      crawlAudit ? (crawlAudit.score === 1 ? 'Search engines can access your site' : 'Robots may be blocking search engines') : 'Not available',
+      'If search engines can\'t crawl your site, you won\'t appear in search results at all.');
+
+    // Structured data / JSON-LD
+    var structStatus = meta.hasJsonLd ? 'pass' : 'fail';
+    seoItemsHtml += buildAuditItem(structStatus, 'Structured Data (JSON-LD)',
+      meta.hasJsonLd ? meta.jsonLdCount + ' schema block(s) found' : 'No structured data found',
+      'Structured data helps search engines understand your business and can show rich results (stars, prices, etc.).');
+
+    // Robots.txt
+    var robotsStatus = hasRobots ? 'pass' : 'warn';
+    seoItemsHtml += buildAuditItem(robotsStatus, 'Robots.txt',
+      hasRobots ? 'Found and valid' : 'Not found',
+      'Robots.txt tells search engines which pages to crawl. Every site should have one.');
+
+    // Sitemap.xml
+    var sitemapStatus = hasSitemap ? 'pass' : 'warn';
+    seoItemsHtml += buildAuditItem(sitemapStatus, 'Sitemap.xml',
+      hasSitemap ? 'Found and valid' : 'Not found',
+      'A sitemap helps search engines discover all your pages. Essential for SEO.');
+
+    // Link text
+    var linkTextAudit = getAudit(audits, 'link-text');
+    var linkTextStatus = linkTextAudit ? (linkTextAudit.score === 1 ? 'pass' : 'warn') : 'na';
+    seoItemsHtml += buildAuditItem(linkTextStatus, 'Descriptive Link Text',
+      linkTextAudit ? (linkTextAudit.score === 1 ? 'Links use descriptive text' : 'Some links have generic text like "click here"') : 'Not available',
+      'Descriptive link text helps search engines and users understand what a link leads to.');
+
+    // Hreflang
+    var hreflangAudit = getAudit(audits, 'hreflang');
+    if (hreflangAudit && hreflangAudit.score !== null) {
+      var hreflangStatus = hreflangAudit.score === 1 ? 'pass' : 'warn';
+      seoItemsHtml += buildAuditItem(hreflangStatus, 'Language Configuration',
+        hreflangAudit.score === 1 ? 'Properly configured' : 'Issues detected',
+        'Hreflang tags help serve the right language version to users in different countries.');
     }
 
+    document.getElementById('seoItems').innerHTML = seoItemsHtml;
+
+    // ─── Section 4: Social & Sharing ───
+    var socialItemsHtml = '';
+
+    // OG Title
+    var ogTitleStatus = meta.ogTitle ? 'pass' : 'fail';
+    socialItemsHtml += buildAuditItem(ogTitleStatus, 'OG Title',
+      meta.ogTitle || 'Missing',
+      'When someone shares your link on Facebook or LinkedIn, this title is what they see.');
+
+    // OG Description
+    var ogDescStatus = meta.ogDescription ? 'pass' : 'fail';
+    socialItemsHtml += buildAuditItem(ogDescStatus, 'OG Description',
+      meta.ogDescription ? (meta.ogDescription.length > 120 ? meta.ogDescription.substring(0, 120) + '...' : meta.ogDescription) : 'Missing',
+      'The description shown in social media previews. Without it, platforms guess — usually poorly.');
+
+    // OG Image
+    var ogImageStatus = meta.ogImage ? 'pass' : 'fail';
+    socialItemsHtml += buildAuditItemRaw(ogImageStatus, 'OG Image',
+      meta.ogImage ? '<span class="mono" style="font-family:var(--font-mono);font-size:0.75rem;">' + escapeHtml(meta.ogImage.length > 60 ? meta.ogImage.substring(0, 60) + '...' : meta.ogImage) + '</span>' : 'Missing',
+      'A preview image makes your links stand out in social feeds. Without one, shares look plain and get fewer clicks.');
+
+    // Twitter Card
+    var twitterStatus = meta.twitterCard ? 'pass' : 'warn';
+    socialItemsHtml += buildAuditItem(twitterStatus, 'Twitter Card',
+      meta.twitterCard || 'Missing',
+      'Twitter/X card meta tags control how your link appears when shared on the platform.');
+
+    // Platform detection
+    var platform = detectPlatform(meta.generator);
+    socialItemsHtml += buildAuditItem(platform ? 'na' : 'na', 'Platform Detected',
+      platform || 'Custom / Unknown',
+      platform ? 'Your site appears to be built with ' + platform + '.' : 'No platform detected from meta tags. Could be custom-built or platform not identified.');
+
+    document.getElementById('socialItems').innerHTML = socialItemsHtml;
+
+    // ─── Section 5: Mobile & Accessibility ───
+    var mobileDesc = scores.accessibility >= 80 ? 'Your site is accessible and mobile-friendly.' :
+                     scores.accessibility >= 50 ? 'Some users may have difficulty using your site.' :
+                     'Significant accessibility issues detected. Many users will struggle.';
+
+    document.getElementById('mobileTop').innerHTML = buildSectionTop(scores.accessibility, 'Accessibility Score: ' + scores.accessibility + '/100', mobileDesc, null);
+
+    var mobileItemsHtml = '';
+
+    // Viewport
+    var viewportAudit = getAudit(audits, 'viewport');
+    var viewportStatus = viewportAudit ? (viewportAudit.score === 1 ? 'pass' : 'fail') : 'na';
+    mobileItemsHtml += buildAuditItem(viewportStatus, 'Mobile Viewport',
+      viewportAudit ? (viewportAudit.score === 1 ? 'Properly configured for mobile devices' : 'Missing or misconfigured') : 'Not available',
+      'Without a viewport meta tag, your site won\'t display correctly on phones.');
+
+    // Tap targets
+    var tapAudit = getAudit(audits, 'tap-targets');
+    var tapStatus = tapAudit ? (tapAudit.score === 1 ? 'pass' : tapAudit.score >= 0.5 ? 'warn' : 'fail') : 'na';
+    mobileItemsHtml += buildAuditItem(tapStatus, 'Tap Targets',
+      tapAudit ? (tapAudit.score === 1 ? 'Buttons and links are properly sized for touch' : (tapAudit.displayValue || 'Some targets are too small')) : 'Not available',
+      'On mobile, buttons and links need to be at least 48x48 pixels so people can tap them easily.');
+
+    // Responsive images
+    var respImgAudit = getAudit(audits, 'image-size-responsive');
+    var respImgStatus = respImgAudit ? (respImgAudit.score === 1 ? 'pass' : 'warn') : 'na';
+    mobileItemsHtml += buildAuditItem(respImgStatus, 'Responsive Images',
+      respImgAudit ? (respImgAudit.score === 1 ? 'Images scale properly across devices' : 'Some images may not display correctly on all screens') : 'Not available',
+      'Images should adapt to screen size. Oversized images waste bandwidth on mobile.');
+
+    // Font display (repeated context but for accessibility)
+    var fontStatus2 = fontAudit ? (fontAudit.score === 1 ? 'pass' : 'warn') : 'na';
+    mobileItemsHtml += buildAuditItem(fontStatus2, 'Font Display',
+      fontAudit ? (fontAudit.score === 1 ? 'Text remains visible during font loading' : 'Text may be invisible while custom fonts load') : 'Not available',
+      'Using font-display ensures text is readable immediately, even before custom fonts finish loading.');
+
+    document.getElementById('mobileItems').innerHTML = mobileItemsHtml;
+
+    // ─── Section 6: Best Practices ───
+    var bpDesc = scores.bestPractices >= 80 ? 'Your site follows modern web standards well.' :
+                 scores.bestPractices >= 50 ? 'Some best practice issues were found.' :
+                 'Multiple best practice violations need attention.';
+
+    document.getElementById('bpTop').innerHTML = buildSectionTop(scores.bestPractices, 'Best Practices Score: ' + scores.bestPractices + '/100', bpDesc, null);
+
+    var bpItemsHtml = '';
+
+    // HTTPS
+    var httpsStatus = hasHttps ? 'pass' : 'fail';
+    bpItemsHtml += buildAuditItem(httpsStatus, 'HTTPS / SSL',
+      hasHttps ? 'Your site uses a secure connection' : 'Your site is NOT using HTTPS',
+      hasHttps ? 'Great — your visitors\' data is encrypted.' : 'Google flags non-HTTPS sites as "Not Secure" and penalizes them in search rankings.');
+
+    // HTTP status
+    var statusAudit = getAudit(audits, 'http-status-code');
+    var statusStatus = statusAudit ? (statusAudit.score === 1 ? 'pass' : 'fail') : 'na';
+    bpItemsHtml += buildAuditItem(statusStatus, 'HTTP Status Code',
+      statusAudit ? (statusAudit.score === 1 ? 'Site returned a successful response' : 'Site returned an error code') : 'Not available',
+      'A 200 status code means the site loaded correctly. Errors like 404 or 500 indicate problems.');
+
+    // Robots.txt valid
+    var robotsTxtAudit = getAudit(audits, 'robots-txt');
+    if (robotsTxtAudit && robotsTxtAudit.score !== null) {
+      var robotsTxtStatus = robotsTxtAudit.score === 1 ? 'pass' : 'warn';
+      bpItemsHtml += buildAuditItem(robotsTxtStatus, 'Robots.txt Valid',
+        robotsTxtAudit.score === 1 ? 'Properly formatted' : 'Issues found in robots.txt',
+        'A malformed robots.txt can accidentally block search engines from your site.');
+    }
+
+    document.getElementById('bpItems').innerHTML = bpItemsHtml;
+
+    // ─── Section 7: Issues Found ───
+    var issueCardsHtml = '';
+    var criticalCount = 0;
+    var warningCount = 0;
+
+    // Critical issues
+    if (scores.performance < 50) {
+      criticalCount++;
+      issueCardsHtml += buildIssueCard('critical', 'Critically Slow Website',
+        'Your performance score is ' + scores.performance + '/100. Sites that load in 1 second convert 5x more than those loading in 10 seconds. Speed is the most important factor for keeping visitors.');
+    }
+    if (!hasHttps) {
+      criticalCount++;
+      issueCardsHtml += buildIssueCard('critical', 'No HTTPS / SSL Certificate',
+        'Your site doesn\'t use HTTPS. Google Chrome shows a "Not Secure" warning and Google Search penalizes your rankings. This is the #1 trust killer.');
+    }
+    if (scores.seo < 50) {
+      criticalCount++;
+      issueCardsHtml += buildIssueCard('critical', 'Major SEO Problems',
+        'Your SEO score is ' + scores.seo + '/100. Potential customers searching for your services are unlikely to find you.');
+    }
+    if (descStatus === 'fail') {
+      criticalCount++;
+      issueCardsHtml += buildIssueCard('critical', 'Missing Meta Description',
+        'Your page has no meta description. Search engines and social media won\'t know how to describe your page.');
+    }
+    if (!meta.hasJsonLd) {
+      criticalCount++;
+      issueCardsHtml += buildIssueCard('critical', 'No Schema / Structured Data',
+        'Your site has no structured data. You\'re missing out on rich search results (star ratings, business hours, etc.) that dramatically increase click-through rates.');
+    }
+
+    // Warnings
+    if (scores.performance >= 50 && scores.performance < 80) {
+      warningCount++;
+      issueCardsHtml += buildIssueCard('warning', 'Site Speed Could Be Better',
+        'Performance score is ' + scores.performance + '/100. There\'s room to improve load times, which directly impacts conversions.');
+    }
     if (scores.accessibility < 80) {
-      hasIssues = true;
-      recCards.innerHTML += buildRecCard(
-        'warning',
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
-        'Accessibility issues detected.',
-        'Your score is ' + scores.accessibility + '/100. Some visitors may have difficulty using your site, and Google factors accessibility into rankings.'
-      );
+      warningCount++;
+      issueCardsHtml += buildIssueCard('warning', 'Accessibility Issues',
+        'Accessibility score is ' + scores.accessibility + '/100. Some visitors may struggle to use your site, and Google considers accessibility in rankings.');
     }
-
-    if (scores.seo < 80) {
-      hasIssues = true;
-      recCards.innerHTML += buildRecCard(
-        'warning',
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
-        'SEO needs attention.',
-        'Your score is ' + scores.seo + '/100. Your site isn\'t fully optimized for search. This means potential customers searching for your services may not find you.'
-      );
+    if (ogTitleStatus === 'fail' || ogDescStatus === 'fail' || ogImageStatus === 'fail') {
+      warningCount++;
+      var missingOg = [];
+      if (!meta.ogTitle) missingOg.push('title');
+      if (!meta.ogDescription) missingOg.push('description');
+      if (!meta.ogImage) missingOg.push('image');
+      issueCardsHtml += buildIssueCard('warning', 'Missing Social Sharing Tags',
+        'Missing OG ' + missingOg.join(', ') + '. When someone shares your link on Facebook or LinkedIn, it won\'t look professional.');
     }
-
+    if (!hasSitemap) {
+      warningCount++;
+      issueCardsHtml += buildIssueCard('warning', 'No Sitemap Found',
+        'We couldn\'t find a sitemap.xml file. Sitemaps help search engines discover and index all your pages efficiently.');
+    }
+    if (!hasRobots) {
+      warningCount++;
+      issueCardsHtml += buildIssueCard('warning', 'No Robots.txt Found',
+        'We couldn\'t find a robots.txt file. This file helps control how search engines crawl your site.');
+    }
     if (scores.bestPractices < 80) {
-      hasIssues = true;
-      recCards.innerHTML += buildRecCard(
-        'warning',
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
-        'Quality issues found.',
-        'Your score is ' + scores.bestPractices + '/100. Your site has technical issues that affect trust and user experience.'
-      );
+      warningCount++;
+      issueCardsHtml += buildIssueCard('warning', 'Best Practices Gaps',
+        'Best practices score is ' + scores.bestPractices + '/100. Technical issues affect trust and user experience.');
     }
 
-    if (!hasIssues) {
-      recCards.innerHTML += buildRecCard(
-        'success',
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
-        'Great job!',
-        'Your site is performing well overall. There may still be opportunities to improve specific areas.'
-      );
+    // Passing
+    if (scores.performance >= 80) {
+      issueCardsHtml += buildIssueCard('pass', 'Good Performance', 'Your site loads quickly. Performance score: ' + scores.performance + '/100.');
+    }
+    if (scores.seo >= 80) {
+      issueCardsHtml += buildIssueCard('pass', 'Strong SEO Foundation', 'Search engines can find and understand your site. SEO score: ' + scores.seo + '/100.');
+    }
+    if (hasHttps) {
+      issueCardsHtml += buildIssueCard('pass', 'Secure Connection', 'Your site uses HTTPS with a valid SSL certificate.');
+    }
+    if (meta.hasJsonLd) {
+      issueCardsHtml += buildIssueCard('pass', 'Structured Data Found', meta.jsonLdCount + ' JSON-LD schema block(s) detected. Eligible for rich search results.');
     }
 
-    // Package recommendation
+    document.getElementById('issueCards').innerHTML = issueCardsHtml;
+
+    // ─── Section 8: Package Recommendation ───
     var packageText = '';
+    var ctaHref = '/contact.html';
     if (overall < 40) {
-      packageText = 'Your website needs a complete rebuild. We recommend our <strong>Professional</strong> or <strong>Premium</strong> package.';
+      packageText = 'Based on our analysis, your site has <strong>' + criticalCount + ' critical issue' + (criticalCount !== 1 ? 's' : '') + '</strong> and <strong>' + warningCount + ' warning' + (warningCount !== 1 ? 's' : '') + '</strong>. Your website needs a complete rebuild to compete effectively. We recommend our <strong>Professional</strong> or <strong>Premium</strong> package to address all issues and give you a modern, high-performing site.';
     } else if (overall < 60) {
-      packageText = 'Significant improvements needed. Our <strong>Professional</strong> package would address all major issues.';
+      packageText = 'Based on our analysis, your site has <strong>' + criticalCount + ' critical issue' + (criticalCount !== 1 ? 's' : '') + '</strong> and <strong>' + warningCount + ' warning' + (warningCount !== 1 ? 's' : '') + '</strong>. Significant improvements are needed. Our <strong>Professional</strong> package would address all major issues and dramatically improve your online presence.';
     } else if (overall < 80) {
-      packageText = 'A solid foundation with important gaps. Our <strong>Starter</strong> or <strong>Professional</strong> package can help.';
+      packageText = 'Your site has a solid foundation with <strong>' + warningCount + ' area' + (warningCount !== 1 ? 's' : '') + '</strong> that need attention. Our <strong>Starter</strong> or <strong>Professional</strong> package can close these gaps and push your scores into the green.';
     } else {
-      packageText = 'Strong performance. Minor optimizations with our <strong>Starter</strong> package could push you further.';
+      packageText = 'Strong performance overall! Minor optimizations could push your scores even higher. Our <strong>Starter</strong> package includes the fine-tuning needed to reach a perfect score.';
     }
     document.getElementById('packageRecText').innerHTML = packageText;
 
@@ -1866,29 +2740,24 @@ h2.section-heading {
       resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 200);
 
-    // Send lead data
-    sendLeadData(url, scores, overall, grade.letter);
-  }
+    // Animate section gauges after reveal
+    setTimeout(function() {
+      document.querySelectorAll('.section-gauge').forEach(function(el) {
+        var target = el.getAttribute('data-target');
+        if (target) el.style.strokeDashoffset = target;
+      });
+    }, 800);
 
-  function buildRecCard(type, iconSvg, title, text) {
-    return '<div class="rec-card card-outer">' +
-      '<div class="card-inner">' +
-        '<div class="rec-icon ' + type + '">' + iconSvg + '</div>' +
-        '<div class="rec-content">' +
-          '<div class="rec-title">' + title + '</div>' +
-          '<div class="rec-text">' + text + '</div>' +
-        '</div>' +
-      '</div>' +
-    '</div>';
+    // Send lead data
+    sendLeadData(url, scores, overall, grade.letter, criticalCount, warningCount, meta);
   }
 
   // ── Lead Data ──
-  function sendLeadData(url, scores, overall, letterGrade) {
+  function sendLeadData(url, scores, overall, letterGrade, criticalCount, warningCount, meta) {
     var data = {
       url: url,
       name: nameInput.value || '',
       email: emailInput.value || '',
-      phone: phoneInput.value || '',
       scores: {
         performance: scores.performance,
         accessibility: scores.accessibility,
@@ -1897,10 +2766,16 @@ h2.section-heading {
         overall: overall
       },
       grade: letterGrade,
+      criticalIssues: criticalCount,
+      warnings: warningCount,
+      hasSsl: url.startsWith('https://'),
+      hasSchema: meta.hasJsonLd,
+      hasOgTags: !!(meta.ogTitle && meta.ogDescription && meta.ogImage),
+      platform: detectPlatform(meta.generator) || 'Unknown',
       timestamp: new Date().toISOString()
     };
 
-    console.log('Calculator Lead Data:', data);
+    console.log('Audit Lead Data:', data);
 
     fetch('https://hooks.stackbuiltweb.com/calculator-lead', {
       method: 'POST',
@@ -1921,6 +2796,12 @@ h2.section-heading {
     urlInput.value = '';
     urlInput.classList.remove('invalid');
     urlError.classList.remove('show');
+
+    // Reset loading steps
+    loadingStepEls.forEach(function(el) {
+      el.classList.remove('active-step', 'completed-step');
+    });
+    progressFill.style.width = '0%';
 
     // Reset gauges
     document.getElementById('overallGaugeFill').style.strokeDashoffset = '502.65';
