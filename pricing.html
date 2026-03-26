@@ -3,8 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
 <title>Pricing — StackBuilt Web | Transparent Web Design Packages</title>
-<meta name="description" content="Simple pricing for serious websites. Every package includes mobile-first design, SEO fundamentals, and a website that actually works. Starting at $500.">
+<meta name="description" content="Simple pricing for serious websites. Four tiers from $500 to $5,500. Every package includes mobile-first design, SEO fundamentals, and a site that converts.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pricing — StackBuilt Web | Transparent Web Design Packages">
+<meta property="og:description" content="Simple pricing for serious websites. Four tiers from $500 to $5,500. Every package includes mobile-first design, SEO fundamentals, and a site that converts.">
+<meta property="og:url" content="https://www.stackbuiltweb.com/pricing.html">
+<meta property="og:site_name" content="StackBuilt Web">
+<meta property="og:image" content="https://www.stackbuiltweb.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pricing — StackBuilt Web | Transparent Web Design Packages">
+<meta name="twitter:description" content="Simple pricing for serious websites. Four tiers from $500 to $5,500. Every package includes mobile-first design, SEO fundamentals, and a site that converts.">
+<meta name="twitter:image" content="https://www.stackbuiltweb.com/og-image.png">
+
 
 <!-- Fonts -->
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
@@ -27,6 +49,7 @@
   --accent-light: #0E6B73;
   --accent-muted: rgba(12, 78, 84, 0.08);
   --accent-badge: rgba(12, 78, 84, 0.06);
+  --terracotta: #D4652E;
   --text-primary: #1C1917;
   --text-secondary: #57534E;
   --text-tertiary: #A8A29E;
@@ -35,7 +58,10 @@
   --border-card: rgba(28, 25, 23, 0.08);
   --shadow-tinted: rgba(12, 78, 84, 0.06);
   --shadow-soft: rgba(28, 25, 23, 0.04);
-  --terracotta: #D4652E;
+
+  --green-bg: #F0FDF4;
+  --green-text: #166534;
+  --green-border: rgba(22, 101, 52, 0.12);
 
   --font-body: 'Satoshi', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -116,12 +142,6 @@ body::before {
   border: 1px solid var(--border-card);
   border-radius: 1.5rem;
   padding: 0.375rem;
-  transition: all var(--duration-fast) var(--ease-out-expo);
-}
-
-.card-outer:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px -8px rgba(12, 78, 84, 0.12);
 }
 
 .card-inner {
@@ -171,7 +191,7 @@ body::before {
 }
 .btn-primary:hover {
   background: var(--terracotta);
-  color: #FFFFFF !important;
+  color: var(--text-on-accent);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px -8px rgba(212, 101, 46, 0.3);
 }
@@ -183,9 +203,11 @@ body::before {
   box-shadow: 0 1px 3px var(--shadow-soft);
 }
 .btn-secondary:hover {
+  background: var(--terracotta);
+  color: var(--text-on-accent);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px -8px var(--shadow-tinted);
-  border-color: rgba(12, 78, 84, 0.15);
+  box-shadow: 0 8px 24px -8px rgba(212, 101, 46, 0.3);
+  border-color: var(--terracotta);
 }
 
 .btn-icon {
@@ -204,6 +226,9 @@ body::before {
 }
 .btn-secondary .btn-icon {
   background: var(--accent-muted);
+}
+.btn-secondary:hover .btn-icon {
+  background: rgba(255,255,255,0.2);
 }
 
 /* Scroll Reveal */
@@ -263,14 +288,14 @@ body::before {
 }
 
 .nav-logo {
-  font-size: 1.25rem;
-  font-weight: 900;
-  color: var(--text-primary);
   text-decoration: none;
-  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
 }
-.nav-logo span {
-  color: var(--accent);
+.nav-logo-svg {
+  display: block;
+  height: 32px;
+  width: auto;
 }
 
 .nav-links {
@@ -287,9 +312,7 @@ body::before {
   transition: color var(--duration-fast) var(--ease-out-expo);
   position: relative;
 }
-.nav-links a:hover {
-  color: var(--terracotta);
-}
+.nav-links a:hover,
 .nav-links a.active {
   color: var(--accent);
 }
@@ -415,7 +438,7 @@ body::before {
    ======================================== */
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
   align-items: start;
 }
@@ -431,9 +454,6 @@ body::before {
   border-color: var(--accent);
   border-width: 2px;
   background: rgba(12, 78, 84, 0.06);
-}
-.pricing-card.featured .card-outer:hover {
-  box-shadow: 0 24px 48px -12px rgba(12, 78, 84, 0.12);
 }
 .pricing-card.featured .card-inner {
   box-shadow:
@@ -457,7 +477,7 @@ body::before {
   width: fit-content;
 }
 .pricing-card.featured .pricing-badge {
-  background: var(--accent);
+  background: var(--terracotta);
   color: var(--text-on-accent);
 }
 
@@ -490,96 +510,199 @@ body::before {
 }
 
 .pricing-divider {
+  width: 100%;
   height: 1px;
   background: var(--border-subtle);
-  margin: 1.5rem 0;
+  margin-bottom: 1.5rem;
 }
 
 .pricing-list-heading {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
   color: var(--text-tertiary);
   margin-bottom: 0.75rem;
-  margin-top: 0.5rem;
 }
 
 .pricing-list {
   list-style: none;
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
+  margin-bottom: 1.25rem;
 }
 .pricing-list li {
   position: relative;
-  padding-left: 1.25rem;
+  padding-left: 1.5rem;
   font-size: 0.8125rem;
   color: var(--text-secondary);
   line-height: 1.55;
-  margin-bottom: 0.375rem;
+  margin-bottom: 0.5rem;
 }
 .pricing-list li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 0.55em;
-  width: 5px;
-  height: 5px;
+  top: 0.4em;
+  width: 0.625rem;
+  height: 0.625rem;
   border-radius: 50%;
+  background: rgba(12, 78, 84, 0.12);
+}
+.pricing-list.included li::before {
   background: var(--accent);
-  opacity: 0.5;
+  box-shadow: 0 0 0 3px rgba(12, 78, 84, 0.1);
+}
+.pricing-list.not-included li {
+  color: var(--text-tertiary);
 }
 .pricing-list.not-included li::before {
   background: var(--text-tertiary);
+  opacity: 0.3;
 }
 
 .pricing-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding: 1.25rem 0;
+  margin-top: auto;
+  padding-top: 1.25rem;
   border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: 1.5rem;
 }
-
 .pricing-meta-row {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.625rem;
 }
-
 .pricing-meta-label {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--text-tertiary);
+  white-space: nowrap;
+  min-width: 70px;
 }
-
 .pricing-meta-value {
   font-size: 0.8125rem;
   color: var(--text-secondary);
-  text-align: right;
+  line-height: 1.5;
 }
 
 .pricing-cta-row {
-  display: flex;
-  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.pricing-cta-row .btn-pill {
+  width: 100%;
+  justify-content: center;
+  font-size: 0.8125rem;
+  padding: 0.75rem 1.25rem;
+}
+
+/* View Example Links */
+.view-example-link {
+  display: block;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: 0.75rem;
+  transition: text-decoration 0.2s;
+}
+.view-example-link:hover {
+  text-decoration: underline;
 }
 
 /* ========================================
-   Maintenance Cards
+   Demo Preview Section
+   ======================================== */
+.demo-preview-section {
+  background: var(--bg-warm);
+}
+.demo-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.demo-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.demo-card-tier {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.demo-card-price {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+.demo-card-niche {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  margin-top: 0.25rem;
+}
+.demo-card-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.demo-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.75rem;
+  padding: 0.625rem 1.25rem;
+  border: 1.5px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.demo-card-btn:hover {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+
+/* ========================================
+   Maintenance Plans
    ======================================== */
 .maintenance-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
+  align-items: stretch;
+}
+
+.maintenance-card.card-outer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .maintenance-card .card-inner {
+  padding: 1.75rem;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+
+.maintenance-card .maint-best-for {
+  margin-top: auto;
 }
 
 .maint-name {
@@ -607,7 +730,6 @@ body::before {
 .maint-list {
   list-style: none;
   margin-bottom: 1rem;
-  flex-grow: 1;
 }
 .maint-list li {
   position: relative;
@@ -642,7 +764,7 @@ body::before {
    ======================================== */
 .addons-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
 }
 
@@ -651,6 +773,7 @@ body::before {
   display: flex;
   flex-direction: column;
   height: 100%;
+  border-top: 3px solid var(--terracotta);
 }
 
 .addon-icon {
@@ -676,7 +799,7 @@ body::before {
   font-family: var(--font-mono);
   font-size: 0.9375rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--terracotta);
   margin-bottom: 0.75rem;
 }
 
@@ -714,19 +837,19 @@ body::before {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem 1.75rem;
   background: none;
   border: none;
   cursor: pointer;
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 600;
   color: var(--text-primary);
   text-align: left;
   line-height: 1.4;
 }
 .faq-question:hover {
-  color: var(--accent);
+  color: var(--terracotta);
 }
 
 .faq-chevron {
@@ -739,7 +862,13 @@ body::before {
   border-radius: 50%;
   background: var(--accent-muted);
   color: var(--accent);
-  transition: transform var(--duration-fast) var(--ease-spring);
+  transition: transform var(--duration-fast) var(--ease-spring),
+              background var(--duration-fast) var(--ease-out-expo),
+              color var(--duration-fast) var(--ease-out-expo);
+}
+.faq-question:hover .faq-chevron {
+  background: rgba(212, 101, 46, 0.12);
+  color: var(--terracotta);
 }
 .faq-item.open .faq-chevron {
   transform: rotate(180deg);
@@ -752,10 +881,291 @@ body::before {
               padding var(--duration-base) var(--ease-out-expo);
 }
 .faq-answer-inner {
-  padding: 0 1.5rem 1.25rem;
-  font-size: 0.875rem;
+  padding: 0 1.75rem 1.5rem;
+  font-size: 0.9375rem;
   color: var(--text-secondary);
   line-height: 1.7;
+}
+
+/* ========================================
+   Checkout Builder
+   ======================================== */
+.checkout-builder {
+  background: var(--bg-card-outer);
+  border: 1px solid var(--border-card);
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+  max-width: 780px;
+  margin: 2.5rem auto 0;
+}
+.checkout-builder-inner {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 1.125rem;
+  padding: clamp(2rem, 4vw, 3rem);
+}
+.checkout-step {
+  margin-bottom: 2.5rem;
+}
+.checkout-step:last-of-type {
+  margin-bottom: 0;
+}
+.checkout-step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.checkout-step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--text-on-accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.checkout-step-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Package & plan option cards */
+.checkout-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+@media (max-width: 560px) {
+  .checkout-options {
+    grid-template-columns: 1fr;
+  }
+}
+.checkout-option {
+  cursor: pointer;
+  position: relative;
+}
+.checkout-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.checkout-option-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 0.75rem;
+  border: 1.5px solid var(--border-card);
+  border-radius: 0.75rem;
+  background: var(--bg-cream);
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.checkout-option-inner:hover {
+  border-color: rgba(12, 78, 84, 0.2);
+}
+.checkout-option input:checked + .checkout-option-inner {
+  border-color: var(--accent);
+  background: rgba(12, 78, 84, 0.04);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.checkout-option-name {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+}
+.checkout-option-price {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+/* Add-on checkboxes */
+.checkout-addons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.625rem;
+}
+@media (max-width: 560px) {
+  .checkout-addons {
+    grid-template-columns: 1fr;
+  }
+}
+.checkout-addon {
+  cursor: pointer;
+  position: relative;
+}
+.checkout-addon input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.checkout-addon-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border-card);
+  border-radius: 0.625rem;
+  background: var(--bg-cream);
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.checkout-addon-inner:hover {
+  border-color: rgba(12, 78, 84, 0.2);
+}
+.checkout-addon input:checked + .checkout-addon-inner {
+  border-color: var(--accent);
+  background: rgba(12, 78, 84, 0.04);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.checkout-addon-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+.checkout-addon-price {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* Divider */
+.checkout-divider {
+  height: 1px;
+  background: var(--border-card);
+  margin: 2rem 0;
+}
+
+/* Order Summary */
+.checkout-summary {
+  margin-bottom: 2rem;
+}
+.checkout-summary-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+.checkout-summary-placeholder {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background: var(--bg-warm);
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 0.9375rem;
+}
+.checkout-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.5rem 0;
+}
+.checkout-summary-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+.checkout-summary-value {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  text-align: right;
+}
+.checkout-summary-value--bold {
+  font-weight: 700;
+  font-size: 1rem;
+}
+.checkout-summary-value--accent {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--accent);
+}
+.checkout-summary-sep {
+  height: 1px;
+  background: var(--border-card);
+  margin: 0.5rem 0;
+}
+.checkout-summary-row--total {
+  padding-top: 0.75rem;
+}
+.checkout-summary-row--due {
+  padding-top: 0.25rem;
+  padding-bottom: 0;
+}
+
+/* Checkout action buttons */
+.checkout-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.checkout-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: var(--accent);
+  color: var(--text-on-accent);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.checkout-btn-primary.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.checkout-btn-primary.active:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -8px rgba(12, 78, 84, 0.3);
+}
+.checkout-btn-primary.active:active {
+  transform: scale(0.97) translateY(1px);
+}
+.checkout-btn-primary .btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+}
+.checkout-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border: 1.5px solid var(--border-card);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.checkout-btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 /* ========================================
@@ -821,86 +1231,94 @@ body::before {
 }
 
 /* ========================================
-   Footer
+   Footer — Teal
    ======================================== */
 .site-footer {
-  padding: 3rem 0;
-  border-top: 1px solid var(--border-subtle);
-  background: var(--bg-warm);
+  background: var(--accent);
+  padding: 3rem 0 1.5rem;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: start;
-  margin-bottom: 2.5rem;
 }
 
 .footer-brand {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--text-on-accent);
   letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.375rem;
 }
 .footer-brand span {
-  color: var(--accent);
+  opacity: 0.85;
 }
 .footer-tagline {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-bottom: 0.625rem;
+}
+.footer-desc {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.55;
+  max-width: 300px;
 }
 
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: 0.5rem;
 }
 .footer-links-title {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--terracotta);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.125rem;
 }
 .footer-links a {
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out-expo);
 }
 .footer-links a:hover {
-  color: var(--terracotta);
+  color: var(--text-on-accent);
 }
 
 .footer-contact {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.375rem;
 }
 .footer-contact-title {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--terracotta);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.125rem;
 }
-.footer-contact a {
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
+.footer-contact a,
+.footer-contact span {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out-expo);
 }
 .footer-contact a:hover {
-  color: var(--terracotta);
+  color: var(--text-on-accent);
 }
 
 .footer-bottom {
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border-subtle);
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -908,17 +1326,17 @@ body::before {
   flex-wrap: wrap;
 }
 .footer-copy {
-  font-size: 0.8125rem;
-  color: var(--text-tertiary);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
 }
 .footer-attribution a {
-  font-size: 0.8125rem;
-  color: var(--text-tertiary);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out-expo);
 }
 .footer-attribution a:hover {
-  color: var(--accent);
+  color: rgba(255,255,255,0.8);
 }
 
 /* ========================================
@@ -926,6 +1344,9 @@ body::before {
    ======================================== */
 @media (max-width: 1100px) {
   .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .demo-preview-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -943,7 +1364,14 @@ body::before {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+  .maintenance-card .card-inner {
+    min-height: auto;
+  }
   .addons-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .demo-preview-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
@@ -964,7 +1392,11 @@ body::before {
 
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -977,19 +1409,54 @@ body::before {
   }
 }
 </style>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "StackBuilt Web Design Packages",
+  "description": "Professional website packages for local service businesses",
+  "brand": {"@type": "Brand", "name": "StackBuilt Web"},
+  "offers": [
+    {"@type": "Offer", "name": "Side Hustle", "price": "500", "priceCurrency": "USD", "description": "1-2 page site for solo operators"},
+    {"@type": "Offer", "name": "Starter", "price": "1500", "priceCurrency": "USD", "description": "3-page site for small businesses"},
+    {"@type": "Offer", "name": "Professional", "price": "3500", "priceCurrency": "USD", "description": "5-page site with advanced SEO"},
+    {"@type": "Offer", "name": "Premium", "price": "5500", "priceCurrency": "USD", "description": "8-page site with AI chatbot and CRM"}
+  ]
+}
+</script>
 </head>
 <body>
 
 <!-- ============ NAV ============ -->
 <nav class="site-nav" id="siteNav">
   <div class="nav-container">
-    <a href="/index.html" class="nav-logo">Stack<span>Built</span> Web</a>
+    <a href="/index.html" class="nav-logo" aria-label="StackBuilt Web Home">
+      <svg class="nav-logo-svg" width="180" height="32" viewBox="0 0 180 32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 26 L11 20 L18 26" stroke="#D4652E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 18 L11 12 L18 18" stroke="#0C4E54" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 10 L11 4 L18 10" stroke="#0E6B73" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="26" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="900" fill="#1C1917" letter-spacing="-0.3">Stack</text>
+        <text x="78" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="900" fill="#0C4E54" letter-spacing="-0.3">Built</text>
+        <text x="126" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="500" fill="#A8A29E" letter-spacing="-0.3">Web</text>
+      </svg>
+    </a>
     <ul class="nav-links">
       <li><a href="/index.html">Home</a></li>
-      <li><a href="https://stackbuiltweb.com/services">Services</a></li>
+      <li><a href="/services.html">Services</a></li>
       <li><a href="/pricing.html" class="active">Pricing</a></li>
-      <li><a href="https://stackbuiltweb.com/grader">Website Grader</a></li>
-      <li><a href="https://stackbuiltweb.com/contact">Contact</a></li>
+      <li><a href="/calculator.html">Free Audit</a></li>
+      <li><a href="/contact.html">Contact</a></li>
     </ul>
     <a href="/calculator.html" class="btn-pill btn-primary nav-cta desktop-only" style="padding:0.625rem 1.25rem; font-size:0.8125rem;">
       Get Your Free Audit
@@ -1007,10 +1474,10 @@ body::before {
     <i class="ph ph-x" style="font-size:1.75rem;"></i>
   </button>
   <a href="/index.html">Home</a>
-  <a href="https://stackbuiltweb.com/services">Services</a>
+  <a href="/services.html">Services</a>
   <a href="/pricing.html" style="color:var(--accent);">Pricing</a>
-  <a href="https://stackbuiltweb.com/grader">Website Grader</a>
-  <a href="https://stackbuiltweb.com/contact">Contact</a>
+  <a href="/calculator.html">Free Audit</a>
+  <a href="/contact.html">Contact</a>
   <a href="/calculator.html" class="btn-pill btn-primary" style="margin-top:1rem;">Get Your Free Audit</a>
 </div>
 
@@ -1037,29 +1504,31 @@ body::before {
           <div class="card-inner">
             <span class="pricing-badge">Perfect for solo operators</span>
             <h3 class="pricing-name">Side Hustle</h3>
-            <div class="pricing-price">$500 — $1,000</div>
+            <div class="pricing-price">$500 &ndash; $1,000</div>
             <p class="pricing-tagline">A clean, fast, single-page website that beats having no online presence.</p>
             <div class="pricing-divider"></div>
 
-            <p class="pricing-list-heading">What's Included</p>
+            <p class="pricing-list-heading">What&rsquo;s Included</p>
             <ul class="pricing-list included">
               <li>1-2 page single-scroll responsive site</li>
-              <li>Mobile-first design that works on every device</li>
-              <li>Click-to-call button prominently placed</li>
+              <li>Mobile-first design</li>
+              <li>Click-to-call button</li>
               <li>Contact form with email notifications</li>
-              <li>Google Maps embed showing your location</li>
-              <li>Basic SEO (optimized title, meta description, schema markup)</li>
-              <li>Social media links (Facebook, Instagram, etc.)</li>
-              <li>Professional color scheme matched to your industry</li>
-              <li>HTTPS security (SSL certificate)</li>
+              <li>Online booking/scheduling widget</li>
+              <li>Google Maps embed</li>
+              <li>Basic SEO (title, meta description, schema)</li>
+              <li>Social media links</li>
+              <li>HTTPS/SSL security</li>
+              <li>Niche-appropriate color scheme</li>
             </ul>
 
             <p class="pricing-list-heading">Not Included</p>
             <ul class="pricing-list not-included">
-              <li>Multiple pages or complex navigation</li>
-              <li>Booking/scheduling integration</li>
-              <li>AI chatbot</li>
-              <li>Custom photography</li>
+              <li>Multiple pages</li>
+              <li>Testimonials section</li>
+              <li>Image gallery</li>
+              <li>Advanced schema</li>
+              <li>Analytics setup</li>
             </ul>
 
             <div class="pricing-meta">
@@ -1069,14 +1538,15 @@ body::before {
               </div>
               <div class="pricing-meta-row">
                 <span class="pricing-meta-label">Best For</span>
-                <span class="pricing-meta-value">Pressure washers, mobile detailers, lawn care operators, junk removal, window tinters, and other solo operators who currently have only a Facebook page or nothing at all.</span>
+                <span class="pricing-meta-value">Pressure washers, mobile detailers, lawn care operators, junk removal, window tinters</span>
               </div>
             </div>
             <div class="pricing-cta-row">
-              <a href="https://buy.stripe.com/cNieV7ftsaEX2FI6lA9bO00" class="btn-pill btn-secondary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.8125rem;"></i></span></a>
+              <a href="/contact.html?tier=side-hustle" class="btn-pill btn-secondary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.8125rem;"></i></span></a>
             </div>
           </div>
         </div>
+        <a href="/demos/side-hustle/" target="_blank" class="view-example-link">View example site &rarr;</a>
       </div>
 
       <!-- Starter -->
@@ -1089,27 +1559,27 @@ body::before {
             <p class="pricing-tagline">A complete small business website with everything you need to be found on Google.</p>
             <div class="pricing-divider"></div>
 
-            <p class="pricing-list-heading">What's Included</p>
+            <p class="pricing-list-heading">What&rsquo;s Included</p>
             <ul class="pricing-list included">
-              <li>3-page responsive website (Home, Services, Contact)</li>
+              <li>3-page site (Home, Services, Contact)</li>
               <li>Everything in Side Hustle plus:</li>
-              <li>Individual service descriptions on dedicated section</li>
-              <li>Customer testimonial area (we write placeholder text, you replace with real reviews)</li>
-              <li>Image gallery or before/after section</li>
-              <li>Google Business Profile optimization guidance</li>
+              <li>Individual service descriptions</li>
+              <li>Customer testimonial area</li>
+              <li>Image gallery / before-after section</li>
+              <li>Google Business Profile guidance</li>
               <li>Click-to-call on every page</li>
               <li>Schema markup (LocalBusiness + Service)</li>
               <li>XML sitemap submitted to Google</li>
-              <li>Speed optimized (target: under 3 seconds)</li>
-              <li>1 round of revisions after initial build</li>
+              <li>Speed optimized (under 3 seconds)</li>
+              <li>1 round of revisions</li>
             </ul>
 
             <p class="pricing-list-heading">Not Included</p>
             <ul class="pricing-list not-included">
-              <li>Booking/scheduling widget</li>
-              <li>AI chatbot integration</li>
-              <li>Professional photography</li>
-              <li>Ongoing SEO work</li>
+              <li>Individual service pages (separate pages per service)</li>
+              <li>Advanced schema (Review, FAQ)</li>
+              <li>Google Analytics setup</li>
+              <li>SEO keyword research</li>
             </ul>
 
             <div class="pricing-meta">
@@ -1119,14 +1589,15 @@ body::before {
               </div>
               <div class="pricing-meta-row">
                 <span class="pricing-meta-label">Best For</span>
-                <span class="pricing-meta-value">Established service businesses that need a professional web presence — roofers, painters, plumbers, electricians, fencing companies, locksmiths.</span>
+                <span class="pricing-meta-value">Roofers, painters, plumbers, electricians, fencing companies, locksmiths</span>
               </div>
             </div>
             <div class="pricing-cta-row">
-              <a href="https://buy.stripe.com/6oUaER8108wP2FI25k9bO01" class="btn-pill btn-secondary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.8125rem;"></i></span></a>
+              <a href="/contact.html?tier=starter" class="btn-pill btn-secondary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.8125rem;"></i></span></a>
             </div>
           </div>
         </div>
+        <a href="/demos/starter/" target="_blank" class="view-example-link">View example site &rarr;</a>
       </div>
 
       <!-- Professional (FEATURED) -->
@@ -1139,21 +1610,20 @@ body::before {
             <p class="pricing-tagline">The complete package for businesses serious about growing their online leads.</p>
             <div class="pricing-divider"></div>
 
-            <p class="pricing-list-heading">What's Included</p>
+            <p class="pricing-list-heading">What&rsquo;s Included</p>
             <ul class="pricing-list included">
-              <li>5-page responsive website (Home, Services, About, Gallery, Contact)</li>
+              <li>5-page site (Home, Service pages, About, Gallery, Contact)</li>
               <li>Everything in Starter plus:</li>
               <li>Individual service pages (each service gets its own page for SEO)</li>
-              <li>Online booking/scheduling widget integration</li>
-              <li>Testimonial section with star ratings</li>
-              <li>Before/after project gallery with image comparison</li>
-              <li>Speed optimized (target: under 2 seconds)</li>
-              <li>Advanced schema markup (LocalBusiness, Service, Review, FAQ)</li>
-              <li>Open Graph tags for social media sharing</li>
+              <li>Testimonials with star ratings</li>
+              <li>Before/after project gallery</li>
+              <li>Speed optimized (under 2 seconds)</li>
+              <li>Advanced schema (LocalBusiness, Service, Review, FAQ)</li>
+              <li>Open Graph tags</li>
               <li>Google Analytics setup</li>
               <li>Google Search Console setup</li>
               <li>2 rounds of revisions</li>
-              <li>Detailed SEO keyword research for your niche + city</li>
+              <li>SEO keyword research for niche + city</li>
               <li>Alt text on every image</li>
               <li>Custom 404 error page</li>
             </ul>
@@ -1163,7 +1633,6 @@ body::before {
               <li>AI chatbot</li>
               <li>Email automation</li>
               <li>CRM integration</li>
-              <li>Professional photography (available as $250 add-on)</li>
             </ul>
 
             <div class="pricing-meta">
@@ -1173,14 +1642,15 @@ body::before {
               </div>
               <div class="pricing-meta-row">
                 <span class="pricing-meta-label">Best For</span>
-                <span class="pricing-meta-value">Growing businesses that rely on their website for leads — HVAC companies, concrete contractors, marine repair, septic services, established painting and roofing companies.</span>
+                <span class="pricing-meta-value">HVAC companies, concrete contractors, marine repair, septic services, established painting and roofing companies</span>
               </div>
             </div>
             <div class="pricing-cta-row">
-              <a href="https://buy.stripe.com/eVq6oBepo4gzcgi4ds9bO02" class="btn-pill btn-primary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.875rem;"></i></span></a>
+              <a href="/contact.html?tier=professional" class="btn-pill btn-primary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.875rem;"></i></span></a>
             </div>
           </div>
         </div>
+        <a href="/demos/professional/" target="_blank" class="view-example-link">View example site &rarr;</a>
       </div>
 
       <!-- Premium -->
@@ -1193,20 +1663,19 @@ body::before {
             <p class="pricing-tagline">Everything you need to dominate your local market online.</p>
             <div class="pricing-divider"></div>
 
-            <p class="pricing-list-heading">What's Included</p>
+            <p class="pricing-list-heading">What&rsquo;s Included</p>
             <ul class="pricing-list included">
-              <li>8-page responsive website (fully custom structure based on your needs)</li>
+              <li>8-page site (fully custom structure)</li>
               <li>Everything in Professional plus:</li>
-              <li>AI-powered chatbot that answers customer questions 24/7 and books appointments</li>
-              <li>Lead capture funnel with email follow-up automation</li>
-              <li>CRM integration (GoHighLevel) for lead tracking</li>
-              <li>Custom analytics dashboard showing traffic, leads, and conversions</li>
-              <li>Advanced speed optimization (target: under 1.5 seconds)</li>
-              <li>Professional copywriting for all pages (not placeholder text)</li>
-              <li>Social media integration with live feeds</li>
+              <li>AI chatbot (books appointments 24/7)</li>
+              <li>Lead capture funnel with email automation</li>
+              <li>CRM integration for lead tracking</li>
+              <li>Custom analytics dashboard</li>
+              <li>Professional copywriting for all pages</li>
+              <li>Social media integration</li>
               <li>3 rounds of revisions</li>
-              <li>Priority support (24-hour response time)</li>
-              <li>30-day post-launch optimization period</li>
+              <li>Priority support (24-hour response)</li>
+              <li>30-day post-launch optimization</li>
             </ul>
 
             <div class="pricing-meta">
@@ -1216,18 +1685,66 @@ body::before {
               </div>
               <div class="pricing-meta-row">
                 <span class="pricing-meta-label">Best For</span>
-                <span class="pricing-meta-value">Established businesses with $500K+ revenue that want their website to be a full lead generation machine — large HVAC, roofing, plumbing, and electrical companies.</span>
+                <span class="pricing-meta-value">$500K+ revenue businesses that want their website to be a full lead generation machine</span>
               </div>
             </div>
             <div class="pricing-cta-row">
-              <a href="https://buy.stripe.com/dRmdR36WWbJ14NQ4ds9bO03" class="btn-pill btn-secondary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.8125rem;"></i></span></a>
+              <a href="/contact.html?tier=premium" class="btn-pill btn-secondary">Get Started <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.8125rem;"></i></span></a>
             </div>
           </div>
         </div>
+        <a href="/demos/premium/" target="_blank" class="view-example-link">View example site &rarr;</a>
       </div>
 
     </div><!-- /pricing-grid -->
 
+  </div>
+</section>
+
+<!-- ============ DEMO PREVIEW SECTION ============ -->
+<section class="demo-preview-section section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow reveal stagger-1">Live Demos</span>
+      <h2 class="section-heading reveal stagger-2">See what each package looks like.</h2>
+      <p class="section-sub reveal stagger-3">Click any demo below to explore a fully built example site for each tier.</p>
+    </div>
+
+    <div class="demo-preview-grid">
+
+      <div class="demo-card reveal stagger-1">
+        <span class="demo-card-tier">Side Hustle</span>
+        <span class="demo-card-price">$500 &ndash; $1,000</span>
+        <div class="demo-card-niche">Pressure Washing</div>
+        <p class="demo-card-desc">Single-page site for solo operators</p>
+        <a href="/demos/side-hustle/" target="_blank" class="demo-card-btn">Explore Demo &rarr;</a>
+      </div>
+
+      <div class="demo-card reveal stagger-2">
+        <span class="demo-card-tier">Starter</span>
+        <span class="demo-card-price">$1,500</span>
+        <div class="demo-card-niche">Small Business</div>
+        <p class="demo-card-desc">3-page site for small businesses</p>
+        <a href="/demos/starter/" target="_blank" class="demo-card-btn">Explore Demo &rarr;</a>
+      </div>
+
+      <div class="demo-card reveal stagger-3">
+        <span class="demo-card-tier">Professional</span>
+        <span class="demo-card-price">$3,500</span>
+        <div class="demo-card-niche">HVAC &amp; Contractors</div>
+        <p class="demo-card-desc">5-page dark-mode site for established businesses</p>
+        <a href="/demos/professional/" target="_blank" class="demo-card-btn">Explore Demo &rarr;</a>
+      </div>
+
+      <div class="demo-card reveal stagger-4">
+        <span class="demo-card-tier">Premium</span>
+        <span class="demo-card-price">$5,500</span>
+        <div class="demo-card-niche">Editorial &amp; AI</div>
+        <p class="demo-card-desc">Premium editorial site with AI chatbot</p>
+        <a href="/demos/premium/" target="_blank" class="demo-card-btn">Explore Demo &rarr;</a>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -1255,9 +1772,6 @@ body::before {
             <li>Uptime monitoring with alerts</li>
           </ul>
           <p class="maint-best-for">Best for: Side Hustle package clients</p>
-          <div class="pricing-cta-row" style="margin-top:1rem;">
-            <a href="https://buy.stripe.com/6oU9AN0yy6oH2FIh0e9bO04" class="btn-pill btn-secondary" style="font-size:0.8125rem;">Subscribe <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.75rem;"></i></span></a>
-          </div>
         </div>
       </div>
 
@@ -1274,9 +1788,6 @@ body::before {
             <li>Email support (48-hour response)</li>
           </ul>
           <p class="maint-best-for">Best for: Starter package clients</p>
-          <div class="pricing-cta-row" style="margin-top:1rem;">
-            <a href="https://buy.stripe.com/5kQ00d6WW4gzcgiaBQ9bO05" class="btn-pill btn-secondary" style="font-size:0.8125rem;">Subscribe <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.75rem;"></i></span></a>
-          </div>
         </div>
       </div>
 
@@ -1294,9 +1805,6 @@ body::before {
             <li>Priority email support (24-hour response)</li>
           </ul>
           <p class="maint-best-for">Best for: Professional package clients</p>
-          <div class="pricing-cta-row" style="margin-top:1rem;">
-            <a href="https://buy.stripe.com/3cI4gtepofZh1BEeS69bO06" class="btn-pill btn-secondary" style="font-size:0.8125rem;">Subscribe <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.75rem;"></i></span></a>
-          </div>
         </div>
       </div>
 
@@ -1316,9 +1824,6 @@ body::before {
             <li>Quarterly strategy call</li>
           </ul>
           <p class="maint-best-for">Best for: Premium package clients</p>
-          <div class="pricing-cta-row" style="margin-top:1rem;">
-            <a href="https://buy.stripe.com/cNidR33KKfZh3JMaBQ9bO07" class="btn-pill btn-secondary" style="font-size:0.8125rem;">Subscribe <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.75rem;"></i></span></a>
-          </div>
         </div>
       </div>
 
@@ -1344,7 +1849,6 @@ body::before {
           <h3 class="addon-name">AI Voice/Chat Agent</h3>
           <div class="addon-price">$500</div>
           <p class="addon-desc">24/7 AI assistant that books appointments and answers questions.</p>
-          <a href="https://buy.stripe.com/00weV7a98dR9gwycJY9bO08" class="btn-pill btn-secondary" style="font-size:0.75rem;margin-top:0.75rem;">Add On <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.625rem;"></i></span></a>
         </div>
       </div>
 
@@ -1354,7 +1858,6 @@ body::before {
           <h3 class="addon-name">Email Automation Setup</h3>
           <div class="addon-price">$750</div>
           <p class="addon-desc">Automated follow-up sequences for new leads via GoHighLevel.</p>
-          <a href="https://buy.stripe.com/aFa3cpepo14n5RU6lA9bO09" class="btn-pill btn-secondary" style="font-size:0.75rem;margin-top:0.75rem;">Add On <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.625rem;"></i></span></a>
         </div>
       </div>
 
@@ -1364,7 +1867,6 @@ body::before {
           <h3 class="addon-name">Google Ads Landing Page</h3>
           <div class="addon-price">$500</div>
           <p class="addon-desc">Dedicated landing page optimized for paid advertising campaigns.</p>
-          <a href="https://buy.stripe.com/aFaaER954fZh0xA39o9bO0a" class="btn-pill btn-secondary" style="font-size:0.75rem;margin-top:0.75rem;">Add On <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.625rem;"></i></span></a>
         </div>
       </div>
 
@@ -1373,8 +1875,7 @@ body::before {
           <div class="addon-icon"><i class="ph ph-files" style="font-size:1.25rem;"></i></div>
           <h3 class="addon-name">Additional Pages</h3>
           <div class="addon-price">$200<span style="font-family:var(--font-body);font-size:0.75rem;color:var(--text-tertiary);font-weight:500;">/page</span></div>
-          <p class="addon-desc">Extra pages beyond what's included in your package.</p>
-          <a href="https://buy.stripe.com/7sY5kx5SSfZhgwy39o9bO0b" class="btn-pill btn-secondary" style="font-size:0.75rem;margin-top:0.75rem;">Add On <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.625rem;"></i></span></a>
+          <p class="addon-desc">Extra pages beyond what&rsquo;s included in your package.</p>
         </div>
       </div>
 
@@ -1384,7 +1885,6 @@ body::before {
           <h3 class="addon-name">Logo Design</h3>
           <div class="addon-price">$300</div>
           <p class="addon-desc">Professional logo designed for your business.</p>
-          <a href="https://buy.stripe.com/7sY6oBchg14n3JM8tI9bO0c" class="btn-pill btn-secondary" style="font-size:0.75rem;margin-top:0.75rem;">Add On <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.625rem;"></i></span></a>
         </div>
       </div>
 
@@ -1394,7 +1894,6 @@ body::before {
           <h3 class="addon-name">On-Site Photography</h3>
           <div class="addon-price">$250</div>
           <p class="addon-desc">60-90 minute professional photo session. 15-25 edited, web-ready images.</p>
-          <a href="https://buy.stripe.com/bJe28lepo8wP0xAaBQ9bO0d" class="btn-pill btn-secondary" style="font-size:0.75rem;margin-top:0.75rem;">Add On <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.625rem;"></i></span></a>
         </div>
       </div>
 
@@ -1420,7 +1919,7 @@ body::before {
           <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Most sites are live within 3-7 business days after we receive your content. Side Hustle sites can be ready in 2-3 days. We work fast because we use modern tools that traditional agencies don't have access to yet.</div>
+          <div class="faq-answer-inner">Most sites are live within 3-7 business days after we receive your content. Side Hustle sites can be ready in 2-3 days. We work fast because we use modern tools that traditional agencies don&rsquo;t have access to yet.</div>
         </div>
       </div>
 
@@ -1430,7 +1929,7 @@ body::before {
           <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">No. We write all the copy — headlines, service descriptions, about section, everything. We just need you to fill out a short onboarding form (about 15 minutes) with your business details, services, and any reviews you want featured.</div>
+          <div class="faq-answer-inner">No. We write all the copy &mdash; headlines, service descriptions, about section, everything. We just need you to fill out a short onboarding form (about 15 minutes) with your business details, services, and any reviews you want featured.</div>
         </div>
       </div>
 
@@ -1446,11 +1945,11 @@ body::before {
 
       <div class="faq-item reveal stagger-4">
         <button class="faq-question" aria-expanded="false">
-          What if I don't have professional photos?
+          What if I don&rsquo;t have professional photos?
           <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">We can work with what you have, even phone photos. We also offer a $250 professional photography add-on. Or we can send you a shot list and you take them yourself with your phone — modern phone cameras are surprisingly good.</div>
+          <div class="faq-answer-inner">We can work with what you have, even phone photos. We also offer a $250 professional photography add-on. Or we can send you a shot list and you take them yourself with your phone &mdash; modern phone cameras are surprisingly good.</div>
         </div>
       </div>
 
@@ -1470,7 +1969,7 @@ body::before {
           <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Hosting (keeping your site live and fast), SSL security, uptime monitoring, and updates. Think of it like a maintenance plan — we handle the technical stuff so you never have to think about it.</div>
+          <div class="faq-answer-inner">Hosting (keeping your site live and fast), SSL security, uptime monitoring, and updates. Think of it like a maintenance plan &mdash; we handle the technical stuff so you never have to think about it.</div>
         </div>
       </div>
 
@@ -1480,7 +1979,7 @@ body::before {
           <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">We have demo sites for multiple industries. Get your free audit and we'll show you what a site in your specific industry looks like.</div>
+          <div class="faq-answer-inner">We have demo sites for multiple industries. Get your free audit and we&rsquo;ll show you what a site in your specific industry looks like &mdash; plus how it compares to your current one.</div>
         </div>
       </div>
 
@@ -1494,7 +1993,253 @@ body::before {
         </div>
       </div>
 
+      <div class="faq-item reveal stagger-3">
+        <button class="faq-question" aria-expanded="false">
+          What&rsquo;s the difference between the Side Hustle and Starter packages?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The Side Hustle is a single-page site &mdash; perfect if you just need to get online quickly. The Starter gives you a full 3-page site with testimonials, an image gallery, and more detailed service descriptions. Both include booking and contact forms.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-4">
+        <button class="faq-question" aria-expanded="false">
+          Can I upgrade my package later?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Absolutely. Many clients start with a Side Hustle or Starter and upgrade as their business grows. We credit what you&rsquo;ve already paid toward the higher package.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-5">
+        <button class="faq-question" aria-expanded="false">
+          Do you offer any kind of guarantee?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We show you a full preview before anything goes live, and we include revision rounds with every package. We keep working until you&rsquo;re happy with the result.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-6">
+        <button class="faq-question" aria-expanded="false">
+          How do the monthly maintenance plans work?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">After your site launches, you pick a maintenance tier. We handle hosting, security, updates, and support so your site stays fast and secure. You can change or cancel your plan anytime.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal stagger-1">
+        <button class="faq-question" aria-expanded="false">
+          What if I need something that&rsquo;s not listed here?
+          <span class="faq-chevron"><i class="ph ph-caret-down" style="font-size:0.75rem;"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Reach out and tell us what you need. We build custom solutions regularly and can put together a quote for anything from custom forms to third-party integrations.</div>
+        </div>
+      </div>
+
     </div><!-- /faq-list -->
+
+  </div>
+</section>
+
+<!-- ============ CHECKOUT BUILDER ============ -->
+<section class="section" id="checkout" style="background: var(--bg-cream);">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="eyebrow reveal stagger-1">Self-Service</span>
+      <h2 class="section-heading reveal stagger-2">Ready to get started right now?</h2>
+      <p class="section-sub reveal stagger-3" style="max-width: 640px; margin: 0.75rem auto 0;">If you already know what you want, you can book your package directly. Select your options below and check out &mdash; we&rsquo;ll start building within 24 hours.</p>
+    </div>
+
+    <div class="checkout-builder reveal stagger-4">
+      <div class="checkout-builder-inner">
+
+        <!-- Step 1: Package -->
+        <div class="checkout-step">
+          <div class="checkout-step-header">
+            <span class="checkout-step-num">1</span>
+            <h3 class="checkout-step-title">Choose your package</h3>
+          </div>
+          <div class="checkout-options checkout-options--packages" id="pkg-options">
+            <label class="checkout-option">
+              <input type="radio" name="package" value="sidehustle" data-label="Side Hustle" data-price="750" data-stripe="https://buy.stripe.com/stackbuiltweb-sidehustle" data-tier="sidehustle">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Side Hustle</span>
+                <span class="checkout-option-price">$500 &ndash; $1,000</span>
+              </div>
+            </label>
+            <label class="checkout-option">
+              <input type="radio" name="package" value="starter" data-label="Starter" data-price="1500" data-stripe="https://buy.stripe.com/stackbuiltweb-starter" data-tier="starter">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Starter</span>
+                <span class="checkout-option-price">$1,500</span>
+              </div>
+            </label>
+            <label class="checkout-option">
+              <input type="radio" name="package" value="professional" data-label="Professional" data-price="3500" data-stripe="https://buy.stripe.com/stackbuiltweb-professional" data-tier="professional">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Professional</span>
+                <span class="checkout-option-price">$3,500</span>
+              </div>
+            </label>
+            <label class="checkout-option">
+              <input type="radio" name="package" value="premium" data-label="Premium" data-price="5500" data-stripe="https://buy.stripe.com/stackbuiltweb-premium" data-tier="premium">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Premium</span>
+                <span class="checkout-option-price">$5,500</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 2: Monthly Plan -->
+        <div class="checkout-step">
+          <div class="checkout-step-header">
+            <span class="checkout-step-num">2</span>
+            <h3 class="checkout-step-title">Choose your monthly plan</h3>
+          </div>
+          <div class="checkout-options checkout-options--plans" id="plan-options">
+            <label class="checkout-option">
+              <input type="radio" name="plan" value="hustle-basic" data-label="Hustle Basic" data-price="50">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Hustle Basic</span>
+                <span class="checkout-option-price">$50/mo</span>
+              </div>
+            </label>
+            <label class="checkout-option">
+              <input type="radio" name="plan" value="basic" data-label="Basic Maintenance" data-price="99">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Basic Maintenance</span>
+                <span class="checkout-option-price">$99/mo</span>
+              </div>
+            </label>
+            <label class="checkout-option">
+              <input type="radio" name="plan" value="growth" data-label="Growth" data-price="199">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Growth</span>
+                <span class="checkout-option-price">$199/mo</span>
+              </div>
+            </label>
+            <label class="checkout-option">
+              <input type="radio" name="plan" value="full-service" data-label="Full Service" data-price="349">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Full Service</span>
+                <span class="checkout-option-price">$349/mo</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 3: Add-ons -->
+        <div class="checkout-step">
+          <div class="checkout-step-header">
+            <span class="checkout-step-num">3</span>
+            <h3 class="checkout-step-title">Add extras <span style="font-weight:400; color: var(--text-tertiary);">(optional)</span></h3>
+          </div>
+          <div class="checkout-addons" id="addon-options">
+            <label class="checkout-addon">
+              <input type="checkbox" data-label="AI Voice/Chat Agent" data-price="500">
+              <div class="checkout-addon-inner">
+                <span class="checkout-addon-name">AI Voice/Chat Agent</span>
+                <span class="checkout-addon-price">+$500</span>
+              </div>
+            </label>
+            <label class="checkout-addon">
+              <input type="checkbox" data-label="Email Automation Setup" data-price="750">
+              <div class="checkout-addon-inner">
+                <span class="checkout-addon-name">Email Automation Setup</span>
+                <span class="checkout-addon-price">+$750</span>
+              </div>
+            </label>
+            <label class="checkout-addon">
+              <input type="checkbox" data-label="Google Ads Landing Page" data-price="500">
+              <div class="checkout-addon-inner">
+                <span class="checkout-addon-name">Google Ads Landing Page</span>
+                <span class="checkout-addon-price">+$500</span>
+              </div>
+            </label>
+            <label class="checkout-addon">
+              <input type="checkbox" data-label="Additional Pages" data-price="200">
+              <div class="checkout-addon-inner">
+                <span class="checkout-addon-name">Additional Pages</span>
+                <span class="checkout-addon-price">+$200/page</span>
+              </div>
+            </label>
+            <label class="checkout-addon">
+              <input type="checkbox" data-label="Logo Design" data-price="300">
+              <div class="checkout-addon-inner">
+                <span class="checkout-addon-name">Logo Design</span>
+                <span class="checkout-addon-price">+$300</span>
+              </div>
+            </label>
+            <label class="checkout-addon">
+              <input type="checkbox" data-label="On-Site Photography" data-price="250">
+              <div class="checkout-addon-inner">
+                <span class="checkout-addon-name">On-Site Photography</span>
+                <span class="checkout-addon-price">+$250</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="checkout-divider"></div>
+
+        <!-- Order Summary -->
+        <div class="checkout-summary" id="checkout-summary">
+          <h3 class="checkout-summary-title">Order Summary</h3>
+          <div class="checkout-summary-placeholder" id="summary-placeholder">
+            Select a package to see your total
+          </div>
+          <div class="checkout-summary-details" id="summary-details" style="display:none;">
+            <div class="checkout-summary-row" id="summary-pkg">
+              <span class="checkout-summary-label">Package</span>
+              <span class="checkout-summary-value" id="summary-pkg-val">&mdash;</span>
+            </div>
+            <div class="checkout-summary-row" id="summary-plan-row" style="display:none;">
+              <span class="checkout-summary-label">Monthly plan</span>
+              <span class="checkout-summary-value" id="summary-plan-val">&mdash;</span>
+            </div>
+            <div class="checkout-summary-row" id="summary-addons-row" style="display:none;">
+              <span class="checkout-summary-label">Add-ons</span>
+              <span class="checkout-summary-value" id="summary-addons-val">&mdash;</span>
+            </div>
+            <div class="checkout-summary-sep"></div>
+            <div class="checkout-summary-row checkout-summary-row--total">
+              <span class="checkout-summary-label">One-time total</span>
+              <span class="checkout-summary-value checkout-summary-value--bold" id="summary-total">&mdash;</span>
+            </div>
+            <div class="checkout-summary-row" id="summary-monthly-row" style="display:none;">
+              <span class="checkout-summary-label">Monthly</span>
+              <span class="checkout-summary-value" id="summary-monthly-val">&mdash;</span>
+            </div>
+            <div class="checkout-summary-row checkout-summary-row--due">
+              <span class="checkout-summary-label">Due today (50%)</span>
+              <span class="checkout-summary-value checkout-summary-value--accent" id="summary-due">&mdash;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="checkout-actions">
+          <a href="#" class="checkout-btn-primary" id="checkout-btn" onclick="return false;">
+            Proceed to Checkout
+            <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:1rem;"></i></span>
+          </a>
+          <a href="/contact.html" class="checkout-btn-secondary" id="contact-btn">
+            Prefer to talk first? Contact us &rarr;
+          </a>
+        </div>
+
+      </div>
+    </div>
 
   </div>
 </section>
@@ -1504,7 +2249,7 @@ body::before {
   <div class="container">
     <div class="cta-section reveal stagger-1">
       <h2 class="cta-h2">Not sure which package is right?</h2>
-      <p class="cta-sub">Start with a free website audit. We'll score your current site and recommend the best option for your business.</p>
+      <p class="cta-sub">Start with a free website audit. We&rsquo;ll score your current site and recommend the best option for your business.</p>
       <a href="/calculator.html" class="cta-btn">
         Get Your Free Website Audit
         <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:1rem;"></i></span>
@@ -1518,27 +2263,36 @@ body::before {
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">Stack<span>Built</span> Web</div>
-        <p class="footer-tagline">Modern websites for local service businesses.</p>
+        <div class="footer-brand">
+          <svg width="160" height="28" viewBox="0 0 160 28" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 23 L10 17 L17 23" stroke="#D4652E" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 16 L10 10 L17 16" stroke="rgba(255,255,255,0.7)" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 9 L10 3 L17 9" stroke="rgba(255,255,255,0.45)" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="24" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="-0.3">Stack</text>
+            <text x="70" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="-0.3">Built</text>
+            <text x="112" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="500" fill="rgba(255,255,255,0.5)" letter-spacing="-0.3">Web</text>
+          </svg>
+        </div>
+        <p class="footer-tagline">Serving Brevard County and beyond</p>
+        <p class="footer-desc">Modern websites for local service businesses. Fast builds, transparent pricing, real results.</p>
       </div>
       <div class="footer-links">
         <div class="footer-links-title">Quick Links</div>
-        <a href="/">Home</a>
+        <a href="/index.html">Home</a>
+        <a href="/services.html">Services</a>
         <a href="/pricing.html">Pricing</a>
         <a href="/calculator.html">Free Audit</a>
-        <a href="https://stackbuiltweb.com/contact">Contact</a>
+        <a href="/contact.html">Contact</a>
       </div>
       <div class="footer-contact">
-        <div class="footer-contact-title">Get In Touch</div>
-        <a href="tel:+13213285561">(321) 328-5561</a>
+        <div class="footer-contact-title">Get in Touch</div>
         <a href="mailto:geoff@stackbuiltweb.com">geoff@stackbuiltweb.com</a>
+        <span>Melbourne, FL</span>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">&copy; 2026 StackBuilt Web. Melbourne, FL.</span>
-      <span class="footer-attribution">
-        <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
-      </span>
+      <span class="footer-copy">&copy; 2026 StackBuilt Web. All rights reserved.</span>
+
     </div>
   </div>
 </footer>
@@ -1547,10 +2301,10 @@ body::before {
 <script>
 // Scroll Reveal via IntersectionObserver
 (function() {
-  const reveals = document.querySelectorAll('.reveal');
+  var reveals = document.querySelectorAll('.reveal');
   if (!reveals.length) return;
 
-  const observer = new IntersectionObserver(function(entries) {
+  var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
@@ -1569,8 +2323,8 @@ body::before {
 
 // Nav scroll effect
 (function() {
-  const nav = document.getElementById('siteNav');
-  let ticking = false;
+  var nav = document.getElementById('siteNav');
+  var ticking = false;
 
   function onScroll() {
     if (!ticking) {
@@ -1591,9 +2345,9 @@ body::before {
 
 // Mobile nav
 (function() {
-  const btn = document.getElementById('mobileMenuBtn');
-  const overlay = document.getElementById('mobileNav');
-  const closeBtn = document.getElementById('mobileNavClose');
+  var btn = document.getElementById('mobileMenuBtn');
+  var overlay = document.getElementById('mobileNav');
+  var closeBtn = document.getElementById('mobileNavClose');
 
   if (!btn || !overlay) return;
 
@@ -1616,14 +2370,14 @@ body::before {
 
 // FAQ Accordion
 (function() {
-  const items = document.querySelectorAll('.faq-item');
+  var items = document.querySelectorAll('.faq-item');
 
   items.forEach(function(item) {
-    const question = item.querySelector('.faq-question');
-    const answer = item.querySelector('.faq-answer');
+    var question = item.querySelector('.faq-question');
+    var answer = item.querySelector('.faq-answer');
 
     question.addEventListener('click', function() {
-      const isOpen = item.classList.contains('open');
+      var isOpen = item.classList.contains('open');
 
       // Close all others
       items.forEach(function(other) {
@@ -1645,6 +2399,118 @@ body::before {
       }
     });
   });
+})();
+
+// Checkout Builder
+(function() {
+  var pkgInputs = document.querySelectorAll('input[name="package"]');
+  var planInputs = document.querySelectorAll('input[name="plan"]');
+  var addonInputs = document.querySelectorAll('#addon-options input[type="checkbox"]');
+
+  var summaryPlaceholder = document.getElementById('summary-placeholder');
+  var summaryDetails = document.getElementById('summary-details');
+  var summaryPkgVal = document.getElementById('summary-pkg-val');
+  var summaryPlanRow = document.getElementById('summary-plan-row');
+  var summaryPlanVal = document.getElementById('summary-plan-val');
+  var summaryAddonsRow = document.getElementById('summary-addons-row');
+  var summaryAddonsVal = document.getElementById('summary-addons-val');
+  var summaryTotal = document.getElementById('summary-total');
+  var summaryMonthlyRow = document.getElementById('summary-monthly-row');
+  var summaryMonthlyVal = document.getElementById('summary-monthly-val');
+  var summaryDue = document.getElementById('summary-due');
+
+  var checkoutBtn = document.getElementById('checkout-btn');
+  var contactBtn = document.getElementById('contact-btn');
+
+  function fmt(n) {
+    return '$' + n.toLocaleString('en-US');
+  }
+
+  function getSelected(inputs) {
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].checked) return inputs[i];
+    }
+    return null;
+  }
+
+  function update() {
+    var pkg = getSelected(pkgInputs);
+    var plan = getSelected(planInputs);
+
+    // If no package selected, show placeholder
+    if (!pkg) {
+      summaryPlaceholder.style.display = '';
+      summaryDetails.style.display = 'none';
+      checkoutBtn.classList.remove('active');
+      checkoutBtn.href = '#';
+      checkoutBtn.onclick = function() { return false; };
+      contactBtn.href = '/contact.html';
+      return;
+    }
+
+    summaryPlaceholder.style.display = 'none';
+    summaryDetails.style.display = '';
+
+    var pkgPrice = parseInt(pkg.getAttribute('data-price'), 10);
+    var pkgLabel = pkg.getAttribute('data-label');
+    var pkgStripe = pkg.getAttribute('data-stripe');
+    var pkgTier = pkg.getAttribute('data-tier');
+
+    summaryPkgVal.textContent = pkgLabel + ' — ' + fmt(pkgPrice);
+
+    // Plan
+    if (plan) {
+      var planPrice = parseInt(plan.getAttribute('data-price'), 10);
+      var planLabel = plan.getAttribute('data-label');
+      summaryPlanRow.style.display = '';
+      summaryPlanVal.textContent = planLabel + ' — ' + fmt(planPrice) + '/mo';
+      summaryMonthlyRow.style.display = '';
+      summaryMonthlyVal.textContent = fmt(planPrice) + '/mo';
+    } else {
+      summaryPlanRow.style.display = 'none';
+      summaryMonthlyRow.style.display = 'none';
+    }
+
+    // Add-ons
+    var addonTotal = 0;
+    var addonNames = [];
+    addonInputs.forEach(function(cb) {
+      if (cb.checked) {
+        addonTotal += parseInt(cb.getAttribute('data-price'), 10);
+        addonNames.push(cb.getAttribute('data-label'));
+      }
+    });
+
+    if (addonNames.length > 0) {
+      summaryAddonsRow.style.display = '';
+      summaryAddonsVal.textContent = addonNames.join(', ') + ' — ' + fmt(addonTotal);
+    } else {
+      summaryAddonsRow.style.display = 'none';
+    }
+
+    var oneTimeTotal = pkgPrice + addonTotal;
+    summaryTotal.textContent = fmt(oneTimeTotal);
+    summaryDue.textContent = fmt(Math.ceil(oneTimeTotal / 2));
+
+    // Update buttons
+    checkoutBtn.classList.add('active');
+    checkoutBtn.href = pkgStripe;
+    checkoutBtn.onclick = null;
+    contactBtn.href = '/contact.html?tier=' + pkgTier;
+  }
+
+  pkgInputs.forEach(function(input) {
+    input.addEventListener('change', update);
+  });
+  planInputs.forEach(function(input) {
+    input.addEventListener('change', update);
+  });
+  addonInputs.forEach(function(input) {
+    input.addEventListener('change', update);
+  });
+
+  // Initialize
+  update();
 })();
 </script>
 
