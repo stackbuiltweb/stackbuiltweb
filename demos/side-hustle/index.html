@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Perplexity Computer Attribution — SEO Meta Tags -->
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rinse Right Pressure Washing — Melbourne, FL</title>
-<meta name="description" content="Professional pressure washing across Brevard County. Driveways, houses, roofs, and more. Free estimates.">
+<meta name="description" content="Professional pressure washing across Brevard County. Driveways, houses, roofs, and more. Same-week availability. Free estimates — call (321) 555-0391.">
 
 <!-- Fonts -->
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400;500;700;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- LocalBusiness Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Rinse Right Pressure Washing",
+  "description": "Professional pressure washing across Brevard County. Driveways, houses, roofs, and more.",
+  "telephone": "+1-321-555-0391",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Melbourne",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Brevard County, FL"
+  },
+  "url": "https://www.stackbuiltweb.com/demos/side-hustle/",
+  "priceRange": "$$"
+}
+</script>
 
 <style>
 /* ——— RESET & BASE ——— */
@@ -25,6 +45,7 @@
   --text: #0F172A;
   --muted: #64748B;
   --highlight: #38BDF8;
+  --accent: #0EA5E9;
   --tier-bg: #0C4E54;
   --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -144,7 +165,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ——— HERO ——— */
 .hero {
-  background: linear-gradient(180deg, #0369A1 0%, #0369A1 40%, #F0F4F8 100%);
+  background: linear-gradient(rgba(0,30,50,0.72), rgba(0,30,50,0.82)),
+              url('https://images.pexels.com/photos/5652626/pexels-photo-5652626.jpeg?auto=compress&cs=tinysrgb&w=1600');
+  background-size: cover;
+  background-position: center;
   padding: 6rem 1.5rem 4rem;
   text-align: center;
 }
@@ -248,68 +272,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--text);
 }
 
-/* ——— BEFORE / AFTER ——— */
-.ba-section { background: var(--bg); }
-
-.ba-grid {
-  max-width: 1120px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.ba-pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 1px 4px rgba(15,23,42,0.06);
-}
-
-.ba-img {
-  position: relative;
-  aspect-ratio: 4/3;
-  overflow: hidden;
-}
-
-.ba-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.ba-img.before::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(15,23,42,0.25);
-  pointer-events: none;
-}
-
-.ba-label {
-  position: absolute;
-  bottom: 0.5rem;
-  left: 0.5rem;
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  z-index: 2;
-}
-
-.before .ba-label {
-  background: rgba(15,23,42,0.7);
-  color: rgba(255,255,255,0.9);
-}
-
-.after .ba-label {
-  background: rgba(3,105,161,0.85);
-  color: #fff;
-}
-
 /* ——— SERVICES ——— */
 .services-section { background: #fff; }
 
@@ -366,6 +328,42 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 0.88rem;
   color: var(--muted);
   line-height: 1.5;
+}
+
+/* ——— STATS BAR ——— */
+.stats-bar {
+  background: var(--deep);
+  padding: 2rem 1.5rem;
+}
+
+.stats-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  color: #fff;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-top: 0.15rem;
 }
 
 /* ——— BOOKING ——— */
@@ -482,40 +480,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--muted);
 }
 
-.map-placeholder {
+.map-card {
   background: var(--card);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(15,23,42,0.06);
-  aspect-ratio: 16/10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.map-placeholder-inner {
-  background: #E2E8F0;
-  border-radius: 16px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  color: var(--muted);
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-.map-placeholder-inner svg {
-  width: 32px;
-  height: 32px;
-  stroke: var(--muted);
-  fill: none;
-  stroke-width: 1.5;
-  opacity: 0.6;
 }
 
 /* ——— FOOTER ——— */
@@ -624,14 +593,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
   .hero { padding: 4rem 1.25rem 3rem; }
 
-  .ba-grid {
+  .services-grid {
     grid-template-columns: 1fr;
     max-width: 420px;
   }
 
-  .services-grid {
-    grid-template-columns: 1fr;
-    max-width: 420px;
+  .stats-inner {
+    gap: 1.5rem;
+  }
+
+  .stat-item {
+    flex: 0 0 auto;
   }
 
   .booking-inner {
@@ -650,7 +622,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .ba-grid { grid-template-columns: 1fr 1fr; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
@@ -703,43 +674,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <svg viewBox="0 0 16 16" fill="none"><path d="M8 2C5 2 3 5 3 8c0 4 5 6 5 6s5-2 5-6c0-3-2-6-5-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="8" r="1.5" stroke="currentColor" stroke-width="1.3"/></svg>
         Eco-Friendly
       </span>
-    </div>
-  </div>
-</section>
-
-<!-- BEFORE / AFTER -->
-<section class="section ba-section" id="work">
-  <h2 class="section-title reveal">See the difference.</h2>
-  <div class="ba-grid">
-    <div class="ba-pair reveal">
-      <div class="ba-img before">
-        <img src="https://picsum.photos/seed/dirty-concrete-driveway-stains/400/300" alt="Oil-stained concrete driveway before pressure washing" loading="lazy">
-        <span class="ba-label">Before</span>
-      </div>
-      <div class="ba-img after">
-        <img src="https://picsum.photos/seed/sparkling-clean-concrete-driveway/400/300" alt="Sparkling clean concrete driveway after pressure washing" loading="lazy">
-        <span class="ba-label">After</span>
-      </div>
-    </div>
-    <div class="ba-pair reveal">
-      <div class="ba-img before">
-        <img src="https://picsum.photos/seed/grimy-house-siding-mold/400/300" alt="Grimy house siding covered in mold and mildew" loading="lazy">
-        <span class="ba-label">Before</span>
-      </div>
-      <div class="ba-img after">
-        <img src="https://picsum.photos/seed/fresh-white-house-exterior/400/300" alt="Fresh white house exterior after professional washing" loading="lazy">
-        <span class="ba-label">After</span>
-      </div>
-    </div>
-    <div class="ba-pair reveal">
-      <div class="ba-img before">
-        <img src="https://picsum.photos/seed/green-algae-pool-deck/400/300" alt="Pool deck covered in green algae before cleaning" loading="lazy">
-        <span class="ba-label">Before</span>
-      </div>
-      <div class="ba-img after">
-        <img src="https://picsum.photos/seed/pristine-pool-deck-surface/400/300" alt="Pristine pool deck surface after pressure washing" loading="lazy">
-        <span class="ba-label">After</span>
-      </div>
     </div>
   </div>
 </section>
@@ -799,6 +733,24 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   </div>
 </section>
 
+<!-- STATS BAR -->
+<div class="stats-bar reveal">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number">500+</div>
+      <div class="stat-label">Jobs Completed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">5-Star</div>
+      <div class="stat-label">Google Rating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">Brevard County's</div>
+      <div class="stat-label">Choice for Pressure Washing</div>
+    </div>
+  </div>
+</div>
+
 <!-- BOOKING -->
 <section class="section booking-section" id="booking">
   <h2 class="section-title reveal">Book your free estimate.</h2>
@@ -829,12 +781,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
           </select>
         </div>
         <div class="form-group">
-          <label for="fdate">Preferred Date</label>
-          <input type="date" id="fdate" name="date">
-        </div>
-        <div class="form-group">
           <label for="fmessage">Message <span style="color:var(--muted);font-weight:400">(optional)</span></label>
-          <textarea id="fmessage" name="message" placeholder="Tell us about your project…" rows="3"></textarea>
+          <textarea id="fmessage" name="message" placeholder="Tell us about your project..." rows="3"></textarea>
         </div>
         <button type="submit" class="btn-submit">Request Quote</button>
       </form>
@@ -845,14 +793,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <a href="tel:+13215550391" class="call-card-phone">(321) 555-0391</a>
         <div class="call-card-note">Mike responds within 2 hours</div>
       </div>
-      <div class="map-placeholder">
-        <div class="map-placeholder-inner">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-            <circle cx="12" cy="9" r="2.5"/>
-          </svg>
-          Melbourne, FL — Brevard County
-        </div>
+      <div class="map-card">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112888.86411874809!2d-80.6901!3d28.0836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88de0b4e0b5df52f%3A0x7e7530acc7c635d5!2sMelbourne%2C%20FL!5e0!3m2!1sen!2sus!4v1" width="100%" height="250" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
@@ -862,7 +804,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-left">
-      <div class="footer-brand"><strong>Rinse Right Pressure Washing</strong> — Melbourne, FL</div>
+      <div class="footer-brand"><strong>Rinse Right Pressure Washing</strong> — Melbourne, FL (Brevard County)</div>
       <div class="footer-phone"><a href="tel:+13215550391">(321) 555-0391</a></div>
     </div>
     <div class="footer-right">
@@ -876,10 +818,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
           <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="rgba(255,255,255,0.7)"/></svg>
         </a>
       </div>
-      <div class="footer-copy">© 2026 Rinse Right Pressure Washing</div>
+      <div class="footer-copy">&copy; 2026 Rinse Right Pressure Washing</div>
     </div>
     <div class="footer-attribution">
-      
+      <a href="https://stackbuiltweb.com">Built by StackBuilt Web</a>
     </div>
   </div>
 </footer>
@@ -894,9 +836,8 @@ window.addEventListener('scroll', () => {
 /* ——— IntersectionObserver scroll-reveal ——— */
 const reveals = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      // Stagger siblings
       const siblings = entry.target.parentElement.querySelectorAll('.reveal');
       let delay = 0;
       siblings.forEach((sib, idx) => {
@@ -920,7 +861,7 @@ function handleSubmit(e) {
   e.preventDefault();
   const btn = e.target.querySelector('.btn-submit');
   const orig = btn.textContent;
-  btn.textContent = 'Sent! ✓';
+  btn.textContent = 'Sent!';
   btn.style.background = '#059669';
   setTimeout(() => {
     btn.textContent = orig;
