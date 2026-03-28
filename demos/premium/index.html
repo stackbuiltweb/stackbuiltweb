@@ -3,1009 +3,2066 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Golden Coast Studios — Light. Moment. Frame.</title>
-<meta name="description" content="Golden Coast Studios — editorial photography in Cocoa Beach, FL. Portraits, weddings, corporate, real estate, and commercial photography by Sofia Reyes.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<title>Golden Coast Studios — Cocoa Beach, FL | Editorial Photography</title>
+<meta name="description" content="Editorial photography in Cocoa Beach, FL. Portraits, weddings, corporate headshots, real estate, and personal branding. Book your session with Sofia Reyes. (321) 555-0822.">
+
+<!-- Open Graph Tags -->
+<meta property="og:title" content="Golden Coast Studios — Editorial Photography in Cocoa Beach, FL">
+<meta property="og:description" content="Portraits, weddings, corporate, real estate, and branding photography. Book your session today.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.stackbuiltweb.com/demos/premium/">
+<meta property="og:image" content="https://www.stackbuiltweb.com/demos/premium/og-image.jpg">
+<meta property="og:locale" content="en_US">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- LocalBusiness Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Golden Coast Studios",
+  "description": "Editorial photography studio in Cocoa Beach, FL. Portraits, weddings, corporate headshots, real estate, product, and personal branding photography.",
+  "telephone": "+1-321-555-0822",
+  "email": "sofia@goldencoaststudios.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cocoa Beach",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "areaServed": {"@type": "Place", "name": "Brevard County, FL"},
+  "url": "https://www.stackbuiltweb.com/demos/premium/",
+  "priceRange": "$$$",
+  "foundingDate": "2019",
+  "founder": {"@type": "Person", "name": "Sofia Reyes"}
+}
+</script>
+
+<!-- ProfessionalService Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Golden Coast Studios",
+  "telephone": "+1-321-555-0822",
+  "address": {"@type": "PostalAddress", "addressLocality": "Cocoa Beach", "addressRegion": "FL", "addressCountry": "US"},
+  "areaServed": {"@type": "Place", "name": "Brevard County, FL"},
+  "description": "Editorial photography studio specializing in portraits, weddings, corporate, real estate, product, and personal branding photography."
+}
+</script>
+
+<!-- Service Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Photography",
+  "provider": {"@type": "LocalBusiness", "name": "Golden Coast Studios", "telephone": "+1-321-555-0822"},
+  "areaServed": {"@type": "Place", "name": "Brevard County, FL"},
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Photography Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Portrait Sessions"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wedding Photography"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Corporate Headshots"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Real Estate Photography"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Product Photography"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Personal Branding"}}
+    ]
+  }
+}
+</script>
+
+<!-- Review Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Golden Coast Studios",
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "89", "bestRating": "5"},
+  "review": [
+    {"@type": "Review", "author": {"@type": "Person", "name": "Amanda R."}, "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}, "reviewBody": "Sofia captured our wedding so beautifully. Our gallery is absolutely stunning."},
+    {"@type": "Review", "author": {"@type": "Person", "name": "David Chen"}, "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}, "reviewBody": "The most professional headshots our executive team has ever had."},
+    {"@type": "Review", "author": {"@type": "Person", "name": "Michelle Torres"}, "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}, "reviewBody": "Consistently excellent quality and fast turnaround for all our listing photos."},
+    {"@type": "Review", "author": {"@type": "Person", "name": "Priya Patel"}, "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}, "reviewBody": "Six months of social media content in two hours. Images that actually feel like me."}
+  ]
+}
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "How far in advance should I book?", "acceptedAnswer": {"@type": "Answer", "text": "For portraits and headshots, 2-3 weeks is ideal. Weddings should be booked 6-12 months in advance."}},
+    {"@type": "Question", "name": "Do you travel for sessions?", "acceptedAnswer": {"@type": "Answer", "text": "I'm based in Cocoa Beach and regularly shoot across Brevard County. Travel fees apply outside a 50-mile radius."}},
+    {"@type": "Question", "name": "How long until I receive my photos?", "acceptedAnswer": {"@type": "Answer", "text": "Portraits: 1-2 weeks. Weddings: 4-6 weeks. Real estate: 24-48 hours. Rush delivery available."}},
+    {"@type": "Question", "name": "Can I print the photos myself?", "acceptedAnswer": {"@type": "Answer", "text": "Essential and Signature collections include digital files with a personal print release. Luxe includes full commercial print rights."}},
+    {"@type": "Question", "name": "What if it rains on our outdoor session?", "acceptedAnswer": {"@type": "Answer", "text": "We reschedule at no extra cost, or we can embrace it. Some of my favorite photos have been shot in dramatic weather."}}
+  ]
+}
+</script>
+
 <style>
+/* ——— RESET & BASE ——— */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #FAF8F5;
+  --bg: #FAF6F0;
+  --bg-alt: #F3EDE4;
   --card: #FFFFFF;
-  --accent: #1A1A1A;
-  --gold: #C9A96E;
-  --text: #1A1A1A;
-  --muted: #8A8680;
-  --border: rgba(26, 26, 26, 0.08);
-  --font-serif: 'Instrument Serif', Georgia, serif;
-  --font-sans: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --dark: #1a1a1a;
+  --dark-mid: #2a2a2a;
+  --text: #1a1a1a;
+  --muted: #7a7a7a;
+  --light-muted: #a0a0a0;
+  --gold: #C4A762;
+  --gold-hover: #B09550;
+  --gold-light: rgba(196,167,98,0.1);
+  --tier-bg: #0C4E54;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
+  --radius: 8px;
 }
 
 html { scroll-behavior: smooth; }
+
 body {
-  font-family: var(--font-sans);
-  background: var(--bg);
+  font-family: var(--font-body);
   color: var(--text);
+  background: var(--bg);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Skip Link */
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: 16px;
-  background: var(--accent);
-  color: var(--bg);
-  padding: 8px 16px;
-  z-index: 1000;
-  font-size: 14px;
-  text-decoration: none;
-}
-.skip-link:focus { top: 16px; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-/* ============ NAVIGATION ============ */
-.nav {
+/* ——— HEADER (transparent → solid) ——— */
+.site-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding: 24px 48px;
+  top: 0; left: 0; right: 0;
+  z-index: 90;
+  background: transparent;
+  transition: background 0.5s var(--ease), box-shadow 0.5s var(--ease), backdrop-filter 0.5s var(--ease);
+}
+
+.site-header.scrolled {
+  background: rgba(26,26,26,0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 20px rgba(0,0,0,0.15);
+}
+
+.header-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 4.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background 0.5s var(--ease-out), backdrop-filter 0.5s var(--ease-out), padding 0.4s var(--ease-out);
-}
-.nav--scrolled {
-  background: rgba(250, 248, 245, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 16px 48px;
-}
-.nav__logo {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 22px;
-  color: var(--text);
-  text-decoration: none;
-  letter-spacing: -0.02em;
-}
-.nav__links {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  list-style: none;
-}
-.nav__links a {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text);
-  text-decoration: none;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: color 180ms var(--ease-out);
-}
-.nav__links a:hover { color: var(--gold); }
-.nav__book {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--gold);
-  text-decoration: none;
-  border: 1px solid var(--gold);
-  padding: 10px 24px;
-  border-radius: 100px;
-  transition: background 180ms var(--ease-out), color 180ms var(--ease-out);
-}
-.nav__book:hover {
-  background: var(--gold);
-  color: var(--accent);
 }
 
-/* Mobile nav */
-.nav__toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
+.logo {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.35rem;
+  color: #fff;
+  letter-spacing: 0.01em;
 }
-.nav__toggle span {
+
+.logo em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.04em;
+  transition: color 0.3s var(--ease);
+}
+
+.nav-links a:hover { color: #fff; }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.header-phone {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  transition: color 0.3s var(--ease);
+}
+
+.header-phone:hover { color: var(--gold); }
+
+.btn-cta {
+  background: transparent;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.3);
+  letter-spacing: 0.03em;
+  transition: background 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.btn-cta:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.menu-toggle span {
   display: block;
   width: 24px;
   height: 1.5px;
-  background: var(--text);
-  transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
 }
-.nav__toggle.active span:nth-child(1) { transform: translateY(3.75px) rotate(45deg); }
-.nav__toggle.active span:nth-child(2) { opacity: 0; }
-.nav__toggle.active span:nth-child(3) { transform: translateY(-3.75px) rotate(-45deg); }
 
-.nav__mobile-menu {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--bg);
-  z-index: 99;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-  opacity: 0;
-  transition: opacity 0.4s var(--ease-out);
-}
-.nav__mobile-menu.active {
-  display: flex;
-  opacity: 1;
-}
-.nav__mobile-menu a {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 36px;
-  color: var(--text);
-  text-decoration: none;
-  transition: color 180ms var(--ease-out);
-}
-.nav__mobile-menu a:hover { color: var(--gold); }
-
-/* ============ HERO ============ */
+/* ——— HERO (full viewport) ——— */
 .hero {
   position: relative;
-  height: 100dvh;
+  height: 100vh;
   min-height: 600px;
+  background: linear-gradient(160deg, #1a1a1a 0%, #2a2a2a 30%, #1a1a1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   overflow: hidden;
 }
-.hero__image-wrap {
+
+.hero::after {
+  content: '';
   position: absolute;
   inset: 0;
-  overflow: hidden;
+  background: linear-gradient(180deg, rgba(26,26,26,0.3) 0%, rgba(26,26,26,0.6) 100%);
+  pointer-events: none;
 }
-.hero__image {
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1);
-  will-change: transform;
 }
-.hero__gradient {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60%;
-  background: linear-gradient(to top, rgba(250, 248, 245, 0.5) 0%, rgba(250, 248, 245, 0.2) 40%, transparent 100%);
-  pointer-events: none;
-}
-.hero__content {
-  position: absolute;
-  bottom: 80px;
-  left: 48px;
+
+.hero-content {
+  position: relative;
   z-index: 2;
+  max-width: 700px;
+  padding: 0 2rem;
 }
-.hero__title {
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+}
+
+.hero-tagline {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(32px, 5vw, 56px);
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: var(--gold);
   font-weight: 400;
-  color: var(--card);
-  line-height: 1.1;
-  text-shadow: 0 2px 40px rgba(0,0,0,0.15);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
 }
-.hero__tagline {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.3em;
+
+.hero-sub {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.01em;
+}
+
+.btn-hero {
+  display: inline-block;
+  background: transparent;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.85rem 2.5rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.35);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.85);
-  margin-top: 16px;
-  text-shadow: 0 1px 20px rgba(0,0,0,0.15);
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease), transform 0.4s var(--ease);
 }
-.hero__scroll {
+
+.btn-hero:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.hero-scroll {
   position: absolute;
-  bottom: 32px;
+  bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  animation: bounce 2s ease-in-out infinite;
-}
-.hero__scroll svg {
-  width: 24px;
-  height: 24px;
-  stroke: rgba(255,255,255,0.6);
-  stroke-width: 2;
-  fill: none;
-}
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
-}
-
-/* ============ REVEAL ANIMATIONS ============ */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ============ PORTFOLIO PREVIEW ============ */
-.portfolio-preview {
-  padding: 120px 48px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.portfolio-preview__label {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 64px;
-}
-.portfolio-preview__item {
-  margin-bottom: 80px;
-}
-.portfolio-preview__img-wrap {
-  overflow: hidden;
-  border-radius: 2px;
-}
-.portfolio-preview__img {
-  width: 100%;
-  height: auto;
-  display: block;
-  aspect-ratio: 3/2;
-  object-fit: cover;
-  transition: transform 0.8s var(--ease-out);
-}
-.portfolio-preview__img-wrap:hover .portfolio-preview__img {
-  transform: scale(1.02);
-}
-.portfolio-preview__caption {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 16px;
-  letter-spacing: 0.02em;
-}
-.portfolio-preview__quote {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(28px, 4vw, 44px);
-  color: var(--muted);
-  line-height: 1.3;
-  margin: 80px 0;
-  max-width: 700px;
-  opacity: 0.6;
-}
-
-/* ============ SERVICES PREVIEW ============ */
-.services-preview {
-  padding: 100px 48px 120px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.services-preview__heading {
-  font-family: var(--font-serif);
-  font-size: clamp(28px, 3.5vw, 44px);
-  font-weight: 400;
-  margin-bottom: 64px;
-}
-.service-line {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 28px 0;
-  border-top: 1px solid var(--border);
-  cursor: pointer;
-  overflow: hidden;
-}
-.service-line:last-child { border-bottom: 1px solid var(--border); }
-.service-line__name {
-  font-family: var(--font-serif);
-  font-size: clamp(22px, 3vw, 36px);
-  font-weight: 400;
-  transition: transform 0.4s var(--ease-out), color 0.3s var(--ease-out);
-  position: relative;
-  z-index: 2;
-}
-.service-line:hover .service-line__name {
-  transform: translateX(24px);
-  color: var(--gold);
-}
-.service-line__image {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%) translateX(100%);
-  width: 200px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 2px;
-  opacity: 0;
-  transition: transform 0.5s var(--ease-out), opacity 0.5s var(--ease-out);
-  z-index: 1;
-  pointer-events: none;
-}
-.service-line:hover .service-line__image {
-  transform: translateY(-50%) translateX(0);
-  opacity: 1;
-}
-
-/* ============ ABOUT PREVIEW ============ */
-.about-preview {
-  padding: 100px 48px;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.about-preview__img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  border-radius: 2px;
-}
-.about-preview__content {}
-.about-preview__heading {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(36px, 4vw, 52px);
-  font-weight: 400;
-  margin-bottom: 24px;
-}
-.about-preview__text {
-  font-family: var(--font-sans);
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 48px;
-  max-width: 440px;
-}
-.about-preview__stats {
-  display: flex;
-  gap: 48px;
-}
-.about-preview__stat-value {
-  font-family: var(--font-serif);
-  font-size: 32px;
-  font-weight: 400;
-  color: var(--text);
-}
-.about-preview__stat-label {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 4px;
-}
-
-/* ============ INVESTMENT PREVIEW ============ */
-.investment {
-  padding: 100px 48px 120px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-.investment__heading {
-  font-family: var(--font-serif);
-  font-size: clamp(28px, 3.5vw, 44px);
-  font-weight: 400;
-  margin-bottom: 56px;
-}
-.investment__item {
-  padding: 24px 0;
-  border-top: 1px solid var(--border);
-}
-.investment__item:last-of-type { border-bottom: 1px solid var(--border); }
-.investment__name {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 400;
-}
-.investment__price {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 4px;
-}
-.investment__note {
-  font-family: var(--font-sans);
-  font-size: 16px;
-  color: var(--muted);
-  margin-top: 48px;
-  line-height: 1.7;
-}
-.investment__cta {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 14px;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.7rem;
   font-weight: 500;
-  color: var(--text);
-  text-decoration: none;
-  margin-top: 24px;
-  letter-spacing: 0.04em;
-  transition: color 180ms var(--ease-out);
-}
-.investment__cta:hover { color: var(--gold); }
-
-/* ============ CHATBOT WIDGET ============ */
-.chatbot-trigger {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--gold);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 24px rgba(201, 169, 110, 0.3);
-  z-index: 200;
-  transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
-}
-.chatbot-trigger:hover {
-  transform: scale(1.06);
-  box-shadow: 0 6px 32px rgba(201, 169, 110, 0.4);
-}
-.chatbot-trigger svg { width: 24px; height: 24px; fill: var(--accent); }
-.chatbot-trigger.hidden { display: none; }
-
-.chatbot-panel {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  width: 360px;
-  height: 500px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: 0 16px 64px rgba(0,0,0,0.1);
-  z-index: 201;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 0.7; transform: scaleY(1.2); }
+}
+
+/* ——— SECTIONS ——— */
+.section { padding: 6rem 2rem; }
+
+.section-inner { max-width: 1240px; margin: 0 auto; }
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.section-sub {
+  font-size: 0.92rem;
+  color: var(--muted);
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 3.5rem;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ——— PORTFOLIO ——— */
+.portfolio-section { background: var(--bg); }
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.portfolio-item {
+  position: relative;
   overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+  min-height: 280px;
+  cursor: pointer;
+}
+
+.portfolio-item:nth-child(1) { grid-row: span 2; min-height: 580px; }
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-slow);
+}
+
+.portfolio-item:hover img { transform: scale(1.04); }
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(26,26,26,0.7) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
   opacity: 0;
-  transform: translateY(20px) scale(0.95);
-  pointer-events: none;
-  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+  transition: opacity 0.4s var(--ease);
 }
-.chatbot-panel.open {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: all;
+
+.portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+.portfolio-category {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
-.chatbot-header {
-  padding: 20px 24px;
+
+/* ——— SERVICES ——— */
+.services-section { background: #fff; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(26,26,26,0.08);
+}
+
+.service-thumb {
+  height: 200px;
+  background: var(--bg-alt);
+}
+
+.service-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-body { padding: 1.5rem; }
+
+.service-name {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.service-price {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.service-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ——— ABOUT ——— */
+.about-section { background: var(--bg); }
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-alt);
+  min-height: 480px;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-text h3 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+
+.about-text p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+}
+
+.about-credits {
+  font-size: 0.8rem;
+  color: var(--light-muted);
+  font-style: italic;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(26,26,26,0.08);
+}
+
+/* ——— PRICING / INVESTMENT ——— */
+.pricing-section { background: #fff; }
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border: 1px solid rgba(26,26,26,0.04);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(26,26,26,0.08);
+}
+
+.pricing-card.featured {
+  background: var(--dark);
+  color: #fff;
+  border: 1px solid rgba(196,167,98,0.2);
+}
+
+.pricing-card.featured .pricing-name { color: #fff; }
+.pricing-card.featured .pricing-amount { color: var(--gold); }
+.pricing-card.featured .pricing-detail { color: rgba(255,255,255,0.5); }
+
+.pricing-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.25rem 0.85rem;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pricing-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.pricing-amount {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.pricing-details {
+  list-style: none;
+  margin-bottom: 1.75rem;
+}
+
+.pricing-detail {
+  font-size: 0.82rem;
+  color: var(--muted);
+  padding: 0.35rem 0;
+  font-weight: 300;
+}
+
+.btn-pricing {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.65rem 1.75rem;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.btn-pricing-outline {
+  border: 1px solid rgba(26,26,26,0.2);
+  color: var(--text);
+  background: transparent;
+}
+
+.btn-pricing-outline:hover {
+  background: var(--text);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.pricing-card.featured .btn-pricing-outline {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.pricing-card.featured .btn-pricing-outline:hover {
+  background: var(--gold);
+  color: #fff;
+}
+
+.pricing-note {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 2rem;
+}
+
+/* ——— BLOG / JOURNAL ——— */
+.blog-section { background: var(--bg); }
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.blog-card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(26,26,26,0.06);
+}
+
+.blog-thumb {
+  height: 200px;
+  background: var(--bg-alt);
+}
+
+.blog-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-body { padding: 1.5rem; }
+
+.blog-meta {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--light-muted);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.03em;
+}
+
+.blog-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.blog-excerpt {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.blog-view-all {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.blog-view-all a {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  transition: color 0.3s var(--ease);
+}
+
+.blog-view-all a:hover { color: var(--gold-hover); }
+
+/* ——— TESTIMONIALS ——— */
+.testimonials-section { background: #fff; }
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 2.25rem;
+  border: 1px solid rgba(26,26,26,0.03);
+}
+
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+}
+
+.testimonial-text {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.testimonial-author {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.testimonial-role {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+/* ——— FAQ ——— */
+.faq-section { background: var(--bg); }
+
+.faq-list {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(26,26,26,0.06);
+}
+
+.faq-item:last-child { border-bottom: none; }
+
+.faq-question {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border);
-}
-.chatbot-header__title {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 16px;
+  padding: 1.5rem 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--text);
-}
-.chatbot-header__close {
-  background: none;
-  border: none;
+  text-align: left;
   cursor: pointer;
-  padding: 4px;
-  color: var(--muted);
-  transition: color 180ms var(--ease-out);
+  transition: color 0.3s var(--ease);
 }
-.chatbot-header__close:hover { color: var(--text); }
-.chatbot-messages {
-  flex: 1;
-  padding: 20px 24px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.chat-msg {
-  max-width: 85%;
-  padding: 12px 16px;
-  border-radius: 12px;
-  font-size: 14px;
-  line-height: 1.5;
-}
-.chat-msg--bot {
-  background: var(--card);
-  border: 1px solid var(--border);
-  align-self: flex-start;
-  color: var(--text);
-}
-.chat-quick-replies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-self: flex-start;
-}
-.chat-quick-reply {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  padding: 8px 16px;
-  border-radius: 100px;
-  border: 1px solid var(--gold);
-  background: transparent;
-  color: var(--gold);
-  cursor: pointer;
-  transition: background 180ms var(--ease-out), color 180ms var(--ease-out);
-}
-.chat-quick-reply:hover {
-  background: var(--gold);
-  color: var(--accent);
-}
-.chatbot-input {
-  padding: 16px 24px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-.chatbot-input input {
-  flex: 1;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  border: none;
-  background: transparent;
-  color: var(--text);
-  outline: none;
-}
-.chatbot-input input::placeholder { color: var(--muted); }
-.chatbot-input button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--gold);
-  transition: color 180ms var(--ease-out);
-}
-.chatbot-input button:hover { color: var(--text); }
 
-/* ============ FOOTER ============ */
-.footer {
-  padding: 80px 48px 40px;
+.faq-question:hover { color: var(--gold); }
+
+.faq-chevron {
+  width: 18px;
+  height: 18px;
+  stroke: var(--muted);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.4s var(--ease-slow), stroke 0.3s var(--ease);
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-chevron {
+  transform: rotate(180deg);
+  stroke: var(--gold);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease-slow);
+}
+
+.faq-item.open .faq-answer { max-height: 300px; }
+
+.faq-answer-inner {
+  padding: 0 0 1.5rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ——— EMAIL CAPTURE ——— */
+.email-section {
+  background: var(--dark);
+  padding: 5rem 2rem;
   text-align: center;
 }
-.footer__name {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 16px;
-  color: var(--text);
-  margin-bottom: 16px;
-}
-.footer__location {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 24px;
-}
-.footer__social a {
-  color: var(--muted);
-  transition: color 180ms var(--ease-out);
-}
-.footer__social a:hover { color: var(--gold); }
-.footer__copy {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 32px;
-}
-.footer__attribution {
-  margin-top: 16px;
-}
-.footer__attribution a {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 180ms var(--ease-out);
-}
-.footer__attribution a:hover { color: var(--gold); }
 
-/* ============ TIER BADGE ============ */
+.email-section .section-eyebrow { color: var(--gold); }
+
+.email-section .section-title {
+  color: #fff;
+  font-family: var(--font-serif);
+}
+
+.email-section .section-sub { color: rgba(255,255,255,0.45); }
+
+.email-form {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 440px;
+  margin: 0 auto 1rem;
+}
+
+.email-form input {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 100px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  outline: none;
+  transition: border-color 0.3s var(--ease);
+}
+
+.email-form input::placeholder { color: rgba(255,255,255,0.3); }
+.email-form input:focus { border-color: var(--gold); }
+
+.email-form button {
+  background: var(--gold);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 100px;
+  border: none;
+  letter-spacing: 0.03em;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+  white-space: nowrap;
+}
+
+.email-form button:hover {
+  background: var(--gold-hover);
+  transform: translateY(-1px);
+}
+
+.email-note {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ——— CONTACT ——— */
+.contact-section { background: #fff; }
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-form-card {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 2.5rem;
+}
+
+.form-group { margin-bottom: 1rem; }
+
+.form-group label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid rgba(26,26,26,0.1);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-light);
+}
+
+.form-group textarea { resize: vertical; min-height: 80px; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.btn-submit {
+  width: 100%;
+  background: var(--dark);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.8rem;
+  border-radius: 100px;
+  margin-top: 0.5rem;
+  letter-spacing: 0.03em;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.btn-submit:hover {
+  background: var(--dark-mid);
+  transform: translateY(-1px);
+}
+
+.contact-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-info-card {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.contact-info-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--light-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.contact-info-phone {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--text);
+  display: block;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s var(--ease);
+}
+
+.contact-info-phone:hover { color: var(--gold); }
+
+.contact-info-detail {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.contact-info-detail a {
+  color: var(--gold);
+  font-weight: 500;
+  transition: color 0.3s var(--ease);
+}
+
+.contact-info-detail a:hover { color: var(--gold-hover); }
+
+.priority-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--gold-light);
+  color: var(--gold-hover);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 100px;
+  margin-top: 0.75rem;
+  border: 1px solid rgba(196,167,98,0.15);
+}
+
+.priority-badge svg { width: 14px; height: 14px; }
+
+.map-card {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(26,26,26,0.04);
+}
+
+.google-card {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.google-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gold);
+  transition: color 0.3s var(--ease);
+}
+
+.google-card a:hover { color: var(--gold-hover); }
+
+.google-card a svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ——— FOOTER ——— */
+.site-footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.5);
+  padding: 3.5rem 2rem 1.5rem;
+}
+
+.footer-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-col-title {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.footer-brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.footer-brand-info {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.7;
+}
+
+.footer-brand-info a { color: rgba(255,255,255,0.55); transition: color 0.3s var(--ease); }
+.footer-brand-info a:hover { color: var(--gold); }
+
+.footer-links { list-style: none; }
+
+.footer-links li { margin-bottom: 0.5rem; }
+
+.footer-links a {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.3s var(--ease);
+}
+
+.footer-links a:hover { color: #fff; }
+
+.footer-socials {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  transition: background 0.3s var(--ease);
+}
+
+.footer-socials a:hover { background: rgba(255,255,255,0.1); }
+
+.footer-socials svg {
+  width: 16px;
+  height: 16px;
+  fill: rgba(255,255,255,0.5);
+}
+
+.footer-instagram {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1rem;
+}
+
+.footer-instagram a { color: var(--gold); transition: color 0.3s var(--ease); }
+.footer-instagram a:hover { color: #fff; }
+
+.footer-priority {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  padding: 0.4rem 0.75rem;
+  background: rgba(196,167,98,0.08);
+  border: 1px solid rgba(196,167,98,0.12);
+  border-radius: 100px;
+  display: inline-block;
+}
+
+.footer-bottom {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-copy { font-size: 0.7rem; color: rgba(255,255,255,0.2); }
+
+.footer-attribution a { font-size: 0.68rem; color: rgba(255,255,255,0.2); transition: color 0.3s var(--ease); }
+.footer-attribution a:hover { color: rgba(255,255,255,0.45); }
+
+.footer-optimization { font-size: 0.68rem; color: rgba(255,255,255,0.2); font-style: italic; }
+
+/* ——— CHATBOT WIDGET ——— */
+.chat-bubble {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  width: 56px;
+  height: 56px;
+  background: var(--dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 80;
+  box-shadow: 0 4px 20px rgba(26,26,26,0.25);
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+  border: 2px solid rgba(196,167,98,0.2);
+}
+
+.chat-bubble:hover {
+  background: var(--dark-mid);
+  transform: scale(1.05);
+}
+
+.chat-bubble svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chat-window {
+  position: fixed;
+  bottom: 5.5rem;
+  right: 1.75rem;
+  width: 360px;
+  max-height: 480px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 48px rgba(26,26,26,0.2);
+  z-index: 81;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(26,26,26,0.06);
+}
+
+.chat-window.open { display: flex; }
+
+.chat-header {
+  background: var(--dark);
+  color: #fff;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-header-title {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  font-weight: 400;
+}
+
+.chat-close {
+  color: rgba(255,255,255,0.5);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s var(--ease);
+}
+
+.chat-close:hover { color: #fff; }
+
+.chat-messages {
+  flex: 1;
+  padding: 1.25rem;
+  overflow-y: auto;
+  max-height: 320px;
+}
+
+.chat-msg {
+  margin-bottom: 0.75rem;
+  max-width: 85%;
+}
+
+.chat-msg.bot {
+  background: var(--bg);
+  padding: 0.75rem 1rem;
+  border-radius: 12px 12px 12px 4px;
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.chat-msg.user {
+  background: var(--dark);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 12px 12px 4px 12px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin-left: auto;
+}
+
+.chat-input-area {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid rgba(26,26,26,0.06);
+}
+
+.chat-input-area input {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(26,26,26,0.1);
+  border-radius: 100px;
+  outline: none;
+  transition: border-color 0.3s var(--ease);
+}
+
+.chat-input-area input:focus { border-color: var(--gold); }
+
+.chat-send {
+  background: var(--dark);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s var(--ease);
+}
+
+.chat-send:hover { background: var(--dark-mid); }
+
+.chat-send svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ——— TIER BADGE (bottom-fixed) ——— */
 .tier-badge {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--accent);
-  color: var(--bg);
+  background: var(--tier-bg);
+  color: rgba(255,255,255,0.9);
   text-align: center;
-  padding: 10px 16px;
-  font-family: var(--font-sans);
-  font-size: 13px;
-  z-index: 300;
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 2rem;
+  height: 2rem;
+  z-index: 100;
 }
+
 .tier-badge a {
-  color: var(--gold);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  color: #5EEAD4;
+  margin-left: 0.75rem;
+  font-weight: 600;
+  transition: color 0.2s var(--ease);
 }
 
-/* ============ RESPONSIVE ============ */
-@media (max-width: 900px) {
-  .nav { padding: 16px 24px; }
-  .nav--scrolled { padding: 12px 24px; }
-  .nav__links { display: none; }
-  .nav__book { display: none; }
-  .nav__toggle { display: flex; }
+.tier-badge a:hover { color: #99F6E4; }
 
-  .hero__content { left: 24px; bottom: 60px; }
-  .portfolio-preview { padding: 80px 24px; }
-  .portfolio-preview__item { margin-bottom: 48px; }
-  .portfolio-preview__quote { font-size: clamp(22px, 5vw, 32px); margin: 48px 0; }
+/* ——— SCROLL REVEAL ——— */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.9s var(--ease-slow), transform 0.9s var(--ease-slow);
+}
 
-  .services-preview { padding: 80px 24px; }
-  .service-line__image { display: none; }
-  .service-line:hover .service-line__name { transform: translateX(12px); }
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  .about-preview {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 80px 24px;
+/* ——— RESPONSIVE ——— */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .header-phone { display: none; }
+  .menu-toggle { display: flex; }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 4.25rem;
+    left: 0; right: 0;
+    background: rgba(26,26,26,0.98);
+    padding: 1.25rem 2rem;
+    gap: 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
 
-  .investment { padding: 80px 24px; }
+  .nav-links.open a { font-size: 0.95rem; padding: 0.35rem 0; color: rgba(255,255,255,0.7); }
 
-  .footer { padding: 60px 24px 100px; }
+  .hero { min-height: 500px; }
+  .hero h1 { font-size: 2.4rem; }
 
-  .chatbot-trigger { width: 48px; height: 48px; bottom: 72px; right: 20px; }
-  .chatbot-panel {
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    height: 85dvh;
-    border-radius: 16px 16px 0 0;
-  }
+  .portfolio-grid { grid-template-columns: 1fr 1fr; }
+  .portfolio-item:nth-child(1) { grid-row: span 1; min-height: 280px; }
 
-  .tier-badge { font-size: 11px; padding: 8px 12px; }
+  .services-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 360px; margin-left: auto; margin-right: auto; }
+  .blog-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .testimonials-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .contact-inner { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+
+  .email-form { flex-direction: column; }
+
+  .chat-window { width: calc(100% - 2rem); right: 1rem; bottom: 5rem; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .portfolio-item:nth-child(1) { grid-row: span 1; min-height: 300px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 375px) {
+  .hero h1 { font-size: 2rem; }
+  .section-title { font-size: 1.7rem; }
+  .pricing-amount { font-size: 1.8rem; }
+}
+
+@media (min-width: 1440px) {
+  .section-inner, .header-inner, .footer-grid, .footer-bottom { max-width: 1340px; }
 }
 </style>
 </head>
 <body>
 
-<a href="#main" class="skip-link">Skip to content</a>
-
-<!-- Navigation -->
-<nav class="nav" aria-label="Main navigation">
-  <a href="index.html" class="nav__logo">Golden Coast</a>
-  <ul class="nav__links">
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <a href="contact.html" class="nav__book">Book a Session</a>
-  <button class="nav__toggle" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- Mobile Menu -->
-<div class="nav__mobile-menu" aria-hidden="true">
-  <a href="portfolio.html">Portfolio</a>
-  <a href="services.html">Services</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-  <a href="contact.html" style="font-size:18px; font-family:var(--font-sans); font-style:normal; letter-spacing:0.08em; text-transform:uppercase; border:1px solid var(--gold); padding:12px 32px; border-radius:100px; color:var(--gold);">Book a Session</a>
-</div>
-
-<!-- Hero -->
-<main id="main">
-<section class="hero" aria-label="Hero">
-  <div class="hero__image-wrap">
-    <img src="https://picsum.photos/seed/golden-hour-beach-portrait-couple-2026/1600/1000" alt="Golden hour photograph of a couple on the Florida coast at sunset" class="hero__image" fetchpriority="high" decoding="async" width="1600" height="1000">
-    <div class="hero__gradient"></div>
+<!-- HEADER (transparent → solid) -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label="Golden Coast Studios">Golden <em>Coast</em></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#blog">Blog</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+13215550822" class="header-phone">(321) 555-0822</a>
+      <a href="#contact" class="btn-cta">Book a Session</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
-  <div class="hero__content">
-    <h1 class="hero__title">Golden Coast Studios</h1>
-    <p class="hero__tagline">Light. Moment. Frame.</p>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="images/premium-hero.jpg" alt="Editorial photography studio hero image" loading="eager" width="1600" height="900">
   </div>
-  <div class="hero__scroll" aria-hidden="true">
-    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+  <div class="hero-content reveal">
+    <h1>Golden Coast Studios</h1>
+    <div class="hero-tagline">Light. Moment. Frame.</div>
+    <p class="hero-sub">Editorial photography in Cocoa Beach, FL. Portraits, weddings, corporate, and commercial.</p>
+    <a href="#contact" class="btn-hero">Book Your Session</a>
+  </div>
+  <div class="hero-scroll">
+    Scroll
+    <span class="hero-scroll-line"></span>
   </div>
 </section>
 
-<!-- Portfolio Preview -->
-<section class="portfolio-preview" aria-label="Selected work">
-  <p class="portfolio-preview__label reveal">Selected Work</p>
-
-  <div class="portfolio-preview__item reveal">
-    <div class="portfolio-preview__img-wrap">
-      <img src="https://picsum.photos/seed/wedding-ceremony-outdoor-golden-light/1100/733" alt="Wedding ceremony in outdoor golden light — bride and groom exchange vows" class="portfolio-preview__img" loading="lazy" decoding="async" width="1100" height="733">
-    </div>
-    <p class="portfolio-preview__caption">Torres Family — Melbourne</p>
-  </div>
-
-  <div class="portfolio-preview__item reveal">
-    <div class="portfolio-preview__img-wrap">
-      <img src="https://picsum.photos/seed/family-portrait-beach-sunset-florida/1100/733" alt="Family portrait session at the beach during sunset in Florida" class="portfolio-preview__img" loading="lazy" decoding="async" width="1100" height="733">
-    </div>
-    <p class="portfolio-preview__caption">Rivera Wedding — Cocoa Beach</p>
-  </div>
-
-  <div class="portfolio-preview__item reveal">
-    <div class="portfolio-preview__img-wrap">
-      <img src="https://picsum.photos/seed/corporate-headshot-professional-woman/1100/733" alt="Corporate headshot of a professional woman in natural light" class="portfolio-preview__img" loading="lazy" decoding="async" width="1100" height="733">
-    </div>
-    <p class="portfolio-preview__caption">Chen Corporate — Orlando</p>
-  </div>
-
-  <p class="portfolio-preview__quote reveal">"Every frame tells a story"</p>
-
-  <div class="portfolio-preview__item reveal">
-    <div class="portfolio-preview__img-wrap">
-      <img src="https://picsum.photos/seed/luxury-real-estate-interior-living-room/1100/733" alt="Luxury real estate interior — spacious living room with warm natural light" class="portfolio-preview__img" loading="lazy" decoding="async" width="1100" height="733">
-    </div>
-    <p class="portfolio-preview__caption">Oceanview Residence — Cape Canaveral</p>
-  </div>
-
-  <div class="portfolio-preview__item reveal">
-    <div class="portfolio-preview__img-wrap">
-      <img src="https://picsum.photos/seed/product-photography-jewelry-closeup/1100/733" alt="Product photography — elegant jewelry closeup on minimal background" class="portfolio-preview__img" loading="lazy" decoding="async" width="1100" height="733">
-    </div>
-    <p class="portfolio-preview__caption">Coastal Candle Co. — Product Launch</p>
-  </div>
-
-  <p class="portfolio-preview__quote reveal">"The light on this coast is unlike anywhere else"</p>
-
-  <div class="portfolio-preview__item reveal">
-    <div class="portfolio-preview__img-wrap">
-      <img src="https://picsum.photos/seed/personal-branding-entrepreneur-office/1100/733" alt="Personal branding portrait — entrepreneur in modern office space" class="portfolio-preview__img" loading="lazy" decoding="async" width="1100" height="733">
-    </div>
-    <p class="portfolio-preview__caption">Martinez Branding — Satellite Beach</p>
-  </div>
-</section>
-
-<!-- Services Preview -->
-<section class="services-preview reveal" aria-label="Services">
-  <h2 class="services-preview__heading">What I create.</h2>
-  <div class="service-line" role="link" tabindex="0" onclick="location.href='services.html'">
-    <span class="service-line__name">Portraits &amp; Families</span>
-    <img src="https://picsum.photos/seed/svc-thumbnail-portrait-family/200/140" alt="Portrait photography service thumbnail" class="service-line__image" loading="lazy" aria-hidden="true">
-  </div>
-  <div class="service-line" role="link" tabindex="0" onclick="location.href='services.html'">
-    <span class="service-line__name">Corporate Headshots</span>
-    <img src="https://picsum.photos/seed/svc-thumbnail-headshot-studio/200/140" alt="Professional headshot service thumbnail" class="service-line__image" loading="lazy" aria-hidden="true">
-  </div>
-  <div class="service-line" role="link" tabindex="0" onclick="location.href='services.html'">
-    <span class="service-line__name">Wedding &amp; Events</span>
-    <img src="https://picsum.photos/seed/svc-thumbnail-wedding-ceremony/200/140" alt="Wedding photography service thumbnail" class="service-line__image" loading="lazy" aria-hidden="true">
-  </div>
-  <div class="service-line" role="link" tabindex="0" onclick="location.href='services.html'">
-    <span class="service-line__name">Real Estate Photography</span>
-    <img src="https://picsum.photos/seed/svc-thumbnail-realestate-home/200/140" alt="Real estate photography service thumbnail" class="service-line__image" loading="lazy" aria-hidden="true">
-  </div>
-  <div class="service-line" role="link" tabindex="0" onclick="location.href='services.html'">
-    <span class="service-line__name">Product &amp; Commercial</span>
-    <img src="https://picsum.photos/seed/svc-thumbnail-product-flatlay/200/140" alt="Product photography service thumbnail" class="service-line__image" loading="lazy" aria-hidden="true">
-  </div>
-  <div class="service-line" role="link" tabindex="0" onclick="location.href='services.html'">
-    <span class="service-line__name">Personal Branding</span>
-    <img src="https://picsum.photos/seed/svc-thumbnail-branding-lifestyle/200/140" alt="Personal branding photography service thumbnail" class="service-line__image" loading="lazy" aria-hidden="true">
-  </div>
-</section>
-
-<!-- About Preview -->
-<section class="about-preview reveal" aria-label="About Sofia">
-  <img src="https://picsum.photos/seed/female-photographer-camera-natural/800/1000" alt="Sofia Reyes, photographer, holding camera in natural light" class="about-preview__img" loading="lazy" decoding="async" width="800" height="1000">
-  <div class="about-preview__content">
-    <h2 class="about-preview__heading">Meet Sofia.</h2>
-    <p class="about-preview__text">Ten years chasing the golden hour on Florida's coast. The best photos happen when people forget the camera exists.</p>
-    <div class="about-preview__stats">
-      <div>
-        <div class="about-preview__stat-value">2,500+</div>
-        <div class="about-preview__stat-label">Sessions</div>
+<!-- PORTFOLIO -->
+<section class="section portfolio-section" id="portfolio">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Selected Work</div>
+    <h2 class="section-title reveal">Selected work.</h2>
+    <p class="section-sub reveal">A curated look at recent sessions across Brevard County and beyond.</p>
+    <div class="portfolio-grid">
+      <div class="portfolio-item reveal">
+        <img src="images/portfolio-portrait.jpg" alt="Portrait photography sample" loading="lazy" width="600" height="580">
+        <div class="portfolio-overlay"><span class="portfolio-category">Portraits</span></div>
       </div>
-      <div>
-        <div class="about-preview__stat-value">10</div>
-        <div class="about-preview__stat-label">Years</div>
+      <div class="portfolio-item reveal">
+        <img src="images/portfolio-wedding.jpg" alt="Wedding photography sample" loading="lazy" width="600" height="280">
+        <div class="portfolio-overlay"><span class="portfolio-category">Weddings</span></div>
       </div>
-      <div>
-        <div class="about-preview__stat-value">203</div>
-        <div class="about-preview__stat-label">Reviews</div>
+      <div class="portfolio-item reveal">
+        <img src="images/portfolio-corporate.jpg" alt="Corporate photography sample" loading="lazy" width="600" height="280">
+        <div class="portfolio-overlay"><span class="portfolio-category">Corporate</span></div>
+      </div>
+      <div class="portfolio-item reveal">
+        <img src="images/portfolio-realestate.jpg" alt="Real estate photography sample" loading="lazy" width="600" height="280">
+        <div class="portfolio-overlay"><span class="portfolio-category">Real Estate</span></div>
+      </div>
+      <div class="portfolio-item reveal">
+        <img src="images/portfolio-product.jpg" alt="Product photography sample" loading="lazy" width="600" height="280">
+        <div class="portfolio-overlay"><span class="portfolio-category">Product</span></div>
+      </div>
+      <div class="portfolio-item reveal">
+        <img src="images/portfolio-branding.jpg" alt="Branding photography sample" loading="lazy" width="600" height="280">
+        <div class="portfolio-overlay"><span class="portfolio-category">Branding</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Investment -->
-<section class="investment reveal" aria-label="Investment">
-  <h2 class="investment__heading">Investment.</h2>
-  <div class="investment__item">
-    <div class="investment__name">Portrait Sessions</div>
-    <div class="investment__price">from $350</div>
-  </div>
-  <div class="investment__item">
-    <div class="investment__name">Event Coverage</div>
-    <div class="investment__price">from $750</div>
-  </div>
-  <div class="investment__item">
-    <div class="investment__name">Real Estate</div>
-    <div class="investment__price">from $200</div>
-  </div>
-  <p class="investment__note">Every project is different. Let's talk about yours.</p>
-  <a href="contact.html" class="investment__cta">Book a Session →</a>
-</section>
-</main>
-
-<!-- AI Chatbot Widget -->
-<button class="chatbot-trigger" aria-label="Open chat" id="chatTrigger">
-  <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-</button>
-<div class="chatbot-panel" id="chatPanel" role="dialog" aria-label="Chat with Golden Coast Studios">
-  <div class="chatbot-header">
-    <span class="chatbot-header__title">Golden Coast Studios</span>
-    <button class="chatbot-header__close" aria-label="Close chat" id="chatClose">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-  </div>
-  <div class="chatbot-messages">
-    <div class="chat-msg chat-msg--bot">Hi there. Looking to book a session or have questions about our services?</div>
-    <div class="chat-quick-replies">
-      <button class="chat-quick-reply">Book a session</button>
-      <button class="chat-quick-reply">View pricing</button>
-      <button class="chat-quick-reply">Ask a question</button>
+<!-- SERVICES -->
+<section class="section services-section" id="services">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Services</div>
+    <h2 class="section-title reveal">What I create.</h2>
+    <p class="section-sub reveal">Every session is built around one idea: real moments, real light, real people.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-thumb"><img src="images/portfolio-portrait.jpg" alt="Portrait sessions" loading="lazy" width="480" height="200"></div>
+        <div class="service-body">
+          <div class="service-name">Portrait Sessions</div>
+          <div class="service-price">Starting at $350</div>
+          <p class="service-desc">Studio or on-location. Individual, couple, or family. Includes a 1-hour session and 20 edited digital images delivered in an online gallery.</p>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-thumb"><img src="images/portfolio-wedding.jpg" alt="Wedding photography" loading="lazy" width="480" height="200"></div>
+        <div class="service-body">
+          <div class="service-name">Wedding Photography</div>
+          <div class="service-price">Starting at $2,500</div>
+          <p class="service-desc">Full-day coverage with a second shooter and engagement session included. 300+ edited images delivered in a curated online gallery.</p>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-thumb"><img src="images/portfolio-corporate.jpg" alt="Corporate headshots" loading="lazy" width="480" height="200"></div>
+        <div class="service-body">
+          <div class="service-name">Corporate Headshots</div>
+          <div class="service-price">Starting at $200/person</div>
+          <p class="service-desc">On-site or studio. Professional retouching included. Volume discounts available for teams of 10 or more.</p>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-thumb"><img src="images/portfolio-realestate.jpg" alt="Real estate photography" loading="lazy" width="480" height="200"></div>
+        <div class="service-body">
+          <div class="service-name">Real Estate Photography</div>
+          <div class="service-price">Starting at $250/property</div>
+          <p class="service-desc">HDR interiors, aerial drone shots, and twilight exteriors. 24-hour turnaround so your listing goes live on schedule.</p>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-thumb"><img src="images/portfolio-product.jpg" alt="Product photography" loading="lazy" width="480" height="200"></div>
+        <div class="service-body">
+          <div class="service-name">Product Photography</div>
+          <div class="service-price">Starting at $150/product</div>
+          <p class="service-desc">Clean backgrounds, lifestyle context shots, and 360-degree views. E-commerce ready files optimized for every platform.</p>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-thumb"><img src="images/portfolio-branding.jpg" alt="Personal branding photography" loading="lazy" width="480" height="200"></div>
+        <div class="service-body">
+          <div class="service-name">Personal Branding</div>
+          <div class="service-price">Starting at $500</div>
+          <p class="service-desc">A 2-hour session across multiple locations. 40+ images for your social media, website, and marketing materials.</p>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="chatbot-input">
-    <input type="text" placeholder="Type a message…" aria-label="Chat message">
-    <button aria-label="Send message">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-    </button>
-  </div>
-</div>
+</section>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer__name">Golden Coast Studios</div>
-  <div class="footer__location">Cocoa Beach, FL</div>
-  <div class="footer__social">
-    <a href="#" aria-label="Instagram">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-    </a>
+<!-- ABOUT -->
+<section class="section about-section" id="about">
+  <div class="section-inner">
+    <div class="about-inner">
+      <div class="about-image reveal">
+        <img src="images/premium-about.jpg" alt="Sofia Reyes, photographer and founder of Golden Coast Studios" loading="lazy" width="700" height="480">
+      </div>
+      <div class="about-text reveal">
+        <div class="section-eyebrow" style="text-align:left">About</div>
+        <h3>Meet Sofia.</h3>
+        <p>I have been behind a lens since I was fourteen. After studying photojournalism at UCF and shooting for publications across Florida, I opened Golden Coast Studios in 2019. Every session I shoot is built around one idea: real moments, real light, real people.</p>
+        <p>I do not do over-posed or over-edited. I believe the best photos happen when you forget the camera is there. That philosophy has taken me from editorial assignments to weddings, corporate events, and branding sessions across Brevard County and beyond.</p>
+        <div class="about-credits">Published in Florida Today, Space Coast Living, and Orlando Magazine. UCF School of Journalism alumna. CRM-integrated booking and a custom analytics dashboard track every client from inquiry to delivery.</div>
+      </div>
+    </div>
   </div>
-  <div class="footer__copy">© 2026 Golden Coast Studios</div>
-  <div class="footer__attribution">
-    
+</section>
+
+<!-- PRICING / INVESTMENT -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Investment</div>
+    <h2 class="section-title reveal">Investment.</h2>
+    <p class="section-sub reveal">Three collections designed to match the scope of your vision. Every session begins with a complimentary consultation.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-name">Essential</div>
+        <div class="pricing-amount">$350</div>
+        <ul class="pricing-details">
+          <li class="pricing-detail">1-hour session</li>
+          <li class="pricing-detail">20 edited images</li>
+          <li class="pricing-detail">Online gallery</li>
+          <li class="pricing-detail">Personal print release</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-pricing-outline">Book Essential</a>
+      </div>
+      <div class="pricing-card featured reveal">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-name">Signature</div>
+        <div class="pricing-amount">$750</div>
+        <ul class="pricing-details">
+          <li class="pricing-detail">2-hour session</li>
+          <li class="pricing-detail">50 edited images</li>
+          <li class="pricing-detail">Online gallery</li>
+          <li class="pricing-detail">1 print credit</li>
+          <li class="pricing-detail">Personal print release</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-pricing-outline">Book Signature</a>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-name">Luxe</div>
+        <div class="pricing-amount">$1,500</div>
+        <ul class="pricing-details">
+          <li class="pricing-detail">Half-day session</li>
+          <li class="pricing-detail">100+ edited images</li>
+          <li class="pricing-detail">Premium album</li>
+          <li class="pricing-detail">All print rights</li>
+          <li class="pricing-detail">Priority delivery</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-pricing-outline">Book Luxe</a>
+      </div>
+    </div>
+    <p class="pricing-note reveal">All sessions include a complimentary consultation. Custom packages available for weddings and commercial projects.</p>
+  </div>
+</section>
+
+<!-- BLOG / JOURNAL -->
+<section class="section blog-section" id="blog">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Journal</div>
+    <h2 class="section-title reveal">From the journal.</h2>
+    <p class="section-sub reveal">Behind-the-scenes stories, style guides, and location spotlights from the studio.</p>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-thumb"><img src="images/blog-whattowear.jpg" alt="What to wear for your portrait session" loading="lazy" width="480" height="200"></div>
+        <div class="blog-body">
+          <div class="blog-meta">5 min read</div>
+          <div class="blog-title">What to Wear for Your Portrait Session</div>
+          <p class="blog-excerpt">The right outfit can make or break a portrait. Here are the fabrics, colors, and silhouettes that photograph beautifully in natural light.</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-thumb"><img src="images/blog-sunset.jpg" alt="Cocoa Beach sunset photography spots" loading="lazy" width="480" height="200"></div>
+        <div class="blog-body">
+          <div class="blog-meta">3 min read</div>
+          <div class="blog-title">Our Favorite Cocoa Beach Sunset Spots</div>
+          <p class="blog-excerpt">Golden hour along the Space Coast never gets old. These five locations deliver the best light for portraits, engagements, and family sessions.</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-thumb"><img src="images/blog-bts.jpg" alt="Behind the scenes at the Martinez wedding" loading="lazy" width="480" height="200"></div>
+        <div class="blog-body">
+          <div class="blog-meta">7 min read</div>
+          <div class="blog-title">Behind the Scenes: The Martinez Wedding</div>
+          <p class="blog-excerpt">Two hundred guests, a beachfront ceremony, and a thunderstorm that turned into the most dramatic sunset we have ever shot.</p>
+        </div>
+      </div>
+    </div>
+    <div class="blog-view-all reveal"><a href="#">View all posts &rarr;</a></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section" id="testimonials">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Kind Words</div>
+    <h2 class="section-title reveal">Kind words.</h2>
+    <p class="section-sub reveal">What clients say after they see their gallery.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"Sofia captured our wedding so beautifully that every time I look at the photos, I am right back in that moment. She has this incredible ability to be everywhere at once without being intrusive. Our gallery is absolutely stunning."</p>
+        <div class="testimonial-author">Amanda &amp; Chris R.</div>
+        <div class="testimonial-role">Melbourne, FL</div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"I needed new headshots for the entire executive team — 14 people in one afternoon. Sofia was organized, efficient, and made everyone feel comfortable. The photos are the most professional we have ever had."</p>
+        <div class="testimonial-author">David Chen</div>
+        <div class="testimonial-role">CFO, Brevard Tech Solutions</div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"We have used Golden Coast for all our listing photos for the past two years. The quality is consistently excellent, turnaround is fast, and the drone shots have become our secret weapon for luxury listings."</p>
+        <div class="testimonial-author">Michelle Torres</div>
+        <div class="testimonial-role">Realtor, RE/MAX Space Coast</div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"My personal branding session with Sofia gave me six months of social media content in two hours. She understood my aesthetic instantly and delivered images that actually feel like me, not some stock photo version."</p>
+        <div class="testimonial-author">Priya Patel</div>
+        <div class="testimonial-role">Founder, Coastal Wellness Co.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section" id="faq">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">FAQ</div>
+    <h2 class="section-title reveal">Common questions.</h2>
+    <p class="section-sub reveal">Everything you need to know before booking. Still have questions? Just reach out.</p>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          How far in advance should I book?
+          <svg class="faq-chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">For portraits and headshots, 2-3 weeks is ideal. Weddings should be booked 6-12 months in advance. I only take a limited number of weddings per month to ensure every couple gets my full attention.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          Do you travel for sessions?
+          <svg class="faq-chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">I am based in Cocoa Beach and regularly shoot across Brevard County. For destination weddings and corporate events, I travel anywhere — travel fees apply outside a 50-mile radius.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          How long until I receive my photos?
+          <svg class="faq-chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Portraits and headshots: 1-2 weeks. Weddings: 4-6 weeks. Real estate: 24-48 hours. Rush delivery is available for an additional fee.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          Can I print the photos myself?
+          <svg class="faq-chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">The Essential and Signature collections include digital files with a personal print release. The Luxe collection includes full commercial print rights. I also offer professional printing through my lab partners.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          What if it rains on our outdoor session?
+          <svg class="faq-chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Weather happens — especially in Florida. We will reschedule at no extra cost, or we can embrace it. Some of my favorite photos have been shot in dramatic weather.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE (Premium feature) -->
+<section class="email-section" id="newsletter">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Stay in the Loop</div>
+    <h2 class="section-title reveal" style="color:#fff">Stay in the loop.</h2>
+    <p class="section-sub reveal" style="color:rgba(255,255,255,0.45)">Get first access to seasonal mini-sessions, exclusive offers, and behind-the-scenes content.</p>
+    <form class="email-form reveal" onsubmit="handleEmailSubmit(event)">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="email-note reveal">No spam, unsubscribe anytime.</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Get Started</div>
+    <h2 class="section-title reveal">Let's create something beautiful.</h2>
+    <p class="section-sub reveal">Tell me about your vision. I respond to every inquiry within 24 hours.</p>
+    <div class="contact-inner">
+      <div class="contact-form-card reveal">
+        <form id="bookingForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Name</label>
+              <input type="text" id="fname" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="femail">Email</label>
+              <input type="email" id="femail" name="email" placeholder="you@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fphone">Phone</label>
+              <input type="tel" id="fphone" name="phone" placeholder="(321) 555-0000">
+            </div>
+            <div class="form-group">
+              <label for="fservice">Session Type</label>
+              <select id="fservice" name="service" required>
+                <option value="" disabled selected>Select a session</option>
+                <option>Portrait Session</option>
+                <option>Wedding Photography</option>
+                <option>Corporate Headshots</option>
+                <option>Real Estate</option>
+                <option>Product Photography</option>
+                <option>Personal Branding</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fdate">Preferred Date</label>
+            <input type="text" id="fdate" name="date" placeholder="e.g., March 2026 or flexible">
+          </div>
+          <div class="form-group">
+            <label for="fmessage">Tell me about your vision <span style="color:var(--muted);font-weight:300">(optional)</span></label>
+            <textarea id="fmessage" name="message" placeholder="What are you looking for? Any specific locations, themes, or ideas..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Book Your Session</button>
+        </form>
+      </div>
+      <div class="contact-sidebar reveal">
+        <div class="contact-info-card">
+          <div class="contact-info-label">Get in Touch</div>
+          <a href="tel:+13215550822" class="contact-info-phone">(321) 555-0822</a>
+          <div class="contact-info-detail">
+            <a href="mailto:sofia@goldencoaststudios.com">sofia@goldencoaststudios.com</a><br>
+            Cocoa Beach, FL (Brevard County)
+          </div>
+          <div class="priority-badge">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 1l2 4h4.5l-3.5 3 1.5 4.5L8 10 3.5 12.5 5 8 1.5 5H6L8 1z" stroke="currentColor" stroke-width="1.2"/></svg>
+            Priority support — 24-hour response
+          </div>
+        </div>
+        <div class="google-card">
+          <a href="#">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+            Find us on Google
+          </a>
+        </div>
+        <div class="map-card">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56444.43205937!2d-80.6201!3d28.3536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e0bbb31c69b71d%3A0x38acb08bbb3fa500!2sCocoa%20Beach%2C%20FL!5e0!3m2!1sen!2sus!4v1" width="100%" height="220" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing Cocoa Beach, FL studio location" alt="Google Maps embed showing Cocoa Beach, Florida"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (4-column) -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand-name">Golden Coast Studios</div>
+      <div class="footer-brand-info">
+        <a href="tel:+13215550822">(321) 555-0822</a><br>
+        <a href="mailto:sofia@goldencoaststudios.com">sofia@goldencoaststudios.com</a><br>
+        Cocoa Beach, FL (Brevard County)
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Portraits</a></li>
+        <li><a href="#services">Weddings</a></li>
+        <li><a href="#services">Corporate</a></li>
+        <li><a href="#services">Real Estate</a></li>
+        <li><a href="#services">Product</a></li>
+        <li><a href="#services">Branding</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Connect</div>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="rgba(255,255,255,0.5)"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" aria-label="Pinterest">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.25 2.67 7.9 6.44 9.34-.09-.78-.17-1.99.04-2.85.18-.78 1.17-4.97 1.17-4.97s-.3-.6-.3-1.48c0-1.39.81-2.43 1.81-2.43.86 0 1.27.64 1.27 1.41 0 .86-.55 2.15-.83 3.34-.24 1 .5 1.81 1.48 1.81 1.78 0 3.14-1.87 3.14-4.58 0-2.39-1.72-4.07-4.18-4.07-2.85 0-4.52 2.14-4.52 4.35 0 .86.33 1.78.75 2.28.08.1.09.19.07.29-.08.31-.25 1-.28 1.14-.05.19-.15.23-.35.14-1.31-.61-2.13-2.53-2.13-4.07 0-3.31 2.41-6.36 6.94-6.36 3.64 0 6.48 2.6 6.48 6.07 0 3.62-2.28 6.53-5.45 6.53-1.06 0-2.07-.55-2.41-1.21l-.66 2.5c-.24.92-.88 2.07-1.32 2.77.99.31 2.04.47 3.13.47 5.52 0 10-4.48 10-10S17.52 2 12 2z" fill="rgba(255,255,255,0.5)"/></svg>
+        </a>
+      </div>
+      <div class="footer-instagram">Follow <a href="#">@goldencoaststudios</a></div>
+      <div class="footer-priority">Priority Support: 24-hour response</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Golden Coast Studios. All rights reserved.</div>
+    <div class="footer-optimization">30-day post-launch optimization included</div>
+    <div class="footer-attribution"><a href="https://stackbuiltweb.com">Built by StackBuilt Web</a></div>
   </div>
 </footer>
 
-<!-- Tier Badge -->
+<!-- AI CHATBOT WIDGET (Premium feature) -->
+<div class="chat-bubble" id="chatBubble" aria-label="Open chat">
+  <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+</div>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <span class="chat-header-title">Golden Coast Studios</span>
+    <span class="chat-close" id="chatClose">&times;</span>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg bot">Hi there! I am Golden Coast's booking assistant. I can help you schedule a session, answer questions about pricing, or connect you with Sofia. How can I help?</div>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off">
+    <button class="chat-send" id="chatSend" aria-label="Send message">
+      <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- TIER BADGE (bottom-fixed) -->
 <div class="tier-badge">
-  This is a StackBuilt Web demo — <a href="/pricing.html">Premium Package ($5,500)</a> &nbsp;|&nbsp; <a href="/pricing.html">See All Packages</a> &nbsp;|&nbsp; <a href="/index.html">Visit StackBuilt Web →</a>
+  This is a StackBuilt Web demo — Premium Package ($5,500)
+  <a href="/pricing.html">See all packages</a> &nbsp;|&nbsp; <a href="/index.html" style="color:rgba(255,255,255,0.9);text-decoration:none;font-size:0.72rem;">Visit StackBuilt Web</a>
 </div>
 
 <script>
-// Navigation scroll behavior
-const nav = document.querySelector('.nav');
-let lastScroll = 0;
+/* ——— Header transparent → solid ——— */
+const header = document.getElementById('siteHeader');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 80) {
-    nav.classList.add('nav--scrolled');
-  } else {
-    nav.classList.remove('nav--scrolled');
-  }
+  header.classList.toggle('scrolled', window.scrollY > 80);
 }, { passive: true });
 
-// Mobile menu toggle
-const toggle = document.querySelector('.nav__toggle');
-const mobileMenu = document.querySelector('.nav__mobile-menu');
-toggle.addEventListener('click', () => {
-  const isOpen = toggle.classList.toggle('active');
-  mobileMenu.classList.toggle('active');
-  mobileMenu.setAttribute('aria-hidden', !isOpen);
-  toggle.setAttribute('aria-expanded', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
+/* ——— Mobile menu ——— */
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
 });
 
-// Parallax hero
-const heroImg = document.querySelector('.hero__image');
-let ticking = false;
-function updateParallax() {
-  const scroll = window.scrollY;
-  const heroHeight = window.innerHeight;
-  if (scroll <= heroHeight) {
-    const progress = scroll / heroHeight;
-    heroImg.style.transform = `scale(${1 + progress * 0.03})`;
-  }
-  ticking = false;
-}
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    requestAnimationFrame(updateParallax);
-    ticking = true;
-  }
-}, { passive: true });
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => { navLinks.classList.remove('open'); });
+});
 
-// Scroll reveal with IntersectionObserver
+/* ——— FAQ Accordion ——— */
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+/* ——— Scroll Reveal ——— */
 const reveals = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+      const siblings = entry.target.parentElement.querySelectorAll('.reveal');
+      let delay = 0;
+      siblings.forEach((sib, idx) => {
+        if (sib === entry.target) delay = idx * 100;
+      });
+      setTimeout(() => { entry.target.classList.add('visible'); }, delay);
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+
 reveals.forEach(el => revealObserver.observe(el));
 
-// Chatbot
-const chatTrigger = document.getElementById('chatTrigger');
-const chatPanel = document.getElementById('chatPanel');
+/* ——— Chatbot Widget ——— */
+const chatBubble = document.getElementById('chatBubble');
+const chatWindow = document.getElementById('chatWindow');
 const chatClose = document.getElementById('chatClose');
+const chatInput = document.getElementById('chatInput');
+const chatSend = document.getElementById('chatSend');
+const chatMessages = document.getElementById('chatMessages');
 
-chatTrigger.addEventListener('click', () => {
-  chatPanel.classList.add('open');
-  chatTrigger.classList.add('hidden');
+chatBubble.addEventListener('click', () => {
+  chatWindow.classList.toggle('open');
+  if (chatWindow.classList.contains('open')) chatInput.focus();
 });
+
 chatClose.addEventListener('click', () => {
-  chatPanel.classList.remove('open');
-  chatTrigger.classList.remove('hidden');
+  chatWindow.classList.remove('open');
 });
 
-// Quick reply buttons demo interaction
-document.querySelectorAll('.chat-quick-reply').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const messages = document.querySelector('.chatbot-messages');
-    const userMsg = document.createElement('div');
-    userMsg.className = 'chat-msg';
-    userMsg.style.cssText = 'align-self:flex-end; background:var(--gold); color:var(--accent); border-radius:12px; padding:12px 16px; font-size:14px; max-width:85%;';
-    userMsg.textContent = btn.textContent;
-    messages.appendChild(userMsg);
+function sendChatMessage() {
+  const msg = chatInput.value.trim();
+  if (!msg) return;
 
-    // Hide quick replies
-    document.querySelector('.chat-quick-replies').style.display = 'none';
+  const userMsg = document.createElement('div');
+  userMsg.className = 'chat-msg user';
+  userMsg.textContent = msg;
+  chatMessages.appendChild(userMsg);
+  chatInput.value = '';
 
-    // Bot response
-    setTimeout(() => {
-      const botMsg = document.createElement('div');
-      botMsg.className = 'chat-msg chat-msg--bot';
-      botMsg.textContent = btn.textContent === 'Book a session'
-        ? "I'd love to help you book a session! You can fill out the booking form on my contact page, or just tell me what you're looking for here."
-        : btn.textContent === 'View pricing'
-        ? "Portrait sessions start at $350, event coverage from $750, and real estate from $200. Every project is unique — I'd love to chat about yours."
-        : "Of course! What would you like to know? I'm happy to answer anything about my services, process, or availability.";
-      messages.appendChild(botMsg);
-      messages.scrollTop = messages.scrollHeight;
-    }, 800);
+  setTimeout(() => {
+    const botMsg = document.createElement('div');
+    botMsg.className = 'chat-msg bot';
+    botMsg.textContent = 'Thanks for your message! Sofia will get back to you within 24 hours. For immediate booking, call (321) 555-0822.';
+    chatMessages.appendChild(botMsg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }, 800);
 
-    messages.scrollTop = messages.scrollHeight;
-  });
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+chatSend.addEventListener('click', sendChatMessage);
+chatInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') sendChatMessage();
 });
+
+/* ——— Form handlers (demo) ——— */
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.btn-submit');
+  const orig = btn.textContent;
+  btn.textContent = 'Sent! Sofia will be in touch within 24 hours.';
+  btn.style.background = '#059669';
+  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; e.target.reset(); }, 3500);
+}
+
+function handleEmailSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  const orig = btn.textContent;
+  btn.textContent = 'Subscribed!';
+  btn.style.background = '#059669';
+  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; e.target.reset(); }, 3000);
+}
 </script>
-
 </body>
 </html>
