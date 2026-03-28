@@ -1679,28 +1679,30 @@ body::before {
       selectedAddons.push(cb.value);
     });
 
+    var urlParams = new URLSearchParams(window.location.search);
     var formData = {
       name: form.name.value,
       email: form.email.value,
       phone: form.phone.value,
-      business: form.business.value,
-      website: form.website.value,
+      business_name: form.business.value,
+      url: form.website.value,
       service: form.service.value,
       addons: selectedAddons,
       maintenance: form.maintenance.value,
-      message: form.message.value
+      message: form.message.value,
+      tier: urlParams.get('tier') || ''
     };
 
     // Log to console
     console.log('Contact form submission:', formData);
 
-    // POST to webhook (placeholder)
-    fetch('https://hooks.stackbuiltweb.com/contact-lead', {
+    // POST to GHL webhook
+    fetch('https://services.leadconnectorhq.com/hooks/g6U6ADXxxw5oALpsgnOq/webhook-trigger/48de16c7-9c78-467d-9db5-25869ccd5b7d', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     }).catch(function(err) {
-      console.log('Webhook POST (placeholder):', err.message);
+      console.log('Webhook error:', err.message);
     });
 
     // Smooth fade to success message

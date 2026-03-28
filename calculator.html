@@ -2795,12 +2795,12 @@ h2.section-heading {
 
     console.log('Audit Lead Data:', data);
 
-    fetch('https://hooks.stackbuiltweb.com/calculator-lead', {
+    fetch('https://services.leadconnectorhq.com/hooks/g6U6ADXxxw5oALpsgnOq/webhook-trigger/4f05b9b4-9712-402a-8223-dcce23ffc2e7', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).catch(function() {
-      // Silent fail
+      // Silent fail — don't break the audit results
     });
   }
 
