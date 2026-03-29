@@ -1071,6 +1071,287 @@ body::before {
   color: var(--text-secondary);
   font-weight: 500;
 }
+
+/* ========================================
+   Checkout Builder
+   ======================================== */
+.checkout-builder {
+  background: var(--bg-card-outer);
+  border: 1px solid var(--border-card);
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+  max-width: 780px;
+  margin: 2.5rem auto 0;
+}
+.checkout-builder-inner {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 1.125rem;
+  padding: clamp(2rem, 4vw, 3rem);
+}
+.checkout-step {
+  margin-bottom: 2.5rem;
+}
+.checkout-step:last-of-type {
+  margin-bottom: 0;
+}
+.checkout-step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.checkout-step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--text-on-accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.checkout-step-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Package & plan option cards */
+.checkout-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+@media (max-width: 560px) {
+  .checkout-options {
+    grid-template-columns: 1fr;
+  }
+}
+.checkout-option {
+  cursor: pointer;
+  position: relative;
+}
+.checkout-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.checkout-option-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 0.75rem;
+  border: 1.5px solid var(--border-card);
+  border-radius: 0.75rem;
+  background: var(--bg-cream);
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.checkout-option-inner:hover {
+  border-color: rgba(12, 78, 84, 0.2);
+}
+.checkout-option input:checked + .checkout-option-inner {
+  border-color: var(--accent);
+  background: rgba(12, 78, 84, 0.04);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.checkout-option-name {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+}
+.checkout-option-price {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+/* Add-on checkboxes */
+.checkout-addons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.625rem;
+}
+@media (max-width: 560px) {
+  .checkout-addons {
+    grid-template-columns: 1fr;
+  }
+}
+.checkout-addon {
+  cursor: pointer;
+  position: relative;
+}
+.checkout-addon input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.checkout-addon-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border-card);
+  border-radius: 0.625rem;
+  background: var(--bg-cream);
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.checkout-addon-inner:hover {
+  border-color: rgba(12, 78, 84, 0.2);
+}
+.checkout-addon input:checked + .checkout-addon-inner {
+  border-color: var(--accent);
+  background: rgba(12, 78, 84, 0.04);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.checkout-addon-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+.checkout-addon-price {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* Divider */
+.checkout-divider {
+  height: 1px;
+  background: var(--border-card);
+  margin: 2rem 0;
+}
+
+/* Order Summary */
+.checkout-summary {
+  margin-bottom: 2rem;
+}
+.checkout-summary-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+.checkout-summary-placeholder {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background: var(--bg-warm);
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 0.9375rem;
+}
+.checkout-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.5rem 0;
+}
+.checkout-summary-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+.checkout-summary-value {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  text-align: right;
+}
+.checkout-summary-value--bold {
+  font-weight: 700;
+  font-size: 1rem;
+}
+.checkout-summary-value--accent {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--accent);
+}
+.checkout-summary-sep {
+  height: 1px;
+  background: var(--border-card);
+  margin: 0.5rem 0;
+}
+.checkout-summary-row--total {
+  padding-top: 0.75rem;
+}
+.checkout-summary-row--due {
+  padding-top: 0.25rem;
+  padding-bottom: 0;
+}
+
+/* Checkout action buttons */
+.checkout-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.checkout-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: var(--accent);
+  color: var(--text-on-accent);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.checkout-btn-primary.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.checkout-btn-primary.active:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -8px rgba(12, 78, 84, 0.3);
+}
+.checkout-btn-primary.active:active {
+  transform: scale(0.97) translateY(1px);
+}
+.checkout-btn-primary .btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+}
+.checkout-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border: 1.5px solid var(--border-card);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.checkout-btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
 </style>
 
 <!-- Google Analytics 4 -->
@@ -1490,6 +1771,202 @@ body::before {
   </div>
 </section>
 
+<!-- ============ CHECKOUT BUILDER ============ -->
+<section class="section" id="checkout" style="background: var(--bg-cream);">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="eyebrow reveal stagger-1">Self-Service</span>
+      <h2 class="section-heading reveal stagger-2">Ready to get started right now?</h2>
+      <p class="section-sub reveal stagger-3" style="max-width: 640px; margin: 0.75rem auto 0;">If you already know what you want, you can book your package directly. Select your options below and check out &mdash; we&rsquo;ll start building within 24 hours.</p>
+    </div>
+
+    <div class="checkout-builder reveal stagger-4">
+      <div class="checkout-builder-inner">
+
+        <!-- Step 1: Package -->
+        <div class="checkout-step">
+          <div class="checkout-step-header">
+            <span class="checkout-step-num">1</span>
+            <h3 class="checkout-step-title">Choose your package</h3>
+          </div>
+          <div class="checkout-options checkout-options--packages" id="pkg-options">
+            <label class="checkout-option">
+              <input type="radio" name="package" value="sidehustle" data-label="Side Hustle" data-price="500" data-stripe="https://buy.stripe.com/cNieV7ftsaEX2FI6lA9bO00" data-tier="sidehustle">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Side Hustle</span>
+                <span class="checkout-option-price">$500</span>
+              </div>
+            </label>
+            <label class="checkout-option">
+              <input type="radio" name="package" value="starter" data-label="Starter" data-price="1500" data-stripe="https://buy.stripe.com/6oUaER8108wP2FI25k9bO01" data-tier="starter">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Starter</span>
+                <span class="checkout-option-price">$1,500</span>
+              </div>
+            </label>
+            <label class="checkout-option">
+              <input type="radio" name="package" value="professional" data-label="Professional" data-price="3500" data-stripe="https://buy.stripe.com/eVq6oBepo4gzcgi4ds9bO02" data-tier="professional">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Professional</span>
+                <span class="checkout-option-price">$3,500</span>
+              </div>
+            </label>
+            <label class="checkout-option">
+              <input type="radio" name="package" value="premium" data-label="Premium" data-price="5500" data-stripe="https://buy.stripe.com/dRmdR36WWbJ14NQ4ds9bO03" data-tier="premium">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Premium</span>
+                <span class="checkout-option-price">$5,500</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 2: Monthly Plan -->
+        <div class="checkout-step">
+          <div class="checkout-step-header">
+            <span class="checkout-step-num">2</span>
+            <h3 class="checkout-step-title">Choose your monthly plan</h3>
+          </div>
+          <div class="checkout-options checkout-options--plans" id="plan-options">
+            <label class="checkout-option">
+              <input type="radio" name="plan" value="hustle-basic" data-label="Hustle Basic" data-price="50" data-stripe="https://buy.stripe.com/6oU9AN0yy6oH2FIh0e9bO04">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Hustle Basic</span>
+                <span class="checkout-option-price">$50/mo</span>
+              </div>
+            </label>
+            <label class="checkout-option">
+              <input type="radio" name="plan" value="basic" data-label="Basic Maintenance" data-price="99" data-stripe="https://buy.stripe.com/5kQ00d6WW4gzcgiaBQ9bO05">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Basic Maintenance</span>
+                <span class="checkout-option-price">$99/mo</span>
+              </div>
+            </label>
+            <label class="checkout-option">
+              <input type="radio" name="plan" value="growth" data-label="Growth" data-price="199" data-stripe="https://buy.stripe.com/3cI4gtepofZh1BEeS69bO06">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Growth</span>
+                <span class="checkout-option-price">$199/mo</span>
+              </div>
+            </label>
+            <label class="checkout-option">
+              <input type="radio" name="plan" value="full-service" data-label="Full Service" data-price="349" data-stripe="https://buy.stripe.com/cNidR33KKfZh3JMaBQ9bO07">
+              <div class="checkout-option-inner">
+                <span class="checkout-option-name">Full Service</span>
+                <span class="checkout-option-price">$349/mo</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 3: Add-ons -->
+        <div class="checkout-step">
+          <div class="checkout-step-header">
+            <span class="checkout-step-num">3</span>
+            <h3 class="checkout-step-title">Add extras <span style="font-weight:400; color: var(--text-tertiary);">(optional)</span></h3>
+          </div>
+          <div class="checkout-addons" id="addon-options">
+            <label class="checkout-addon">
+              <input type="checkbox" data-label="AI Voice/Chat Agent" data-price="500" data-stripe="https://buy.stripe.com/00weV7a98dR9gwycJY9bO08">
+              <div class="checkout-addon-inner">
+                <span class="checkout-addon-name">AI Voice/Chat Agent</span>
+                <span class="checkout-addon-price">+$500</span>
+              </div>
+            </label>
+            <label class="checkout-addon">
+              <input type="checkbox" data-label="Email Automation Setup" data-price="750" data-stripe="https://buy.stripe.com/aFa3cpepo14n5RU6lA9bO09">
+              <div class="checkout-addon-inner">
+                <span class="checkout-addon-name">Email Automation Setup</span>
+                <span class="checkout-addon-price">+$750</span>
+              </div>
+            </label>
+            <label class="checkout-addon">
+              <input type="checkbox" data-label="Google Ads Landing Page" data-price="500" data-stripe="https://buy.stripe.com/aFaaER954fZh0xA39o9bO0a">
+              <div class="checkout-addon-inner">
+                <span class="checkout-addon-name">Google Ads Landing Page</span>
+                <span class="checkout-addon-price">+$500</span>
+              </div>
+            </label>
+            <label class="checkout-addon">
+              <input type="checkbox" data-label="Additional Pages" data-price="200" data-stripe="https://buy.stripe.com/7sY5kx5SSfZhgwy39o9bO0b">
+              <div class="checkout-addon-inner">
+                <span class="checkout-addon-name">Additional Pages</span>
+                <span class="checkout-addon-price">+$200/page</span>
+              </div>
+            </label>
+            <label class="checkout-addon">
+              <input type="checkbox" data-label="Logo Design" data-price="300" data-stripe="https://buy.stripe.com/7sY6oBchg14n3JM8tI9bO0c">
+              <div class="checkout-addon-inner">
+                <span class="checkout-addon-name">Logo Design</span>
+                <span class="checkout-addon-price">+$300</span>
+              </div>
+            </label>
+            <label class="checkout-addon">
+              <input type="checkbox" data-label="On-Site Photography" data-price="250" data-stripe="https://buy.stripe.com/bJe28lepo8wP0xAaBQ9bO0d">
+              <div class="checkout-addon-inner">
+                <span class="checkout-addon-name">On-Site Photography</span>
+                <span class="checkout-addon-price">+$250</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="checkout-divider"></div>
+
+        <!-- Order Summary -->
+        <div class="checkout-summary" id="checkout-summary">
+          <h3 class="checkout-summary-title">Order Summary</h3>
+          <div class="checkout-summary-placeholder" id="summary-placeholder">
+            Select a package to see your total
+          </div>
+          <div class="checkout-summary-details" id="summary-details" style="display:none;">
+            <div class="checkout-summary-row" id="summary-pkg">
+              <span class="checkout-summary-label">Package</span>
+              <span class="checkout-summary-value" id="summary-pkg-val">&mdash;</span>
+            </div>
+            <div class="checkout-summary-row" id="summary-plan-row" style="display:none;">
+              <span class="checkout-summary-label">Monthly plan</span>
+              <span class="checkout-summary-value" id="summary-plan-val">&mdash;</span>
+            </div>
+            <div class="checkout-summary-row" id="summary-addons-row" style="display:none;">
+              <span class="checkout-summary-label">Add-ons</span>
+              <span class="checkout-summary-value" id="summary-addons-val">&mdash;</span>
+            </div>
+            <div class="checkout-summary-sep"></div>
+            <div class="checkout-summary-row checkout-summary-row--total">
+              <span class="checkout-summary-label">One-time total</span>
+              <span class="checkout-summary-value checkout-summary-value--bold" id="summary-total">&mdash;</span>
+            </div>
+            <div class="checkout-summary-row" id="summary-monthly-row" style="display:none;">
+              <span class="checkout-summary-label">Monthly</span>
+              <span class="checkout-summary-value" id="summary-monthly-val">&mdash;</span>
+            </div>
+            <div class="checkout-summary-row checkout-summary-row--due">
+              <span class="checkout-summary-label">Due today (50%)</span>
+              <span class="checkout-summary-value checkout-summary-value--accent" id="summary-due">&mdash;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="checkout-actions">
+          <a href="#" class="checkout-btn-primary" id="checkout-btn" onclick="return false;">
+            Proceed to Checkout
+            <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:1rem;"></i></span>
+          </a>
+          <a href="/contact.html" class="checkout-btn-secondary" id="contact-btn">
+            Prefer to talk first? Contact us &rarr;
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ============ CTA ============ -->
 <section class="section">
   <div class="container">
@@ -1750,6 +2227,120 @@ body::before {
       if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 500);
   }
+})();
+</script>
+
+<script>
+// Checkout Builder
+(function() {
+  var pkgInputs = document.querySelectorAll('input[name="package"]');
+  var planInputs = document.querySelectorAll('input[name="plan"]');
+  var addonInputs = document.querySelectorAll('#addon-options input[type="checkbox"]');
+
+  var summaryPlaceholder = document.getElementById('summary-placeholder');
+  var summaryDetails = document.getElementById('summary-details');
+  var summaryPkgVal = document.getElementById('summary-pkg-val');
+  var summaryPlanRow = document.getElementById('summary-plan-row');
+  var summaryPlanVal = document.getElementById('summary-plan-val');
+  var summaryAddonsRow = document.getElementById('summary-addons-row');
+  var summaryAddonsVal = document.getElementById('summary-addons-val');
+  var summaryTotal = document.getElementById('summary-total');
+  var summaryMonthlyRow = document.getElementById('summary-monthly-row');
+  var summaryMonthlyVal = document.getElementById('summary-monthly-val');
+  var summaryDue = document.getElementById('summary-due');
+
+  var checkoutBtn = document.getElementById('checkout-btn');
+  var contactBtn = document.getElementById('contact-btn');
+
+  function fmt(n) {
+    return '$' + n.toLocaleString('en-US');
+  }
+
+  function getSelected(inputs) {
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].checked) return inputs[i];
+    }
+    return null;
+  }
+
+  function update() {
+    var pkg = getSelected(pkgInputs);
+    var plan = getSelected(planInputs);
+
+    // If no package selected, show placeholder
+    if (!pkg) {
+      summaryPlaceholder.style.display = '';
+      summaryDetails.style.display = 'none';
+      checkoutBtn.classList.remove('active');
+      checkoutBtn.href = '#';
+      checkoutBtn.onclick = function() { return false; };
+      contactBtn.href = '/contact.html';
+      return;
+    }
+
+    summaryPlaceholder.style.display = 'none';
+    summaryDetails.style.display = '';
+
+    var pkgPrice = parseInt(pkg.getAttribute('data-price'), 10);
+    var pkgLabel = pkg.getAttribute('data-label');
+    var pkgStripe = pkg.getAttribute('data-stripe');
+    var pkgTier = pkg.getAttribute('data-tier');
+
+    summaryPkgVal.textContent = pkgLabel + ' — ' + fmt(pkgPrice);
+
+    // Plan
+    if (plan) {
+      var planPrice = parseInt(plan.getAttribute('data-price'), 10);
+      var planLabel = plan.getAttribute('data-label');
+      summaryPlanRow.style.display = '';
+      summaryPlanVal.textContent = planLabel + ' — ' + fmt(planPrice) + '/mo';
+      summaryMonthlyRow.style.display = '';
+      summaryMonthlyVal.textContent = fmt(planPrice) + '/mo';
+    } else {
+      summaryPlanRow.style.display = 'none';
+      summaryMonthlyRow.style.display = 'none';
+    }
+
+    // Add-ons
+    var addonTotal = 0;
+    var addonNames = [];
+    addonInputs.forEach(function(cb) {
+      if (cb.checked) {
+        addonTotal += parseInt(cb.getAttribute('data-price'), 10);
+        addonNames.push(cb.getAttribute('data-label'));
+      }
+    });
+
+    if (addonNames.length > 0) {
+      summaryAddonsRow.style.display = '';
+      summaryAddonsVal.textContent = addonNames.join(', ') + ' — ' + fmt(addonTotal);
+    } else {
+      summaryAddonsRow.style.display = 'none';
+    }
+
+    var oneTimeTotal = pkgPrice + addonTotal;
+    summaryTotal.textContent = fmt(oneTimeTotal);
+    summaryDue.textContent = fmt(Math.ceil(oneTimeTotal / 2));
+
+    // Update buttons
+    checkoutBtn.classList.add('active');
+    checkoutBtn.href = pkgStripe;
+    checkoutBtn.onclick = null;
+    contactBtn.href = '/contact.html?tier=' + pkgTier;
+  }
+
+  pkgInputs.forEach(function(input) {
+    input.addEventListener('change', update);
+  });
+  planInputs.forEach(function(input) {
+    input.addEventListener('change', update);
+  });
+  addonInputs.forEach(function(input) {
+    input.addEventListener('change', update);
+  });
+
+  // Initialize
+  update();
 })();
 </script>
 
