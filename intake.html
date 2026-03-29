@@ -1,0 +1,2380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<title>Client Intake — StackBuilt Web | Let's Build Your Website</title>
+<meta name="description" content="Start your website project with StackBuilt Web. Fill out our client intake form and we'll have your site live fast — mobile-first, SEO-ready, and built to convert.">
+<!-- Canonical -->
+<link rel="canonical" href="https://www.stackbuiltweb.com/intake.html" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Client Intake — StackBuilt Web">
+<meta property="og:description" content="Start your website project with StackBuilt Web. Fill out our client intake form and we'll be in touch within 24 hours.">
+<meta property="og:url" content="https://www.stackbuiltweb.com/intake.html">
+<meta property="og:site_name" content="StackBuilt Web">
+<meta property="og:image" content="https://www.stackbuiltweb.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Client Intake — StackBuilt Web">
+<meta name="twitter:description" content="Start your website project with StackBuilt Web.">
+<meta name="twitter:image" content="https://www.stackbuiltweb.com/og-image.png">
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C0W59NZS22"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C0W59NZS22');
+</script>
+
+<!-- Fonts -->
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Phosphor Icons -->
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+<style>
+/* ========================================
+   CSS Custom Properties — Design Tokens
+   ======================================== */
+:root {
+  --bg-cream: #FDFBF7;
+  --bg-warm: #FAF7F2;
+  --bg-warm-alt: #F7F4EE;
+  --bg-card: #FFFFFF;
+  --bg-card-outer: rgba(12, 78, 84, 0.04);
+  --accent: #0C4E54;
+  --accent-light: #0E6B73;
+  --accent-muted: rgba(12, 78, 84, 0.08);
+  --accent-badge: rgba(12, 78, 84, 0.06);
+  --terracotta: #D4652E;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #A8A29E;
+  --text-on-accent: #FFFFFF;
+  --border-subtle: rgba(28, 25, 23, 0.06);
+  --border-card: rgba(28, 25, 23, 0.08);
+  --shadow-tinted: rgba(12, 78, 84, 0.06);
+  --shadow-soft: rgba(28, 25, 23, 0.04);
+
+  --font-body: 'Satoshi', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --section-py: clamp(5rem, 8vw, 8rem);
+  --container-px: clamp(1.25rem, 4vw, 3rem);
+  --container-max: 1320px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.32, 0.72, 0, 1);
+  --duration-base: 700ms;
+  --duration-fast: 400ms;
+  --duration-slow: 1000ms;
+}
+
+/* ========================================
+   Reset & Base
+   ======================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-cream);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+
+.font-mono { font-family: var(--font-mono); }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--accent-badge);
+  color: var(--accent);
+  border: 1px solid rgba(12, 78, 84, 0.1);
+}
+
+/* Double-Bezel Card */
+.card-outer {
+  background: var(--bg-card-outer);
+  border: 1px solid var(--border-card);
+  border-radius: 1.5rem;
+  padding: 0.375rem;
+}
+
+.card-inner {
+  background: var(--bg-card);
+  border-radius: calc(1.5rem - 0.375rem);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.6),
+    0 20px 40px -15px var(--shadow-tinted),
+    0 4px 12px -4px var(--shadow-soft);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-outer.lg {
+  border-radius: 2rem;
+  padding: 0.5rem;
+}
+.card-outer.lg .card-inner {
+  border-radius: calc(2rem - 0.5rem);
+  padding: 2.5rem;
+}
+
+/* Pill Buttons */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  will-change: transform;
+}
+.btn-pill:active {
+  transform: scale(0.97) translateY(1px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+.btn-primary:hover {
+  background: var(--terracotta);
+  color: var(--text-on-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(212, 101, 46, 0.3);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-card);
+  box-shadow: 0 1px 3px var(--shadow-soft);
+}
+.btn-secondary:hover {
+  background: var(--terracotta);
+  color: var(--text-on-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(212, 101, 46, 0.3);
+  border-color: var(--terracotta);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.2);
+  transition: transform var(--duration-fast) var(--ease-spring);
+  flex-shrink: 0;
+}
+.btn-pill:hover .btn-icon {
+  transform: translateX(2px) translateY(-1px) scale(1.05);
+}
+.btn-secondary .btn-icon {
+  background: var(--accent-muted);
+}
+.btn-secondary:hover .btn-icon {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  filter: blur(6px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo),
+              filter var(--duration-slow) var(--ease-out-expo);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.stagger-1 { transition-delay: 0ms; }
+.stagger-2 { transition-delay: 80ms; }
+.stagger-3 { transition-delay: 160ms; }
+.stagger-4 { transition-delay: 240ms; }
+.stagger-5 { transition-delay: 320ms; }
+
+.section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+/* ========================================
+   Navigation
+   ======================================== */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: background var(--duration-fast) var(--ease-out-expo),
+              box-shadow var(--duration-fast) var(--ease-out-expo);
+}
+.site-nav.scrolled {
+  background: rgba(253, 251, 247, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--border-subtle);
+}
+
+.nav-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-logo-svg {
+  display: block;
+  height: 32px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+  position: relative;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.nav-cta {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.8125rem;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 0.5rem;
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(253, 251, 247, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-out-expo);
+}
+.mobile-nav-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-nav-overlay a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.mobile-nav-overlay a:hover {
+  color: var(--accent);
+}
+.mobile-nav-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 0.5rem;
+}
+
+/* ========================================
+   Hero Section
+   ======================================== */
+.hero-section {
+  padding-top: calc(5rem + 80px);
+  padding-bottom: 3rem;
+  text-align: center;
+}
+.hero-eyebrow {
+  margin-bottom: 1.5rem;
+}
+.hero-h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+.hero-sub {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* ========================================
+   Intake Form Section
+   ======================================== */
+.intake-section {
+  padding-top: 2rem;
+  padding-bottom: var(--section-py);
+  position: relative;
+}
+
+.form-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   Progress Indicator
+   ======================================== */
+.progress-container {
+  margin-bottom: 2.5rem;
+}
+
+.progress-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.progress-step-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.progress-step-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.progress-bar-track {
+  width: 100%;
+  height: 4px;
+  background: var(--border-card);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border-radius: 9999px;
+  transition: width 0.6s var(--ease-out-expo);
+}
+
+/* Step dots */
+.progress-dots {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  position: relative;
+}
+
+.progress-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.progress-dot-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--border-card);
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  transition: all 0.4s var(--ease-out-expo);
+  position: relative;
+  z-index: 1;
+}
+
+.progress-dot.active .progress-dot-circle {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--text-on-accent);
+  box-shadow: 0 0 0 4px var(--accent-muted);
+}
+
+.progress-dot.completed .progress-dot-circle {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+
+.progress-dot-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.progress-dot.active .progress-dot-label,
+.progress-dot.completed .progress-dot-label {
+  color: var(--accent);
+}
+
+.progress-connector {
+  height: 2px;
+  background: var(--border-card);
+  flex: 1;
+  margin: 0 0.25rem;
+  margin-bottom: 1.5rem;
+  transition: background 0.4s var(--ease-out-expo);
+}
+.progress-connector.completed {
+  background: var(--accent);
+}
+
+/* ========================================
+   Form Card
+   ======================================== */
+.intake-card .card-outer {
+  border-radius: 2rem;
+  padding: 0.5rem;
+}
+.intake-card .card-inner {
+  border-radius: calc(2rem - 0.5rem);
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  overflow: visible;
+}
+
+/* ========================================
+   Step Transitions
+   ======================================== */
+.form-steps {
+  position: relative;
+  overflow: hidden;
+}
+
+.form-step {
+  display: none;
+  animation: none;
+}
+.form-step.active {
+  display: block;
+}
+.form-step.slide-in-right {
+  animation: slideInRight 0.45s var(--ease-out-expo) forwards;
+}
+.form-step.slide-in-left {
+  animation: slideInLeft 0.45s var(--ease-out-expo) forwards;
+}
+.form-step.slide-out-left {
+  animation: slideOutLeft 0.35s var(--ease-out-expo) forwards;
+}
+.form-step.slide-out-right {
+  animation: slideOutRight 0.35s var(--ease-out-expo) forwards;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideOutLeft {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-40px); }
+}
+@keyframes slideOutRight {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(40px); }
+}
+
+/* ========================================
+   Step Heading
+   ======================================== */
+.step-heading {
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 0.375rem;
+}
+.step-subheading {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.75rem;
+  line-height: 1.55;
+}
+
+/* ========================================
+   Form Elements
+   ======================================== */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.form-label .req {
+  color: var(--terracotta);
+  margin-left: 0.125rem;
+}
+.form-label .opt {
+  color: var(--text-tertiary);
+  font-weight: 400;
+  font-size: 0.75rem;
+  margin-left: 0.375rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-card);
+  border-radius: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  background: var(--bg-cream);
+  transition: border-color var(--duration-fast) var(--ease-out-expo),
+              box-shadow var(--duration-fast) var(--ease-out-expo);
+  outline: none;
+}
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-tertiary);
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(12, 78, 84, 0.08);
+}
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+  border-color: var(--terracotta);
+  box-shadow: 0 0 0 3px rgba(212, 101, 46, 0.08);
+}
+
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%2357534E' d='M4.427 5.427a.5.5 0 0 1 .708 0L8 8.293l2.865-2.866a.5.5 0 0 1 .708.708l-3.22 3.22a.5.5 0 0 1-.707 0l-3.22-3.22a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-error-msg {
+  font-size: 0.75rem;
+  color: var(--terracotta);
+  margin-top: 0.375rem;
+  display: none;
+}
+.form-error-msg.show {
+  display: block;
+}
+
+/* ========================================
+   Radio Groups (Yes/No style)
+   ======================================== */
+.radio-group {
+  display: flex;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+}
+
+.radio-option {
+  position: relative;
+  cursor: pointer;
+}
+.radio-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.radio-option-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.125rem;
+  border: 1.5px solid var(--border-card);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-cream);
+  transition: all 0.2s var(--ease-out-expo);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.radio-option-inner:hover {
+  border-color: rgba(12, 78, 84, 0.2);
+  color: var(--text-primary);
+}
+.radio-option input:checked + .radio-option-inner {
+  border-color: var(--accent);
+  background: rgba(12, 78, 84, 0.05);
+  color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+  font-weight: 600;
+}
+
+/* ========================================
+   Checkbox Grid
+   ======================================== */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.625rem;
+  border: 1px solid var(--border-card);
+  background: var(--bg-warm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  user-select: none;
+}
+.checkbox-item:hover {
+  border-color: rgba(12, 78, 84, 0.2);
+  background: var(--bg-warm-alt);
+}
+.checkbox-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 2px solid var(--border-card);
+  border-radius: 0.3rem;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+  background: var(--bg-card);
+}
+.checkbox-item input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.checkbox-item input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.checkbox-item.checked {
+  border-color: rgba(12, 78, 84, 0.25);
+  background: rgba(12, 78, 84, 0.04);
+}
+.checkbox-item-text {
+  font-size: 0.8125rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+/* ========================================
+   Package Radio Cards (Step 3)
+   ======================================== */
+.package-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.package-card {
+  position: relative;
+  cursor: pointer;
+}
+.package-card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.package-card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.125rem;
+  border: 1.5px solid var(--border-card);
+  border-radius: 1rem;
+  background: var(--bg-cream);
+  transition: all 0.25s var(--ease-out-expo);
+  height: 100%;
+}
+.package-card-inner:hover {
+  border-color: rgba(12, 78, 84, 0.2);
+  background: var(--bg-warm);
+}
+.package-card input:checked + .package-card-inner {
+  border-color: var(--accent);
+  background: rgba(12, 78, 84, 0.04);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.package-card-name {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+}
+.package-card-price {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.package-card-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-top: 0.125rem;
+}
+.package-card-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--terracotta);
+  color: white;
+  width: fit-content;
+  margin-bottom: 0.25rem;
+}
+
+/* ========================================
+   Maintenance Plan Cards (Step 4)
+   ======================================== */
+.maint-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.maint-card {
+  position: relative;
+  cursor: pointer;
+}
+.maint-card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.maint-card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 0.75rem;
+  border: 1.5px solid var(--border-card);
+  border-radius: 0.875rem;
+  background: var(--bg-cream);
+  transition: all 0.25s var(--ease-out-expo);
+  text-align: center;
+}
+.maint-card-inner:hover {
+  border-color: rgba(12, 78, 84, 0.2);
+  background: var(--bg-warm);
+}
+.maint-card input:checked + .maint-card-inner {
+  border-color: var(--accent);
+  background: rgba(12, 78, 84, 0.04);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.maint-card-name {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+.maint-card-price {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.maint-card-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--terracotta);
+  color: white;
+  width: fit-content;
+}
+
+/* ========================================
+   Conditional field
+   ======================================== */
+.conditional-field {
+  display: none;
+  margin-top: 0.875rem;
+  animation: fadeIn 0.3s ease;
+}
+.conditional-field.show {
+  display: block;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   Form Navigation
+   ======================================== */
+.form-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.375rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1.5px solid var(--border-card);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+}
+.btn-back:hover {
+  border-color: rgba(12, 78, 84, 0.2);
+  color: var(--accent);
+}
+
+.btn-next {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.9375rem 1.75rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-on-accent);
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+}
+.btn-next:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(12, 78, 84, 0.3);
+}
+.btn-next:active {
+  transform: scale(0.97) translateY(1px);
+}
+.btn-next .btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+}
+.btn-next.submit-btn {
+  background: var(--terracotta);
+}
+.btn-next.submit-btn:hover {
+  background: #C1561F;
+  box-shadow: 0 8px 24px -8px rgba(212, 101, 46, 0.4);
+}
+.btn-next.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* ========================================
+   Success State
+   ======================================== */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  animation: fadeInUp 0.6s var(--ease-out-expo) forwards;
+}
+.form-success.show {
+  display: block;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(12, 78, 84, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.75rem;
+  color: var(--accent);
+  animation: scale-in 0.5s var(--ease-spring) forwards;
+}
+@keyframes scale-in {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.success-icon svg {
+  width: 36px;
+  height: 36px;
+}
+.success-icon .check-path {
+  stroke-dasharray: 28;
+  stroke-dashoffset: 28;
+  animation: draw-check 0.45s 0.35s ease-out forwards;
+}
+@keyframes draw-check {
+  0% { stroke-dashoffset: 28; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.success-heading {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+.success-body {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+}
+.success-demos-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 0.875rem;
+}
+.success-demos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  justify-content: center;
+}
+.success-demo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1.5px solid var(--border-card);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  background: var(--bg-warm);
+  transition: all 0.2s var(--ease-out-expo);
+}
+.success-demo-link:hover {
+  border-color: var(--accent);
+  background: rgba(12, 78, 84, 0.05);
+}
+
+/* ========================================
+   Section divider
+   ======================================== */
+.step-section-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 1.75rem 0;
+}
+
+/* ========================================
+   Footer — Teal
+   ======================================== */
+.site-footer {
+  background: var(--accent);
+  padding: 3rem 0 1.5rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.footer-brand {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-on-accent);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.375rem;
+}
+.footer-tagline {
+  font-size: 0.8125rem;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-bottom: 0.625rem;
+}
+.footer-desc {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.55;
+  max-width: 300px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.footer-links-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--terracotta);
+  margin-bottom: 0.125rem;
+}
+.footer-links a {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.footer-links a:hover {
+  color: var(--text-on-accent);
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+.footer-contact-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--terracotta);
+  margin-bottom: 0.125rem;
+}
+.footer-contact a,
+.footer-contact span {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.footer-contact a:hover {
+  color: var(--text-on-accent);
+}
+
+.footer-bottom {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-cta.desktop-only { display: none; }
+  .mobile-menu-btn { display: block; }
+
+  .hero-section {
+    padding-top: calc(4rem + 60px);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .package-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .maint-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .progress-dot-label {
+    display: none;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .intake-card .card-inner {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .maint-cards {
+    grid-template-columns: 1fr;
+  }
+  .radio-group {
+    gap: 0.5rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="site-nav" id="siteNav">
+  <div class="nav-container">
+    <a href="/index.html" class="nav-logo" aria-label="StackBuilt Web Home">
+      <svg class="nav-logo-svg" width="180" height="32" viewBox="0 0 180 32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 26 L11 20 L18 26" stroke="#D4652E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 18 L11 12 L18 18" stroke="#0C4E54" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 10 L11 4 L18 10" stroke="#0E6B73" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="26" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="900" fill="#1C1917" letter-spacing="-0.3">Stack</text>
+        <text x="78" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="900" fill="#0C4E54" letter-spacing="-0.3">Built</text>
+        <text x="126" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="500" fill="#A8A29E" letter-spacing="-0.3">Web</text>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/calculator.html">Free Audit</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="/calculator.html" class="btn-pill btn-primary nav-cta desktop-only" style="padding:0.625rem 1.25rem; font-size:0.8125rem;">
+      Get Your Free Audit
+      <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.875rem;"></i></span>
+    </a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+      <i class="ph ph-list" style="font-size:1.5rem;"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+    <i class="ph ph-x" style="font-size:1.75rem;"></i>
+  </button>
+  <a href="/index.html">Home</a>
+  <a href="/services.html">Services</a>
+  <a href="/pricing.html">Pricing</a>
+  <a href="/calculator.html">Free Audit</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/calculator.html" class="btn-pill btn-primary" style="margin-top:1rem;">Get Your Free Audit</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero-section">
+  <div class="container">
+    <div class="reveal stagger-1">
+      <span class="eyebrow hero-eyebrow">Client Intake</span>
+    </div>
+    <h1 class="hero-h1 reveal stagger-2">Let&rsquo;s build your website.</h1>
+    <p class="hero-sub reveal stagger-3">Fill out the form below so we can get started. This usually takes about 10 minutes. The more detail you provide, the faster we can deliver a site that matches your vision.</p>
+  </div>
+</section>
+
+<!-- ============ INTAKE FORM ============ -->
+<section class="intake-section">
+  <div class="container">
+    <div class="form-wrapper reveal stagger-4">
+
+      <!-- Progress Indicator -->
+      <div class="progress-container" id="progressContainer">
+        <div class="progress-meta">
+          <span class="progress-step-label" id="progressStepLabel">Step 1 of 4</span>
+          <span class="progress-step-title" id="progressStepTitle">About Your Business</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressBarFill" style="width: 25%;"></div>
+        </div>
+        <div class="progress-dots" id="progressDots">
+          <div class="progress-dot active" data-step="1">
+            <div class="progress-dot-circle">1</div>
+            <div class="progress-dot-label">Business</div>
+          </div>
+          <div class="progress-connector" id="connector-1"></div>
+          <div class="progress-dot" data-step="2">
+            <div class="progress-dot-circle">2</div>
+            <div class="progress-dot-label">Online Presence</div>
+          </div>
+          <div class="progress-connector" id="connector-2"></div>
+          <div class="progress-dot" data-step="3">
+            <div class="progress-dot-circle">3</div>
+            <div class="progress-dot-label">What You Want</div>
+          </div>
+          <div class="progress-connector" id="connector-3"></div>
+          <div class="progress-dot" data-step="4">
+            <div class="progress-dot-circle">4</div>
+            <div class="progress-dot-label">Timeline</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Card -->
+      <div class="intake-card card-outer lg">
+        <div class="card-inner">
+
+          <!-- Form Steps -->
+          <div class="form-steps" id="formSteps">
+
+            <!-- ====== STEP 1: About Your Business ====== -->
+            <div class="form-step active" id="step-1">
+              <h2 class="step-heading">About your business</h2>
+              <p class="step-subheading">Tell us who you are and what you do. We&rsquo;ll use this to personalize your website from the start.</p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="businessName">Business name <span class="req">*</span></label>
+                  <input type="text" id="businessName" name="businessName" class="form-input" placeholder="e.g. Jones Roofing LLC" required>
+                  <div class="form-error-msg" id="err-businessName">Please enter your business name.</div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contactName">Your name <span class="req">*</span></label>
+                  <input type="text" id="contactName" name="contactName" class="form-input" placeholder="First and last name" required>
+                  <div class="form-error-msg" id="err-contactName">Please enter your name.</div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="email">Email address <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="you@yourbusiness.com" required>
+                  <div class="form-error-msg" id="err-email">Please enter a valid email address.</div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="phone">Phone number <span class="req">*</span></label>
+                  <input type="tel" id="phone" name="phone" class="form-input" placeholder="(321) 555-0100" required>
+                  <div class="form-error-msg" id="err-phone">Please enter your phone number.</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="businessLocation">Business location <span class="opt">(city, state)</span></label>
+                <input type="text" id="businessLocation" name="businessLocation" class="form-input" placeholder="e.g. Melbourne, FL">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="industry">Industry / niche <span class="req">*</span></label>
+                  <select id="industry" name="industry" class="form-select" required>
+                    <option value="" disabled selected>Select your industry</option>
+                    <option value="Roofing">Roofing</option>
+                    <option value="Painting">Painting</option>
+                    <option value="Plumbing">Plumbing</option>
+                    <option value="HVAC">HVAC</option>
+                    <option value="Landscaping">Landscaping</option>
+                    <option value="Pressure Washing">Pressure Washing</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Fencing">Fencing</option>
+                    <option value="Tree Service">Tree Service</option>
+                    <option value="Auto Detailing">Auto Detailing</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Real Estate">Real Estate</option>
+                    <option value="Restaurant">Restaurant</option>
+                    <option value="Retail">Retail</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <div class="form-error-msg" id="err-industry">Please select your industry.</div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="yearsInBusiness">Years in business <span class="req">*</span></label>
+                  <select id="yearsInBusiness" name="yearsInBusiness" class="form-select" required>
+                    <option value="" disabled selected>Select one</option>
+                    <option value="Just starting">Just starting</option>
+                    <option value="Less than 1 year">Less than 1 year</option>
+                    <option value="1-3 years">1&ndash;3 years</option>
+                    <option value="3-5 years">3&ndash;5 years</option>
+                    <option value="5-10 years">5&ndash;10 years</option>
+                    <option value="10+ years">10+ years</option>
+                  </select>
+                  <div class="form-error-msg" id="err-yearsInBusiness">Please select years in business.</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="hearAboutUs">How did you hear about us? <span class="req">*</span></label>
+                <select id="hearAboutUs" name="hearAboutUs" class="form-select" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option value="Google Search">Google Search</option>
+                  <option value="Upwork">Upwork</option>
+                  <option value="Fiverr">Fiverr</option>
+                  <option value="Thumbtack">Thumbtack</option>
+                  <option value="Referral">Referral</option>
+                  <option value="Social Media">Social Media</option>
+                  <option value="Cold Email">Cold Email</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div class="form-error-msg" id="err-hearAboutUs">Please let us know how you found us.</div>
+              </div>
+
+              <div class="form-nav">
+                <button type="button" class="btn-next" id="next-1" onclick="nextStep(1)">
+                  Next: Online Presence
+                  <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.9rem;"></i></span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ====== STEP 2: Current Online Presence ====== -->
+            <div class="form-step" id="step-2">
+              <h2 class="step-heading">Your current online presence</h2>
+              <p class="step-subheading">Help us understand where you&rsquo;re starting from so we can make a meaningful upgrade.</p>
+
+              <div class="form-group">
+                <label class="form-label">Do you currently have a website? <span class="req">*</span></label>
+                <div class="radio-group" id="hasWebsite-group">
+                  <label class="radio-option">
+                    <input type="radio" name="hasWebsite" value="Yes">
+                    <div class="radio-option-inner">Yes</div>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="hasWebsite" value="No">
+                    <div class="radio-option-inner">No</div>
+                  </label>
+                </div>
+                <div class="form-error-msg" id="err-hasWebsite">Please select an option.</div>
+
+                <div class="conditional-field" id="currentUrlField">
+                  <label class="form-label" for="currentWebsiteUrl" style="margin-top:0.5rem;">Current website URL</label>
+                  <input type="url" id="currentWebsiteUrl" name="currentWebsiteUrl" class="form-input" placeholder="https://yoursite.com">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">What&rsquo;s wrong with your current site? <span class="opt">(select all that apply)</span></label>
+                <div class="checkbox-grid">
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="siteIssues" value="It's outdated">
+                    <span class="checkbox-item-text">It&rsquo;s outdated</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="siteIssues" value="Not mobile-friendly">
+                    <span class="checkbox-item-text">Not mobile-friendly</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="siteIssues" value="Doesn't show up on Google">
+                    <span class="checkbox-item-text">Doesn&rsquo;t show up on Google</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="siteIssues" value="Hard to update">
+                    <span class="checkbox-item-text">Hard to update</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="siteIssues" value="No contact form">
+                    <span class="checkbox-item-text">No contact form</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="siteIssues" value="Slow loading">
+                    <span class="checkbox-item-text">Slow loading</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="siteIssues" value="I just don't like how it looks">
+                    <span class="checkbox-item-text">I just don&rsquo;t like how it looks</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="siteIssues" value="Other">
+                    <span class="checkbox-item-text">Other</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="step-section-divider"></div>
+
+              <div class="form-group">
+                <label class="form-label">Do you have a Google Business Profile? <span class="req">*</span></label>
+                <div class="radio-group" id="googleBusiness-group">
+                  <label class="radio-option">
+                    <input type="radio" name="googleBusiness" value="Yes">
+                    <div class="radio-option-inner">Yes</div>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="googleBusiness" value="No">
+                    <div class="radio-option-inner">No</div>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="googleBusiness" value="Not sure">
+                    <div class="radio-option-inner">Not sure</div>
+                  </label>
+                </div>
+                <div class="form-error-msg" id="err-googleBusiness">Please select an option.</div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Do you have a logo? <span class="req">*</span></label>
+                <div class="radio-group" id="hasLogo-group">
+                  <label class="radio-option">
+                    <input type="radio" name="hasLogo" value="Yes, I'll provide it">
+                    <div class="radio-option-inner">Yes, I&rsquo;ll provide it</div>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="hasLogo" value="No, I need one designed">
+                    <div class="radio-option-inner">No, I need one designed</div>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="hasLogo" value="Not sure">
+                    <div class="radio-option-inner">Not sure</div>
+                  </label>
+                </div>
+                <div class="form-error-msg" id="err-hasLogo">Please select an option.</div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="socialLinks">Social media links <span class="opt">(optional)</span></label>
+                <textarea id="socialLinks" name="socialLinks" class="form-textarea" style="min-height:80px;" placeholder="Paste any Facebook, Instagram, etc. links here"></textarea>
+              </div>
+
+              <div class="form-nav">
+                <button type="button" class="btn-back" onclick="prevStep(2)">
+                  <i class="ph ph-arrow-left" style="font-size:0.875rem;"></i>
+                  Back
+                </button>
+                <button type="button" class="btn-next" onclick="nextStep(2)">
+                  Next: What You Want
+                  <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.9rem;"></i></span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ====== STEP 3: What You Want ====== -->
+            <div class="form-step" id="step-3">
+              <h2 class="step-heading">What you want</h2>
+              <p class="step-subheading">Tell us about your vision. We&rsquo;ll tailor our recommendations to match your goals and budget.</p>
+
+              <div class="form-group">
+                <label class="form-label">Which package are you interested in? <span class="req">*</span></label>
+                <div class="package-cards" id="package-group">
+                  <label class="package-card">
+                    <input type="radio" name="package" value="Side Hustle — $500">
+                    <div class="package-card-inner">
+                      <div class="package-card-name">Side Hustle</div>
+                      <div class="package-card-price">$500</div>
+                      <div class="package-card-desc">1 page, perfect for getting started</div>
+                    </div>
+                  </label>
+                  <label class="package-card">
+                    <input type="radio" name="package" value="Starter — $1,500">
+                    <div class="package-card-inner">
+                      <div class="package-card-name">Starter</div>
+                      <div class="package-card-price">$1,500</div>
+                      <div class="package-card-desc">3 pages, testimonials, gallery</div>
+                    </div>
+                  </label>
+                  <label class="package-card">
+                    <input type="radio" name="package" value="Professional — $3,500">
+                    <div class="package-card-inner">
+                      <div class="package-card-badge">Most Popular</div>
+                      <div class="package-card-name">Professional</div>
+                      <div class="package-card-price">$3,500</div>
+                      <div class="package-card-desc">5 pages, FAQ, about, advanced SEO</div>
+                    </div>
+                  </label>
+                  <label class="package-card">
+                    <input type="radio" name="package" value="Premium — $5,500">
+                    <div class="package-card-inner">
+                      <div class="package-card-name">Premium</div>
+                      <div class="package-card-price">$5,500</div>
+                      <div class="package-card-desc">8+ sections, portfolio, blog, full feature set</div>
+                    </div>
+                  </label>
+                  <label class="package-card" style="grid-column: 1 / -1;">
+                    <input type="radio" name="package" value="Not sure yet — help me decide">
+                    <div class="package-card-inner" style="flex-direction:row; align-items:center; gap:0.75rem;">
+                      <div>
+                        <div class="package-card-name">Not sure yet</div>
+                        <div class="package-card-desc" style="margin-top:0.125rem;">Help me decide &mdash; I&rsquo;ll explain my goals below</div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+                <div class="form-error-msg" id="err-package">Please select a package option.</div>
+              </div>
+
+              <div class="step-section-divider"></div>
+
+              <div class="form-group">
+                <label class="form-label">What pages do you need? <span class="opt">(select all that apply)</span></label>
+                <div class="checkbox-grid">
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="pages" value="Home">
+                    <span class="checkbox-item-text">Home</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="pages" value="About">
+                    <span class="checkbox-item-text">About</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="pages" value="Services">
+                    <span class="checkbox-item-text">Services</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="pages" value="Gallery/Portfolio">
+                    <span class="checkbox-item-text">Gallery / Portfolio</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="pages" value="Testimonials">
+                    <span class="checkbox-item-text">Testimonials</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="pages" value="FAQ">
+                    <span class="checkbox-item-text">FAQ</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="pages" value="Contact">
+                    <span class="checkbox-item-text">Contact</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="pages" value="Blog">
+                    <span class="checkbox-item-text">Blog</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="pages" value="Pricing">
+                    <span class="checkbox-item-text">Pricing</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="pages" value="Other">
+                    <span class="checkbox-item-text">Other</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Key features needed <span class="opt">(select all that apply)</span></label>
+                <div class="checkbox-grid">
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="features" value="Contact form">
+                    <span class="checkbox-item-text">Contact form</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="features" value="Click-to-call button">
+                    <span class="checkbox-item-text">Click-to-call button</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="features" value="Google Maps">
+                    <span class="checkbox-item-text">Google Maps</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="features" value="Photo gallery">
+                    <span class="checkbox-item-text">Photo gallery</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="features" value="Testimonials">
+                    <span class="checkbox-item-text">Testimonials</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="features" value="FAQ section">
+                    <span class="checkbox-item-text">FAQ section</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="features" value="Online booking/scheduling">
+                    <span class="checkbox-item-text">Online booking / scheduling</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="features" value="Live chat">
+                    <span class="checkbox-item-text">Live chat</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="features" value="Email capture/newsletter">
+                    <span class="checkbox-item-text">Email capture / newsletter</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="features" value="Social media links">
+                    <span class="checkbox-item-text">Social media links</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="features" value="Other">
+                    <span class="checkbox-item-text">Other</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="step-section-divider"></div>
+
+              <div class="form-group">
+                <label class="form-label">Do you have professional photos of your work? <span class="req">*</span></label>
+                <div class="radio-group" id="hasPhotos-group">
+                  <label class="radio-option">
+                    <input type="radio" name="hasPhotos" value="Yes, I'll provide them">
+                    <div class="radio-option-inner">Yes, I&rsquo;ll provide them</div>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="hasPhotos" value="No, I need help with this">
+                    <div class="radio-option-inner">No, I need help with this</div>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="hasPhotos" value="Some but not enough">
+                    <div class="radio-option-inner">Some but not enough</div>
+                  </label>
+                </div>
+                <div class="form-error-msg" id="err-hasPhotos">Please select an option.</div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="brandColors">Brand colors <span class="opt">(optional)</span></label>
+                <input type="text" id="brandColors" name="brandColors" class="form-input" placeholder="e.g. Navy blue and white, or 'not sure — suggest options'">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="websiteVision">Describe your ideal website <span class="req">*</span></label>
+                <textarea id="websiteVision" name="websiteVision" class="form-textarea" placeholder="In a few sentences, describe what you want your website to do and feel like. What impression should it make on visitors?" required></textarea>
+                <div class="form-error-msg" id="err-websiteVision">Please describe your ideal website.</div>
+              </div>
+
+              <div class="form-nav">
+                <button type="button" class="btn-back" onclick="prevStep(3)">
+                  <i class="ph ph-arrow-left" style="font-size:0.875rem;"></i>
+                  Back
+                </button>
+                <button type="button" class="btn-next" onclick="nextStep(3)">
+                  Next: Timeline &amp; Budget
+                  <span class="btn-icon"><i class="ph ph-arrow-right" style="font-size:0.9rem;"></i></span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ====== STEP 4: Timeline & Budget ====== -->
+            <div class="form-step" id="step-4">
+              <h2 class="step-heading">Timeline &amp; next steps</h2>
+              <p class="step-subheading">Almost done. Just a few details so we can plan your project and get in touch the right way.</p>
+
+              <div class="form-group">
+                <label class="form-label" for="timeline">When do you need the site live? <span class="req">*</span></label>
+                <select id="timeline" name="timeline" class="form-select" required>
+                  <option value="" disabled selected>Select a timeframe</option>
+                  <option value="ASAP">ASAP</option>
+                  <option value="Within 1 week">Within 1 week</option>
+                  <option value="Within 2 weeks">Within 2 weeks</option>
+                  <option value="Within 1 month">Within 1 month</option>
+                  <option value="No rush">No rush</option>
+                </select>
+                <div class="form-error-msg" id="err-timeline">Please select a timeframe.</div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Monthly maintenance plan interest <span class="opt">(optional)</span></label>
+                <div class="maint-cards">
+                  <label class="maint-card">
+                    <input type="radio" name="maintenancePlan" value="Hustle Basic — $50/mo">
+                    <div class="maint-card-inner">
+                      <div class="maint-card-name">Hustle Basic</div>
+                      <div class="maint-card-price">$50/mo</div>
+                    </div>
+                  </label>
+                  <label class="maint-card">
+                    <input type="radio" name="maintenancePlan" value="Basic Maintenance — $99/mo">
+                    <div class="maint-card-inner">
+                      <div class="maint-card-badge">Popular</div>
+                      <div class="maint-card-name">Basic Maintenance</div>
+                      <div class="maint-card-price">$99/mo</div>
+                    </div>
+                  </label>
+                  <label class="maint-card">
+                    <input type="radio" name="maintenancePlan" value="Growth — $199/mo">
+                    <div class="maint-card-inner">
+                      <div class="maint-card-name">Growth</div>
+                      <div class="maint-card-price">$199/mo</div>
+                    </div>
+                  </label>
+                  <label class="maint-card">
+                    <input type="radio" name="maintenancePlan" value="Full Service — $349/mo">
+                    <div class="maint-card-inner">
+                      <div class="maint-card-name">Full Service</div>
+                      <div class="maint-card-price">$349/mo</div>
+                    </div>
+                  </label>
+                  <label class="maint-card">
+                    <input type="radio" name="maintenancePlan" value="Not interested right now">
+                    <div class="maint-card-inner">
+                      <div class="maint-card-name" style="font-size:0.8125rem;">Not interested right now</div>
+                    </div>
+                  </label>
+                  <label class="maint-card">
+                    <input type="radio" name="maintenancePlan" value="Tell me more">
+                    <div class="maint-card-inner">
+                      <div class="maint-card-name" style="font-size:0.8125rem;">Tell me more</div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="step-section-divider"></div>
+
+              <div class="form-group">
+                <label class="form-label">How would you prefer to communicate? <span class="req">*</span></label>
+                <div class="checkbox-grid" style="grid-template-columns: 1fr 1fr;">
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="contactPreference" value="Email">
+                    <span class="checkbox-item-text">Email</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="contactPreference" value="Phone call">
+                    <span class="checkbox-item-text">Phone call</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="contactPreference" value="Text message">
+                    <span class="checkbox-item-text">Text message</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="contactPreference" value="Video call">
+                    <span class="checkbox-item-text">Video call</span>
+                  </label>
+                </div>
+                <div class="form-error-msg" id="err-contactPreference">Please select at least one communication preference.</div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Best time to reach you <span class="opt">(select all that apply)</span></label>
+                <div class="checkbox-grid" style="grid-template-columns: 1fr 1fr;">
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="bestTime" value="Mornings 8am-12pm">
+                    <span class="checkbox-item-text">Mornings 8am&ndash;12pm</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="bestTime" value="Afternoons 12pm-5pm">
+                    <span class="checkbox-item-text">Afternoons 12pm&ndash;5pm</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="bestTime" value="Evenings 5pm-9pm">
+                    <span class="checkbox-item-text">Evenings 5pm&ndash;9pm</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="bestTime" value="Weekends">
+                    <span class="checkbox-item-text">Weekends</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="anythingElse">Anything else we should know? <span class="opt">(optional)</span></label>
+                <textarea id="anythingElse" name="anythingElse" class="form-textarea" placeholder="Specific deadlines, must-have details, questions for us, or anything else that will help us hit the ground running."></textarea>
+              </div>
+
+              <div class="form-nav">
+                <button type="button" class="btn-back" onclick="prevStep(4)">
+                  <i class="ph ph-arrow-left" style="font-size:0.875rem;"></i>
+                  Back
+                </button>
+                <button type="button" class="btn-next submit-btn" id="submitBtn" onclick="submitForm()">
+                  Submit Intake Form
+                  <span class="btn-icon"><i class="ph ph-paper-plane-tilt" style="font-size:0.9rem;"></i></span>
+                </button>
+              </div>
+            </div>
+
+          </div><!-- /.form-steps -->
+
+          <!-- ====== SUCCESS STATE ====== -->
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">
+              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="check-path" d="M8 18 L15 25 L28 11" stroke="#0C4E54" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="success-heading" id="successHeading">Thanks!</h3>
+            <p class="success-body">We&rsquo;ve received your intake form and will review it within 24 hours. You&rsquo;ll hear from Geoff personally with next steps.</p>
+            <p class="success-demos-label">In the meantime, explore our demo sites</p>
+            <div class="success-demos">
+              <a href="/demos/side-hustle/" class="success-demo-link" target="_blank">
+                <i class="ph ph-globe" style="font-size:0.875rem;"></i>
+                Side Hustle Demo
+              </a>
+              <a href="/demos/starter/" class="success-demo-link" target="_blank">
+                <i class="ph ph-globe" style="font-size:0.875rem;"></i>
+                Starter Demo
+              </a>
+              <a href="/demos/professional/" class="success-demo-link" target="_blank">
+                <i class="ph ph-globe" style="font-size:0.875rem;"></i>
+                Professional Demo
+              </a>
+              <a href="/demos/premium/" class="success-demo-link" target="_blank">
+                <i class="ph ph-globe" style="font-size:0.875rem;"></i>
+                Premium Demo
+              </a>
+            </div>
+          </div>
+
+        </div><!-- /.card-inner -->
+      </div><!-- /.intake-card -->
+
+    </div><!-- /.form-wrapper -->
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg width="160" height="28" viewBox="0 0 160 28" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 23 L10 17 L17 23" stroke="#D4652E" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 16 L10 10 L17 16" stroke="rgba(255,255,255,0.7)" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 9 L10 3 L17 9" stroke="rgba(255,255,255,0.45)" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="24" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="-0.3">Stack</text>
+            <text x="70" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="-0.3">Built</text>
+            <text x="112" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="500" fill="rgba(255,255,255,0.5)" letter-spacing="-0.3">Web</text>
+          </svg>
+        </div>
+        <p class="footer-tagline">Serving Brevard County and beyond</p>
+        <p class="footer-desc">Modern websites for local service businesses. Fast builds, transparent pricing, real results.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-title">Quick Links</div>
+        <a href="/services.html">Services</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/calculator.html">Free Audit</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-contact-title">Get in Touch</div>
+        <a href="mailto:geoff@stackbuiltweb.com">geoff@stackbuiltweb.com</a>
+        <span>Melbourne, FL</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 StackBuilt Web. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+// ========================================
+// State
+// ========================================
+var currentStep = 1;
+var totalSteps = 4;
+
+var stepTitles = {
+  1: 'About Your Business',
+  2: 'Online Presence',
+  3: 'What You Want',
+  4: 'Timeline & Budget'
+};
+
+// ========================================
+// Scroll Reveal
+// ========================================
+(function() {
+  var reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(function(el) { observer.observe(el); });
+})();
+
+// ========================================
+// Nav Scroll Effect
+// ========================================
+(function() {
+  var nav = document.getElementById('siteNav');
+  var ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+// ========================================
+// Mobile Nav
+// ========================================
+(function() {
+  var btn = document.getElementById('mobileMenuBtn');
+  var overlay = document.getElementById('mobileNav');
+  var closeBtn = document.getElementById('mobileNavClose');
+  if (!btn || !overlay) return;
+  btn.addEventListener('click', function() {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  function closeNav() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  closeBtn.addEventListener('click', closeNav);
+  overlay.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeNav); });
+})();
+
+// ========================================
+// Checkbox highlight sync
+// ========================================
+document.querySelectorAll('.checkbox-item').forEach(function(item) {
+  var cb = item.querySelector('input[type="checkbox"]');
+  cb.addEventListener('change', function() {
+    item.classList.toggle('checked', cb.checked);
+  });
+});
+
+// ========================================
+// Conditional: hasWebsite -> currentUrlField
+// ========================================
+document.querySelectorAll('input[name="hasWebsite"]').forEach(function(radio) {
+  radio.addEventListener('change', function() {
+    var field = document.getElementById('currentUrlField');
+    if (this.value === 'Yes') {
+      field.classList.add('show');
+    } else {
+      field.classList.remove('show');
+    }
+  });
+});
+
+// ========================================
+// Progress update
+// ========================================
+function updateProgress(step) {
+  // Bar fill
+  var pct = (step / totalSteps) * 100;
+  document.getElementById('progressBarFill').style.width = pct + '%';
+
+  // Label
+  document.getElementById('progressStepLabel').textContent = 'Step ' + step + ' of ' + totalSteps;
+  document.getElementById('progressStepTitle').textContent = stepTitles[step];
+
+  // Dots
+  document.querySelectorAll('.progress-dot').forEach(function(dot) {
+    var dotStep = parseInt(dot.getAttribute('data-step'));
+    dot.classList.remove('active', 'completed');
+    if (dotStep === step) dot.classList.add('active');
+    else if (dotStep < step) dot.classList.add('completed');
+  });
+
+  // Connectors
+  for (var i = 1; i <= 3; i++) {
+    var connector = document.getElementById('connector-' + i);
+    if (connector) {
+      connector.classList.toggle('completed', i < step);
+    }
+  }
+}
+
+// ========================================
+// Validation
+// ========================================
+function clearErrors(stepNum) {
+  var step = document.getElementById('step-' + stepNum);
+  step.querySelectorAll('.form-error-msg').forEach(function(msg) { msg.classList.remove('show'); });
+  step.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(function(el) { el.classList.remove('error'); });
+}
+
+function showError(fieldId, msgId) {
+  var field = document.getElementById(fieldId);
+  var msg = document.getElementById(msgId);
+  if (field) field.classList.add('error');
+  if (msg) msg.classList.add('show');
+}
+
+function validateStep(stepNum) {
+  clearErrors(stepNum);
+  var valid = true;
+
+  if (stepNum === 1) {
+    var bName = document.getElementById('businessName').value.trim();
+    var cName = document.getElementById('contactName').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var industry = document.getElementById('industry').value;
+    var years = document.getElementById('yearsInBusiness').value;
+    var hear = document.getElementById('hearAboutUs').value;
+
+    if (!bName) { showError('businessName', 'err-businessName'); valid = false; }
+    if (!cName) { showError('contactName', 'err-contactName'); valid = false; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('email', 'err-email'); valid = false; }
+    if (!phone) { showError('phone', 'err-phone'); valid = false; }
+    if (!industry) { showError('industry', 'err-industry'); valid = false; }
+    if (!years) { showError('yearsInBusiness', 'err-yearsInBusiness'); valid = false; }
+    if (!hear) { showError('hearAboutUs', 'err-hearAboutUs'); valid = false; }
+  }
+
+  if (stepNum === 2) {
+    var hasWebsite = document.querySelector('input[name="hasWebsite"]:checked');
+    var googleBiz = document.querySelector('input[name="googleBusiness"]:checked');
+    var hasLogo = document.querySelector('input[name="hasLogo"]:checked');
+
+    if (!hasWebsite) { document.getElementById('err-hasWebsite').classList.add('show'); valid = false; }
+    if (!googleBiz) { document.getElementById('err-googleBusiness').classList.add('show'); valid = false; }
+    if (!hasLogo) { document.getElementById('err-hasLogo').classList.add('show'); valid = false; }
+  }
+
+  if (stepNum === 3) {
+    var pkg = document.querySelector('input[name="package"]:checked');
+    var hasPhotos = document.querySelector('input[name="hasPhotos"]:checked');
+    var vision = document.getElementById('websiteVision').value.trim();
+
+    if (!pkg) { document.getElementById('err-package').classList.add('show'); valid = false; }
+    if (!hasPhotos) { document.getElementById('err-hasPhotos').classList.add('show'); valid = false; }
+    if (!vision) { showError('websiteVision', 'err-websiteVision'); valid = false; }
+  }
+
+  if (stepNum === 4) {
+    var timeline = document.getElementById('timeline').value;
+    var contactPref = document.querySelectorAll('input[name="contactPreference"]:checked');
+
+    if (!timeline) { showError('timeline', 'err-timeline'); valid = false; }
+    if (contactPref.length === 0) { document.getElementById('err-contactPreference').classList.add('show'); valid = false; }
+  }
+
+  return valid;
+}
+
+// ========================================
+// Step Navigation
+// ========================================
+function goToStep(targetStep, direction) {
+  var currentEl = document.getElementById('step-' + currentStep);
+  var targetEl = document.getElementById('step-' + targetStep);
+
+  // Animate out current
+  var outClass = direction === 'next' ? 'slide-out-left' : 'slide-out-right';
+  currentEl.classList.add(outClass);
+
+  setTimeout(function() {
+    currentEl.classList.remove('active', outClass);
+
+    targetEl.classList.add('active');
+    var inClass = direction === 'next' ? 'slide-in-right' : 'slide-in-left';
+    targetEl.classList.add(inClass);
+
+    setTimeout(function() {
+      targetEl.classList.remove(inClass);
+    }, 450);
+
+    currentStep = targetStep;
+    updateProgress(currentStep);
+
+    // Scroll to top of form
+    var formTop = document.querySelector('.progress-container');
+    if (formTop) {
+      formTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 300);
+}
+
+function nextStep(fromStep) {
+  if (!validateStep(fromStep)) {
+    // Scroll to first error
+    var firstError = document.querySelector('#step-' + fromStep + ' .form-error-msg.show, #step-' + fromStep + ' .form-input.error');
+    if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  if (fromStep < totalSteps) {
+    goToStep(fromStep + 1, 'next');
+  }
+}
+
+function prevStep(fromStep) {
+  if (fromStep > 1) {
+    goToStep(fromStep - 1, 'prev');
+  }
+}
+
+// ========================================
+// Collect Form Data
+// ========================================
+function collectFormData() {
+  function getChecked(name) {
+    return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked')).map(function(el) { return el.value; }).join(', ');
+  }
+  function getRadio(name) {
+    var el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : '';
+  }
+  function getVal(id) {
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+  }
+
+  return {
+    businessName: getVal('businessName'),
+    contactName: getVal('contactName'),
+    email: getVal('email'),
+    phone: getVal('phone'),
+    businessLocation: getVal('businessLocation'),
+    industry: getVal('industry'),
+    yearsInBusiness: getVal('yearsInBusiness'),
+    hearAboutUs: getVal('hearAboutUs'),
+    hasWebsite: getRadio('hasWebsite'),
+    currentWebsiteUrl: getVal('currentWebsiteUrl'),
+    siteIssues: getChecked('siteIssues'),
+    googleBusiness: getRadio('googleBusiness'),
+    hasLogo: getRadio('hasLogo'),
+    socialLinks: getVal('socialLinks'),
+    package: getRadio('package'),
+    pages: getChecked('pages'),
+    features: getChecked('features'),
+    hasPhotos: getRadio('hasPhotos'),
+    brandColors: getVal('brandColors'),
+    websiteVision: getVal('websiteVision'),
+    timeline: getVal('timeline'),
+    maintenancePlan: getRadio('maintenancePlan'),
+    contactPreference: getChecked('contactPreference'),
+    bestTime: getChecked('bestTime'),
+    anythingElse: getVal('anythingElse'),
+    submittedAt: new Date().toISOString(),
+    source: 'intake-form'
+  };
+}
+
+// ========================================
+// Submit Form
+// ========================================
+function submitForm() {
+  if (!validateStep(4)) {
+    var firstError = document.querySelector('#step-4 .form-error-msg.show, #step-4 .form-input.error');
+    if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  var btn = document.getElementById('submitBtn');
+  btn.classList.add('loading');
+  btn.textContent = 'Sending...';
+
+  var data = collectFormData();
+
+  // Fire webhook in background — don't block success state
+  fetch('https://services.leadconnectorhq.com/hooks/g6U6ADXxxw5oALpsgnOq/webhook-trigger/48de16c7-9c78-467d-9db5-25869ccd5b7d', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).catch(function(err) {
+    console.warn('Webhook error (non-blocking):', err);
+  });
+
+  // GA4 event
+  if (typeof gtag === 'function') {
+    gtag('event', 'intake_form_submit', {
+      event_category: 'form',
+      event_label: data.package || 'unknown',
+      business_name: data.businessName
+    });
+  }
+
+  // Show success after brief delay
+  setTimeout(function() {
+    // Hide progress and steps
+    document.getElementById('progressContainer').style.display = 'none';
+    document.getElementById('formSteps').style.display = 'none';
+
+    // Show success
+    var successEl = document.getElementById('formSuccess');
+    successEl.classList.add('show');
+
+    // Personalize heading
+    var firstName = data.contactName.split(' ')[0];
+    if (firstName) {
+      document.getElementById('successHeading').textContent = 'Thanks, ' + firstName + '!';
+    }
+
+    // Scroll to success
+    successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 600);
+}
+
+// ========================================
+// Init
+// ========================================
+updateProgress(1);
+</script>
+
+</body>
+</html>
