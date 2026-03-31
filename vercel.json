@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "stackbuiltweb.com" }],
+      "destination": "https://www.stackbuiltweb.com/$1",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/calculator", "destination": "/calculator.html" },
     { "source": "/contact", "destination": "/contact.html" },

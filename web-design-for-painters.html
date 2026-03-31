@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<title>Website Design for Painting Companies | StackBuilt Web</title>
+<meta name="description" content="Custom websites for painting contractors. Showcase your before/after portfolio, rank in local search, and get more painting leads online.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Website Design for Painting Companies | StackBuilt Web">
+<meta property="og:description" content="Custom websites for painting contractors. Showcase your before/after portfolio, rank in local search, and get more painting leads online.">
+<meta property="og:url" content="https://www.stackbuiltweb.com/web-design-for-painters.html">
+<meta property="og:site_name" content="StackBuilt Web">
+<meta property="og:image" content="https://www.stackbuiltweb.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Website Design for Painting Companies | StackBuilt Web">
+<meta name="twitter:description" content="Custom websites for painting contractors. Showcase your before/after portfolio, rank in local search, and get more painting leads online.">
+<meta name="twitter:image" content="https://www.stackbuiltweb.com/og-image.png">
+
+<link rel="canonical" href="https://www.stackbuiltweb.com/web-design-for-painters.html" />
+
+<!-- Font Preconnects -->
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Fonts -->
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================
+   CSS Custom Properties — Design Tokens
+   ======================================== */
+:root {
+  --bg-cream: #FDFBF7;
+  --bg-warm: #FAF7F2;
+  --bg-warm-alt: #F7F4EE;
+  --bg-card: #FFFFFF;
+  --bg-card-outer: rgba(12, 78, 84, 0.04);
+  --accent: #0C4E54;
+  --accent-light: #0E6B73;
+  --accent-muted: rgba(12, 78, 84, 0.08);
+  --accent-badge: rgba(12, 78, 84, 0.06);
+  --terracotta: #D4652E;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #A8A29E;
+  --text-on-accent: #FFFFFF;
+  --border-subtle: rgba(28, 25, 23, 0.06);
+  --border-card: rgba(28, 25, 23, 0.08);
+  --shadow-tinted: rgba(12, 78, 84, 0.06);
+  --shadow-soft: rgba(28, 25, 23, 0.04);
+
+  --font-body: 'Satoshi', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --section-py: clamp(5rem, 8vw, 8rem);
+  --container-px: clamp(1.25rem, 4vw, 3rem);
+  --container-max: 1320px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.32, 0.72, 0, 1);
+  --duration-base: 700ms;
+  --duration-fast: 400ms;
+  --duration-slow: 1000ms;
+}
+
+/* ========================================
+   Reset & Base
+   ======================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-cream);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Noise overlay on fixed pseudo-element */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+
+.font-mono { font-family: var(--font-mono); }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--accent-badge);
+  color: var(--accent);
+  border: 1px solid rgba(12, 78, 84, 0.1);
+}
+
+/* Double-Bezel Card */
+.card-outer {
+  background: var(--bg-card-outer);
+  border: 1px solid var(--border-card);
+  border-radius: 1.5rem;
+  padding: 0.375rem;
+}
+
+.card-inner {
+  background: var(--bg-card);
+  border-radius: calc(1.5rem - 0.375rem);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.6),
+    0 20px 40px -15px var(--shadow-tinted),
+    0 4px 12px -4px var(--shadow-soft);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-outer.lg {
+  border-radius: 2rem;
+  padding: 0.5rem;
+}
+.card-outer.lg .card-inner {
+  border-radius: calc(2rem - 0.5rem);
+  padding: 2.5rem;
+}
+
+/* Pill Buttons */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  will-change: transform;
+}
+.btn-pill:active {
+  transform: scale(0.97) translateY(1px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+.btn-primary:hover {
+  background: var(--terracotta);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(212, 101, 46, 0.3);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-card);
+  box-shadow: 0 1px 3px var(--shadow-soft);
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px var(--shadow-tinted);
+  border-color: rgba(12, 78, 84, 0.15);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.2);
+  transition: transform var(--duration-fast) var(--ease-spring);
+  flex-shrink: 0;
+}
+.btn-pill:hover .btn-icon {
+  transform: translateX(2px) translateY(-1px) scale(1.05);
+}
+.btn-secondary .btn-icon {
+  background: var(--accent-muted);
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  filter: blur(6px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo),
+              filter var(--duration-slow) var(--ease-out-expo);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.stagger-1 { transition-delay: 0ms; }
+.stagger-2 { transition-delay: 80ms; }
+.stagger-3 { transition-delay: 160ms; }
+.stagger-4 { transition-delay: 240ms; }
+.stagger-5 { transition-delay: 320ms; }
+.stagger-6 { transition-delay: 400ms; }
+
+.section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-subtle), var(--border-card), var(--border-subtle), transparent);
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+h2.section-heading {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.section-subhead {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--text-secondary);
+  max-width: 55ch;
+  line-height: 1.7;
+}
+
+/* ========================================
+   Navigation
+   ======================================== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: background var(--duration-fast) var(--ease-smooth),
+              box-shadow var(--duration-fast) var(--ease-smooth),
+              backdrop-filter var(--duration-fast) var(--ease-smooth);
+}
+.nav.scrolled {
+  background: rgba(253, 251, 247, 0.85);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  box-shadow: 0 1px 0 var(--border-subtle);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-px);
+}
+
+.nav-logo {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-logo-svg {
+  display: block;
+  height: 32px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.nav-links a:hover {
+  color: var(--accent);
+}
+.nav-links a.active {
+  color: var(--accent);
+  position: relative;
+}
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.nav-cta {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  transform-origin: center;
+}
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(253, 251, 247, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-out-expo);
+}
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.mobile-menu a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  transform: translateY(1.5rem);
+  opacity: 0;
+  transition: all var(--duration-base) var(--ease-out-expo);
+}
+.mobile-menu.open a {
+  transform: translateY(0);
+  opacity: 1;
+}
+.mobile-menu.open a:nth-child(1) { transition-delay: 80ms; }
+.mobile-menu.open a:nth-child(2) { transition-delay: 160ms; }
+.mobile-menu.open a:nth-child(3) { transition-delay: 240ms; }
+.mobile-menu.open a:nth-child(4) { transition-delay: 320ms; }
+.mobile-menu.open a:nth-child(5) { transition-delay: 400ms; }
+.mobile-menu.open a:nth-child(6) { transition-delay: 480ms; }
+
+/* ========================================
+   Hero Section
+   ======================================== */
+.hero {
+  min-height: 60dvh;
+  display: flex;
+  align-items: center;
+  padding-top: 8rem;
+  padding-bottom: var(--section-py);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: hero-text-in 0.6s var(--ease-out-expo) 0.1s forwards;
+}
+
+.hero h1 {
+  font-size: clamp(2.625rem, 5.75vw, 4.375rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: hero-text-in 0.6s var(--ease-out-expo) 0.3s forwards;
+}
+
+@keyframes hero-text-in {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 60ch;
+  margin: 0 auto;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: hero-text-in 0.6s var(--ease-out-expo) 0.5s forwards;
+}
+
+/* ========================================
+   Landing Page Content Styles
+   ======================================== */
+.lp-section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+.lp-section.warm {
+  background: var(--bg-warm);
+}
+
+.lp-content {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.lp-content h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.lp-content p {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.lp-content p:last-child {
+  margin-bottom: 0;
+}
+
+.lp-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.lp-content a:hover {
+  color: var(--terracotta);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.feature-item {
+  display: flex;
+  gap: 0.875rem;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: rgba(12, 78, 84, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--accent);
+  margin-top: 0.125rem;
+}
+.feature-icon svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.feature-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.feature-desc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* Demo Preview Card */
+.demo-preview-card {
+  margin: 2.5rem 0;
+}
+.demo-preview-card .card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 2.5rem;
+}
+.demo-preview-card .demo-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.demo-preview-card .demo-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.demo-preview-card .demo-desc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 50ch;
+}
+
+/* Pricing Callout */
+.pricing-callout {
+  background: var(--accent-muted);
+  border: 1px solid rgba(12, 78, 84, 0.1);
+  border-radius: 1rem;
+  padding: 2rem 2.5rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+.pricing-callout .price-range {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.pricing-callout p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+/* CTA Section */
+.cta-section {
+  background: var(--accent);
+}
+.cta-block {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.cta-block .section-heading {
+  text-align: center;
+  color: var(--text-on-accent);
+}
+.cta-sub {
+  font-size: clamp(1rem, 1.5vw, 1.0625rem);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  max-width: 50ch;
+}
+.cta-section .btn-primary {
+  background: var(--bg-cream);
+  color: var(--accent);
+}
+.cta-section .btn-primary:hover {
+  background: #FFFFFF;
+  color: var(--accent) !important;
+  box-shadow: 0 8px 24px -8px rgba(0,0,0,0.2);
+}
+.cta-section .btn-primary .btn-icon {
+  background: rgba(12, 78, 84, 0.1);
+}
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+.site-footer {
+  background: var(--accent);
+  padding: 2.5rem 0 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.footer-brand {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-on-accent);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.375rem;
+}
+.footer-brand span {
+  color: var(--text-on-accent);
+}
+.footer-tagline {
+  font-size: 0.8rem;
+  color: var(--terracotta);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+.footer-links-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--terracotta);
+  margin-bottom: 0.125rem;
+}
+.footer-links a {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.footer-links a:hover {
+  color: #FFFFFF;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+.footer-contact-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--terracotta);
+  margin-bottom: 0.125rem;
+}
+.footer-contact a {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+.footer-contact a:hover {
+  color: #FFFFFF;
+}
+
+.footer-bottom {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-cta.desktop { display: none; }
+  .hamburger { display: flex; }
+
+  .hero {
+    min-height: auto;
+    padding-top: 7rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+</style>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C0W59NZS22"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C0W59NZS22');
+</script>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Website Design for Painting Companies",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "StackBuilt Web",
+    "url": "https://www.stackbuiltweb.com"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Florida"
+  },
+  "description": "Custom website design for painting contractors. Portfolio-driven sites that showcase your work and generate leads from local search.",
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "500",
+    "highPrice": "5500",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- ========================================
+     Navigation
+     ======================================== -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo" aria-label="StackBuilt Web Home">
+      <svg class="nav-logo-svg" width="180" height="32" viewBox="0 0 180 32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 26 L11 20 L18 26" stroke="#D4652E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 18 L11 12 L18 18" stroke="#0C4E54" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 10 L11 4 L18 10" stroke="#0E6B73" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="26" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="900" fill="#1C1917" letter-spacing="-0.3">Stack</text>
+        <text x="78" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="900" fill="#0C4E54" letter-spacing="-0.3">Built</text>
+        <text x="126" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="500" fill="#A8A29E" letter-spacing="-0.3">Web</text>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/calculator.html">Free Audit</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="/calculator.html" class="btn-pill btn-primary nav-cta desktop">
+      Get Your Free Audit
+      <span class="btn-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index.html">Home</a>
+  <a href="/services.html">Services</a>
+  <a href="/pricing.html">Pricing</a>
+  <a href="/calculator.html">Free Audit</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/calculator.html" class="btn-pill btn-primary" style="margin-top: 1rem;">Get Your Free Audit</a>
+</div>
+
+<!-- ========================================
+     Hero Section
+     ======================================== -->
+<section class="hero section">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow">PAINTING WEBSITES</span>
+      </div>
+      <h1>Professional Websites for Painting Companies</h1>
+      <p class="hero-sub">Painting is a visual trade &mdash; your website should prove it. We build portfolio-driven sites that showcase your best work, rank in local search, and turn browsers into booked estimates.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ========================================
+     Why Painters Need a Website
+     ======================================== -->
+<section class="lp-section">
+  <div class="container">
+    <div class="lp-content reveal stagger-1">
+      <h2>Why Your Painting Business Needs a Website That Works</h2>
+      <p>Homeowners choosing a painter do something different than homeowners choosing a plumber: they browse. They look at photos, compare styles, and imagine what their own home could look like. If your online presence is a Facebook page with a few blurry job site photos, you're losing to the painter with a clean portfolio and a professional website.</p>
+      <p>The painting industry is competitive, and the companies growing the fastest are the ones showing up in "painter near me" searches with a site that immediately builds trust. We're talking sharp before-and-after photos, clear service descriptions, and a quote request form that takes 30 seconds to fill out.</p>
+      <p>A website isn't just a digital business card. It's your best salesperson &mdash; one that works around the clock, never takes a day off, and shows your work to every potential customer in your service area. We build sites that do exactly that.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ========================================
+     Key Features for Painting Websites
+     ======================================== -->
+<section class="lp-section warm">
+  <div class="container">
+    <div class="lp-content">
+      <h2 class="reveal stagger-1">Features That Win Painting Jobs Online</h2>
+      <p class="reveal stagger-2">Your website needs to do two things: show off your craftsmanship and make it effortless for homeowners to reach you. Here's what we include in every painting website:</p>
+
+      <div class="feature-grid reveal stagger-3">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          </div>
+          <div class="feature-text">
+            <div class="feature-name">Before &amp; After Portfolio Gallery</div>
+            <div class="feature-desc">The single most powerful feature on any painter's website. Side-by-side comparisons of your work that sell the job before you ever show up for the estimate.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="feature-text">
+            <div class="feature-name">Color Consultation Booking</div>
+            <div class="feature-desc">Let homeowners book a consultation directly from your site. This pre-qualifies leads and sets you apart from competitors who just list a phone number.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="feature-text">
+            <div class="feature-name">Neighborhood-Focused SEO</div>
+            <div class="feature-desc">Dedicated content targeting specific neighborhoods and subdivisions where you've done work. "We painted 12 homes in Viera this year" hits different than a generic service page.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="feature-text">
+            <div class="feature-name">Review &amp; Testimonial Section</div>
+            <div class="feature-desc">Pull in your Google reviews and feature written testimonials from happy homeowners. Social proof is everything in the painting business.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="feature-text">
+            <div class="feature-name">Room Visualizer Potential</div>
+            <div class="feature-desc">We can integrate color preview tools or link to manufacturer visualizers so homeowners can preview paint colors on their own walls.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="feature-text">
+            <div class="feature-name">Service Breakdown Pages</div>
+            <div class="feature-desc">Separate pages for interior painting, exterior painting, cabinet refinishing, and commercial work &mdash; each optimized for the searches that matter.</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="reveal stagger-4">Painting is one of those trades where the work speaks for itself. We build your website to let it do exactly that &mdash; beautifully, on every device, loading in under two seconds.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ========================================
+     Demo Preview
+     ======================================== -->
+<section class="lp-section">
+  <div class="container">
+    <div class="lp-content">
+      <h2 class="reveal stagger-1">See a Painting Website We've Built</h2>
+      <p class="reveal stagger-2">We created a full demo site for a fictional painting company called True Coat Painting. It demonstrates our Starter tier &mdash; a clean, effective single-page website perfect for a painting company that wants to establish a professional online presence without overcomplicating things.</p>
+
+      <div class="demo-preview-card card-outer lg reveal stagger-3">
+        <div class="card-inner">
+          <div class="demo-label">Starter Tier Demo</div>
+          <div class="demo-name">True Coat Painting</div>
+          <div class="demo-desc">A single-page painting website with a portfolio section, services overview, testimonials, and a quote request form. Clean, fast, and built to convert visitors into estimates.</div>
+          <a href="/demos/starter/index.html" class="btn-pill btn-primary" style="margin-top: 0.5rem;">
+            View the Demo Site
+            <span class="btn-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <p class="reveal stagger-4">This is our entry-level package, and it's more than enough for many painting companies. Need more pages, a full portfolio gallery, or neighborhood-specific SEO content? Our Standard and Professional tiers have you covered. <a href="/services.html">See all our service options</a>.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ========================================
+     Pricing Section
+     ======================================== -->
+<section class="lp-section warm">
+  <div class="container">
+    <div class="lp-content">
+      <h2 class="reveal stagger-1">What Does a Painting Company Website Cost?</h2>
+      <p class="reveal stagger-2">We keep pricing simple and transparent. No hourly billing, no scope creep surprises, no "it depends" non-answers. Here's the range:</p>
+
+      <div class="pricing-callout reveal stagger-3">
+        <div class="price-range">$500 &ndash; $5,500</div>
+        <p>Most painting companies choose our $500&ndash;$1,500 packages. You get a clean, portfolio-focused site with a quote form, service descriptions, and Google reviews &mdash; everything you need to look professional and generate leads online.</p>
+      </div>
+
+      <p class="reveal stagger-4">Larger companies that want neighborhood-specific landing pages, a full project gallery with filtering, or multi-location support typically land in the $2,500&ndash;$5,500 range. Either way, you pay once and you own the site. No monthly website fees.</p>
+      <p class="reveal stagger-5">Want to know exactly what your painting website would cost? <a href="/pricing.html">Check out our pricing page</a> for the full tier breakdown, or <a href="/calculator.html">start with a free audit</a> and we'll give you a personalized recommendation.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ========================================
+     CTA Section
+     ======================================== -->
+<section class="cta-section section">
+  <div class="container">
+    <div class="cta-block">
+      <h2 class="section-heading reveal stagger-1">Ready to show off your painting work online?</h2>
+      <p class="cta-sub reveal stagger-2">Start with a free website audit. We'll look at your current site (or your competitors' sites if you don't have one yet) and show you exactly what it takes to start getting more estimate requests.</p>
+      <div class="cta-buttons reveal stagger-3">
+        <a href="/calculator.html" class="btn-pill btn-primary" style="padding: 1rem 2rem; font-size: 1rem;">
+          Get Your Free Website Audit
+          <span class="btn-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </a>
+        <a href="/contact.html" class="btn-pill btn-secondary" style="padding: 1rem 2rem; font-size: 1rem;">
+          Contact Us Directly
+          <span class="btn-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     Footer
+     ======================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg width="160" height="28" viewBox="0 0 160 28" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 23 L10 17 L17 23" stroke="#D4652E" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 16 L10 10 L17 16" stroke="rgba(255,255,255,0.7)" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 9 L10 3 L17 9" stroke="rgba(255,255,255,0.45)" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="24" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="-0.3">Stack</text>
+            <text x="70" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="-0.3">Built</text>
+            <text x="112" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="500" fill="rgba(255,255,255,0.5)" letter-spacing="-0.3">Web</text>
+          </svg>
+        </div>
+        <p class="footer-tagline">Modern websites for local businesses.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-title">Navigation</div>
+        <a href="/index.html">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/calculator.html">Free Audit</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-contact-title">Contact</div>
+        <a href="mailto:geoff@stackbuiltweb.com">geoff@stackbuiltweb.com</a>
+        <span>Melbourne, FL</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 StackBuilt Web. Melbourne, FL.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ========================================
+     JavaScript
+     ======================================== -->
+<script>
+(function() {
+  'use strict';
+
+  // Scroll reveal with IntersectionObserver
+  var revealElements = document.querySelectorAll('.reveal');
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -60px 0px'
+  });
+
+  revealElements.forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  // Navbar scroll effect
+  var navbar = document.getElementById('navbar');
+  var lastScroll = 0;
+
+  window.addEventListener('scroll', function() {
+    var currentScroll = window.pageYOffset;
+    if (currentScroll > 40) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    lastScroll = currentScroll;
+  }, { passive: true });
+
+  // Mobile menu
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  var mobileLinks = mobileMenu.querySelectorAll('a');
+  mobileLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+</script>
+</body>
+</html>
