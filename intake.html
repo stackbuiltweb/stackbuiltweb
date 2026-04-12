@@ -2334,13 +2334,17 @@ function submitForm() {
 
   var data = collectFormData();
 
-  // Fire webhook in background — don't block success state
-  fetch('https://services.leadconnectorhq.com/hooks/g6U6ADXxxw5oALpsgnOq/webhook-trigger/48de16c7-9c78-467d-9db5-25869ccd5b7d', {
+  // Send intake data via FormSubmit.co (replaces GHL webhook)
+  var intakeSubmitData = Object.assign({}, data, {
+    _subject: 'New Intake Form: ' + (data.businessName || data.contactName || 'Unknown'),
+    _template: 'table'
+  });
+  fetch('https://formsubmit.co/ajax/geoff@stackbuiltweb.com', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(intakeSubmitData)
   }).catch(function(err) {
-    console.warn('Webhook error (non-blocking):', err);
+    console.warn('FormSubmit error (non-blocking):', err);
   });
 
   // GA4 event
