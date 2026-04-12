@@ -2177,13 +2177,17 @@ body::before {
     // Log to console
     console.log('Contact form submission:', formData);
 
-    // POST to GHL webhook
-    fetch('https://services.leadconnectorhq.com/hooks/g6U6ADXxxw5oALpsgnOq/webhook-trigger/48de16c7-9c78-467d-9db5-25869ccd5b7d', {
+    // POST to FormSubmit.co (replaces GHL webhook)
+    var submitData = Object.assign({}, formData, {
+      _subject: 'New Contact Form Lead: ' + formData.business_name,
+      _template: 'table'
+    });
+    fetch('https://formsubmit.co/ajax/geoff@stackbuiltweb.com', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(submitData)
     }).catch(function(err) {
-      console.log('Webhook error:', err.message);
+      console.log('Form submission error:', err.message);
     });
 
     // Smooth fade to success message

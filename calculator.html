@@ -2799,10 +2799,14 @@ h2.section-heading {
 
     console.log('Audit Lead Data:', data);
 
-    fetch('https://services.leadconnectorhq.com/hooks/g6U6ADXxxw5oALpsgnOq/webhook-trigger/4f05b9b4-9712-402a-8223-dcce23ffc2e7', {
+    var auditSubmitData = Object.assign({}, data, {
+      _subject: 'New Audit Lead: ' + (data.name || data.url),
+      _template: 'table'
+    });
+    fetch('https://formsubmit.co/ajax/geoff@stackbuiltweb.com', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(auditSubmitData)
     }).catch(function() {
       // Silent fail — don't break the audit results
     });
