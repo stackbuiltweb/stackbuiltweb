@@ -1290,6 +1290,55 @@ body::before {
   padding-bottom: 0;
 }
 
+/* Category toggle */
+.checkout-category-toggle {
+  display: flex;
+  background: var(--bg-warm-alt);
+  border-radius: 999px;
+  padding: 0.25rem;
+  margin-bottom: 2rem;
+  border: 1.5px solid var(--border-card);
+}
+.checkout-category-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.25s var(--ease-out-expo);
+}
+.checkout-category-btn.active {
+  background: var(--accent);
+  color: var(--text-on-accent);
+  box-shadow: 0 2px 8px rgba(12, 78, 84, 0.2);
+}
+.checkout-category-btn:not(.active):hover {
+  color: var(--accent);
+}
+.checkout-category-btn svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+.checkout-category-note {
+  display: block;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  margin-top: -1.25rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
 /* Checkout action buttons */
 .checkout-actions {
   display: flex;
@@ -1799,133 +1848,210 @@ body::before {
     <div class="checkout-builder reveal stagger-4">
       <div class="checkout-builder-inner">
 
-        <!-- Step 1: Package -->
-        <div class="checkout-step">
-          <div class="checkout-step-header">
-            <span class="checkout-step-num">1</span>
-            <h3 class="checkout-step-title">Choose your package</h3>
-          </div>
-          <div class="checkout-options checkout-options--packages" id="pkg-options">
-            <label class="checkout-option">
-              <input type="radio" name="package" value="sidehustle" data-label="Side Hustle" data-price="500" data-stripe="https://buy.stripe.com/cNieV7ftsaEX2FI6lA9bO00" data-tier="sidehustle">
-              <div class="checkout-option-inner">
-                <span class="checkout-option-name">Side Hustle</span>
-                <span class="checkout-option-price">$500</span>
-              </div>
-            </label>
-            <label class="checkout-option">
-              <input type="radio" name="package" value="starter" data-label="Starter" data-price="1500" data-stripe="https://buy.stripe.com/6oUaER8108wP2FI25k9bO01" data-tier="starter">
-              <div class="checkout-option-inner">
-                <span class="checkout-option-name">Starter</span>
-                <span class="checkout-option-price">$1,500</span>
-              </div>
-            </label>
-            <label class="checkout-option">
-              <input type="radio" name="package" value="professional" data-label="Professional" data-price="3500" data-stripe="https://buy.stripe.com/eVq6oBepo4gzcgi4ds9bO02" data-tier="professional">
-              <div class="checkout-option-inner">
-                <span class="checkout-option-name">Professional</span>
-                <span class="checkout-option-price">$3,500</span>
-              </div>
-            </label>
-            <label class="checkout-option">
-              <input type="radio" name="package" value="premium" data-label="Premium" data-price="5500" data-stripe="https://buy.stripe.com/dRmdR36WWbJ14NQ4ds9bO03" data-tier="premium">
-              <div class="checkout-option-inner">
-                <span class="checkout-option-name">Premium</span>
-                <span class="checkout-option-price">$5,500</span>
-              </div>
-            </label>
-          </div>
+        <!-- Category Toggle -->
+        <div class="checkout-category-toggle" id="category-toggle">
+          <button type="button" class="checkout-category-btn active" data-category="webdesign">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+            Web Design
+          </button>
+          <button type="button" class="checkout-category-btn" data-category="operations">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+            Operations &amp; Automation
+          </button>
         </div>
 
-        <!-- Step 2: Monthly Plan -->
-        <div class="checkout-step">
-          <div class="checkout-step-header">
-            <span class="checkout-step-num">2</span>
-            <h3 class="checkout-step-title">Choose your monthly plan</h3>
-          </div>
-          <div class="checkout-options checkout-options--plans" id="plan-options">
-            <label class="checkout-option">
-              <input type="radio" name="plan" value="hustle-basic" data-label="Hustle Basic" data-price="50" data-stripe="https://buy.stripe.com/6oU9AN0yy6oH2FIh0e9bO04">
-              <div class="checkout-option-inner">
-                <span class="checkout-option-name">Hustle Basic</span>
-                <span class="checkout-option-price">$50/mo</span>
-              </div>
-            </label>
-            <label class="checkout-option">
-              <input type="radio" name="plan" value="basic" data-label="Basic Maintenance" data-price="99" data-stripe="https://buy.stripe.com/5kQ00d6WW4gzcgiaBQ9bO05">
-              <div class="checkout-option-inner">
-                <span class="checkout-option-name">Basic Maintenance</span>
-                <span class="checkout-option-price">$99/mo</span>
-              </div>
-            </label>
-            <label class="checkout-option">
-              <input type="radio" name="plan" value="growth" data-label="Growth" data-price="199" data-stripe="https://buy.stripe.com/3cI4gtepofZh1BEeS69bO06">
-              <div class="checkout-option-inner">
-                <span class="checkout-option-name">Growth</span>
-                <span class="checkout-option-price">$199/mo</span>
-              </div>
-            </label>
-            <label class="checkout-option">
-              <input type="radio" name="plan" value="full-service" data-label="Full Service" data-price="349" data-stripe="https://buy.stripe.com/cNidR33KKfZh3JMaBQ9bO07">
-              <div class="checkout-option-inner">
-                <span class="checkout-option-name">Full Service</span>
-                <span class="checkout-option-price">$349/mo</span>
-              </div>
-            </label>
-          </div>
-        </div>
+        <!-- ===== WEB DESIGN FLOW ===== -->
+        <div id="flow-webdesign">
 
-        <!-- Step 3: Add-ons -->
-        <div class="checkout-step">
-          <div class="checkout-step-header">
-            <span class="checkout-step-num">3</span>
-            <h3 class="checkout-step-title">Add extras <span style="font-weight:400; color: var(--text-tertiary);">(optional)</span></h3>
+          <!-- Step 1: Package -->
+          <div class="checkout-step">
+            <div class="checkout-step-header">
+              <span class="checkout-step-num">1</span>
+              <h3 class="checkout-step-title">Choose your package</h3>
+            </div>
+            <div class="checkout-options checkout-options--packages" id="pkg-options">
+              <label class="checkout-option">
+                <input type="radio" name="package" value="sidehustle" data-label="Side Hustle" data-price="500" data-stripe="https://buy.stripe.com/cNieV7ftsaEX2FI6lA9bO00" data-tier="sidehustle">
+                <div class="checkout-option-inner">
+                  <span class="checkout-option-name">Side Hustle</span>
+                  <span class="checkout-option-price">$500</span>
+                </div>
+              </label>
+              <label class="checkout-option">
+                <input type="radio" name="package" value="starter" data-label="Starter" data-price="1500" data-stripe="https://buy.stripe.com/6oUaER8108wP2FI25k9bO01" data-tier="starter">
+                <div class="checkout-option-inner">
+                  <span class="checkout-option-name">Starter</span>
+                  <span class="checkout-option-price">$1,500</span>
+                </div>
+              </label>
+              <label class="checkout-option">
+                <input type="radio" name="package" value="professional" data-label="Professional" data-price="3500" data-stripe="https://buy.stripe.com/eVq6oBepo4gzcgi4ds9bO02" data-tier="professional">
+                <div class="checkout-option-inner">
+                  <span class="checkout-option-name">Professional</span>
+                  <span class="checkout-option-price">$3,500</span>
+                </div>
+              </label>
+              <label class="checkout-option">
+                <input type="radio" name="package" value="premium" data-label="Premium" data-price="5500" data-stripe="https://buy.stripe.com/dRmdR36WWbJ14NQ4ds9bO03" data-tier="premium">
+                <div class="checkout-option-inner">
+                  <span class="checkout-option-name">Premium</span>
+                  <span class="checkout-option-price">$5,500</span>
+                </div>
+              </label>
+            </div>
           </div>
-          <div class="checkout-addons" id="addon-options">
-            <label class="checkout-addon">
-              <input type="checkbox" data-label="AI Voice/Chat Agent" data-price="500" data-stripe="https://buy.stripe.com/00weV7a98dR9gwycJY9bO08">
-              <div class="checkout-addon-inner">
-                <span class="checkout-addon-name">AI Voice/Chat Agent</span>
-                <span class="checkout-addon-price">+$500</span>
-              </div>
-            </label>
-            <label class="checkout-addon">
-              <input type="checkbox" data-label="Email Automation Setup" data-price="750" data-stripe="https://buy.stripe.com/aFa3cpepo14n5RU6lA9bO09">
-              <div class="checkout-addon-inner">
-                <span class="checkout-addon-name">Email Automation Setup</span>
-                <span class="checkout-addon-price">+$750</span>
-              </div>
-            </label>
-            <label class="checkout-addon">
-              <input type="checkbox" data-label="Google Ads Landing Page" data-price="500" data-stripe="https://buy.stripe.com/aFaaER954fZh0xA39o9bO0a">
-              <div class="checkout-addon-inner">
-                <span class="checkout-addon-name">Google Ads Landing Page</span>
-                <span class="checkout-addon-price">+$500</span>
-              </div>
-            </label>
-            <label class="checkout-addon">
-              <input type="checkbox" data-label="Additional Pages" data-price="200" data-stripe="https://buy.stripe.com/7sY5kx5SSfZhgwy39o9bO0b">
-              <div class="checkout-addon-inner">
-                <span class="checkout-addon-name">Additional Pages</span>
-                <span class="checkout-addon-price">+$200/page</span>
-              </div>
-            </label>
-            <label class="checkout-addon">
-              <input type="checkbox" data-label="Logo Design" data-price="300" data-stripe="https://buy.stripe.com/7sY6oBchg14n3JM8tI9bO0c">
-              <div class="checkout-addon-inner">
-                <span class="checkout-addon-name">Logo Design</span>
-                <span class="checkout-addon-price">+$300</span>
-              </div>
-            </label>
-            <label class="checkout-addon">
-              <input type="checkbox" data-label="On-Site Photography" data-price="250" data-stripe="https://buy.stripe.com/bJe28lepo8wP0xAaBQ9bO0d">
-              <div class="checkout-addon-inner">
-                <span class="checkout-addon-name">On-Site Photography</span>
-                <span class="checkout-addon-price">+$250</span>
-              </div>
-            </label>
+
+          <!-- Step 2: Monthly Plan -->
+          <div class="checkout-step">
+            <div class="checkout-step-header">
+              <span class="checkout-step-num">2</span>
+              <h3 class="checkout-step-title">Choose your monthly plan</h3>
+            </div>
+            <div class="checkout-options checkout-options--plans" id="plan-options">
+              <label class="checkout-option">
+                <input type="radio" name="plan" value="hustle-basic" data-label="Hustle Basic" data-price="50" data-stripe="https://buy.stripe.com/6oU9AN0yy6oH2FIh0e9bO04">
+                <div class="checkout-option-inner">
+                  <span class="checkout-option-name">Hustle Basic</span>
+                  <span class="checkout-option-price">$50/mo</span>
+                </div>
+              </label>
+              <label class="checkout-option">
+                <input type="radio" name="plan" value="basic" data-label="Basic Maintenance" data-price="99" data-stripe="https://buy.stripe.com/5kQ00d6WW4gzcgiaBQ9bO05">
+                <div class="checkout-option-inner">
+                  <span class="checkout-option-name">Basic Maintenance</span>
+                  <span class="checkout-option-price">$99/mo</span>
+                </div>
+              </label>
+              <label class="checkout-option">
+                <input type="radio" name="plan" value="growth" data-label="Growth" data-price="199" data-stripe="https://buy.stripe.com/3cI4gtepofZh1BEeS69bO06">
+                <div class="checkout-option-inner">
+                  <span class="checkout-option-name">Growth</span>
+                  <span class="checkout-option-price">$199/mo</span>
+                </div>
+              </label>
+              <label class="checkout-option">
+                <input type="radio" name="plan" value="full-service" data-label="Full Service" data-price="349" data-stripe="https://buy.stripe.com/cNidR33KKfZh3JMaBQ9bO07">
+                <div class="checkout-option-inner">
+                  <span class="checkout-option-name">Full Service</span>
+                  <span class="checkout-option-price">$349/mo</span>
+                </div>
+              </label>
+            </div>
           </div>
-        </div>
+
+          <!-- Step 3: Add-ons -->
+          <div class="checkout-step">
+            <div class="checkout-step-header">
+              <span class="checkout-step-num">3</span>
+              <h3 class="checkout-step-title">Add extras <span style="font-weight:400; color: var(--text-tertiary);">(optional)</span></h3>
+            </div>
+            <div class="checkout-addons" id="addon-options">
+              <label class="checkout-addon">
+                <input type="checkbox" data-label="AI Voice/Chat Agent" data-price="500" data-stripe="https://buy.stripe.com/00weV7a98dR9gwycJY9bO08">
+                <div class="checkout-addon-inner">
+                  <span class="checkout-addon-name">AI Voice/Chat Agent</span>
+                  <span class="checkout-addon-price">+$500</span>
+                </div>
+              </label>
+              <label class="checkout-addon">
+                <input type="checkbox" data-label="Email Automation Setup" data-price="750" data-stripe="https://buy.stripe.com/aFa3cpepo14n5RU6lA9bO09">
+                <div class="checkout-addon-inner">
+                  <span class="checkout-addon-name">Email Automation Setup</span>
+                  <span class="checkout-addon-price">+$750</span>
+                </div>
+              </label>
+              <label class="checkout-addon">
+                <input type="checkbox" data-label="Google Ads Landing Page" data-price="500" data-stripe="https://buy.stripe.com/aFaaER954fZh0xA39o9bO0a">
+                <div class="checkout-addon-inner">
+                  <span class="checkout-addon-name">Google Ads Landing Page</span>
+                  <span class="checkout-addon-price">+$500</span>
+                </div>
+              </label>
+              <label class="checkout-addon">
+                <input type="checkbox" data-label="Additional Pages" data-price="200" data-stripe="https://buy.stripe.com/7sY5kx5SSfZhgwy39o9bO0b">
+                <div class="checkout-addon-inner">
+                  <span class="checkout-addon-name">Additional Pages</span>
+                  <span class="checkout-addon-price">+$200/page</span>
+                </div>
+              </label>
+              <label class="checkout-addon">
+                <input type="checkbox" data-label="Logo Design" data-price="300" data-stripe="https://buy.stripe.com/7sY6oBchg14n3JM8tI9bO0c">
+                <div class="checkout-addon-inner">
+                  <span class="checkout-addon-name">Logo Design</span>
+                  <span class="checkout-addon-price">+$300</span>
+                </div>
+              </label>
+              <label class="checkout-addon">
+                <input type="checkbox" data-label="On-Site Photography" data-price="250" data-stripe="https://buy.stripe.com/bJe28lepo8wP0xAaBQ9bO0d">
+                <div class="checkout-addon-inner">
+                  <span class="checkout-addon-name">On-Site Photography</span>
+                  <span class="checkout-addon-price">+$250</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+        </div><!-- /flow-webdesign -->
+
+        <!-- ===== OPERATIONS & AUTOMATION FLOW ===== -->
+        <div id="flow-operations" style="display:none;">
+
+          <!-- Step 1: Operations Package -->
+          <div class="checkout-step">
+            <div class="checkout-step-header">
+              <span class="checkout-step-num">1</span>
+              <h3 class="checkout-step-title">Choose your package</h3>
+            </div>
+            <div class="checkout-options" id="ops-pkg-options">
+              <label class="checkout-option">
+                <input type="radio" name="ops-package" value="efficiency-audit" data-label="Efficiency Audit" data-price="350" data-stripe="#STRIPE_OPS_AUDIT" data-tier="efficiency-audit" data-monthly="0">
+                <div class="checkout-option-inner">
+                  <span class="checkout-option-name">Efficiency Audit</span>
+                  <span class="checkout-option-price">$350</span>
+                </div>
+              </label>
+              <label class="checkout-option">
+                <input type="radio" name="ops-package" value="operations-snapshot" data-label="Operations Snapshot" data-price="750" data-stripe="#STRIPE_OPS_SNAPSHOT" data-tier="operations-snapshot" data-monthly="99">
+                <div class="checkout-option-inner">
+                  <span class="checkout-option-name">Ops Snapshot</span>
+                  <span class="checkout-option-price">$750 setup</span>
+                </div>
+              </label>
+              <label class="checkout-option">
+                <input type="radio" name="ops-package" value="business-dashboard" data-label="Business Dashboard" data-price="1500" data-stripe="#STRIPE_OPS_DASHBOARD" data-tier="business-dashboard" data-monthly="297">
+                <div class="checkout-option-inner">
+                  <span class="checkout-option-name">Business Dashboard</span>
+                  <span class="checkout-option-price">$1,500 setup</span>
+                </div>
+              </label>
+              <label class="checkout-option">
+                <input type="radio" name="ops-package" value="operations-autopilot" data-label="Operations Autopilot" data-price="3000" data-stripe="#STRIPE_OPS_AUTOPILOT" data-tier="operations-autopilot" data-monthly="597">
+                <div class="checkout-option-inner">
+                  <span class="checkout-option-name">Ops Autopilot</span>
+                  <span class="checkout-option-price">$3,000 setup</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 2: Operations Add-on -->
+          <div class="checkout-step">
+            <div class="checkout-step-header">
+              <span class="checkout-step-num">2</span>
+              <h3 class="checkout-step-title">Add-on <span style="font-weight:400; color: var(--text-tertiary);">(optional)</span></h3>
+            </div>
+            <div class="checkout-addons" id="ops-addon-options">
+              <label class="checkout-addon">
+                <input type="checkbox" data-label="AI Integration" data-price="2000" data-stripe="#STRIPE_OPS_AI" data-monthly="297">
+                <div class="checkout-addon-inner">
+                  <span class="checkout-addon-name">AI Integration</span>
+                  <span class="checkout-addon-price">+$2,000 setup</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+        </div><!-- /flow-operations -->
 
         <!-- Divider -->
         <div class="checkout-divider"></div>
@@ -1951,15 +2077,15 @@ body::before {
             </div>
             <div class="checkout-summary-sep"></div>
             <div class="checkout-summary-row checkout-summary-row--total">
-              <span class="checkout-summary-label">One-time total</span>
+              <span class="checkout-summary-label" id="summary-total-label">One-time total</span>
               <span class="checkout-summary-value checkout-summary-value--bold" id="summary-total">&mdash;</span>
             </div>
             <div class="checkout-summary-row" id="summary-monthly-row" style="display:none;">
               <span class="checkout-summary-label">Monthly</span>
               <span class="checkout-summary-value" id="summary-monthly-val">&mdash;</span>
             </div>
-            <div class="checkout-summary-row checkout-summary-row--due">
-              <span class="checkout-summary-label">Due today (50%)</span>
+            <div class="checkout-summary-row checkout-summary-row--due" id="summary-due-row">
+              <span class="checkout-summary-label" id="summary-due-label">Due today (50%)</span>
               <span class="checkout-summary-value checkout-summary-value--accent" id="summary-due">&mdash;</span>
             </div>
           </div>
@@ -2251,12 +2377,24 @@ body::before {
 </script>
 
 <script>
-// Checkout Builder
+// Checkout Builder with Category Toggle
 (function() {
+  // Category toggle
+  var categoryBtns = document.querySelectorAll('.checkout-category-btn');
+  var flowWebdesign = document.getElementById('flow-webdesign');
+  var flowOperations = document.getElementById('flow-operations');
+  var activeCategory = 'webdesign';
+
+  // Web design inputs
   var pkgInputs = document.querySelectorAll('input[name="package"]');
   var planInputs = document.querySelectorAll('input[name="plan"]');
   var addonInputs = document.querySelectorAll('#addon-options input[type="checkbox"]');
 
+  // Operations inputs
+  var opsPkgInputs = document.querySelectorAll('input[name="ops-package"]');
+  var opsAddonInputs = document.querySelectorAll('#ops-addon-options input[type="checkbox"]');
+
+  // Summary elements
   var summaryPlaceholder = document.getElementById('summary-placeholder');
   var summaryDetails = document.getElementById('summary-details');
   var summaryPkgVal = document.getElementById('summary-pkg-val');
@@ -2264,9 +2402,12 @@ body::before {
   var summaryPlanVal = document.getElementById('summary-plan-val');
   var summaryAddonsRow = document.getElementById('summary-addons-row');
   var summaryAddonsVal = document.getElementById('summary-addons-val');
+  var summaryTotalLabel = document.getElementById('summary-total-label');
   var summaryTotal = document.getElementById('summary-total');
   var summaryMonthlyRow = document.getElementById('summary-monthly-row');
   var summaryMonthlyVal = document.getElementById('summary-monthly-val');
+  var summaryDueRow = document.getElementById('summary-due-row');
+  var summaryDueLabel = document.getElementById('summary-due-label');
   var summaryDue = document.getElementById('summary-due');
 
   var checkoutBtn = document.getElementById('checkout-btn');
@@ -2283,11 +2424,48 @@ body::before {
     return null;
   }
 
+  function clearInputs(inputs) {
+    inputs.forEach(function(input) { input.checked = false; });
+  }
+
+  // Category toggle handler
+  categoryBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var cat = btn.getAttribute('data-category');
+      if (cat === activeCategory) return;
+
+      activeCategory = cat;
+      categoryBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      if (cat === 'webdesign') {
+        flowWebdesign.style.display = '';
+        flowOperations.style.display = 'none';
+        clearInputs(opsPkgInputs);
+        clearInputs(opsAddonInputs);
+      } else {
+        flowWebdesign.style.display = 'none';
+        flowOperations.style.display = '';
+        clearInputs(pkgInputs);
+        clearInputs(planInputs);
+        clearInputs(addonInputs);
+      }
+      update();
+    });
+  });
+
   function update() {
+    if (activeCategory === 'webdesign') {
+      updateWebdesign();
+    } else {
+      updateOperations();
+    }
+  }
+
+  function updateWebdesign() {
     var pkg = getSelected(pkgInputs);
     var plan = getSelected(planInputs);
 
-    // If no package selected, show placeholder
     if (!pkg) {
       summaryPlaceholder.style.display = '';
       summaryDetails.style.display = 'none';
@@ -2339,25 +2517,112 @@ body::before {
     }
 
     var oneTimeTotal = pkgPrice + addonTotal;
+    summaryTotalLabel.textContent = 'One-time total';
     summaryTotal.textContent = fmt(oneTimeTotal);
+    summaryDueRow.style.display = '';
+    summaryDueLabel.textContent = 'Due today (50%)';
     summaryDue.textContent = fmt(Math.ceil(oneTimeTotal / 2));
 
-    // Update buttons
     checkoutBtn.classList.add('active');
     checkoutBtn.href = pkgStripe;
     checkoutBtn.onclick = null;
     contactBtn.href = '/contact.html?tier=' + pkgTier;
   }
 
-  pkgInputs.forEach(function(input) {
-    input.addEventListener('change', update);
-  });
-  planInputs.forEach(function(input) {
-    input.addEventListener('change', update);
-  });
-  addonInputs.forEach(function(input) {
-    input.addEventListener('change', update);
-  });
+  function updateOperations() {
+    var pkg = getSelected(opsPkgInputs);
+
+    if (!pkg) {
+      summaryPlaceholder.style.display = '';
+      summaryDetails.style.display = 'none';
+      checkoutBtn.classList.remove('active');
+      checkoutBtn.href = '#';
+      checkoutBtn.onclick = function() { return false; };
+      contactBtn.href = '/contact.html';
+      return;
+    }
+
+    summaryPlaceholder.style.display = 'none';
+    summaryDetails.style.display = '';
+
+    var pkgPrice = parseInt(pkg.getAttribute('data-price'), 10);
+    var pkgLabel = pkg.getAttribute('data-label');
+    var pkgStripe = pkg.getAttribute('data-stripe');
+    var pkgTier = pkg.getAttribute('data-tier');
+    var pkgMonthly = parseInt(pkg.getAttribute('data-monthly'), 10);
+
+    summaryPkgVal.textContent = pkgLabel + ' — ' + fmt(pkgPrice);
+
+    // No separate plan step for operations
+    summaryPlanRow.style.display = 'none';
+
+    // Operations add-ons
+    var addonTotal = 0;
+    var addonNames = [];
+    var addonMonthly = 0;
+    opsAddonInputs.forEach(function(cb) {
+      if (cb.checked) {
+        addonTotal += parseInt(cb.getAttribute('data-price'), 10);
+        addonNames.push(cb.getAttribute('data-label'));
+        var am = parseInt(cb.getAttribute('data-monthly') || '0', 10);
+        addonMonthly += am;
+      }
+    });
+
+    if (addonNames.length > 0) {
+      summaryAddonsRow.style.display = '';
+      summaryAddonsVal.textContent = addonNames.join(', ') + ' — ' + fmt(addonTotal);
+    } else {
+      summaryAddonsRow.style.display = 'none';
+    }
+
+    var oneTimeTotal = pkgPrice + addonTotal;
+    var totalMonthly = pkgMonthly + addonMonthly;
+
+    summaryTotalLabel.textContent = 'Setup fee';
+    summaryTotal.textContent = fmt(oneTimeTotal);
+
+    // Show monthly if applicable
+    if (totalMonthly > 0) {
+      summaryMonthlyRow.style.display = '';
+      summaryMonthlyVal.textContent = fmt(totalMonthly) + '/mo (billed after setup)';
+    } else {
+      summaryMonthlyRow.style.display = 'none';
+    }
+
+    // Operations: full setup fee due today (no 50% split)
+    summaryDueRow.style.display = '';
+    summaryDueLabel.textContent = 'Due today';
+    summaryDue.textContent = fmt(oneTimeTotal);
+
+    checkoutBtn.classList.add('active');
+    checkoutBtn.href = pkgStripe;
+    checkoutBtn.onclick = null;
+    contactBtn.href = '/contact.html?service=' + pkgTier;
+  }
+
+  // Bind all listeners
+  pkgInputs.forEach(function(input) { input.addEventListener('change', update); });
+  planInputs.forEach(function(input) { input.addEventListener('change', update); });
+  addonInputs.forEach(function(input) { input.addEventListener('change', update); });
+  opsPkgInputs.forEach(function(input) { input.addEventListener('change', update); });
+  opsAddonInputs.forEach(function(input) { input.addEventListener('change', update); });
+
+  // Handle URL params for pre-selecting category
+  var urlParams = new URLSearchParams(window.location.search);
+  var serviceParam = urlParams.get('service') || urlParams.get('tier');
+  if (serviceParam && ['efficiency-audit','operations-snapshot','business-dashboard','operations-autopilot'].indexOf(serviceParam) > -1) {
+    // Switch to operations category
+    categoryBtns.forEach(function(b) { b.classList.remove('active'); });
+    document.querySelector('[data-category="operations"]').classList.add('active');
+    flowWebdesign.style.display = 'none';
+    flowOperations.style.display = '';
+    activeCategory = 'operations';
+    // Pre-select the matching package
+    opsPkgInputs.forEach(function(input) {
+      if (input.value === serviceParam) input.checked = true;
+    });
+  }
 
   // Initialize
   update();
