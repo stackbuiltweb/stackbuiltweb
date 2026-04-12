@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - StackBuilt Web | Tips for Local Business Websites</title>
+  <meta name="description" content="Practical tips on websites, SEO, and online growth for local service businesses - roofers, HVAC, painters, plumbers, and more.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.stackbuiltweb.com/blog.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog - StackBuilt Web">
+  <meta property="og:description" content="Practical tips on websites, SEO, and online growth for local service businesses.">
+  <meta property="og:url" content="https://www.stackbuiltweb.com/blog.html">
+  <meta property="og:image" content="https://www.stackbuiltweb.com/og-image.png">
+  <meta property="og:site_name" content="StackBuilt Web">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog - StackBuilt Web">
+  <meta name="twitter:description" content="Practical tips on websites, SEO, and online growth for local service businesses.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0W59NZS22"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C0W59NZS22');
+  </script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": "https://www.stackbuiltweb.com/blog.html#blog",
+    "name": "StackBuilt Web Blog",
+    "description": "Practical tips on websites, SEO, and online growth for local service businesses.",
+    "url": "https://www.stackbuiltweb.com/blog.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "StackBuilt Web",
+      "url": "https://www.stackbuiltweb.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.stackbuiltweb.com/favicon.svg"
+      }
+    }
+  }
+  </script>
+
+  <style>
+  /* ========================================
+     CSS Custom Properties - Design Tokens
+     (Exact match to stackbuiltweb.com)
+     ======================================== */
+  :root {
+    --bg-cream: #FDFBF7;
+    --bg-warm: #FAF7F2;
+    --bg-warm-alt: #F7F4EE;
+    --bg-card: #FFFFFF;
+    --bg-card-outer: rgba(12, 78, 84, 0.04);
+    --accent: #0C4E54;
+    --accent-light: #0E6B73;
+    --accent-muted: rgba(12, 78, 84, 0.08);
+    --accent-badge: rgba(12, 78, 84, 0.06);
+    --terracotta: #D4652E;
+    --text-primary: #1C1917;
+    --text-secondary: #57534E;
+    --text-tertiary: #A8A29E;
+    --text-on-accent: #FFFFFF;
+    --border-subtle: rgba(28, 25, 23, 0.06);
+    --border-card: rgba(28, 25, 23, 0.08);
+    --shadow-tinted: rgba(12, 78, 84, 0.06);
+    --shadow-soft: rgba(28, 25, 23, 0.04);
+
+    --font-body: 'Satoshi', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --section-py: clamp(5rem, 8vw, 8rem);
+    --container-px: clamp(1.25rem, 4vw, 3rem);
+    --container-max: 1320px;
+
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.32, 0.72, 0, 1);
+    --duration-base: 700ms;
+    --duration-fast: 400ms;
+    --duration-slow: 1000ms;
+  }
+
+  /* ========================================
+     Reset & Base
+     ======================================== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg-cream);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+
+  /* ========================================
+     Utility Classes
+     ======================================== */
+  .container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding-left: var(--container-px);
+    padding-right: var(--container-px);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--accent-badge);
+    color: var(--accent);
+    border: 1px solid rgba(12, 78, 84, 0.1);
+  }
+
+  .section {
+    padding-top: var(--section-py);
+    padding-bottom: var(--section-py);
+  }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-subtle), var(--border-card), var(--border-subtle), transparent);
+    margin: 0 auto;
+    max-width: 80%;
+  }
+
+  /* Double-Bezel Card */
+  .card-outer {
+    background: var(--bg-card-outer);
+    border: 1px solid var(--border-card);
+    border-radius: 1.5rem;
+    padding: 0.375rem;
+  }
+
+  .card-inner {
+    background: var(--bg-card);
+    border-radius: calc(1.5rem - 0.375rem);
+    box-shadow:
+      inset 0 1px 1px rgba(255,255,255,0.6),
+      0 20px 40px -15px var(--shadow-tinted),
+      0 4px 12px -4px var(--shadow-soft);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Pill Buttons */
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 9999px;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out-expo);
+    will-change: transform;
+  }
+  .btn-pill:active {
+    transform: scale(0.97) translateY(1px);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--text-on-accent);
+  }
+  .btn-primary:hover {
+    background: var(--terracotta);
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(212, 101, 46, 0.35);
+  }
+
+  .btn-secondary {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-card);
+    box-shadow: 0 1px 3px var(--shadow-soft);
+  }
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px var(--shadow-tinted);
+    border-color: rgba(12, 78, 84, 0.15);
+  }
+
+  .btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.2);
+    transition: transform var(--duration-fast) var(--ease-spring);
+    flex-shrink: 0;
+  }
+  .btn-pill:hover .btn-icon {
+    transform: translateX(2px) translateY(-1px) scale(1.05);
+  }
+  .btn-secondary .btn-icon {
+    background: var(--accent-muted);
+  }
+
+  /* Scroll Reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(2rem);
+    filter: blur(6px);
+    transition: opacity var(--duration-slow) var(--ease-out-expo),
+                transform var(--duration-slow) var(--ease-out-expo),
+                filter var(--duration-slow) var(--ease-out-expo);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  .stagger-1 { transition-delay: 0ms; }
+  .stagger-2 { transition-delay: 80ms; }
+  .stagger-3 { transition-delay: 160ms; }
+  .stagger-4 { transition-delay: 240ms; }
+  .stagger-5 { transition-delay: 320ms; }
+  .stagger-6 { transition-delay: 400ms; }
+
+  /* ========================================
+     Navigation (exact match)
+     ======================================== */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: background var(--duration-fast) var(--ease-smooth),
+                box-shadow var(--duration-fast) var(--ease-smooth),
+                backdrop-filter var(--duration-fast) var(--ease-smooth);
+  }
+  .nav.scrolled {
+    background: rgba(253, 251, 247, 0.85);
+    backdrop-filter: blur(20px) saturate(1.2);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    box-shadow: 0 1px 0 var(--border-subtle);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-px);
+  }
+
+  .nav-logo {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
+  .nav-logo-svg {
+    display: block;
+    height: 32px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out-expo);
+  }
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+  .nav-links a.active {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+  }
+
+  .nav-cta {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1001;
+  }
+  .hamburger span {
+    display: block;
+    width: 1.25rem;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all var(--duration-fast) var(--ease-out-expo);
+    transform-origin: center;
+  }
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile Menu Overlay */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(253, 251, 247, 0.95);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--duration-base) var(--ease-out-expo);
+  }
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .mobile-menu a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    transform: translateY(1.5rem);
+    opacity: 0;
+    transition: all var(--duration-base) var(--ease-out-expo);
+  }
+  .mobile-menu.open a {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .mobile-menu.open a:nth-child(1) { transition-delay: 80ms; }
+  .mobile-menu.open a:nth-child(2) { transition-delay: 160ms; }
+  .mobile-menu.open a:nth-child(3) { transition-delay: 240ms; }
+  .mobile-menu.open a:nth-child(4) { transition-delay: 320ms; }
+  .mobile-menu.open a:nth-child(5) { transition-delay: 400ms; }
+  .mobile-menu.open a:nth-child(6) { transition-delay: 480ms; }
+  .mobile-menu.open a:nth-child(7) { transition-delay: 560ms; }
+  .mobile-menu.open a:nth-child(8) { transition-delay: 640ms; }
+
+  /* ========================================
+     Blog Hero
+     ======================================== */
+  .blog-hero {
+    padding-top: 7rem;
+    padding-bottom: var(--section-py);
+  }
+  .blog-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-top: 1rem;
+  }
+  .blog-hero-sub {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: var(--text-secondary);
+    max-width: 55ch;
+    line-height: 1.7;
+    margin-top: 1rem;
+  }
+
+  /* ========================================
+     Category Filter
+     ======================================== */
+  .blog-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .filter-chip {
+    padding: 0.375rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid var(--border-card);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out-expo);
+    text-decoration: none;
+  }
+  .filter-chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .filter-chip.active {
+    background: var(--accent);
+    color: var(--text-on-accent);
+    border-color: var(--accent);
+  }
+
+  /* ========================================
+     Blog Grid - Magazine Layout
+     ======================================== */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Featured post spans 2 columns */
+  .blog-grid .blog-card:first-child {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+  }
+  .blog-grid .blog-card:first-child .blog-card-image {
+    height: 100%;
+    min-height: 320px;
+  }
+  .blog-grid .blog-card:first-child .card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .blog-card {
+    transition: transform var(--duration-fast) var(--ease-out-expo);
+  }
+  .blog-card:hover {
+    transform: translateY(-4px);
+  }
+  .blog-card .card-inner {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .blog-card-image {
+    width: 100%;
+    height: 200px;
+    background: var(--bg-warm);
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-base) var(--ease-out-expo);
+  }
+  .blog-card:hover .blog-card-image img {
+    transform: scale(1.03);
+  }
+
+  /* Placeholder pattern for posts without images */
+  .blog-card-image .placeholder-pattern {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .blog-card-image .placeholder-pattern svg {
+    width: 64px;
+    height: 64px;
+    opacity: 0.15;
+  }
+
+  .blog-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  .blog-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    font-weight: 500;
+  }
+
+  .blog-card-category {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--terracotta);
+  }
+
+  .blog-card-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--text-tertiary);
+    flex-shrink: 0;
+  }
+
+  .blog-card h2 {
+    font-size: 1.125rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    color: var(--text-primary);
+  }
+  .blog-card h2 a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--duration-fast) var(--ease-out-expo);
+  }
+  .blog-card h2 a:hover {
+    color: var(--accent);
+  }
+  .blog-grid .blog-card:first-child h2 {
+    font-size: 1.5rem;
+  }
+
+  .blog-card-excerpt {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-card-read {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: auto;
+    transition: gap var(--duration-fast) var(--ease-out-expo);
+  }
+  .blog-card-read:hover {
+    gap: 0.625rem;
+  }
+  .blog-card-read svg {
+    width: 14px;
+    height: 14px;
+    transition: transform var(--duration-fast) var(--ease-out-expo);
+  }
+  .blog-card:hover .blog-card-read svg {
+    transform: translateX(2px);
+  }
+
+  /* ========================================
+     CTA Section (matched to homepage)
+     ======================================== */
+  .cta-section {
+    padding-bottom: var(--section-py);
+  }
+  .cta-block {
+    background: var(--accent);
+    border-radius: 2rem;
+    padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: #FFFFFF;
+  }
+  .cta-sub {
+    font-size: clamp(0.9375rem, 1.25vw, 1.0625rem);
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1rem;
+    max-width: 45ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 9999px;
+    background: #FFFFFF;
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out-expo);
+    will-change: transform;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  .cta-btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    color: var(--accent);
+  }
+  .cta-btn-white:active {
+    transform: scale(0.97) translateY(1px);
+  }
+  .cta-btn-white .btn-icon {
+    background: var(--accent-muted);
+  }
+  .cta-btn-white:hover .btn-icon {
+    transform: translateX(2px) translateY(-1px) scale(1.05);
+  }
+
+  /* ========================================
+     Footer (exact match)
+     ======================================== */
+  .site-footer {
+    background: var(--accent);
+    padding: 2.5rem 0 1.25rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .footer-brand {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.375rem;
+  }
+  .footer-brand span {
+    color: #FFFFFF;
+  }
+  .footer-tagline {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  .footer-links-title {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    margin-bottom: 0.125rem;
+  }
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out-expo);
+  }
+  .footer-links a:hover {
+    color: #FFFFFF;
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  .footer-contact-title {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    margin-bottom: 0.125rem;
+  }
+  .footer-contact a,
+  .footer-contact span {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out-expo);
+  }
+  .footer-contact a:hover {
+    color: #FFFFFF;
+  }
+
+  .footer-serving {
+    margin-top: 1.25rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--terracotta);
+  }
+
+  .footer-bottom {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* ========================================
+     Responsive
+     ======================================== */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-cta.desktop { display: none; }
+    .hamburger { display: flex; }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+    .blog-grid .blog-card:first-child {
+      grid-column: 1;
+      grid-row: auto;
+    }
+    .blog-grid .blog-card:first-child .blog-card-image {
+      min-height: 220px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .blog-grid .blog-card:first-child {
+      grid-column: 1 / 3;
+      grid-row: auto;
+    }
+  }
+  </style>
+</head>
+<body>
+  <!-- Navigation (exact match to homepage) -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="/index.html" class="nav-logo" aria-label="StackBuilt Web Home">
+        <svg class="nav-logo-svg" width="180" height="32" viewBox="0 0 180 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 26 L11 20 L18 26" stroke="#D4652E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 18 L11 12 L18 18" stroke="#0C4E54" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 10 L11 4 L18 10" stroke="#0E6B73" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="26" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="900" fill="#1C1917" letter-spacing="-0.3">Stack</text>
+          <text x="78" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="900" fill="#0C4E54" letter-spacing="-0.3">Built</text>
+          <text x="126" y="21" font-family="'Satoshi', -apple-system, sans-serif" font-size="18" font-weight="500" fill="#A8A29E" letter-spacing="-0.3">Web</text>
+        </svg>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/operations.html">Automation</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/calculator.html">Free Audit</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/blog.html" class="active">Blog</a></li>
+      </ul>
+      <a href="/calculator.html" class="btn-pill btn-primary nav-cta desktop">
+        Get Your Free Audit
+        <span class="btn-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/index.html">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="/operations.html">Automation</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/calculator.html">Free Audit</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/calculator.html" class="btn-pill btn-primary" style="margin-top: 1rem;">Get Your Free Audit</a>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="blog-hero">
+      <div class="container">
+        <div class="reveal stagger-1">
+          <span class="eyebrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            The StackBuilt Blog
+          </span>
+        </div>
+        <h1 class="reveal stagger-2">Grow your business<br>with a better website.</h1>
+        <p class="blog-hero-sub reveal stagger-3">Practical advice on web design, SEO, and online marketing for local service businesses - written by someone who actually builds sites for a living.</p>
+
+        <div class="blog-filters reveal stagger-4">
+          <a href="#" class="filter-chip active">All Posts</a>
+          <a href="#" class="filter-chip">Web Design</a>
+          <a href="#" class="filter-chip">SEO</a>
+          <a href="#" class="filter-chip">Marketing</a>
+          <a href="#" class="filter-chip">Operations</a>
+          <a href="#" class="filter-chip">Case Studies</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Blog Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="blog-grid">
+
+          <!-- Featured Post -->
+          <article class="blog-card card-outer reveal stagger-1">
+            <div class="card-inner">
+              <div class="blog-card-image" style="background: linear-gradient(135deg, var(--bg-warm), var(--bg-warm-alt));">
+                <div class="placeholder-pattern">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="blog-card-category">Web Design</span>
+                  <span class="blog-card-dot"></span>
+                  <span>Apr 10, 2026</span>
+                  <span class="blog-card-dot"></span>
+                  <span>8 min read</span>
+                </div>
+                <h2><a href="/blog/why-your-contractor-website-isnt-getting-calls.html">Why your contractor website isn't getting calls - and the one thing most people get wrong</a></h2>
+                <p class="blog-card-excerpt">Most contractor websites look fine on the surface, but they're quietly losing leads every single day because of one fundamental problem that has nothing to do with how the site looks and everything to do with how it's structured.</p>
+                <a href="/blog/why-your-contractor-website-isnt-getting-calls.html" class="blog-card-read">
+                  Read more
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="blog-card card-outer reveal stagger-2">
+            <div class="card-inner">
+              <div class="blog-card-image" style="background: linear-gradient(135deg, #F0F7F7, #E8F4F5);">
+                <div class="placeholder-pattern">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                </div>
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="blog-card-category">SEO</span>
+                  <span class="blog-card-dot"></span>
+                  <span>Apr 7, 2026</span>
+                  <span class="blog-card-dot"></span>
+                  <span>6 min read</span>
+                </div>
+                <h2><a href="/blog/google-business-profile-mistakes.html">5 Google Business Profile mistakes that are costing you leads right now</a></h2>
+                <p class="blog-card-excerpt">Your Google Business Profile is probably the first thing potential customers see, and most local businesses have at least three of these wrong.</p>
+                <a href="/blog/google-business-profile-mistakes.html" class="blog-card-read">
+                  Read more
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="blog-card card-outer reveal stagger-3">
+            <div class="card-inner">
+              <div class="blog-card-image" style="background: linear-gradient(135deg, #FBF5EF, #F7EDE3);">
+                <div class="placeholder-pattern">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                </div>
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="blog-card-category">Marketing</span>
+                  <span class="blog-card-dot"></span>
+                  <span>Apr 3, 2026</span>
+                  <span class="blog-card-dot"></span>
+                  <span>5 min read</span>
+                </div>
+                <h2><a href="/blog/before-and-after-roofing-website.html">Before and after - how one roofer went from zero online leads to 15 a month</a></h2>
+                <p class="blog-card-excerpt">A real case study of what happened when a Melbourne roofer replaced his DIY Wix site with something built to actually convert visitors into phone calls.</p>
+                <a href="/blog/before-and-after-roofing-website.html" class="blog-card-read">
+                  Read more
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article class="blog-card card-outer reveal stagger-4">
+            <div class="card-inner">
+              <div class="blog-card-image" style="background: linear-gradient(135deg, var(--bg-warm), var(--bg-warm-alt));">
+                <div class="placeholder-pattern">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                </div>
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="blog-card-category">Web Design</span>
+                  <span class="blog-card-dot"></span>
+                  <span>Mar 28, 2026</span>
+                  <span class="blog-card-dot"></span>
+                  <span>7 min read</span>
+                </div>
+                <h2><a href="/blog/why-fast-websites-win.html">Why a fast website wins you more jobs than a pretty one</a></h2>
+                <p class="blog-card-excerpt">Speed is the single biggest factor in whether someone stays on your site or bounces back to Google, and most business owners have no idea how slow their site actually is.</p>
+                <a href="/blog/why-fast-websites-win.html" class="blog-card-read">
+                  Read more
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 5 -->
+          <article class="blog-card card-outer reveal stagger-5">
+            <div class="card-inner">
+              <div class="blog-card-image" style="background: linear-gradient(135deg, #F0F7F7, #E8F4F5);">
+                <div class="placeholder-pattern">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+                </div>
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="blog-card-category">Operations</span>
+                  <span class="blog-card-dot"></span>
+                  <span>Mar 22, 2026</span>
+                  <span class="blog-card-dot"></span>
+                  <span>4 min read</span>
+                </div>
+                <h2><a href="/blog/automate-follow-ups.html">How to stop losing leads by automating your follow-up</a></h2>
+                <p class="blog-card-excerpt">If you're still manually texting every lead that comes in, you're leaving money on the table, and the fix takes about 30 minutes to set up.</p>
+                <a href="/blog/automate-follow-ups.html" class="blog-card-read">
+                  Read more
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- CTA -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-block reveal">
+          <h2>Want a website that actually<br>brings in business?</h2>
+          <p class="cta-sub">Our free audit scores your site on 15 critical factors in under 3 minutes. No sales call required.</p>
+          <a href="/calculator.html" class="cta-btn-white">
+            Get Your Free Website Audit
+            <span class="btn-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (exact match) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg width="160" height="28" viewBox="0 0 160 28" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 23 L10 17 L17 23" stroke="#D4652E" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 16 L10 10 L17 16" stroke="rgba(255,255,255,0.7)" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 9 L10 3 L17 9" stroke="rgba(255,255,255,0.45)" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="24" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="-0.3">Stack</text>
+              <text x="70" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="-0.3">Built</text>
+              <text x="112" y="19" font-family="'Satoshi', -apple-system, sans-serif" font-size="16" font-weight="500" fill="rgba(255,255,255,0.5)" letter-spacing="-0.3">Web</text>
+            </svg>
+          </div>
+          <p class="footer-tagline">Modern websites for local businesses.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-links-title">Quick Links</div>
+          <a href="/index.html">Home</a>
+          <a href="/services.html">Services</a>
+          <a href="/operations.html">Automation</a>
+          <a href="/pricing.html">Pricing</a>
+          <a href="/calculator.html">Free Audit</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div class="footer-links">
+          <div class="footer-links-title">Industries</div>
+          <a href="/web-design-for-roofers.html">Websites for Roofers</a>
+          <a href="/web-design-for-hvac.html">Websites for HVAC</a>
+          <a href="/web-design-for-painters.html">Websites for Painters</a>
+        </div>
+        <div class="footer-contact">
+          <div class="footer-contact-title">Get in Touch</div>
+          <a href="mailto:geoff@stackbuiltweb.com">geoff@stackbuiltweb.com</a>
+          <span>Melbourne, FL</span>
+        </div>
+      </div>
+      <div class="footer-serving">Serving Brevard County and beyond</div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 StackBuilt Web. Melbourne, FL.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function() {
+    'use strict';
+
+    // Scroll reveal
+    var revealElements = document.querySelectorAll('.reveal');
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -60px 0px'
+    });
+
+    revealElements.forEach(function(el) {
+      revealObserver.observe(el);
+    });
+
+    // Navbar scroll effect
+    var navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+      var currentScroll = window.pageYOffset;
+      if (currentScroll > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // Mobile menu
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    var mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Category filter (client-side)
+    var filterChips = document.querySelectorAll('.filter-chip');
+    filterChips.forEach(function(chip) {
+      chip.addEventListener('click', function(e) {
+        e.preventDefault();
+        filterChips.forEach(function(c) { c.classList.remove('active'); });
+        chip.classList.add('active');
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
