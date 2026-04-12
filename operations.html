@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Business Operations & Automation | StackBuilt Web</title>
+  <meta name="description" content="Dashboards, automations, and AI systems built for local service businesses. Stop losing time on admin - let AI handle it while you focus on jobs.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://stackbuiltweb.com/operations.html">
+
+  <!-- Fonts -->
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "StackBuilt Web",
+    "description": "AI-powered web design and business automation agency for local service businesses.",
+    "email": "geoff@stackbuiltweb.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Melbourne",
+      "addressRegion": "FL",
+      "postalCode": "32935",
+      "addressCountry": "US"
+    },
+    "url": "https://stackbuiltweb.com",
+    "priceRange": "$497-$3500",
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.0836,
+        "longitude": -80.6081
+      }
+    }
+  }
+  </script>
+
+  <style>
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Type Scale */
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
+
+      /* Spacing */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --space-32: 8rem;
+
+      /* StackBuilt Brand Colors */
+      --color-bg: #FDFBF7;
+      --color-surface: #F7F5F0;
+      --color-surface-2: #F0EDE6;
+      --color-teal: #0C4E54;
+      --color-teal-light: #0E6069;
+      --color-teal-dark: #083B40;
+      --color-terracotta: #D4652E;
+      --color-terracotta-dark: #B8542A;
+      --color-text: #1C1917;
+      --color-text-muted: #6B6560;
+      --color-text-faint: #9C9690;
+      --color-border: #DDD8D0;
+      --color-divider: #E8E3DB;
+
+      /* Fonts */
+      --font-body: 'Satoshi', 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+      /* Radius */
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-2xl: 1.25rem;
+      --radius-full: 9999px;
+
+      /* Easing */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.06);
+      --shadow-md: 0 4px 12px rgba(28, 25, 23, 0.08);
+      --shadow-lg: 0 12px 32px rgba(28, 25, 23, 0.12);
+      --shadow-xl: 0 20px 48px rgba(28, 25, 23, 0.16);
+
+      /* Content widths */
+      --content-narrow: 640px;
+      --content-default: 960px;
+      --content-wide: 1200px;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--space-20);
+    }
+
+    body {
+      min-height: 100dvh;
+      line-height: 1.6;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      overflow-x: hidden;
+    }
+
+    img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+    ul[role='list'], ol[role='list'] { list-style: none; }
+    input, button, textarea, select { font: inherit; color: inherit; }
+    h1, h2, h3, h4, h5, h6 { text-wrap: balance; line-height: 1.15; }
+    p, li, figcaption { text-wrap: pretty; max-width: 72ch; }
+    button { cursor: pointer; background: none; border: none; }
+
+    a, button, [role='button'], input, textarea, select {
+      transition: color var(--transition-interactive),
+                  background var(--transition-interactive),
+                  border-color var(--transition-interactive),
+                  box-shadow var(--transition-interactive),
+                  transform var(--transition-interactive);
+    }
+
+    ::selection {
+      background: rgba(12, 78, 84, 0.2);
+      color: var(--color-text);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-teal);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+    }
+
+    /* ============================================
+       NOISE OVERLAY
+       ============================================ */
+    .noise-overlay {
+      position: relative;
+    }
+    .noise-overlay::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .noise-overlay > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .container {
+      width: 100%;
+      max-width: var(--content-wide);
+      margin-inline: auto;
+      padding-inline: var(--space-6);
+    }
+
+    @media (min-width: 768px) {
+      .container { padding-inline: var(--space-10); }
+    }
+
+    .section-padding {
+      padding-block: clamp(var(--space-16), 8vw, var(--space-32));
+    }
+
+    /* ============================================
+       SCROLL REVEAL ANIMATION
+       ============================================ */
+    .reveal {
+      opacity: 0;
+      filter: blur(6px);
+      transform: translateY(24px);
+      transition: opacity 0.7s var(--ease-out),
+                  filter 0.7s var(--ease-out),
+                  transform 0.7s var(--ease-out);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ============================================
+       DOUBLE-BEZEL CARD
+       ============================================ */
+    .card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-sm),
+                  inset 0 1px 0 rgba(255,255,255,0.8),
+                  inset 0 -1px 0 rgba(0,0,0,0.04);
+      position: relative;
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: calc(var(--radius-xl) - 2px);
+      box-shadow: inset 0 2px 4px rgba(28, 25, 23, 0.04),
+                  inset 0 -1px 2px rgba(255,255,255,0.6);
+      pointer-events: none;
+    }
+
+    /* ============================================
+       BUTTONS
+       ============================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: var(--text-sm);
+      letter-spacing: -0.01em;
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--color-teal);
+      color: #FDFBF7;
+    }
+    .btn-primary:hover {
+      background: var(--color-terracotta);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-primary:active {
+      background: var(--color-terracotta-dark);
+      transform: translateY(0);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-text);
+      border: 1.5px solid var(--color-border);
+    }
+    .btn-secondary:hover {
+      border-color: var(--color-teal);
+      color: var(--color-teal);
+      transform: translateY(-1px);
+    }
+    .btn-secondary:active {
+      transform: translateY(0);
+    }
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      transition: transform var(--transition-interactive);
+    }
+    .btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* ============================================
+       NAVIGATION
+       ============================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(253, 251, 247, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: var(--space-4);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      text-decoration: none;
+      color: var(--color-text);
+    }
+    .nav-logo-text {
+      font-weight: 900;
+      font-size: var(--text-lg);
+      letter-spacing: -0.03em;
+    }
+    .nav-logo-text span {
+      font-weight: 300;
+      color: var(--color-text-muted);
+    }
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: var(--space-1);
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .nav-links { display: flex; }
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--color-text);
+      font-weight: 500;
+      font-size: var(--text-sm);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      transition: color var(--transition-interactive), background var(--transition-interactive);
+    }
+    .nav-links a:hover {
+      color: var(--color-teal);
+    }
+    .nav-links a.active {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      color: var(--color-teal);
+    }
+    .nav-cta {
+      display: none;
+    }
+    @media (min-width: 900px) {
+      .nav-cta { display: inline-flex; }
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      color: var(--color-text);
+    }
+    @media (min-width: 900px) {
+      .mobile-menu-btn { display: none; }
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--color-bg);
+      z-index: 99;
+      padding: var(--space-24) var(--space-6) var(--space-8);
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .mobile-menu.open {
+      display: flex;
+    }
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--color-text);
+      font-weight: 700;
+      font-size: var(--text-xl);
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .mobile-menu a:hover {
+      color: var(--color-teal);
+    }
+    .mobile-menu .btn {
+      margin-top: var(--space-8);
+      text-align: center;
+      justify-content: center;
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .hero {
+      padding-top: clamp(8rem, 12vw, 12rem);
+      padding-bottom: clamp(var(--space-16), 8vw, var(--space-24));
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-teal);
+      background: rgba(12, 78, 84, 0.08);
+      padding: var(--space-2) var(--space-5);
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(12, 78, 84, 0.15);
+      margin-bottom: var(--space-8);
+    }
+    .hero-badge svg {
+      width: 14px;
+      height: 14px;
+    }
+    .hero h1 {
+      font-size: var(--text-3xl);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+      max-width: 16ch;
+    }
+    .hero-sub {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      max-width: 52ch;
+      line-height: 1.5;
+      margin-bottom: var(--space-10);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      margin-bottom: clamp(var(--space-12), 5vw, var(--space-20));
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 640px) {
+      .stats-bar { grid-template-columns: repeat(3, 1fr); }
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      padding: var(--space-6);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm),
+                  inset 0 1px 0 rgba(255,255,255,0.8),
+                  inset 0 -1px 0 rgba(0,0,0,0.04);
+      position: relative;
+    }
+    .stat-item::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: calc(var(--radius-xl) - 2px);
+      box-shadow: inset 0 2px 4px rgba(28, 25, 23, 0.04),
+                  inset 0 -1px 2px rgba(255,255,255,0.6);
+      pointer-events: none;
+    }
+    .stat-value {
+      font-family: var(--font-mono);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--color-teal);
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+
+    /* ============================================
+       SECTION HEADERS
+       ============================================ */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-teal);
+      margin-bottom: var(--space-4);
+    }
+    .section-title {
+      font-size: var(--text-2xl);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+    }
+    .section-desc {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      max-width: 56ch;
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       PAIN POINTS
+       ============================================ */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+    @media (min-width: 640px) {
+      .pain-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .pain-card {
+      padding: var(--space-8);
+    }
+    .pain-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-lg);
+      background: rgba(12, 78, 84, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-5);
+      color: var(--color-teal);
+    }
+    .pain-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+    .pain-card h3 {
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+
+    /* ============================================
+       SERVICES (What We Build)
+       ============================================ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+    @media (min-width: 640px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .service-card {
+      padding: var(--space-8);
+      transition: transform var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .service-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(12, 78, 84, 0.1), rgba(12, 78, 84, 0.04));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-5);
+      color: var(--color-teal);
+    }
+    .service-card-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+    .service-card h3 {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+      letter-spacing: -0.01em;
+    }
+    .service-card p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       ROI SECTION
+       ============================================ */
+    .roi-section {
+      background: var(--color-teal);
+      color: #FDFBF7;
+      position: relative;
+    }
+    .roi-section .section-label { color: rgba(253,251,247,0.6); }
+    .roi-section .section-title { color: #FDFBF7; }
+    .roi-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+    @media (min-width: 768px) {
+      .roi-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .roi-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1),
+                  inset 0 -1px 0 rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .roi-card::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: calc(var(--radius-xl) - 2px);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+      pointer-events: none;
+    }
+    .roi-value {
+      font-family: var(--font-mono);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: #FDFBF7;
+      margin-bottom: var(--space-4);
+      letter-spacing: -0.02em;
+    }
+    .roi-desc {
+      font-size: var(--text-sm);
+      color: rgba(253,251,247,0.75);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       PRICING
+       ============================================ */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+      align-items: start;
+    }
+    @media (min-width: 900px) {
+      .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .pricing-card {
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+    }
+    .pricing-card.featured {
+      border-color: var(--color-teal);
+      box-shadow: var(--shadow-lg),
+                  inset 0 1px 0 rgba(255,255,255,0.8),
+                  inset 0 -1px 0 rgba(0,0,0,0.04);
+    }
+    .pricing-badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #FDFBF7;
+      background: var(--color-terracotta);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-4);
+      width: fit-content;
+    }
+    .pricing-tier {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+      letter-spacing: -0.01em;
+    }
+    .pricing-best-for {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      font-weight: 500;
+      margin-bottom: var(--space-6);
+    }
+    .pricing-amount {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      padding-bottom: var(--space-6);
+      border-bottom: 1px solid var(--color-divider);
+      margin-bottom: var(--space-6);
+    }
+    .pricing-setup {
+      font-family: var(--font-mono);
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--color-text);
+      letter-spacing: -0.02em;
+    }
+    .pricing-setup small {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--color-text-muted);
+      letter-spacing: 0;
+    }
+    .pricing-monthly {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+      flex-grow: 1;
+    }
+    .pricing-features li {
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      padding-left: var(--space-7, 1.75rem);
+      position: relative;
+      line-height: 1.5;
+    }
+    .pricing-features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      background: rgba(12, 78, 84, 0.1);
+      border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%230C4E54' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10px;
+    }
+    .pricing-card .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ============================================
+       HOW IT WORKS
+       ============================================ */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      margin-top: var(--space-12);
+    }
+    @media (min-width: 768px) {
+      .steps-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .step-item {
+      text-align: center;
+      position: relative;
+    }
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--color-teal);
+      color: #FDFBF7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: var(--text-sm);
+      margin: 0 auto var(--space-5);
+    }
+    .step-item h3 {
+      font-size: var(--text-base);
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+    .step-item p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-inline: auto;
+    }
+    /* Connector line between steps */
+    @media (min-width: 768px) {
+      .step-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 24px;
+        left: calc(50% + 32px);
+        width: calc(100% - 64px);
+        height: 2px;
+        background: repeating-linear-gradient(
+          to right,
+          var(--color-border) 0,
+          var(--color-border) 6px,
+          transparent 6px,
+          transparent 12px
+        );
+      }
+    }
+
+    /* ============================================
+       TRADES WE SERVE
+       ============================================ */
+    .trades-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-12);
+    }
+    @media (min-width: 640px) {
+      .trades-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .trades-grid { grid-template-columns: repeat(5, 1fr); }
+    }
+    .trade-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-6) var(--space-4);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm),
+                  inset 0 1px 0 rgba(255,255,255,0.8);
+      text-align: center;
+    }
+    .trade-icon {
+      width: 40px;
+      height: 40px;
+      color: var(--color-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .trade-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+    .trade-item span {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    /* ============================================
+       SOCIAL PROOF / CASE STUDY
+       ============================================ */
+    .proof-section {
+      background: var(--color-surface);
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+    @media (min-width: 768px) {
+      .proof-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .proof-card {
+      padding: var(--space-8);
+      text-align: center;
+    }
+    .proof-metric {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    .proof-before {
+      font-family: var(--font-mono);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+      text-decoration-color: rgba(212, 101, 46, 0.4);
+    }
+    .proof-arrow {
+      color: var(--color-teal);
+    }
+    .proof-arrow svg {
+      width: 20px;
+      height: 20px;
+    }
+    .proof-after {
+      font-family: var(--font-mono);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--color-teal);
+    }
+    .proof-label {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+    .proof-attribution {
+      margin-top: var(--space-8);
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* ============================================
+       FAQ
+       ============================================ */
+    .faq-list {
+      max-width: 720px;
+      margin-top: var(--space-12);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .faq-item {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--color-bg);
+    }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-5) var(--space-6);
+      font-weight: 700;
+      font-size: var(--text-base);
+      text-align: left;
+      color: var(--color-text);
+      cursor: pointer;
+      gap: var(--space-4);
+    }
+    .faq-question:hover {
+      color: var(--color-teal);
+    }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s var(--ease-out);
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s var(--ease-out), padding 0.4s var(--ease-out);
+    }
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+    }
+    .faq-answer-inner {
+      padding: 0 var(--space-6) var(--space-6);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       FINAL CTA
+       ============================================ */
+    .cta-section {
+      background: var(--color-teal);
+      color: #FDFBF7;
+      text-align: center;
+      position: relative;
+    }
+    .cta-section .section-title {
+      color: #FDFBF7;
+      max-width: 20ch;
+      margin-inline: auto;
+    }
+    .cta-section .section-desc {
+      color: rgba(253,251,247,0.75);
+      margin-inline: auto;
+      margin-bottom: var(--space-10);
+      max-width: 48ch;
+    }
+    .cta-section .btn-primary {
+      background: #FDFBF7;
+      color: var(--color-teal);
+    }
+    .cta-section .btn-primary:hover {
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .cta-section .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background: var(--color-text);
+      color: rgba(253,251,247,0.7);
+      padding-block: var(--space-12);
+    }
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+    }
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      text-decoration: none;
+      color: #FDFBF7;
+    }
+    .footer-logo .nav-logo-text {
+      color: #FDFBF7;
+    }
+    .footer-logo .nav-logo-text span {
+      color: rgba(253,251,247,0.5);
+    }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .footer-contact a {
+      color: rgba(253,251,247,0.7);
+      text-decoration: none;
+      font-size: var(--text-sm);
+    }
+    .footer-contact a:hover { color: #FDFBF7; }
+    .footer-contact span {
+      font-size: var(--text-sm);
+    }
+    .footer-copy {
+      font-size: var(--text-xs);
+      color: rgba(253,251,247,0.4);
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-6);
+      list-style: none;
+    }
+    .footer-links a {
+      color: rgba(253,251,247,0.6);
+      text-decoration: none;
+      font-size: var(--text-sm);
+      font-weight: 500;
+    }
+    .footer-links a:hover { color: #FDFBF7; }
+
+    /* Background decor */
+    .hero-glow {
+      position: absolute;
+      top: -20%;
+      right: -15%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(12, 78, 84, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============================================
+       SERVICE SECTION ALTERNATING BACKGROUNDS
+       ============================================ */
+    .bg-surface {
+      background: var(--color-surface);
+    }
+
+    /* ============================================
+       UTILITIES
+       ============================================ */
+    .text-center { text-align: center; }
+    .mx-auto { margin-inline: auto; }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================
+       NAVIGATION
+       ======================================== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo" aria-label="StackBuilt Web Home">
+        <svg width="32" height="28" viewBox="0 0 32 28" fill="none" aria-hidden="true">
+          <path d="M4 20L16 26L28 20" stroke="#0C4E54" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 14L16 20L28 14" stroke="#0C4E54" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+          <path d="M4 8L16 14L28 8L16 2L4 8Z" fill="#0C4E54"/>
+          <path d="M4 8L16 14L28 8" stroke="#0C4E54" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="16" cy="8" r="2" fill="#D4652E"/>
+        </svg>
+        <span class="nav-logo-text">Stack<strong style="font-weight:900">Built</strong> <span>Web</span></span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/operations.html" class="active">Automation</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+
+      <a href="/contact.html?service=efficiency-audit" class="btn btn-primary nav-cta">
+        Free Audit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+
+      <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="/operations.html">Automation</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/contact.html?service=efficiency-audit" class="btn btn-primary">Get Your Free Audit</a>
+  </div>
+
+  <main>
+    <!-- ========================================
+         SECTION 1: HERO
+         ======================================== -->
+    <section class="hero noise-overlay">
+      <div class="hero-glow"></div>
+      <div class="container">
+        <div class="hero-badge reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          AI-Powered Operations
+        </div>
+
+        <h1 class="reveal reveal-delay-1">Stop Running Your Business From Memory and Spreadsheets</h1>
+
+        <p class="hero-sub reveal reveal-delay-2">We build the dashboards, automations, and AI systems that let local service businesses focus on what they do best&nbsp;&mdash; the actual work.</p>
+
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="/contact.html?service=efficiency-audit" class="btn btn-primary">
+            Get Your Free Efficiency Audit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="stats-bar reveal reveal-delay-4">
+          <div class="stat-item">
+            <span class="stat-value">33 hrs/mo</span>
+            <span class="stat-label">Average time saved</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">742%</span>
+            <span class="stat-label">Average ROI</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">47 sec</span>
+            <span class="stat-label">Lead response time</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 2: PAIN POINTS
+         ======================================== -->
+    <section class="section-padding bg-surface noise-overlay" id="pain-points">
+      <div class="container">
+        <p class="section-label reveal">The Problem</p>
+        <h2 class="section-title reveal reveal-delay-1">Sound Familiar?</h2>
+
+        <div class="pain-grid">
+          <div class="card pain-card reveal">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Missed calls while you're on a job site</h3>
+          </div>
+
+          <div class="card pain-card reveal reveal-delay-1">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 15h0M12 15h0M17 15h0M7 10h0M12 10h0"/><line x1="7" y1="20" x2="7" y2="24" stroke="none"/></svg>
+            </div>
+            <h3>Chasing invoices instead of chasing jobs</h3>
+          </div>
+
+          <div class="card pain-card reveal reveal-delay-2">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <h3>No idea which marketing is actually working</h3>
+          </div>
+
+          <div class="card pain-card reveal reveal-delay-3">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M7 8h4M13 8h4M7 12h2"/></svg>
+            </div>
+            <h3>Five different apps that don't talk to each other</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 3: WHAT WE BUILD
+         ======================================== -->
+    <section class="section-padding" id="services">
+      <div class="container">
+        <p class="section-label reveal">The Solution</p>
+        <h2 class="section-title reveal reveal-delay-1">What We Build For You</h2>
+        <p class="section-desc reveal reveal-delay-2">Everything your business needs to run smarter, respond faster, and grow without adding admin hours.</p>
+
+        <div class="services-grid">
+          <div class="card service-card reveal">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h3v3H7z"/><path d="M14 7h3"/><path d="M14 11h3"/><path d="M7 14h10"/><path d="M7 18h7"/></svg>
+            </div>
+            <h3>Business Dashboard</h3>
+            <p>See your jobs, revenue, and leads in one place. No more toggling between five apps to figure out how your business is doing.</p>
+          </div>
+
+          <div class="card service-card reveal reveal-delay-1">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3>Lead Autopilot</h3>
+            <p>Never miss a lead again with instant automated follow-up. Texts go out in seconds, not hours.</p>
+          </div>
+
+          <div class="card service-card reveal reveal-delay-2">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Review Engine</h3>
+            <p>Automatically collect 5-star reviews after every job. Watch your Google rating climb without lifting a finger.</p>
+          </div>
+
+          <div class="card service-card reveal reveal-delay-3">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </div>
+            <h3>Operations Automation</h3>
+            <p>Invoicing, scheduling, and reminders on autopilot. Your business runs even when you're on the roof.</p>
+          </div>
+
+          <div class="card service-card reveal reveal-delay-4">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93"/><path d="M12 2a4 4 0 0 0-4 4c0 1.95 1.4 3.58 3.25 3.93"/><path d="M12 10v4"/><path d="M8 18a4 4 0 0 1 8 0"/><circle cx="12" cy="18" r="4"/><path d="M12 16v4M10 18h4"/></svg>
+            </div>
+            <h3>AI Integration</h3>
+            <p>Smart chatbots and AI that work while you sleep. Answer customer questions, qualify leads, and book jobs 24/7.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 4: ROI
+         ======================================== -->
+    <section class="section-padding roi-section noise-overlay" id="roi">
+      <div class="container">
+        <p class="section-label reveal">The Numbers</p>
+        <h2 class="section-title reveal reveal-delay-1">The Math Is Simple</h2>
+
+        <div class="roi-grid">
+          <div class="roi-card reveal">
+            <div class="roi-value" style="position:relative;z-index:2;">$38,400/yr</div>
+            <p class="roi-desc" style="position:relative;z-index:2;">A roofer billing $80/hour who saves 10 hours/week on admin recovers $38,400/year in billable time.</p>
+          </div>
+
+          <div class="roi-card reveal reveal-delay-1">
+            <div class="roi-value" style="position:relative;z-index:2;">$24,000/yr</div>
+            <p class="roi-desc" style="position:relative;z-index:2;">Recovering just 2 missed calls per month at $1,000/job = $24,000/year in revenue you were losing.</p>
+          </div>
+
+          <div class="roi-card reveal reveal-delay-2">
+            <div class="roi-value" style="position:relative;z-index:2;">3.8 → 4.7★</div>
+            <p class="roi-desc" style="position:relative;z-index:2;">Automated review requests improve Google ratings from 3.8 to 4.7 stars on average. More stars = more calls.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 5: PRICING
+         ======================================== -->
+    <section class="section-padding" id="pricing">
+      <div class="container">
+        <p class="section-label reveal">Investment</p>
+        <h2 class="section-title reveal reveal-delay-1">Service Packages</h2>
+        <p class="section-desc reveal reveal-delay-2">Pick the level that fits your business. Start small, scale up anytime.</p>
+
+        <div class="pricing-grid">
+          <!-- Tier 1: Operations Snapshot -->
+          <div class="card pricing-card reveal">
+            <div class="pricing-tier">Operations Snapshot</div>
+            <div class="pricing-best-for">Best for: Solo operators and small crews getting organized for the first time</div>
+            <div class="pricing-amount">
+              <span class="pricing-setup">$750 <small>one-time setup</small></span>
+              <span class="pricing-monthly">$99/mo ongoing management</span>
+            </div>
+            <ul class="pricing-features" role="list">
+              <li>1-hour business systems audit call</li>
+              <li>Custom Google Sheets command center tracking jobs, leads, and revenue</li>
+              <li>Looker Studio visual dashboard with 5 core KPIs</li>
+              <li>1 automation setup (missed call text-back or appointment reminder)</li>
+              <li>30-minute walkthrough training + recorded video</li>
+              <li>Monthly check-in, dashboard updates, and issue fixes</li>
+            </ul>
+            <a href="/contact.html?service=operations-snapshot" class="btn btn-secondary">
+              Get Started
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Tier 2: Business Dashboard (Featured) -->
+          <div class="card pricing-card featured reveal reveal-delay-1">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-tier">Business Dashboard</div>
+            <div class="pricing-best-for">Best for: Growing crews with 2-10 employees who need real visibility and automation</div>
+            <div class="pricing-amount">
+              <span class="pricing-setup">$1,500 <small>one-time setup</small></span>
+              <span class="pricing-monthly">$297/mo</span>
+            </div>
+            <ul class="pricing-features" role="list">
+              <li>90-minute comprehensive efficiency audit</li>
+              <li>Custom dashboard with revenue tracking, lead sources, job pipeline, and crew performance</li>
+              <li>Missed call text-back automation so you never lose a lead on the job site</li>
+              <li>Automated Google review requests after every completed job</li>
+              <li>Appointment confirmation and reminder sequences via SMS</li>
+              <li>Pre-written email and SMS templates for every stage of the customer journey</li>
+              <li>2 hours of hands-on training plus full written documentation</li>
+              <li>30-day post-launch check-in and optimization</li>
+            </ul>
+            <a href="/contact.html?service=business-dashboard" class="btn btn-primary">
+              Get Started
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Tier 3: Operations Autopilot -->
+          <div class="card pricing-card reveal reveal-delay-2">
+            <div class="pricing-tier">Operations Autopilot</div>
+            <div class="pricing-best-for">Best for: Established businesses with $500K+ revenue ready to scale without adding headcount</div>
+            <div class="pricing-amount">
+              <span class="pricing-setup">$3,000 <small>one-time setup</small></span>
+              <span class="pricing-monthly">$597/mo</span>
+            </div>
+            <ul class="pricing-features" role="list">
+              <li>Full operations audit with workflow mapping session</li>
+              <li>Complete CRM setup and data migration with lead pipeline and opportunity tracking</li>
+              <li>Online booking calendar and appointment system</li>
+              <li>6-10 custom workflow automations including missed call text-back, 5-touch lead follow-up sequence, review engine, appointment reminders, invoice triggers, and customer re-engagement campaigns</li>
+              <li>Live reporting dashboard with real-time job, revenue, and lead data</li>
+              <li>Staff training for up to 3 team members</li>
+              <li>60-day priority support with direct access</li>
+              <li>Monthly performance review and optimization</li>
+            </ul>
+            <a href="/contact.html?service=operations-autopilot" class="btn btn-secondary">
+              Get Started
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Add-Ons -->
+        <div class="addons-row reveal" style="margin-top:var(--space-16);">
+          <div class="card" style="padding:var(--space-8) var(--space-10);">
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-4);color:var(--color-teal);">Add-On Services</h3>
+            <p style="color:var(--color-muted);margin-bottom:var(--space-6);">Available with any package above.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-6);">
+              <div>
+                <strong>AI Integration</strong> <span style="color:var(--color-teal);font-family:'JetBrains Mono',monospace;font-size:var(--text-sm);">$2,000 + $297/mo</span>
+                <p style="color:var(--color-muted);font-size:var(--text-sm);margin-top:var(--space-2);">AI chatbot on your website that answers questions, qualifies leads, and books appointments 24/7. AI-drafted review responses. AI social media content generator for weekly posts.</p>
+              </div>
+              <div>
+                <strong>Efficiency Audit Only</strong> <span style="color:var(--color-teal);font-family:'JetBrains Mono',monospace;font-size:var(--text-sm);">$350 one-time</span>
+                <p style="color:var(--color-muted);font-size:var(--text-sm);margin-top:var(--space-2);">90-minute deep-dive call plus a written report covering your top 5 inefficiencies, estimated time and money lost per year, and a prioritized technology roadmap. Fee is credited toward any package if you proceed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 6: HOW IT WORKS
+         ======================================== -->
+    <section class="section-padding bg-surface" id="how-it-works">
+      <div class="container">
+        <div class="text-center">
+          <p class="section-label reveal">The Process</p>
+          <h2 class="section-title reveal reveal-delay-1" style="margin-inline:auto;">How It Works</h2>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-item reveal">
+            <div class="step-number">01</div>
+            <h3>Free Efficiency Audit</h3>
+            <p>We analyze your current setup and find every place you're leaking time and money.</p>
+          </div>
+
+          <div class="step-item reveal reveal-delay-1">
+            <div class="step-number">02</div>
+            <h3>Custom Blueprint</h3>
+            <p>We design your operations system &mdash; dashboards, automations, and integrations mapped to your workflow.</p>
+          </div>
+
+          <div class="step-item reveal reveal-delay-2">
+            <div class="step-number">03</div>
+            <h3>We Build It</h3>
+            <p>Everything set up, connected, and tested in 2&ndash;3 weeks. You don't touch a thing.</p>
+          </div>
+
+          <div class="step-item reveal reveal-delay-3">
+            <div class="step-number">04</div>
+            <h3>You Focus on Jobs</h3>
+            <p>We manage the tech, you manage the work. That's how it should be.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 7: TRADES WE SERVE
+         ======================================== -->
+    <section class="section-padding" id="trades">
+      <div class="container">
+        <div class="text-center">
+          <p class="section-label reveal">Who We Help</p>
+          <h2 class="section-title reveal reveal-delay-1" style="margin-inline:auto;">Trades We Serve</h2>
+        </div>
+
+        <div class="trades-grid">
+          <div class="trade-item reveal">
+            <div class="trade-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/></svg>
+            </div>
+            <span>Roofers</span>
+          </div>
+          <div class="trade-item reveal reveal-delay-1">
+            <div class="trade-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10h-4a6 6 0 0 1-12 0H2c0 5.523 4.477 10 10 10z"/><path d="M12 2v4"/><path d="M6 6l2 2"/><path d="M18 6l-2 2"/></svg>
+            </div>
+            <span>HVAC</span>
+          </div>
+          <div class="trade-item reveal reveal-delay-2">
+            <div class="trade-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12V4a2 2 0 0 1 4 0v8"/><path d="M4 14a4 4 0 0 0 8 0"/><path d="M8 18v4"/><path d="M14 12V4a2 2 0 0 1 4 0v8"/><path d="M12 14a4 4 0 0 0 8 0"/><path d="M16 18v4"/></svg>
+            </div>
+            <span>Plumbers</span>
+          </div>
+          <div class="trade-item reveal reveal-delay-3">
+            <div class="trade-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+            </div>
+            <span>Painters</span>
+          </div>
+          <div class="trade-item reveal reveal-delay-4">
+            <div class="trade-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <span>Electricians</span>
+          </div>
+          <div class="trade-item reveal">
+            <div class="trade-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><path d="M8 5.14A5 5 0 0 1 12 3a5 5 0 0 1 4 2.14"/><path d="M6 8h12"/></svg>
+            </div>
+            <span>Landscapers</span>
+          </div>
+          <div class="trade-item reveal reveal-delay-1">
+            <div class="trade-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M8 4l4 4 4-4"/><circle cx="12" cy="14" r="6"/><path d="M12 14v2"/></svg>
+            </div>
+            <span>Pressure Washers</span>
+          </div>
+          <div class="trade-item reveal reveal-delay-2">
+            <div class="trade-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 12h20"/><path d="M6 6v12"/><path d="M18 6v12"/></svg>
+            </div>
+            <span>Concrete</span>
+          </div>
+          <div class="trade-item reveal reveal-delay-3">
+            <div class="trade-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"/><path d="M4 20L10 4"/><path d="M10 4L16 20"/><path d="M16 20L22 4"/></svg>
+            </div>
+            <span>Fencing</span>
+          </div>
+          <div class="trade-item reveal reveal-delay-4">
+            <div class="trade-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <span>General Contractors</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 8: SOCIAL PROOF
+         ======================================== -->
+    <section class="section-padding proof-section noise-overlay" id="results">
+      <div class="container">
+        <div class="text-center">
+          <p class="section-label reveal">Proven Results</p>
+          <h2 class="section-title reveal reveal-delay-1" style="margin-inline:auto;">The Numbers Speak</h2>
+        </div>
+
+        <div class="proof-grid">
+          <div class="card proof-card reveal">
+            <div class="proof-metric">
+              <span class="proof-before">18%</span>
+              <span class="proof-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              <span class="proof-after">52%</span>
+            </div>
+            <p class="proof-label">Lead-to-appointment rate</p>
+          </div>
+
+          <div class="card proof-card reveal reveal-delay-1">
+            <div class="proof-metric">
+              <span class="proof-before">4.2 hrs</span>
+              <span class="proof-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              <span class="proof-after">47s</span>
+            </div>
+            <p class="proof-label">Lead response time</p>
+          </div>
+
+          <div class="card proof-card reveal reveal-delay-2">
+            <div class="proof-metric">
+              <span class="proof-before">3.8★</span>
+              <span class="proof-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              <span class="proof-after">4.7★</span>
+            </div>
+            <p class="proof-label">Average Google rating</p>
+          </div>
+        </div>
+
+        <p class="proof-attribution reveal">Based on GoHighLevel industry case study data for home services businesses</p>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 9: FAQ
+         ======================================== -->
+    <section class="section-padding" id="faq">
+      <div class="container">
+        <p class="section-label reveal">Questions</p>
+        <h2 class="section-title reveal reveal-delay-1">Frequently Asked</h2>
+
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              How long does setup take?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">2&ndash;3 weeks for most packages. We handle everything &mdash; you just answer a few questions about your workflow and we take it from there.</div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              Do I need to be tech-savvy?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Not at all. We handle the setup, training, and ongoing maintenance. If you can use a smartphone, you can use your new dashboard.</div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              What if I already have a CRM?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We work with what you have &mdash; whether that's ServiceTitan, Jobber, Housecall Pro, or something else. If there's a better option for your needs, we'll recommend it and handle the migration.</div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-3">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              Can I start small and upgrade later?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Absolutely. Most clients start with the Operations Snapshot or Business Dashboard and upgrade as they grow. Every package builds on the previous one.</div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-4">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              What's the ROI timeline?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Most clients see measurable results within the first month. The automated lead follow-up alone typically pays for the entire system within weeks.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 10: FINAL CTA
+         ======================================== -->
+    <section class="section-padding cta-section noise-overlay" id="cta">
+      <div class="container text-center">
+        <h2 class="section-title reveal">Ready to stop losing time and money on admin&nbsp;work?</h2>
+        <p class="section-desc reveal reveal-delay-1">Book your free efficiency audit &mdash; we'll show you exactly where you're leaking revenue.</p>
+        <a href="/contact.html?service=efficiency-audit" class="btn btn-primary reveal reveal-delay-2">
+          Schedule My Free Audit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label="StackBuilt Web Home">
+          <svg width="28" height="24" viewBox="0 0 32 28" fill="none" aria-hidden="true">
+            <path d="M4 20L16 26L28 20" stroke="#FDFBF7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 14L16 20L28 14" stroke="#FDFBF7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+            <path d="M4 8L16 14L28 8L16 2L4 8Z" fill="#FDFBF7"/>
+          </svg>
+          <span class="nav-logo-text">Stack<strong style="font-weight:900">Built</strong> <span>Web</span></span>
+        </a>
+        <div class="footer-contact">
+          <a href="mailto:geoff@stackbuiltweb.com">geoff@stackbuiltweb.com</a>
+          <span>Melbourne, FL 32935</span>
+        </div>
+        <p class="footer-copy">&copy; 2026 StackBuilt Web. All rights reserved.</p>
+      </div>
+
+      <ul class="footer-links" role="list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/operations.html">Automation</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       JAVASCRIPT
+       ======================================== -->
+  <script>
+    // Scroll Reveal with IntersectionObserver
+    (function() {
+      const reveals = document.querySelectorAll('.reveal');
+      if (!reveals.length) return;
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      reveals.forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+
+    // FAQ Toggle
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle current
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // Mobile Menu
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.querySelector('.mobile-menu-btn');
+      const isOpen = menu.classList.contains('open');
+
+      menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', !isOpen);
+
+      if (!isOpen) {
+        btn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>';
+      } else {
+        btn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
+      }
+    }
+
+    // Navbar scroll effect
+    (function() {
+      const nav = document.querySelector('.nav');
+      let lastScroll = 0;
+
+      window.addEventListener('scroll', function() {
+        const scrollY = window.scrollY;
+        if (scrollY > 80) {
+          nav.style.boxShadow = '0 1px 8px rgba(28, 25, 23, 0.06)';
+        } else {
+          nav.style.boxShadow = 'none';
+        }
+        lastScroll = scrollY;
+      }, { passive: true });
+    })();
+
+    // Smooth anchor scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

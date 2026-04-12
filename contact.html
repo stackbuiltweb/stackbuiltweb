@@ -1432,6 +1432,7 @@ body::before {
     <ul class="nav-links">
       <li><a href="/index.html">Home</a></li>
       <li><a href="/services.html">Services</a></li>
+      <li><a href="/operations.html">Automation</a></li>
       <li><a href="/pricing.html">Pricing</a></li>
       <li><a href="/calculator.html">Free Audit</a></li>
       <li><a href="/contact.html" class="active">Contact</a></li>
@@ -1453,6 +1454,7 @@ body::before {
   </button>
   <a href="/index.html">Home</a>
   <a href="/services.html">Services</a>
+  <a href="/operations.html">Automation</a>
   <a href="/pricing.html">Pricing</a>
   <a href="/calculator.html">Free Audit</a>
   <a href="/contact.html" style="color:var(--accent);">Contact</a>
@@ -1519,10 +1521,19 @@ body::before {
               <label class="form-label" for="service">Service Interest</label>
               <select id="service" name="service" class="form-select">
                 <option value="" disabled selected>Select a package&hellip;</option>
-                <option value="side-hustle">Side Hustle Package</option>
-                <option value="starter">Starter Package</option>
-                <option value="professional">Professional Package</option>
-                <option value="premium">Premium Package</option>
+                <optgroup label="Web Design">
+                  <option value="side-hustle">Side Hustle Package</option>
+                  <option value="starter">Starter Package</option>
+                  <option value="professional">Professional Package</option>
+                  <option value="premium">Premium Package</option>
+                </optgroup>
+                <optgroup label="Operations &amp; Automation">
+                  <option value="efficiency-audit">Efficiency Audit</option>
+                  <option value="operations-snapshot">Operations Snapshot</option>
+                  <option value="business-dashboard">Business Dashboard</option>
+                  <option value="operations-autopilot">Operations Autopilot</option>
+                  <option value="ai-integration">AI Integration Add-On</option>
+                </optgroup>
                 <option value="not-sure">Not Sure Yet</option>
               </select>
             </div>
@@ -2007,6 +2018,7 @@ body::before {
         <div class="footer-links-title">Quick Links</div>
         <a href="/index.html">Home</a>
         <a href="/services.html">Services</a>
+  <a href="/operations.html">Automation</a>
         <a href="/pricing.html">Pricing</a>
         <a href="/calculator.html">Free Audit</a>
         <a href="/contact.html">Contact</a>
@@ -2215,7 +2227,7 @@ body::before {
 // Auto-populate tier from URL parameter
 (function() {
   var urlParams = new URLSearchParams(window.location.search);
-  var tier = urlParams.get('tier');
+  var tier = urlParams.get('tier') || urlParams.get('service');
   if (tier) {
     var selects = document.querySelectorAll('select');
     selects.forEach(function(sel) {
