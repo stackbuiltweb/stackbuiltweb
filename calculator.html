@@ -2087,10 +2087,14 @@ h2.section-heading {
 
     setLoadingStep(0);
 
-    var apiUrl = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=' +
+    // Prefer same-origin serverless proxy — keeps the API key off the client.
+    // Falls back to direct Google call if the proxy isn't configured yet.
+    var proxyUrl = '/api/pagespeed?url=' + encodeURIComponent(url) + '&strategy=mobile';
+    var directUrl = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=' +
       encodeURIComponent(url) +
       '&strategy=mobile&category=performance&category=accessibility&category=seo&category=best-practices';
-    if (API_KEY) apiUrl += '&key=' + API_KEY;
+    if (API_KEY) directUrl += '&key=' + API_KEY;
+    var apiUrl = proxyUrl;
 
     // Step 1: Advance loading steps on a timer during PageSpeed call
     var stepTimer = setInterval(function() {
@@ -2099,8 +2103,11 @@ h2.section-heading {
     setTimeout(function() { setLoadingStep(1); }, 2500);
     setTimeout(function() { setLoadingStep(2); }, 5000);
 
-    // Run PageSpeed API + client-side checks in parallel
-    var pageSpeedPromise = fetchWithRetry(apiUrl, 3);
+    // Run PageSpeed API + client-side checks in parallel.
+    // Try proxy first; if it 5xxs (e.g. env var not set on server yet), fall back to direct call.
+    var pageSpeedPromise = fetchWithRetry(apiUrl, 3).catch(function() {
+      return fetchWithRetry(directUrl, 3);
+    });
 
     // Extract base URL for sitemap/robots
     var parsedUrl;
