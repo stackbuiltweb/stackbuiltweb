@@ -2026,7 +2026,7 @@ h2.section-heading {
     startAnalysis(url);
   });
 
-  var API_KEY = 'AIzaSyALgiTMGVFqBTT7UpCGm9vJQgCiY2QkAow';
+  // API key removed 2026-04-24 — PageSpeed calls now go through the /api/pagespeed proxy which reads PAGESPEED_API_KEY from the server env. See api/pagespeed.js.
   var CORS_PROXY = 'https://api.allorigins.win/raw?url=';
 
   // ── Fetch with Retry ──
@@ -2087,13 +2087,9 @@ h2.section-heading {
 
     setLoadingStep(0);
 
-    // Prefer same-origin serverless proxy — keeps the API key off the client.
-    // Falls back to direct Google call if the proxy isn't configured yet.
+    // Same-origin serverless proxy — keeps the API key off the client.
+    // The key lives only in Vercel env var PAGESPEED_API_KEY (server-side).
     var proxyUrl = '/api/pagespeed?url=' + encodeURIComponent(url) + '&strategy=mobile';
-    var directUrl = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=' +
-      encodeURIComponent(url) +
-      '&strategy=mobile&category=performance&category=accessibility&category=seo&category=best-practices';
-    if (API_KEY) directUrl += '&key=' + API_KEY;
     var apiUrl = proxyUrl;
 
     // Step 1: Advance loading steps on a timer during PageSpeed call
@@ -2104,10 +2100,7 @@ h2.section-heading {
     setTimeout(function() { setLoadingStep(2); }, 5000);
 
     // Run PageSpeed API + client-side checks in parallel.
-    // Try proxy first; if it 5xxs (e.g. env var not set on server yet), fall back to direct call.
-    var pageSpeedPromise = fetchWithRetry(apiUrl, 3).catch(function() {
-      return fetchWithRetry(directUrl, 3);
-    });
+    var pageSpeedPromise = fetchWithRetry(apiUrl, 3);
 
     // Extract base URL for sitemap/robots
     var parsedUrl;
